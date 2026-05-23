@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Allemagne",
+    "slug": "allemagne",
+    "type": "country",
+    "sortOrder": 1
+  },
+  {
+    "name": "Après-guerre",
+    "slug": "apres-guerre",
+    "type": "period",
+    "sortOrder": 2
+  },
+  {
+    "name": "Avant-guerre",
+    "slug": "avant-guerre",
+    "type": "period",
+    "sortOrder": 3
+  },
+  {
+    "name": "France",
+    "slug": "france",
+    "type": "country",
+    "sortOrder": 4
+  },
+  {
+    "name": "Italie",
+    "slug": "italie",
+    "type": "country",
+    "sortOrder": 5
+  },
+  {
+    "name": "Pionnier",
+    "slug": "pionnier",
+    "type": "period",
+    "sortOrder": 6
+  },
+  {
+    "name": "Populaire",
+    "slug": "populaire",
+    "type": "family",
+    "sortOrder": 7
+  },
+  {
+    "name": "Prestige",
+    "slug": "prestige",
+    "type": "family",
+    "sortOrder": 8
+  },
+  {
+    "name": "Royaume-Uni",
+    "slug": "royaume-uni",
+    "type": "country",
+    "sortOrder": 9
+  },
+  {
+    "name": "Sport & GT",
+    "slug": "sport",
+    "type": "family",
+    "sortOrder": 10
+  },
+  {
+    "name": "Suède",
+    "slug": "suede",
+    "type": "country",
+    "sortOrder": 11
+  },
+  {
+    "name": "USA",
+    "slug": "usa",
+    "type": "country",
+    "sortOrder": 12
+  },
+  {
+    "name": "Utilitaire",
+    "slug": "utilitaire",
+    "type": "family",
+    "sortOrder": 13
+  }
+]

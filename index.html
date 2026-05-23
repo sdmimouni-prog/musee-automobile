@@ -1,0 +1,2355 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Musée de l’Automobile du Maroc: musée automobile, visites éducatives, collection patrimoniale, Automotive Academy, Le Garage et événements à Casablanca.">
+  <title>Musée de l’Automobile du Maroc | Plus qu’un musée, une expérience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --carbon: #0b0b0b;
+      --carbon-soft: #111111;
+      --concrete: #1a1a1a;
+      --bronze: #b37a3a;
+      --bronze-deep: #8c6735;
+      --bronze-light: #c79a57;
+      --aluminium: #5f6368;
+      --quartz: #f5f5f3;
+      --fire: #b11226;
+      --line: rgba(179, 122, 58, 0.28);
+      --glass: rgba(5, 5, 5, 0.78);
+      --shadow: 0 26px 90px rgba(0, 0, 0, 0.58);
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Montserrat", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--carbon);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--quartz);
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at 18% 10%, rgba(179, 122, 58, 0.2), transparent 30rem),
+        radial-gradient(circle at 84% 6%, rgba(199, 154, 87, 0.11), transparent 28rem),
+        repeating-linear-gradient(135deg, rgba(245, 245, 243, 0.018) 0 1px, transparent 1px 9px),
+        linear-gradient(180deg, #030303 0%, var(--carbon) 46%, #070707 100%);
+      letter-spacing: 0;
+    }
+
+    body.nav-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .page-shell {
+      overflow: hidden;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(179, 122, 58, 0.28);
+      background: rgba(3, 3, 3, 0.82);
+      backdrop-filter: blur(20px) saturate(120%);
+      transition: background 220ms ease, border-color 220ms ease;
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(3, 3, 3, 0.94);
+      border-bottom-color: rgba(199, 154, 87, 0.42);
+    }
+
+    .nav-wrap {
+      height: 82px;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 154px;
+      height: 100%;
+    }
+
+    .brand-mark {
+      width: 150px;
+      height: 150px;
+      border-radius: 0;
+      object-fit: contain;
+      transform: translateY(34px);
+      box-shadow: none;
+      filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.62));
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      flex: 1;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-home {
+      display: inline-flex;
+      align-items: center;
+      min-height: 82px;
+      padding: 0 12px;
+      color: rgba(245, 245, 243, 0.76);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 180ms ease;
+    }
+
+    .nav-home:hover,
+    .nav-home:focus-visible {
+      color: var(--bronze-light);
+      outline: none;
+    }
+
+    .nav-link {
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: rgba(245, 245, 243, 0.76);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 82px;
+      padding: 0 12px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 180ms ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      opacity: 0.7;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible,
+    .nav-item.is-active .nav-link {
+      color: var(--bronze-light);
+      outline: none;
+    }
+
+    .nav-link.ticket {
+      color: var(--bronze-light);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 76px;
+      left: 50%;
+      width: min(760px, calc(100vw - 48px));
+      padding: 22px;
+      transform: translate(-50%, 12px);
+      border: 1px solid rgba(215, 178, 109, 0.22);
+      background: rgba(8, 8, 8, 0.96);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .nav-item:hover .dropdown,
+    .nav-item:focus-within .dropdown,
+    .nav-item.is-active .dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
+    }
+
+    .dropdown-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .dropdown h3 {
+      margin: 0 0 12px;
+      color: var(--bronze-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      color: rgba(245, 245, 243, 0.82);
+      font-size: 13px;
+      line-height: 1.35;
+      transition: color 160ms ease, transform 160ms ease;
+    }
+
+    .dropdown a span {
+      display: block;
+      margin-top: 3px;
+      color: rgba(183, 188, 195, 0.58);
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    .dropdown a:hover,
+    .dropdown a:focus-visible {
+      color: var(--bronze-light);
+      outline: none;
+      transform: translateX(3px);
+    }
+
+    .nav-ctas {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+      min-width: 300px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--bronze-light), var(--bronze) 52%, var(--bronze-deep));
+      color: #050505;
+      border-color: rgba(199, 154, 87, 0.74);
+      box-shadow: 0 12px 30px rgba(179, 122, 58, 0.18);
+    }
+
+    .btn-secondary {
+      color: var(--quartz);
+      border-color: rgba(215, 178, 109, 0.5);
+      background: rgba(156, 123, 82, 0.08);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(156, 123, 82, 0.2);
+    }
+
+    .btn-ghost {
+      color: var(--quartz);
+      border-color: rgba(245, 245, 243, 0.34);
+      background: rgba(245, 245, 243, 0.04);
+    }
+
+    .btn-dark {
+      color: var(--quartz);
+      background: rgba(11, 11, 11, 0.72);
+      border-color: rgba(215, 178, 109, 0.36);
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(215, 178, 109, 0.34);
+      background: rgba(8, 8, 8, 0.5);
+      color: var(--quartz);
+      cursor: pointer;
+    }
+
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      content: "";
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .menu-toggle span::before {
+      transform: translateY(-7px);
+    }
+
+    .menu-toggle span::after {
+      transform: translateY(5px);
+    }
+
+    .menu-toggle[aria-expanded="true"] span {
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span::before {
+      transform: translateY(0) rotate(90deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span::after {
+      opacity: 0;
+    }
+
+    .mobile-panel {
+      display: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      align-items: end;
+      padding: 158px 34px 72px;
+      background: #050505;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+      background-size: 92px 92px;
+      mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.75), transparent 72%);
+      pointer-events: none;
+    }
+
+    .hero-slider {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: #050505;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(1.03);
+      background-image:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.57) 42%, rgba(0, 0, 0, 0.18) 100%),
+        linear-gradient(0deg, #0b0b0b 0%, rgba(11, 11, 11, 0.08) 38%),
+        var(--hero-image);
+      background-size: cover, cover, cover;
+      background-position: center, center, var(--hero-position, center);
+      transition: opacity 900ms ease, transform 6200ms ease;
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: var(--bronze-light);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .hero h1 {
+      max-width: 860px;
+      margin-bottom: 18px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3.25rem, 6.4vw, 5.65rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      color: rgba(245, 245, 243, 0.82);
+      font-size: clamp(1.06rem, 1.6vw, 1.32rem);
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .hero-slider-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .hero-dot {
+      width: 44px;
+      height: 4px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(245, 245, 243, 0.34);
+      cursor: pointer;
+      transition: width 180ms ease, background 180ms ease;
+    }
+
+    .hero-dot.is-active,
+    .hero-dot:hover,
+    .hero-dot:focus-visible {
+      width: 58px;
+      background: var(--bronze-light);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 780px;
+      margin-top: 34px;
+      border: 1px solid rgba(215, 178, 109, 0.2);
+      background: rgba(8, 8, 8, 0.56);
+      backdrop-filter: blur(16px);
+    }
+
+    .meta-item {
+      padding: 18px 20px;
+      border-right: 1px solid rgba(215, 178, 109, 0.16);
+    }
+
+    .meta-item:last-child {
+      border-right: 0;
+    }
+
+    .meta-kicker {
+      color: var(--bronze-light);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .meta-text {
+      margin-top: 7px;
+      color: rgba(245, 245, 243, 0.82);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .section {
+      position: relative;
+      padding: 110px 34px;
+    }
+
+    .section-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.55fr);
+      gap: 52px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .section-title {
+      margin-bottom: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.7rem, 4.2vw, 4.15rem);
+      font-weight: 700;
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .title-two-lines {
+      max-width: 760px;
+      font-size: clamp(2.55rem, 4vw, 3.85rem);
+    }
+
+    .title-single-line {
+      font-size: clamp(2.05rem, 2.6vw, 3rem);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .section-head-single {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .section-head-single .section-copy {
+      max-width: 680px;
+    }
+
+    .section-copy {
+      color: rgba(183, 188, 195, 0.82);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .univers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .universe-card,
+    .event-card,
+    .news-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 430px;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: var(--concrete);
+      box-shadow: 0 18px 54px rgba(0, 0, 0, 0.22);
+    }
+
+    .universe-card::before,
+    .event-card::before,
+    .news-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--card-image) center / cover;
+      transform: scale(1.01);
+      transition: transform 420ms ease;
+    }
+
+    .universe-card::after,
+    .event-card::after,
+    .news-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.86) 76%);
+    }
+
+    .universe-card:hover::before,
+    .event-card:hover::before,
+    .news-card:hover::before {
+      transform: scale(1.055);
+    }
+
+    .card-content {
+      position: absolute;
+      inset: auto 0 0;
+      z-index: 1;
+      padding: 26px;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 72px;
+      color: var(--bronze-light);
+      border: 1px solid rgba(215, 178, 109, 0.44);
+      background: rgba(8, 8, 8, 0.58);
+    }
+
+    .card-content h3 {
+      margin-bottom: 10px;
+      font-family: var(--serif);
+      font-size: 31px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .card-content p {
+      min-height: 68px;
+      margin-bottom: 20px;
+      color: rgba(245, 245, 243, 0.72);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--bronze-light);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .text-link::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+      transition: width 180ms ease;
+    }
+
+    .text-link:hover::after,
+    .text-link:focus-visible::after {
+      width: 42px;
+    }
+
+    .feature {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+        var(--carbon-soft);
+      border-top: 1px solid rgba(215, 178, 109, 0.16);
+      border-bottom: 1px solid rgba(215, 178, 109, 0.16);
+    }
+
+    .feature-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.7fr);
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .feature-media {
+      min-height: 560px;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.42)),
+        var(--feature-image, url("assets/cars-real/cam-roadster-1962-front.jpg")) center / cover,
+        var(--concrete);
+    }
+
+    .collection-slider {
+      position: relative;
+      min-height: clamp(560px, 66vh, 720px);
+      overflow: hidden;
+      border: 1px solid rgba(215, 178, 109, 0.22);
+      background:
+        linear-gradient(135deg, rgba(215, 178, 109, 0.08), transparent 34%),
+        rgba(8, 8, 8, 0.74);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.35);
+      isolation: isolate;
+    }
+
+    .collection-slide {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      align-items: stretch;
+      opacity: 0;
+      transform: translateX(4%) scale(0.985);
+      pointer-events: none;
+      transition: opacity 520ms ease, transform 720ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .collection-slide.is-active {
+      display: grid;
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .collection-slide .feature-media {
+      grid-area: 1 / 1;
+      position: relative;
+      min-height: 100%;
+      border: 0;
+      transform: scale(1.04);
+      transition: transform 5200ms ease;
+    }
+
+    .collection-slide.is-active .feature-media {
+      transform: scale(1);
+    }
+
+    .collection-slide .feature-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(5, 5, 5, 0.78), rgba(5, 5, 5, 0.2) 45%, rgba(5, 5, 5, 0.7)),
+        linear-gradient(0deg, rgba(5, 5, 5, 0.86), transparent 54%);
+      pointer-events: none;
+    }
+
+    .collection-slide .feature-panel {
+      grid-area: 1 / 1;
+      align-self: end;
+      justify-self: end;
+      width: min(520px, calc(100% - 48px));
+      margin: 0 32px 32px 0;
+      padding: 32px;
+      border-color: rgba(215, 178, 109, 0.28);
+      background: rgba(6, 6, 6, 0.58);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 24px 72px rgba(0, 0, 0, 0.38);
+    }
+
+    .collection-slider-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 14px;
+      padding: 14px;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(8, 8, 8, 0.62);
+      backdrop-filter: blur(16px);
+    }
+
+    .collection-arrow,
+    .collection-dot {
+      border: 1px solid rgba(215, 178, 109, 0.36);
+      background: rgba(8, 8, 8, 0.72);
+      color: var(--quartz);
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .collection-arrow {
+      width: 46px;
+      height: 46px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .collection-dot {
+      width: min(12vw, 86px);
+      height: 3px;
+      padding: 0;
+      border-radius: 999px;
+      background: rgba(245, 245, 243, 0.32);
+    }
+
+    .collection-arrow:hover,
+    .collection-arrow:focus-visible,
+    .collection-dot:hover,
+    .collection-dot:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(215, 178, 109, 0.72);
+    }
+
+    .collection-dot.is-active {
+      background: var(--bronze);
+      border-color: var(--bronze-light);
+    }
+
+    .feature-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 46px;
+      border: 1px solid rgba(215, 178, 109, 0.22);
+      background: rgba(8, 8, 8, 0.68);
+    }
+
+    .counter {
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .feature-panel h2 {
+      margin: 20px 0 18px;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.4vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .feature-panel p {
+      color: rgba(245, 245, 243, 0.76);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .president-quote {
+      font-size: 15px;
+      line-height: 1.82;
+    }
+
+    #mot-president-home .feature-panel > h2 {
+      font-size: clamp(1.5rem, 2.7vw, 2.5rem);
+      line-height: 1.05;
+      text-wrap: balance;
+    }
+
+    .president-photo-panel {
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 30px;
+      min-height: 420px;
+    }
+
+    .president-photo {
+      width: min(100%, 430px);
+      height: clamp(280px, 30vw, 360px);
+      object-fit: cover;
+      object-position: 30% center;
+      border: 1px solid rgba(215, 178, 109, 0.32);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+    }
+
+    .president-photo-caption {
+      width: min(100%, 430px);
+    }
+
+    .president-photo-caption h3 {
+      margin: 8px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .vehicle-specs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: 28px 0 32px;
+      border: 1px solid rgba(215, 178, 109, 0.16);
+    }
+
+    .spec {
+      padding: 16px 14px;
+      border-right: 1px solid rgba(215, 178, 109, 0.14);
+    }
+
+    .spec:last-child {
+      border-right: 0;
+    }
+
+    .spec strong {
+      display: block;
+      color: var(--quartz);
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .spec span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(183, 188, 195, 0.72);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .events-grid,
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .event-card {
+      min-height: 390px;
+    }
+
+    .event-date {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 2;
+      min-width: 76px;
+      padding: 11px 12px;
+      color: var(--quartz);
+      border: 1px solid rgba(215, 178, 109, 0.34);
+      background: rgba(8, 8, 8, 0.72);
+      text-align: center;
+    }
+
+    .event-date strong {
+      display: block;
+      color: var(--bronze-light);
+      font-family: var(--serif);
+      font-size: 28px;
+      line-height: 0.9;
+    }
+
+    .event-date span {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .event-card .card-content h3,
+    .news-card .card-content h3 {
+      font-size: 29px;
+    }
+
+    .garage {
+      min-height: 360px;
+      padding-top: 58px;
+      padding-bottom: 58px;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(8, 8, 8, 0.86), rgba(8, 8, 8, 0.56) 46%, rgba(8, 8, 8, 0.2)),
+        linear-gradient(0deg, rgba(8, 8, 8, 0.62), rgba(8, 8, 8, 0.08) 58%),
+        url("assets/garage/cuisine-ouverte.jpg") center 50% / cover,
+        #181818;
+    }
+
+    .garage-content {
+      max-width: 560px;
+    }
+
+    .garage h2 {
+      margin-bottom: 14px;
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 3.6vw, 3.8rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .garage p {
+      color: rgba(245, 245, 243, 0.8);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .garage-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .news {
+      background:
+        linear-gradient(180deg, rgba(177, 18, 38, 0.06), transparent 28rem),
+        var(--carbon);
+    }
+
+    .news-card {
+      min-height: 360px;
+    }
+
+    .footer {
+      padding: 84px 34px 30px;
+      border-top: 1px solid rgba(215, 178, 109, 0.2);
+      background:
+        linear-gradient(90deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.82)),
+        radial-gradient(circle at 16% 12%, rgba(215, 178, 109, 0.16), transparent 30rem),
+        #050505;
+    }
+
+    .footer-grid {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(320px, 1.25fr) minmax(180px, 0.55fr) minmax(220px, 0.7fr) minmax(220px, 0.72fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .footer-panel {
+      min-height: 100%;
+      padding: 24px;
+      border: 1px solid rgba(215, 178, 109, 0.16);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .footer-logo {
+      width: 132px;
+      height: 132px;
+      border-radius: 0;
+      object-fit: contain;
+      box-shadow: none;
+      filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.58));
+    }
+
+    .footer h2 {
+      margin: 0;
+      color: var(--quartz);
+      font-family: var(--serif);
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .footer p {
+      max-width: 430px;
+      color: rgba(183, 188, 195, 0.78);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .footer-tagline {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(215, 178, 109, 0.14);
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer h3 {
+      margin-bottom: 16px;
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .footer a,
+    .footer li {
+      color: rgba(245, 245, 243, 0.72);
+      font-size: 14px;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-social {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .footer-social a::after {
+      content: "↗";
+      color: var(--bronze-light);
+      font-size: 12px;
+    }
+
+    .footer a:hover,
+    .footer a:focus-visible {
+      color: var(--bronze-light);
+      outline: none;
+    }
+
+    .footer ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-bottom {
+      width: min(1180px, 100%);
+      margin: 42px auto 0;
+      padding-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid rgba(215, 178, 109, 0.16);
+      color: rgba(183, 188, 195, 0.64);
+      font-size: 12px;
+    }
+
+    #tickets {
+      overflow: hidden;
+      border-top: 1px solid rgba(215, 178, 109, 0.2);
+      border-bottom: 1px solid rgba(215, 178, 109, 0.2);
+      background:
+        linear-gradient(90deg, rgba(8, 8, 8, 0.9), rgba(8, 8, 8, 0.68) 48%, rgba(8, 8, 8, 0.44)),
+        linear-gradient(0deg, rgba(8, 8, 8, 0.74), rgba(8, 8, 8, 0.08)),
+        url("assets/cars-real/cam-museum-exterior.jpg") center / cover;
+    }
+
+    #tickets .section-inner {
+      padding: 34px;
+      border: 1px solid rgba(215, 178, 109, 0.2);
+      background: rgba(5, 5, 5, 0.42);
+      backdrop-filter: blur(4px);
+    }
+
+    .languages {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .languages a {
+      width: 38px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(215, 178, 109, 0.3);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 20px;
+      line-height: 1;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .languages a:hover,
+    .languages a:focus-visible {
+      background: rgba(215, 178, 109, 0.08);
+      border-color: var(--bronze-light);
+      transform: translateY(-2px);
+    }
+
+    .language-flag {
+      display: block;
+      transform: translateY(1px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 620ms ease, transform 620ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--bronze-light);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 1180px) {
+      .nav-wrap {
+        padding: 0 22px;
+      }
+
+      .brand {
+        min-width: auto;
+      }
+
+      .desktop-nav,
+      .nav-ctas {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-panel {
+        position: fixed;
+        inset: 82px 0 0;
+        z-index: 49;
+        display: block;
+        overflow-y: auto;
+        padding: 18px 22px 34px;
+        background: rgba(5, 5, 5, 0.98);
+        transform: translateX(100%);
+        transition: transform 220ms ease;
+      }
+
+      .mobile-home {
+        display: block;
+        padding: 0 0 18px;
+        margin-bottom: 2px;
+        border-bottom: 1px solid rgba(215, 178, 109, 0.16);
+        color: var(--bronze-light);
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      body.nav-open .mobile-panel {
+        transform: translateX(0);
+      }
+
+      .mobile-group {
+        border-bottom: 1px solid rgba(215, 178, 109, 0.16);
+      }
+
+      .mobile-trigger {
+        width: 100%;
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 0;
+        background: transparent;
+        color: var(--quartz);
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: left;
+      }
+
+      .mobile-trigger::after {
+        content: "+";
+        color: var(--bronze-light);
+        font-size: 24px;
+        font-weight: 400;
+      }
+
+      .mobile-trigger[aria-expanded="true"]::after {
+        content: "-";
+      }
+
+      .mobile-links {
+        display: none;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 18px;
+        padding: 0 0 18px;
+      }
+
+      .mobile-links.is-open {
+        display: grid;
+      }
+
+      .mobile-links a {
+        color: rgba(245, 245, 243, 0.74);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .mobile-ctas {
+        display: grid;
+        gap: 10px;
+        margin-top: 22px;
+      }
+    }
+
+    @media (max-width: 940px) {
+      .hero {
+        min-height: 860px;
+        padding: 132px 22px 46px;
+        background-position: 58% center;
+      }
+
+      .hero-meta,
+      .section-head,
+      .feature-layout,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta {
+        max-width: 100%;
+      }
+
+      .meta-item {
+        border-right: 0;
+        border-bottom: 1px solid rgba(215, 178, 109, 0.16);
+      }
+
+      .meta-item:last-child {
+        border-bottom: 0;
+      }
+
+      .section {
+        padding: 78px 22px;
+      }
+
+      .univers-grid,
+      .events-grid,
+      .news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-media {
+        min-height: 420px;
+      }
+
+      .collection-slider {
+        min-height: 680px;
+      }
+
+      .collection-slide .feature-panel {
+        width: calc(100% - 36px);
+        margin: 0 18px 18px;
+        justify-self: center;
+      }
+
+      .garage {
+        min-height: 680px;
+        padding-top: 96px;
+        padding-bottom: 96px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-wrap {
+        height: 72px;
+      }
+
+      .brand-mark {
+        width: 116px;
+        height: 116px;
+        transform: translateY(28px);
+      }
+
+      .mobile-panel {
+        inset: 72px 0 0;
+      }
+
+      .hero {
+        min-height: 820px;
+        padding: 110px 18px 34px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.65rem, 11vw, 4rem);
+      }
+
+      .hero-actions,
+      .garage-actions {
+        display: grid;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .mobile-links,
+      .univers-grid,
+      .events-grid,
+      .news-grid,
+      .vehicle-specs {
+        grid-template-columns: 1fr;
+      }
+
+      .universe-card,
+      .event-card,
+      .news-card {
+        min-height: 350px;
+      }
+
+      .card-icon {
+        margin-bottom: 54px;
+      }
+
+      .feature-panel {
+        padding: 28px;
+      }
+
+      .feature-media {
+        min-height: 330px;
+      }
+
+      .collection-slider-controls {
+        gap: 8px;
+        padding: 11px;
+      }
+
+      .collection-arrow {
+        width: 40px;
+        height: 40px;
+      }
+
+      .collection-dot {
+        width: 26px;
+      }
+
+      .collection-slide .feature-panel {
+        padding: 22px;
+      }
+
+      .collection-slide .feature-panel h2 {
+        margin: 20px 0 18px;
+        font-family: var(--serif);
+        font-size: clamp(3rem, 5.4vw, 5rem);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .title-single-line,
+      .title-two-lines {
+        white-space: normal;
+      }
+
+      #tickets .section-inner {
+        padding: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+  <div class="page-shell">
+    <header class="site-header" id="siteHeader">
+      <div class="nav-wrap">
+        <a class="brand" href="#top" aria-label="Musée de l’Automobile du Maroc - accueil">
+          <img class="brand-mark" src="assets/musee-automobile-logo-gold.png" alt="Logo officiel du Musée de l’Automobile du Maroc">
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navigation principale">
+          <a class="nav-home" href="#top">Accueil</a>
+          <div class="nav-item">
+            <button class="nav-link" type="button">À propos</button>
+            <div class="dropdown">
+              <div class="dropdown-grid">
+                <div>
+                  <h3>Institution</h3>
+                  <a href="club.html">Notre histoire<span>Fondation &amp; vision</span></a>
+                  <a href="mot-president.html">Le mot du Président<span>Transmission et passion</span></a>
+                  <a href="partenaires.html">Nos partenaires<span>Institutionnels &amp; corporate</span></a>
+                </div>
+                <div>
+                  <h3>Adhésion</h3>
+                  <a href="devenir-membre.html">Devenir membre<span>Avantages &amp; formules</span></a>
+                  <a href="espace-membres.html">Espace membres<span>Connexion</span></a>
+                </div>
+                <div>
+                  <h3>Academy</h3>
+                  <a href="automotive-academy.html">Automotive Academy<span>Formations &amp; expertise</span></a>
+                  <a href="programmes.html">Nos programmes<span>Certifications auto</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <button class="nav-link" type="button">Le Musée</button>
+            <div class="dropdown">
+              <div class="dropdown-grid">
+                <div>
+                  <h3>Découvrir</h3>
+                  <a href="collection.html">La collection<span>Véhicules &amp; expositions</span></a>
+                  <a href="timeline.html">Timeline automobile<span>Maroc &amp; monde</span></a>
+                  <a href="batiment-histoire.html">Le bâtiment &amp; l'histoire<span>Architecture et patrimoine</span></a>
+                </div>
+                <div>
+                  <h3>Visiter</h3>
+                  <a href="tickets.html">Acheter des billets<span>Individuel, famille, scolaire</span></a>
+                  <a href="horaires.html">Horaires &amp; accès<span>Route de Bouskoura</span></a>
+                  <a href="audioguide.html">Audioguide digital<span>FR / AR / EN</span></a>
+                  <a href="visites-scolaires.html">Visites scolaires<span>Parcours éducatif</span></a>
+                </div>
+                <div>
+                  <h3>Expositions</h3>
+                  <a href="collection.html#collection-grid">Expositions permanentes<span>Collection fondatrice</span></a>
+                  <a href="#news">Expositions temporaires<span>En ce moment</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <button class="nav-link" type="button">Événementiel</button>
+            <div class="dropdown">
+              <div class="dropdown-grid">
+                <div>
+                  <h3>Espaces</h3>
+                  <a href="espaces-evenementiels.html">Les salles<span>Réunions, gala, conférences</span></a>
+                  <a href="parc-automobile.html">Le parc automobile<span>Expositions et shootings</span></a>
+                  <a href="terrasse-evenementielle.html">La terrasse<span>Réception en plein air</span></a>
+                </div>
+                <div>
+                  <h3>Entreprises</h3>
+                  <a href="seminaires-conferences.html">Séminaires &amp; conférences<span>Offre corporate</span></a>
+                  <a href="professionnels-b2b.html">Professionnels &amp; B2B<span>Conventions, lancements, presse</span></a>
+                  <a href="team-building.html">Team building<span>Activités sur mesure</span></a>
+                  <a href="services-evenementiels.html">Services événementiels<span>Technique, scénographie, catering</span></a>
+                  <a href="dossier-evenementiel.html">Dossier événementiel<span>Télécharger</span></a>
+                </div>
+                <div>
+                  <h3>Privé</h3>
+                  <a href="mariages-receptions.html">Mariages &amp; réceptions<span>Cadre unique</span></a>
+                  <a href="anniversaires-galas.html">Anniversaires &amp; galas<span>Moments signature</span></a>
+                  <a href="demande-devis.html">Demander un devis<span>Formulaire rapide</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <button class="nav-link" type="button">Le Garage</button>
+            <div class="dropdown">
+              <div class="dropdown-grid">
+                <div>
+                  <h3>Restaurant</h3>
+                  <a href="garage.html">Le Garage<span>Concept &amp; expérience</span></a>
+                  <a href="garage-carte.html">La carte<span>Menu signature &amp; desserts</span></a>
+                  <a href="garage-cuisine.html">La cuisine ouverte<span>Atelier culinaire</span></a>
+                </div>
+                <div>
+                  <h3>Équipe</h3>
+                  <a href="garage-chefs.html">Les chefs<span>Vision &amp; transmission</span></a>
+                  <a href="garage-temps-forts.html">Temps forts<span>Ramadan, cocktails, actualités</span></a>
+                  <a href="garage-reservation.html">Réserver une table<span>Déjeuner, dîner, brunch</span></a>
+                </div>
+                <div>
+                  <h3>Infos</h3>
+                  <a href="garage-reservation.html#horaires">Horaires<span>12h-16h / 19h-23h45</span></a>
+                  <a href="garage-reservation.html#acces">Accès &amp; contact<span>Route de Bouskoura</span></a>
+                  <a href="demande-devis.html">Privatiser Le Garage<span>Groupes &amp; événements</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <button class="nav-link" type="button">Actualité</button>
+            <div class="dropdown">
+              <div class="dropdown-grid">
+                <div>
+                  <h3>Contenus</h3>
+                  <a href="actualites.html">News &amp; communiqués<span>Dernières nouvelles</span></a>
+                <a href="communique-detail.html">Communiqué officiel<span>Modèle éditorial</span></a>
+                <a href="agenda.html">Agenda<span>Événements à venir</span></a>
+                </div>
+                <div>
+                  <h3>Média</h3>
+                  <a href="presse-media.html">Presse &amp; médias<span>Archives &amp; kit média</span></a>
+                <a href="videos-galerie.html">Vidéos &amp; galerie<span>Moments du Musée</span></a>
+                <a href="instagram.html">Instagram feed<span>@museeautomobilemaroc</span></a>
+                </div>
+                <div>
+                  <h3>Communauté</h3>
+                  <a href="cars-coffee.html">Cars &amp; Coffee<span>Rencontres passionnés</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <button class="nav-link ticket" type="button">Billetterie</button>
+            <div class="dropdown">
+              <div class="dropdown-grid">
+                <div>
+                  <h3>Acheter</h3>
+                  <a href="visite-individuelle.html?type=individuel">Visite individuelle<span>Billet musée</span></a>
+                  <a href="visite-individuelle.html?type=famille">Famille &amp; jeunes<span>Parcours jeunes publics</span></a>
+                <a href="visites-scolaires.html">Groupe scolaire<span>Découverte pédagogique</span></a>
+                </div>
+                <div>
+                  <h3>Groupes</h3>
+                  <a href="visite-individuelle.html?type=corporate">Groupe corporate<span>Visite &amp; privatisation</span></a>
+                  <a href="horaires.html">Tarifs &amp; horaires<span>Préparer la visite</span></a>
+                </div>
+                <div>
+                  <h3>Experience</h3>
+                  <a href="#hero">Réserver une expérience<span>Musée, collection, table</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="nav-ctas">
+          <a class="btn btn-secondary" href="demande-devis.html" aria-label="Privatiser le lieu">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4 8h16M5 5h14v15H5z"></path></svg>
+            Privatiser le lieu
+          </a>
+          <a class="btn btn-primary" href="garage-reservation.html" aria-label="Réserver une table">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v18M10 3v7a4 4 0 0 1-4 4M17 3v18M14 3h6v8a3 3 0 0 1-3 3h-3z"></path></svg>
+            Réserver une table
+          </a>
+        </div>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Ouvrir le menu">
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <aside class="mobile-panel" id="mobilePanel" aria-label="Menu mobile">
+      <a class="mobile-home" href="#top">Accueil</a>
+      <div class="mobile-group">
+        <button class="mobile-trigger" type="button" aria-expanded="false">À propos</button>
+        <div class="mobile-links">
+          <a href="club.html">Notre histoire</a>
+          <a href="mot-president.html">Le mot du Président</a>
+        <a href="devenir-membre.html">Devenir membre</a>
+          <a href="espace-membres.html">Espace membres</a>
+        <a href="automotive-academy.html">Automotive Academy</a>
+          <a href="programmes.html">Nos programmes</a>
+        <a href="partenaires.html">Nos partenaires</a>
+        </div>
+      </div>
+      <div class="mobile-group">
+        <button class="mobile-trigger" type="button" aria-expanded="false">Le Musée</button>
+        <div class="mobile-links">
+          <a href="collection.html">La collection</a>
+          <a href="timeline.html">Timeline automobile</a>
+          <a href="batiment-histoire.html">Bâtiment &amp; histoire</a>
+          <a href="tickets.html">Acheter des billets</a>
+          <a href="horaires.html">Horaires &amp; accès</a>
+          <a href="audioguide.html">Audioguide digital</a>
+          <a href="#news">Expositions temporaires</a>
+        </div>
+      </div>
+      <div class="mobile-group">
+        <button class="mobile-trigger" type="button" aria-expanded="false">Événementiel</button>
+        <div class="mobile-links">
+          <a href="espaces-evenementiels.html">Les salles</a>
+          <a href="parc-automobile.html">Le parc automobile</a>
+          <a href="team-building.html">Team building</a>
+        <a href="services-evenementiels.html">Services événementiels</a>
+          <a href="demande-devis.html">Demander un devis</a>
+        </div>
+      </div>
+      <div class="mobile-group">
+        <button class="mobile-trigger" type="button" aria-expanded="false">Le Garage</button>
+        <div class="mobile-links">
+          <a href="garage.html">Le Garage</a>
+          <a href="garage-carte.html">La carte</a>
+          <a href="garage-cuisine.html">La cuisine ouverte</a>
+          <a href="garage-chefs.html">Les chefs</a>
+          <a href="garage-temps-forts.html">Temps forts</a>
+          <a href="garage-reservation.html">Réserver une table</a>
+        </div>
+      </div>
+      <div class="mobile-group">
+        <button class="mobile-trigger" type="button" aria-expanded="false">Actualité</button>
+        <div class="mobile-links">
+          <a href="actualites.html">News &amp; communiqués</a>
+        <a href="presse-media.html">Presse &amp; médias</a>
+        <a href="communique-detail.html">Communiqué officiel</a>
+        <a href="agenda.html">Agenda</a>
+          <a href="videos-galerie.html">Vidéos &amp; galerie</a>
+          <a href="cars-coffee.html">Cars &amp; Coffee</a>
+          <a href="instagram.html">Instagram feed</a>
+        </div>
+      </div>
+      <div class="mobile-group">
+        <button class="mobile-trigger" type="button" aria-expanded="false">Billetterie</button>
+        <div class="mobile-links">
+          <a href="visite-individuelle.html?type=individuel">Visite individuelle</a>
+          <a href="visite-individuelle.html?type=famille">Famille &amp; jeunes</a>
+        <a href="visites-scolaires.html">Groupe scolaire</a>
+          <a href="visite-individuelle.html?type=corporate">Groupe corporate</a>
+          <a href="horaires.html">Tarifs &amp; horaires</a>
+        </div>
+      </div>
+      <div class="mobile-ctas">
+        <a class="btn btn-secondary" href="demande-devis.html">Privatiser le lieu</a>
+        <a class="btn btn-primary" href="garage-reservation.html">Réserver une table</a>
+      </div>
+    </aside>
+
+    <main id="top">
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <div class="hero-slider" aria-hidden="true">
+          <div class="hero-slide is-active" style="--hero-image:url('assets/home-hero-musee-exterieur-sunset.jpg?v=2'); --hero-position:center;" data-model-year="Musée de l’Automobile du Maroc · Casablanca"></div>
+          <div class="hero-slide" style="--hero-image:url('assets/cars-real/cam-collection-lineup.jpg'); --hero-position:center;" data-model-year="Galerie des classiques du Musée"></div>
+          <div class="hero-slide" style="--hero-image:url('assets/cars-real/cam-mercedes-pagoda.jpg'); --hero-position:center;" data-model-year="Mercedes-Benz Pagode · années 60"></div>
+          <div class="hero-slide" style="--hero-image:url('assets/cars-real/cam-vintage-green.jpg'); --hero-position:center;" data-model-year="Automobile pionnière · début XXe"></div>
+        </div>
+        <div class="hero-inner reveal is-visible">
+          <span class="eyebrow">Musée de l’Automobile du Maroc · Casablanca</span>
+          <h1 id="hero-title">Plus qu’un musée, une expérience.</h1>
+          <p class="hero-copy">Un lieu unique au Maroc où l'histoire automobile s'observe, se comprend et se transmet: collection patrimoniale, visites éducatives, ateliers, Media Room, table signature et événements.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#univers">Découvrir le musée</a>
+            <a class="btn btn-secondary" href="demande-devis.html">Réserver une expérience</a>
+            <a class="btn btn-ghost" href="collection.html#mercedes-300sl">Voir la collection</a>
+          </div>
+          <div class="hero-slider-controls" aria-label="Sélection du visuel hero">
+            <button class="hero-dot is-active" type="button" aria-label="Afficher Musée de l’Automobile du Maroc · Casablanca" data-slide="0"></button>
+            <button class="hero-dot" type="button" aria-label="Afficher Galerie des classiques du Musée" data-slide="1"></button>
+            <button class="hero-dot" type="button" aria-label="Afficher Mercedes-Benz Pagode · années 60" data-slide="2"></button>
+            <button class="hero-dot" type="button" aria-label="Afficher Automobile pionnière · début XXe" data-slide="3"></button>
+          </div>
+          <span class="sr-only" aria-live="polite" id="heroSlideLabel">Musée de l’Automobile du Maroc · Casablanca</span>
+          <div class="hero-meta" aria-label="Informations principales">
+            <div class="meta-item">
+              <div class="meta-kicker">Musée</div>
+              <div class="meta-text">De la roue à l'hippomobile, de 1886 aux icônes du XXe siècle.</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-kicker">Communauté</div>
+              <div class="meta-text">Rencontres, mémoire marocaine, transmission et hospitalité.</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-kicker">Lieu</div>
+              <div class="meta-text">Route de Bouskoura, Casablanca · accueil groupes et scolaires.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="univers">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <div>
+              <span class="eyebrow">Nos univers</span>
+              <h2 class="section-title title-two-lines">Plusieurs portes d’entrée. Une même mission de transmission.</h2>
+            </div>
+            <p class="section-copy">Le Musée relie patrimoine roulant, médiation culturelle, savoir-faire d'atelier, hospitalité et événements dans une adresse pensée comme un lieu d'apprentissage vivant.</p>
+          </div>
+
+          <div class="univers-grid">
+            <article class="universe-card reveal" style="--card-image:url('assets/cars-real/cam-vintage-green.jpg')" data-model-year="Automobile pionnière · début XXe">
+              <div class="card-content">
+                <div class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M5 20V8l7-4 7 4v12M9 20v-6h6v6"></path></svg></div>
+                <h3>Le Musée</h3>
+                <p>Un parcours qui relie la roue, l'hippomobile, l'automobile de 1886, les pavillons internationaux et les icônes du XXe siècle.</p>
+                <a class="text-link" href="collection.html">Découvrir</a>
+              </div>
+            </article>
+
+            <article class="universe-card reveal" style="--card-image:url('assets/garage/blog-cuisine.png')" data-model-year="Le Garage Restaurant · cuisine ouverte">
+              <div class="card-content">
+                <div class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v18M10 3v7a4 4 0 0 1-4 4M17 3v18M14 3h6v8a3 3 0 0 1-3 3h-3z"></path></svg></div>
+                <h3>Le Garage</h3>
+                <p>Une table au cœur du Musée où cuisine ouverte, produits de saison, design industriel et hospitalité marocaine prolongent la visite par le goût.</p>
+                <a class="text-link" href="garage-reservation.html">Réserver</a>
+              </div>
+            </article>
+
+            <article class="universe-card reveal" style="--card-image:url('assets/events/cam-event-hall-20231114.jpg')" data-model-year="Cocktail professionnel Musée">
+              <div class="card-content">
+                <div class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11h10M8 7h8M5 21h14V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"></path></svg></div>
+                <h3>Events</h3>
+                <p>Séminaires, visites d’entreprise, lancements et formats sur mesure dans un décor automobile porteur de récit.</p>
+                <a class="text-link" href="evenementiel.html">Nos espaces</a>
+              </div>
+            </article>
+
+            <article class="universe-card reveal" style="--card-image:url('assets/cars-real/cam-roadster-1962-front.jpg')" data-model-year="Roadster de collection 1962">
+              <div class="card-content">
+                <div class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5zM4 11v5c2 2 5 3 8 3s6-1 8-3v-5"></path></svg></div>
+                <h3>Academy</h3>
+                <p>Ateliers, restauration, métiers techniques et programmes jeunes pour transmettre les gestes autant que la passion.</p>
+                <a class="text-link" href="programmes.html">Programmes</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section feature" id="mot-president-home">
+        <div class="section-inner">
+          <div class="section-head section-head-single reveal">
+            <div>
+              <span class="eyebrow">Mot du Président fondateur</span>
+              <h2 class="section-title title-single-line">Une ambition culturelle pour l’automobile au Maroc.</h2>
+            </div>
+            <p class="section-copy">M. Abdellah Abdellaoui présente le Musée comme un carrefour pour les passionnés, les professionnels, la formation et la transmission de la culture automobile.</p>
+          </div>
+          <div class="feature-layout reveal">
+            <article class="feature-panel">
+              <span class="counter">Abdellah Abdellaoui · Président fondateur</span>
+              <h2>Un carrefour pour les passionnés et professionnels de l’automobile.</h2>
+              <p class="president-quote">Ce projet s’inscrit dans la dynamique initiée par Sa Majesté le Roi, qui a élevé les arts et la culture au rang de piliers essentiels du développement national. L’ambition du Maroc de devenir l’un des hubs les plus influents du secteur automobile mondial nécessite la promotion de la culture automobile parmi tous les acteurs de ce secteur florissant.</p>
+              <p class="president-quote">Le Musée de l’Automobile du Maroc a été conçu pour servir de point de convergence pour les passionnés et les professionnels de l’automobile, offrant un espace où la connaissance et la passion pour l’automobile sont non seulement célébrées mais aussi partagées.</p>
+              <p class="president-quote">Nous envisageons ce lieu comme un site culturel et touristique de premier plan, une plateforme dynamique pour les échanges et les rencontres dans l’univers automobile. Nous l’avons enrichi d’une Automotive Academy et d’un musée national, tous deux dédiés à la formation et à la transmission de l’histoire de l’automobile.</p>
+              <p class="president-quote">Mon équipe et moi-même réaffirmons notre engagement envers l’excellence et l’innovation au cœur de l’écosystème automobile.</p>
+              <div class="hero-actions"><a class="btn btn-primary" href="mot-president.html">Lire le mot</a><a class="btn btn-secondary" href="club.html">Découvrir l’institution</a></div>
+            </article>
+            <div class="feature-panel president-photo-panel">
+              <img class="president-photo" src="assets/president-abdellah-abdellaoui-hd.jpg" alt="M. Abdellah Abdellaoui, Président fondateur du Musée de l’Automobile du Maroc" loading="lazy">
+              <div class="president-photo-caption">
+                <span class="counter">Président fondateur</span>
+                <h3>M. Abdellah ABDELLAOUI</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section feature" id="collection">
+        <div class="section-inner">
+          <div class="collection-slider" aria-label="Collection en vedette">
+            <div class="feature-layout collection-slide is-active" data-collection-slide>
+              <div class="feature-media" role="img" aria-label="Roadster de collection 1962 exposé dans une ambiance musée premium" style="--feature-image:url('assets/cars-real/cam-roadster-1962-front.jpg')"></div>
+              <article class="feature-panel">
+                <span class="counter">Collection en vedette · 01 / 06</span>
+                <h2>Roadster de collection 1962</h2>
+                <p>Un roadster de collection photographié dans les galeries du Musée: chrome, calandre, lignes basses et présence mécanique immédiate.</p>
+                <div class="vehicle-specs" aria-label="Fiche véhicule">
+                  <div class="spec">
+                    <strong>1962</strong>
+                    <span>Repère</span>
+                  </div>
+                  <div class="spec">
+                    <strong>Roadster</strong>
+                    <span>Type</span>
+                  </div>
+                  <div class="spec">
+                    <strong>Icône</strong>
+                    <span>Statut</span>
+                  </div>
+                </div>
+                <a class="btn btn-primary" href="collection.html#mercedes-300sl">Voir la fiche complète</a>
+              </article>
+            </div>
+
+            <div class="feature-layout collection-slide" data-collection-slide>
+              <div class="feature-media" role="img" aria-label="Galerie réelle des classiques du Musée dans les galeries du Musée" style="--feature-image:url('assets/cars-real/cam-collection-lineup.jpg')"></div>
+              <article class="feature-panel">
+                <span class="counter">Collection en vedette · 02 / 06</span>
+                <h2>Galerie des classiques du Musée</h2>
+                <p>Un alignement de véhicules réels du Musée qui montre la diversité des périodes: populaires, prestige, sportives et pionnières.</p>
+                <div class="vehicle-specs" aria-label="Fiche véhicule">
+                  <div class="spec">
+                    <strong>XXe</strong>
+                    <span>Siècle</span>
+                  </div>
+                  <div class="spec">
+                    <strong>Parcours</strong>
+                    <span>Format</span>
+                  </div>
+                  <div class="spec">
+                    <strong>Design</strong>
+                    <span>Statut</span>
+                  </div>
+                </div>
+                <a class="btn btn-primary" href="collection.html#collection-grid">Voir la fiche complète</a>
+              </article>
+            </div>
+
+            <div class="feature-layout collection-slide" data-collection-slide>
+              <div class="feature-media" role="img" aria-label="Mercedes-Benz Pagode, grand tourisme allemand avant 1970" style="--feature-image:url('assets/cars-real/cam-mercedes-pagoda.jpg')"></div>
+              <article class="feature-panel">
+                <span class="counter">Collection en vedette · 03 / 06</span>
+                <h2>Mercedes-Benz Pagode</h2>
+                <p>Grand tourisme, chrome et élégance allemande. La Pagode incarne une automobile de voyage, de style et de prestige.</p>
+                <div class="vehicle-specs" aria-label="Fiche véhicule">
+                  <div class="spec">
+                    <strong>XXe</strong>
+                    <span>Siècle</span>
+                  </div>
+                  <div class="spec">
+                    <strong>Pagode</strong>
+                    <span>Modèle</span>
+                  </div>
+                  <div class="spec">
+                    <strong>GT</strong>
+                    <span>Statut</span>
+                  </div>
+                </div>
+                <a class="btn btn-primary" href="collection.html#collection-grid">Voir la fiche complète</a>
+              </article>
+            </div>
+
+            <div class="feature-layout collection-slide" data-collection-slide>
+              <div class="feature-media" role="img" aria-label="Automobile pionnière exposée au Musée" style="--feature-image:url('assets/cars-real/cam-vintage-green.jpg')"></div>
+              <article class="feature-panel">
+                <span class="counter">Collection en vedette · 04 / 06</span>
+                <h2>Automobile pionnière</h2>
+                <p>Une automobile des premiers âges pour raconter l’apparition du poste de conduite, de la carrosserie, des usages et des gestes mécaniques.</p>
+                <div class="vehicle-specs" aria-label="Fiche véhicule">
+                  <div class="spec">
+                    <strong>XXe</strong>
+                    <span>Siècle</span>
+                  </div>
+                  <div class="spec">
+                    <strong>Pionnier</strong>
+                    <span>Statut</span>
+                  </div>
+                  <div class="spec">
+                    <strong>Sport</strong>
+                    <span>Statut</span>
+                  </div>
+                </div>
+                <a class="btn btn-primary" href="collection.html#collection-grid">Voir la fiche complète</a>
+              </article>
+            </div>
+
+            <div class="feature-layout collection-slide" data-collection-slide>
+              <div class="feature-media" role="img" aria-label="Coupé américain classique avant 1970" style="--feature-image:url('assets/cars-real/cam-mustang-fastback-bw.jpg')"></div>
+              <article class="feature-panel">
+                <span class="counter">Collection en vedette · 05 / 06</span>
+                <h2>Coupé américain</h2>
+                <p>Le coupé américain ouvre une nouvelle page populaire et émotionnelle: un coupé accessible, expressif, entré très vite dans la culture visuelle mondiale.</p>
+                <div class="vehicle-specs" aria-label="Fiche véhicule">
+                  <div class="spec">
+                    <strong>1965</strong>
+                    <span>Année</span>
+                  </div>
+                  <div class="spec">
+                    <strong>coupé américain</strong>
+                    <span>Modèle</span>
+                  </div>
+                  <div class="spec">
+                    <strong>Culture</strong>
+                    <span>Statut</span>
+                  </div>
+                </div>
+                <a class="btn btn-primary" href="collection.html#collection-grid">Voir la fiche complète</a>
+              </article>
+            </div>
+
+            <div class="feature-layout collection-slide" data-collection-slide>
+              <div class="feature-media" role="img" aria-label="Fiat rouge de collection avant 1970" style="--feature-image:url('assets/cars-real/cam-fiat-red.jpg')"></div>
+              <article class="feature-panel">
+                <span class="counter">Collection en vedette · 06 / 06</span>
+                <h2>Fiat rouge de collection</h2>
+                <p>Une ligne italienne, un moteur de caractère et l'art du grand tourisme. Cette compacte italienne résume l'émotion mécanique des années 1960.</p>
+                <div class="vehicle-specs" aria-label="Fiche véhicule">
+                  <div class="spec">
+                    <strong>1962</strong>
+                    <span>Année</span>
+                  </div>
+                  <div class="spec">
+                    <strong>Fiat rouge</strong>
+                    <span>Modèle</span>
+                  </div>
+                  <div class="spec">
+                    <strong>Ligne</strong>
+                    <span>Statut</span>
+                  </div>
+                </div>
+                <a class="btn btn-primary" href="collection.html#collection-grid">Voir la fiche complète</a>
+              </article>
+            </div>
+          </div>
+
+          <div class="collection-slider-controls" aria-label="Navigation collection en vedette">
+            <button class="collection-arrow" type="button" data-collection-prev aria-label="Véhicule précédent">‹</button>
+            <button class="collection-dot is-active" type="button" data-collection-dot aria-label="Afficher Roadster de collection 1962"></button>
+            <button class="collection-dot" type="button" data-collection-dot aria-label="Afficher Galerie des classiques du Musée"></button>
+            <button class="collection-dot" type="button" data-collection-dot aria-label="Afficher Mercedes-Benz Pagode"></button>
+            <button class="collection-dot" type="button" data-collection-dot aria-label="Afficher Automobile pionnière"></button>
+            <button class="collection-dot" type="button" data-collection-dot aria-label="Afficher Coupé américain"></button>
+            <button class="collection-dot" type="button" data-collection-dot aria-label="Afficher Fiat rouge de collection"></button>
+            <button class="collection-arrow" type="button" data-collection-next aria-label="Véhicule suivant">›</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="events">
+        <div class="section-inner">
+          <div class="section-head section-head-single reveal">
+            <div>
+              <span class="eyebrow">Agenda</span>
+              <h2 class="section-title title-single-line">Nos prochains événements</h2>
+            </div>
+            <p class="section-copy">Des rendez-vous pensés pour les visiteurs, les scolaires, les passionnés, les collectionneurs et les entreprises qui cherchent une expérience porteuse de sens.</p>
+          </div>
+          <div class="events-grid">
+            <article class="event-card reveal" style="--card-image:url('assets/events/cam-event-hall-20231114.jpg')" data-model-year="Cocktail professionnel Musée">
+              <div class="event-date"><strong>14</strong><span>Juin</span></div>
+              <div class="card-content">
+                <h3>Cars &amp; Coffee Casablanca</h3>
+                <p>Rencontre matinale autour des classiques, du café et de la communauté Musée.</p>
+                <a class="text-link" href="cars-coffee.html">En savoir plus</a>
+              </div>
+            </article>
+            <article class="event-card reveal" style="--card-image:url('assets/events/cam-event-img-1.png')" data-model-year="Conférence Musée">
+              <div class="event-date"><strong>28</strong><span>Juil.</span></div>
+              <div class="card-content">
+                <h3>Rallye du Patrimoine</h3>
+                <p>Un parcours culturel pour relier routes marocaines, patrimoine mécanique et récits de mobilité.</p>
+                <a class="text-link" href="agenda.html">En savoir plus</a>
+              </div>
+            </article>
+            <article class="event-card reveal" style="--card-image:url('assets/events/cam-event-img-6147.png')" data-model-year="Réception Musée">
+              <div class="event-date"><strong>09</strong><span>Août</span></div>
+              <div class="card-content">
+                <h3>Soirée membres &amp; collectionneurs</h3>
+                <p>Une soirée privée entre voitures de collection, cuisine signature et conversations passionnées.</p>
+                <a class="text-link" href="detail-evenement.html">En savoir plus</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section garage" id="garage">
+        <div class="section-inner">
+          <div class="garage-content reveal">
+            <span class="eyebrow">Le Garage · Restaurant</span>
+            <h2>L'art de vivre automobile.</h2>
+            <p>Le Garage Restaurant est une expérience culinaire au cœur du Musée: cuisine ouverte, produits de saison, gestes précis et esprit de partage dans une ambiance inspirée par la mécanique et le design industriel.</p>
+            <div class="garage-actions">
+              <a class="btn btn-primary" href="garage-reservation.html">Réserver une table</a>
+              <a class="btn btn-dark" href="garage.html">Découvrir Le Garage</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section news" id="news">
+        <div class="section-inner">
+          <div class="section-head section-head-single reveal">
+            <div>
+              <span class="eyebrow">Actualités</span>
+              <h2 class="section-title title-single-line">Toute l'actualité du Musée</h2>
+            </div>
+            <p class="section-copy">Visites éducatives, expositions, rendez-vous du Musée, Academy, communauté et médiation: les temps forts d'une institution marocaine tournée vers la transmission.</p>
+          </div>
+          <div class="news-grid">
+            <article class="news-card reveal" style="--card-image:url('assets/cars-real/cam-roadster-1962-front.jpg')" data-model-year="Roadster de collection 1962">
+              <div class="card-content">
+                <h3>Parcours éducatif du Musée</h3>
+                <p>De la roue aux ateliers de restauration: une visite active pour apprendre autrement.</p>
+                <a class="text-link" href="actualites.html">Lire</a>
+              </div>
+            </article>
+            <article class="news-card reveal" style="--card-image:url('assets/cars-real/cam-collection-lineup.jpg')" data-model-year="Galerie des classiques du Musée">
+              <div class="card-content">
+                <h3>Retour sur Cars &amp; Coffee</h3>
+                <p>Les plus belles images de la dernière rencontre de passionnés à Casablanca.</p>
+                <a class="text-link" href="cars-coffee.html">Lire</a>
+              </div>
+            </article>
+            <article class="news-card reveal" style="--card-image:url('assets/cars-real/cam-vintage-green.jpg')" data-model-year="Automobile pionnière · début XXe">
+              <div class="card-content">
+                <h3>Automotive Academy</h3>
+                <p>Ateliers, restauration, métiers et transmission des savoir-faire automobiles.</p>
+                <a class="text-link" href="automotive-academy.html">Lire</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section feature" id="tickets">
+        <div class="section-inner section-head">
+          <div class="reveal">
+            <span class="eyebrow">Billetterie</span>
+            <h2 class="section-title">Préparer votre visite.</h2>
+          </div>
+          <div class="section-copy reveal">
+            <p>Visite individuelle, famille, groupe scolaire ou corporate: choisissez votre parcours et accédez au musée, aux expositions, aux ateliers et aux rendez-vous du Musée.</p>
+            <a class="btn btn-primary" href="tickets.html">Acheter des billets</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="footer">
+      <div class="footer-grid">
+        <div class="footer-panel">
+          <div class="footer-brand">
+            <img class="footer-logo" src="assets/musee-automobile-logo-gold.png" alt="Logo du Musée de l’Automobile du Maroc">
+          </div>
+          <p>Plus qu’un musée, une expérience: une destination culturelle où patrimoine automobile, design, transmission et émotion se rencontrent à Casablanca.</p>
+          <div class="footer-tagline">Collection · Restaurant · Événements · Academy</div>
+        </div>
+        <div class="footer-panel">
+          <h3>Accès rapides</h3>
+          <ul>
+            <li><a href="#univers">Le Musée</a></li>
+            <li><a href="evenementiel.html">Événementiel</a></li>
+            <li><a href="garage.html">Le Garage</a></li>
+            <li><a href="tickets.html">Billetterie</a></li>
+          </ul>
+        </div>
+        <div class="footer-panel">
+          <h3>Informations</h3>
+          <ul>
+            <li>Route de Bouskoura, Casablanca</li>
+            <li>Mar-Dim · 10h-18h</li>
+            <li>+212 600 270 387</li>
+            <li>contact@museeautomobile.ma</li>
+          </ul>
+        </div>
+        <div class="footer-panel">
+          <h3>Social</h3>
+          <div class="footer-social" aria-label="Réseaux sociaux">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">YouTube</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Musée de l’Automobile du Maroc. Tous droits réservés.</span>
+        <span class="languages" aria-label="Langues">
+          <a href="#" aria-label="Version française" title="Français"><span class="language-flag" aria-hidden="true">🇫🇷</span><span class="sr-only">Français</span></a>
+          <a href="#" aria-label="Version anglaise" title="English"><span class="language-flag" aria-hidden="true">🇬🇧</span><span class="sr-only">English</span></a>
+        </span>
+        <span class="footer-legal" style="display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end"><a href="mentions-legales.html">Mentions légales</a><a href="politique-confidentialite.html">Confidentialité</a><a href="politique-cookies.html">Cookies</a><a href="cgv-billetterie.html">CGV</a><a href="plan-site.html">Plan du site</a></span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const body = document.body;
+    const header = document.querySelector("#siteHeader");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mobilePanel = document.querySelector("#mobilePanel");
+    const mobileTriggers = document.querySelectorAll(".mobile-trigger");
+    const desktopItems = document.querySelectorAll(".nav-item");
+    const revealItems = document.querySelectorAll(".reveal");
+    const heroSlides = document.querySelectorAll(".hero-slide");
+    const heroDots = document.querySelectorAll(".hero-dot");
+    const heroSlideLabel = document.querySelector("#heroSlideLabel");
+    const collectionSlides = document.querySelectorAll("[data-collection-slide]");
+    const collectionDots = document.querySelectorAll("[data-collection-dot]");
+    const collectionPrev = document.querySelector("[data-collection-prev]");
+    const collectionNext = document.querySelector("[data-collection-next]");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let heroSlideIndex = 0;
+    let heroSlideTimer = null;
+    let collectionSlideIndex = 0;
+    let collectionSlideTimer = null;
+
+    const setHeaderState = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 24);
+    };
+
+    window.addEventListener("scroll", setHeaderState, { passive: true });
+    setHeaderState();
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Ouvrir le menu" : "Fermer le menu");
+      body.classList.toggle("nav-open", !isOpen);
+    });
+
+    mobilePanel.addEventListener("click", (event) => {
+      const link = event.target.closest("a");
+      if (!link) return;
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Ouvrir le menu");
+      body.classList.remove("nav-open");
+    });
+
+    mobileTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const links = trigger.nextElementSibling;
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+        trigger.setAttribute("aria-expanded", String(!isOpen));
+        links.classList.toggle("is-open", !isOpen);
+      });
+    });
+
+    desktopItems.forEach((item) => {
+      const button = item.querySelector(".nav-link");
+      button.addEventListener("click", () => {
+        const isActive = item.classList.contains("is-active");
+        desktopItems.forEach((candidate) => candidate.classList.remove("is-active"));
+        if (!isActive) item.classList.add("is-active");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".nav-item")) {
+        desktopItems.forEach((item) => item.classList.remove("is-active"));
+      }
+    });
+
+    const showHeroSlide = (index) => {
+      if (!heroSlides.length) return;
+      heroSlideIndex = (index + heroSlides.length) % heroSlides.length;
+      heroSlides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("is-active", slideIndex === heroSlideIndex);
+      });
+      heroDots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("is-active", dotIndex === heroSlideIndex);
+      });
+      if (heroSlideLabel) {
+        heroSlideLabel.textContent = heroSlides[heroSlideIndex].dataset.modelYear || "";
+      }
+    };
+
+    const startHeroSlider = () => {
+      if (heroSlides.length < 2 || reduceMotion) return;
+      window.clearInterval(heroSlideTimer);
+      heroSlideTimer = window.setInterval(() => {
+        showHeroSlide(heroSlideIndex + 1);
+      }, 5000);
+    };
+
+    const showCollectionSlide = (index) => {
+      if (!collectionSlides.length) return;
+      collectionSlideIndex = (index + collectionSlides.length) % collectionSlides.length;
+      collectionSlides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === collectionSlideIndex;
+        slide.classList.toggle("is-active", isActive);
+        slide.setAttribute("aria-hidden", String(!isActive));
+        slide.querySelectorAll("a, button").forEach((item) => {
+          item.tabIndex = isActive ? 0 : -1;
+        });
+      });
+      collectionDots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === collectionSlideIndex;
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-current", isActive ? "true" : "false");
+      });
+    };
+
+    const startCollectionSlider = () => {
+      if (collectionSlides.length < 2 || reduceMotion) return;
+      window.clearInterval(collectionSlideTimer);
+      collectionSlideTimer = window.setInterval(() => {
+        showCollectionSlide(collectionSlideIndex + 1);
+      }, 5000);
+    };
+
+    heroDots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showHeroSlide(index);
+        startHeroSlider();
+      });
+    });
+
+    collectionDots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showCollectionSlide(index);
+        startCollectionSlider();
+      });
+    });
+
+    collectionPrev?.addEventListener("click", () => {
+      showCollectionSlide(collectionSlideIndex - 1);
+      startCollectionSlider();
+    });
+
+    collectionNext?.addEventListener("click", () => {
+      showCollectionSlide(collectionSlideIndex + 1);
+      startCollectionSlider();
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        window.clearInterval(heroSlideTimer);
+        window.clearInterval(collectionSlideTimer);
+      } else {
+        startHeroSlider();
+        startCollectionSlider();
+      }
+    });
+
+    showCollectionSlide(0);
+    startHeroSlider();
+    startCollectionSlider();
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>

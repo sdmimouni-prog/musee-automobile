@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fiche véhicule dynamique du Musée de l'Automobile du Maroc.">
+  <title>Fiche véhicule | Musée de l'Automobile du Maroc</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/dynamic-collection/styles.css">
+  <script>
+    window.CAM_COLLECTION_CONFIG = {
+      strapiUrl: "http://localhost:1337",
+      preferStrapi: true,
+      localVehiclesUrl: "assets/dynamic-collection/data/vehicles.json",
+      localCategoriesUrl: "assets/dynamic-collection/data/categories.json"
+    };
+  </script>
+  <script src="assets/runtime-config.js"></script>
+  <script type="module" src="assets/dynamic-collection/vehicle.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="collection.html" aria-label="Retour collection">
+      <span class="brand-badge">CAM</span>
+      <span>
+        <strong>Musée de l'Automobile</strong>
+        <small>Fiche dynamique</small>
+      </span>
+    </a>
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="index.html">Accueil</a>
+      <a href="collection.html">Collection</a>
+      <a href="collection.html?cat=sport">Sport & GT</a>
+      <a href="collection.html?cat=prestige">Prestige</a>
+    </nav>
+  </header>
+
+  <main id="vehiclePage">
+    <section class="detail-hero" id="detailHero" hidden>
+      <div class="detail-image">
+        <img id="vehicleImage" alt="" loading="eager">
+      </div>
+      <article class="detail-copy">
+        <p class="eyebrow" id="vehicleEyebrow"></p>
+        <h1 id="vehicleTitle"></h1>
+        <p id="vehicleSummary"></p>
+        <dl class="fact-list" id="vehicleFacts"></dl>
+      </article>
+    </section>
+
+    <section class="detail-body" id="detailBody" hidden>
+      <article class="story-panel">
+        <p class="eyebrow">Récit de la pièce</p>
+        <h2>Un témoin de son époque.</h2>
+        <p id="vehicleStory"></p>
+      </article>
+
+      <aside class="spec-panel">
+        <p class="eyebrow">Données techniques</p>
+        <div id="vehicleSpecs"></div>
+      </aside>
+    </section>
+
+    <section class="related-section" id="relatedSection" hidden>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">À voir aussi</p>
+          <h2>Véhicules liés</h2>
+        </div>
+        <a class="button button-ghost" href="collection.html">Retour à la collection</a>
+      </div>
+      <div class="vehicle-grid compact" id="relatedGrid"></div>
+    </section>
+
+    <section class="empty-state detail-empty" id="detailEmpty" hidden>
+      <h1>Fiche introuvable.</h1>
+      <p>Le véhicule demandé n'existe pas dans la collection chargée.</p>
+      <a class="button button-primary" href="collection.html">Explorer la collection</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Fiche générée depuis la source de données active.</p>
+  </footer>
+</body>
+</html>

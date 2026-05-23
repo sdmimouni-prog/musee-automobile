@@ -1,0 +1,80 @@
+[
+  {
+    "title": "Cars & Coffee Casablanca",
+    "slug": "cars-coffee-casablanca-juin-2026",
+    "status": "planned",
+    "startDate": "2026-06-21T09:30:00+01:00",
+    "endDate": "2026-06-21T12:00:00+01:00",
+    "venue": "Parvis et collection permanente",
+    "excerpt": "Petit-dejeuner, parking collection, visite flash et vote du public.",
+    "description": "Cars & Coffee Casablanca rassemble passionnes, visiteurs et membres autour d'une matinee conviviale. Le format inclut un accueil cafe, une selection de voitures invitees, une visite flash de la collection et un vote du public.\n\nL'evenement est pense comme une porte d'entree accessible vers la culture automobile du Musee.",
+    "bookingUrl": "cars-coffee.html",
+    "tags": ["Signature", "Communauté", "Cars & Coffee"],
+    "coverImagePath": "assets/cars-real/cam-collection-lineup.jpg"
+  },
+  {
+    "title": "Chrome, cuir et lignes tendues",
+    "slug": "chrome-cuir-lignes-tendues",
+    "status": "planned",
+    "startDate": "2026-07-04T19:00:00+01:00",
+    "endDate": "2026-07-04T20:30:00+01:00",
+    "venue": "Media Room et galerie collection",
+    "excerpt": "Conversation autour des matieres qui ont faconne l'age d'or automobile.",
+    "description": "Une soiree talk et collection autour du design automobile classique: observer les details, retenir les reperes, interpreter une epoque.\n\nLe format imagine une visite augmentee ou une voiture devient le point de depart d'un recit: pourquoi cette ligne, pourquoi ce chrome, pourquoi ce volant, pourquoi cette posture?",
+    "bookingUrl": "visite-individuelle.html?type=individuel",
+    "tags": ["Talk", "Design", "Culture"],
+    "coverImagePath": "assets/events/cam-event-img-1.png"
+  },
+  {
+    "title": "Visite educative: roue, moteur, memoire",
+    "slug": "visite-educative-roue-moteur-memoire",
+    "status": "planned",
+    "startDate": "2026-07-18T16:00:00+01:00",
+    "endDate": "2026-07-18T17:30:00+01:00",
+    "venue": "Parcours musee",
+    "excerpt": "Parcours scolaire avec observation, Media Room, ateliers et quiz bilan.",
+    "description": "Cette visite aide les jeunes publics a comprendre la mobilite par les objets: roue, moteur, carrosserie, usages et memoire collective.\n\nElle peut etre reservee comme parcours famille ou groupe scolaire selon le format souhaite.",
+    "bookingUrl": "visites-scolaires.html",
+    "tags": ["Famille", "Scolaires", "Musée"],
+    "coverImagePath": "assets/cars-real/cam-vintage-green.jpg"
+  },
+  {
+    "title": "Atelier restauration & gestes experts",
+    "slug": "atelier-restauration-gestes-experts",
+    "status": "planned",
+    "startDate": "2026-08-30T10:00:00+01:00",
+    "endDate": "2026-08-30T12:00:00+01:00",
+    "venue": "Automotive Academy",
+    "excerpt": "Presentation pedagogique autour du moteur, de la tole, de la sellerie et de la conservation.",
+    "description": "L'atelier presente les gestes essentiels de la restauration automobile: diagnostiquer, conserver, transmettre et documenter.\n\nIl s'adresse aux curieux, aux jeunes talents et aux professionnels qui souhaitent comprendre les metiers du patrimoine roulant.",
+    "bookingUrl": "automotive-academy.html",
+    "tags": ["Academy", "Métiers", "Culture"],
+    "coverImagePath": "assets/cars-real/cam-roadster-1962-front.jpg"
+  },
+  {
+    "title": "Diner mecanique: route de nuit",
+    "slug": "diner-mecanique-route-de-nuit",
+    "status": "planned",
+    "startDate": "2026-09-12T20:00:00+01:00",
+    "endDate": "2026-09-12T23:00:00+01:00",
+    "venue": "Le Garage",
+    "excerpt": "Table signature au Garage, voiture invitee et recit de voyage.",
+    "description": "Un diner en petit comite autour d'un vehicule invite, d'une histoire de route et d'une table signature.\n\nLa soiree prolonge la collection par l'hospitalite et la conversation.",
+    "bookingUrl": "devenir-membre.html",
+    "tags": ["Privé", "Membres", "Garage"],
+    "coverImagePath": "assets/events/cam-event-img-6147.png"
+  },
+  {
+    "title": "Affiches, circuits et imaginaires",
+    "slug": "affiches-circuits-imaginaires",
+    "status": "planned",
+    "startDate": "2026-09-26T18:30:00+01:00",
+    "endDate": "2026-09-26T20:30:00+01:00",
+    "venue": "Galerie temporaire",
+    "excerpt": "Une selection graphique temporaire autour de la route et de la competition.",
+    "description": "Le vernissage presente affiches, documents visuels et imaginaires de circuit en dialogue avec la collection permanente.\n\nLe parcours met l'accent sur l'image automobile comme objet culturel.",
+    "bookingUrl": "actualites.html",
+    "tags": ["Exposition", "Vernissage", "Culture"],
+    "coverImagePath": "assets/events/cam-event-hall-20231114.jpg"
+  }
+]

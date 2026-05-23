@@ -1,0 +1,42 @@
+.commerce-source {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  padding: 6px 9px;
+  border: 1px solid rgba(215, 178, 109, .28);
+  color: var(--bronze-light, #c79a57);
+  background: rgba(8, 8, 8, .5);
+  border-radius: 6px;
+  font: 800 11px/1 Montserrat, Arial, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.commerce-empty {
+  margin-top: 16px;
+  color: rgba(245, 245, 243, .72);
+  font: 600 14px/1.5 Montserrat, Arial, sans-serif;
+}
+
+.slot-btn[disabled] {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.menu-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.menu-tags span {
+  display: inline-flex;
+  padding: 4px 7px;
+  border: 1px solid rgba(215, 178, 109, .2);
+  color: rgba(245, 245, 243, .72);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}

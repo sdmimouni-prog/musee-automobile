@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Citroën HY · 1979 · Musée de l’Automobile du Maroc</title><meta name="description" content="Issue du parc automobile du Musée, Citroën HY (1979) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1948 - 1981, avec une origine française et une lecture pensée pour la transmission au public."><meta name="keywords" content="Musée de l Automobile du Maroc, Citroën HY, 1979, France, voiture de collection, automobile classique, Casablanca, patrimoine automobile marocain, apres-guerre, utilitaire, france"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet"><style>
+:root {
+  --black: #050505;
+  --carbon: #10100f;
+  --ink: #151414;
+  --bronze: #b8873d;
+  --bronze-light: #d8b36b;
+  --white: #f6f3eb;
+  --muted: rgba(246, 243, 235, 0.72);
+  --line: rgba(216, 179, 107, 0.24);
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: Inter, Montserrat, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--black); color: var(--white); font-family: var(--sans); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+body.nav-open { overflow: hidden; }
+.site-header { position: fixed; inset: 0 0 auto; height: 86px; z-index: 20; border-bottom: 1px solid var(--line); background: rgba(5, 5, 5, 0.86); backdrop-filter: blur(18px); }
+.nav-wrap { height: 100%; max-width: 1320px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; gap: 28px; }
+.brand { position: relative; align-self: flex-start; margin-top: 10px; width: 136px; flex: 0 0 136px; z-index: 23; }
+.brand-mark { width: 136px; height: 136px; object-fit: contain; filter: drop-shadow(0 16px 30px rgba(0,0,0,.52)); }
+.desktop-nav { flex: 1; display: flex; justify-content: center; gap: 22px; align-items: center; font-size: 13px; font-weight: 800; color: rgba(246,243,235,.78); }
+.desktop-nav a:hover, .desktop-nav a[aria-current="page"] { color: var(--bronze-light); }
+.nav-actions { display: flex; gap: 10px; }
+.nav-cta { min-height: 40px; padding: 0 16px; border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; font-weight: 900; font-size: 12px; }
+.nav-cta.primary { background: linear-gradient(135deg, #c79545, #e3c37b); color: #080808; }
+.menu-toggle { display: none; width: 56px; height: 56px; margin-left: auto; border: 1px solid var(--line); background: rgba(255,255,255,.03); color: var(--white); cursor: pointer; }
+.menu-toggle span { display: block; width: 24px; height: 2px; margin: 5px auto; background: currentColor; }
+.mobile-panel { position: fixed; inset: 86px 0 auto auto; width: min(380px, 100vw); min-height: calc(100vh - 86px); transform: translateX(100%); transition: transform .22s ease; background: rgba(5,5,5,.98); border-left: 1px solid var(--line); padding: 28px; display: grid; align-content: start; gap: 18px; z-index: 19; }
+.nav-open .mobile-panel { transform: translateX(0); }
+.mobile-panel a { font-size: 18px; font-weight: 800; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+.hero { min-height: 74vh; position: relative; display: flex; align-items: end; padding: 160px 0 72px; background: var(--carbon) center/cover no-repeat; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.88), rgba(0,0,0,.58) 42%, rgba(0,0,0,.28)), linear-gradient(0deg, #050505 0%, rgba(5,5,5,.12) 34%, rgba(5,5,5,.36) 100%); }
+.hero::after { content: ''; position: absolute; inset: 0; opacity: .16; background-image: linear-gradient(rgba(216,179,107,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(216,179,107,.16) 1px, transparent 1px); background-size: 90px 90px; }
+.section-inner { width: min(1180px, calc(100% - 44px)); margin: 0 auto; position: relative; z-index: 2; }
+.breadcrumb { color: rgba(246,243,235,.58); font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 28px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 14px; color: var(--bronze-light); font-weight: 900; letter-spacing: .18em; text-transform: uppercase; font-size: 12px; }
+.eyebrow::before { content: ''; width: 52px; height: 1px; background: var(--bronze-light); }
+h1 { max-width: 920px; margin: 18px 0 22px; font-family: var(--serif); font-size: clamp(34px, 4.4vw, 58px); line-height: .95; letter-spacing: 0; color: #eef5ff; }
+.hero-copy { max-width: 760px; color: rgba(246,243,235,.84); font-size: clamp(18px, 2vw, 24px); line-height: 1.55; }
+.hero-meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 850px; border: 1px solid var(--line); margin-top: 34px; background: rgba(9,9,9,.72); backdrop-filter: blur(10px); }
+.hero-meta div { padding: 18px; border-right: 1px solid var(--line); }
+.hero-meta div:last-child { border-right: 0; }
+.hero-meta strong { display: block; font-family: var(--serif); color: var(--bronze-light); font-size: 26px; line-height: 1; }
+.hero-meta span { display: block; margin-top: 8px; color: rgba(246,243,235,.62); font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+.section { padding: 92px 0; border-top: 1px solid rgba(216,179,107,.16); background: linear-gradient(135deg, rgba(216,179,107,.04), transparent 32%), #080807; }
+.detail-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 38px; align-items: start; }
+.panel { border: 1px solid var(--line); background: rgba(18,18,17,.78); box-shadow: 0 24px 70px rgba(0,0,0,.26); }
+.panel-body { padding: 28px; }
+.panel h2, .related-title { margin: 0 0 18px; font-family: var(--serif); font-size: clamp(32px, 4vw, 52px); line-height: 1; }
+.story p { color: var(--muted); font-size: 17px; line-height: 1.78; }
+.spec-list { display: grid; gap: 0; }
+.spec-line { display: flex; justify-content: space-between; gap: 18px; border-top: 1px solid rgba(216,179,107,.14); padding: 15px 0; color: rgba(246,243,235,.76); font-size: 14px; line-height: 1.45; }
+.spec-line:first-child { border-top: 0; }
+.spec-line b { color: var(--bronze-light); min-width: 106px; }
+.source-image { width: 100%; max-height: 760px; object-fit: contain; background: #0b0b0a; border-bottom: 1px solid var(--line); }
+.keyword-cloud { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+.keyword-cloud span { border: 1px solid rgba(216,179,107,.22); color: rgba(246,243,235,.76); padding: 8px 10px; font-size: 11px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; background: rgba(255,255,255,.03); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn { min-height: 48px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); font-weight: 900; }
+.btn-primary { background: linear-gradient(135deg, #c79545, #e3c37b); color: #080808; }
+.btn-secondary { color: var(--white); background: rgba(255,255,255,.03); }
+.related { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+.related-card { border: 1px solid var(--line); background: rgba(17,17,16,.78); overflow: hidden; }
+.related-card img { width: 100%; height: 190px; object-fit: cover; filter: saturate(.9) contrast(1.03); }
+.related-card div { padding: 18px; }
+.related-card span { color: var(--bronze-light); font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+.related-card h3 { margin: 8px 0 0; font-family: var(--serif); font-size: 27px; line-height: 1.04; }
+.footer { padding: 70px 0 30px; background: #030303; border-top: 1px solid var(--line); }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; }
+.footer-logo { width: 105px; margin-bottom: 18px; }
+.footer h2 { margin: 0 0 14px; font-family: var(--serif); font-size: 36px; line-height: 1; }
+.footer h3 { margin: 0 0 16px; color: var(--bronze-light); font-size: 13px; letter-spacing: .16em; text-transform: uppercase; }
+.footer p, .footer a { color: rgba(246,243,235,.66); line-height: 1.75; }
+.footer a { display: block; margin: 7px 0; }
+.footer-bottom { margin-top: 44px; padding-top: 22px; border-top: 1px solid rgba(216,179,107,.18); display: flex; justify-content: space-between; color: rgba(246,243,235,.48); }
+@media (max-width: 1050px) { .desktop-nav, .nav-actions { display: none; } .menu-toggle { display: block; } .brand { width: 116px; flex-basis: 116px; } .brand-mark { width: 116px; height: 116px; } .hero-meta, .detail-grid, .related, .footer-grid { grid-template-columns: 1fr; } .hero-meta div { border-right: 0; border-bottom: 1px solid var(--line); } }
+@media (max-width: 650px) { .site-header { height: 78px; } .mobile-panel { inset-top: 78px; min-height: calc(100vh - 78px); } .brand, .brand-mark { width: 96px; height: 96px; flex-basis: 96px; } .hero { min-height: 68vh; padding-top: 136px; } .section { padding: 62px 0; } h1 { font-size: clamp(32px, 9vw, 44px); } .hero-meta strong { font-size: 22px; } .footer-bottom { display: grid; gap: 10px; } }
+</style></head>
+<body><header class="site-header" id="siteHeader">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html" aria-label="Accueil Musée de l'Automobile du Maroc">
+      <img class="brand-mark" src="assets/musee-automobile-logo-gold.png" alt="Logo Musée de l'Automobile du Maroc">
+    </a>
+    <nav class="desktop-nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="club.html">À propos</a>
+      <a href="collection.html" aria-current="page">Le Musée</a>
+      <a href="evenementiel.html">Événementiel</a>
+      <a href="garage.html">Le Garage</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="tickets.html">Billetterie</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="nav-cta secondary" href="demande-devis.html">Réserver le Club</a>
+      <a class="nav-cta primary" href="garage-reservation.html">Réserver une table</a>
+    </div>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <aside class="mobile-panel" id="mobilePanel" aria-label="Menu mobile">
+    <a href="index.html">Accueil</a>
+    <a href="club.html">À propos</a>
+    <a href="collection.html">Le Musée</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="evenementiel.html">Événementiel</a>
+    <a href="actualites.html">Actualités</a>
+    <a href="tickets.html">Billetterie</a>
+  </aside>
+</header><main><section class="hero" style="background-image: url('assets/park-auto/citroen-hy.jpg');" aria-labelledby="vehicle-title"><div class="section-inner"><div class="breadcrumb"><a href="index.html">Accueil</a> / <a href="collection.html">Collection</a> / Citroën HY</div><span class="eyebrow">Fiche véhicule · page source 72</span><h1 id="vehicle-title">Citroën HY</h1><p class="hero-copy">Issue du parc automobile du Musée, Citroën HY (1979) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1948 - 1981, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="hero-meta" aria-label="Repères du véhicule"><div><strong>1979</strong><span>Année</span></div><div><strong>1948 - 1981</strong><span>Période</span></div><div><strong>France</strong><span>Origine</span></div><div><strong>Utilitaire</strong><span>Famille</span></div></div></div></section><section class="section"><div class="section-inner detail-grid"><article class="panel story"><div class="panel-body"><span class="eyebrow">Récit de la pièce</span><h2>Un témoin de son époque.</h2><p>Issue du parc automobile du Musée, Citroën HY (1979) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1948 - 1981, avec une origine française et une lecture pensée pour la transmission au public.</p><p>Présentée comme une entrée du parcours patrimonial, cette pièce permet au visiteur d’observer les choix de design, de mécanique et d’usage propres à son époque. Elle prolonge le récit du Musée de l’Automobile du Maroc: comprendre la mobilité par les objets, les silhouettes et les gestes techniques.</p><p>La fiche source du parc auto indique 1979 comme repère d’année et rattache le modèle à 1948 - 1981. Les données techniques ci-contre complètent la lecture muséale par une approche concrète: moteur, transmission, poids, vitesse ou usage.</p><p>Avant même la Seconde Guerre mondiale, il était question de remplacer le vieillissant TUB2 par un nouveau véhicule utilitaire. Le cahier des charges établi par Pierre Boulanger, alors directeur de Citroën, visait la création d'un véhicule monocoque à traction avant, reprenant des éléments de la Traction Avant.</p><div class="keyword-cloud"><span>France</span><span>1979</span><span>apres-guerre</span><span>utilitaire</span><span>france</span></div><div class="actions"><a class="btn btn-primary" href="collection.html#collection-grid">Retour à la collection</a><a class="btn btn-secondary" href="vehicule-chevrolet-6400-master-truck.html">Fiche précédente</a><a class="btn btn-secondary" href="vehicule-autocar-volvo-60.html">Fiche suivante</a></div></div></article><aside class="panel"><img class="source-image" src="assets/park-auto/citroen-hy.jpg" alt="Citroën HY" loading="lazy"><div class="panel-body"><span class="eyebrow">Données techniques</span><div class="spec-list"><div class="spec-line"><b>Cylindrée</b><span>1911 cm3</span></div><div class="spec-line"><b>Vitesse maximale</b><span>100 km/h</span></div><div class="spec-line"><b>Poids</b><span>1500 Kg</span></div><div class="spec-line"><b>Repère</b><span>cylindres, d'une suspension arrière performante et utiliser un maximum de pièces déjà</span></div><div class="spec-line"><b>Repère</b><span>charge allant de 2,25 à 2,6 tonnes en poids total autorisé en charge (PTAC). Le fourgon se</span></div></div></div></aside></div></section><section class="section"><div class="section-inner"><span class="eyebrow">À voir aussi</span><h2 class="related-title">Autres pièces de la collection.</h2><div class="related">
+        <a class="related-card" href="vehicule-holder-b10d.html"><img src="assets/park-auto/holder-b10d.jpg" alt="Holder B10D" loading="lazy"><div><span>1957</span><h3>Holder B10D</h3></div></a>
+        <a class="related-card" href="vehicule-hypomobile-phaeton-tabatiere.html"><img src="assets/park-auto/hypomobile-phaeton-tabatiere.jpg" alt="Hypomobile Phaéton Tabatière" loading="lazy"><div><span>1878</span><h3>Hypomobile Phaéton Tabatière</h3></div></a>
+        <a class="related-card" href="vehicule-bugatti-type-35-grand-prix.html"><img src="assets/park-auto/bugatti-type-35-grand-prix.jpg" alt="Bugatti Type 35 Grand Prix" loading="lazy"><div><span>1926</span><h3>Bugatti Type 35 Grand Prix</h3></div></a>
+      </div></div></section></main><footer class="footer">
+  <div class="section-inner footer-grid">
+    <div>
+      <img class="footer-logo" src="assets/musee-automobile-logo-gold.png" alt="Logo du Musée de l'Automobile du Maroc">
+      <h2>Musée de l’Automobile du Maroc</h2>
+      <p>Plus qu’un musée, une expérience: patrimoine automobile, design, transmission et émotion à Casablanca.</p>
+    </div>
+    <div>
+      <h3>Collection</h3>
+      <a href="collection.html">Inventaire</a>
+      <a href="timeline.html">Timeline automobile</a>
+      <a href="autoguide.html">Autoguide digital</a>
+    </div>
+    <div>
+      <h3>Visiter</h3>
+      <a href="tickets.html">Acheter des billets</a>
+      <a href="horaires.html">Horaires</a>
+      <a href="visites-scolaires.html">Visites scolaires</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>Route de Bouskoura, Casablanca<br>Mar-Dim · 10h-18h<br>contact@museeautomobile.ma</p>
+    </div>
+  </div>
+  <div class="section-inner footer-bottom"><span>© 2026 Musée de l’Automobile du Maroc.</span><span>FR · EN</span>
+        <span class="footer-legal" style="display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end"><a href="mentions-legales.html">Mentions légales</a><a href="politique-confidentialite.html">Confidentialité</a><a href="politique-cookies.html">Cookies</a><a href="cgv-billetterie.html">CGV</a><a href="plan-site.html">Plan du site</a></span></div>
+</footer><script>
+  const body = document.body;
+  const header = document.querySelector('#siteHeader');
+  const toggle = document.querySelector('.menu-toggle');
+  const setHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
+  window.addEventListener('scroll', setHeader, { passive: true });
+  setHeader();
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.setAttribute('aria-label', open ? 'Ouvrir le menu' : 'Fermer le menu');
+    body.classList.toggle('nav-open', !open);
+  });
+  document.querySelector('#mobilePanel')?.addEventListener('click', (event) => {
+    if (!event.target.closest('a')) return;
+    toggle?.setAttribute('aria-expanded', 'false');
+    body.classList.remove('nav-open');
+  });
+</script></body></html>

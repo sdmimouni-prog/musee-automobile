@@ -1,0 +1,2553 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Team building automobile Musée: parcours musée, challenges, ateliers, observation, coopération et expérience collective.">
+  <title>Team Building | Musée de l’Automobile du Maroc</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --carbon: #0b0b0b;
+      --carbon-soft: #111111;
+      --concrete: #1a1a1a;
+      --bronze: #b37a3a;
+      --bronze-deep: #8c6735;
+      --bronze-light: #c79a57;
+      --aluminium: #5f6368;
+      --quartz: #f5f5f3;
+      --fire: #b11226;
+      --line: rgba(179, 122, 58, 0.28);
+      --glass: rgba(5, 5, 5, 0.78);
+      --shadow: 0 26px 90px rgba(0, 0, 0, 0.58);
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Montserrat", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--carbon);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--quartz);
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at 18% 10%, rgba(179, 122, 58, 0.2), transparent 30rem),
+        radial-gradient(circle at 84% 6%, rgba(199, 154, 87, 0.11), transparent 28rem),
+        repeating-linear-gradient(135deg, rgba(245, 245, 243, 0.018) 0 1px, transparent 1px 9px),
+        linear-gradient(180deg, #030303 0%, var(--carbon) 46%, #070707 100%);
+      letter-spacing: 0;
+    }
+
+    body.nav-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(179, 122, 58, 0.28);
+      background: rgba(3, 3, 3, 0.82);
+      backdrop-filter: blur(20px) saturate(120%);
+      transition: background 220ms ease, border-color 220ms ease;
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(3, 3, 3, 0.94);
+      border-bottom-color: rgba(199, 154, 87, 0.42);
+    }
+
+    .nav-wrap {
+      height: 82px;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      min-width: 154px;
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-mark {
+      width: 150px;
+      height: 150px;
+      border-radius: 0;
+      object-fit: contain;
+      transform: translateY(34px);
+      box-shadow: none;
+      filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.62));
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      flex: 1;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-home {
+      display: inline-flex;
+      align-items: center;
+      min-height: 82px;
+      padding: 0 12px;
+      color: rgba(245, 245, 243, 0.76);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 180ms ease;
+    }
+
+    .nav-home:hover,
+    .nav-home:focus-visible {
+      color: var(--bronze-light);
+      outline: none;
+    }
+
+    .nav-link {
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: rgba(245, 245, 243, 0.76);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 82px;
+      padding: 0 12px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 180ms ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      opacity: 0.7;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible,
+    .nav-item.is-active .nav-link {
+      color: var(--bronze-light);
+      outline: none;
+    }
+
+    .nav-link.ticket {
+      color: var(--bronze-light);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 76px;
+      left: 50%;
+      width: min(760px, calc(100vw - 48px));
+      padding: 22px;
+      transform: translate(-50%, 12px);
+      border: 1px solid rgba(215, 178, 109, 0.22);
+      background: rgba(8, 8, 8, 0.96);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .nav-item:hover .dropdown,
+    .nav-item:focus-within .dropdown,
+    .nav-item.is-active .dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
+    }
+
+    .dropdown-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .dropdown h3 {
+      margin: 0 0 12px;
+      color: var(--bronze-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      color: rgba(245, 245, 243, 0.82);
+      font-size: 13px;
+      line-height: 1.35;
+      transition: color 160ms ease, transform 160ms ease;
+    }
+
+    .dropdown a span {
+      display: block;
+      margin-top: 3px;
+      color: rgba(183, 188, 195, 0.58);
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    .dropdown a:hover,
+    .dropdown a:focus-visible {
+      color: var(--bronze-light);
+      outline: none;
+      transform: translateX(3px);
+    }
+
+    .nav-ctas {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+      min-width: 300px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--bronze-light), var(--bronze) 52%, var(--bronze-deep));
+      color: #050505;
+      border-color: rgba(199, 154, 87, 0.74);
+      box-shadow: 0 12px 30px rgba(179, 122, 58, 0.18);
+    }
+
+    .btn-secondary {
+      color: var(--quartz);
+      border-color: rgba(215, 178, 109, 0.5);
+      background: rgba(156, 123, 82, 0.08);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(156, 123, 82, 0.2);
+    }
+
+    .btn-ghost {
+      color: var(--quartz);
+      border-color: rgba(245, 245, 243, 0.34);
+      background: rgba(245, 245, 243, 0.04);
+    }
+
+    .btn-dark {
+      color: var(--quartz);
+      background: rgba(11, 11, 11, 0.72);
+      border-color: rgba(215, 178, 109, 0.36);
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(215, 178, 109, 0.34);
+      background: rgba(8, 8, 8, 0.5);
+      color: var(--quartz);
+      cursor: pointer;
+    }
+
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      content: "";
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .menu-toggle span::before {
+      transform: translateY(-7px);
+    }
+
+    .menu-toggle span::after {
+      transform: translateY(5px);
+    }
+
+    .menu-toggle[aria-expanded="true"] span {
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span::before {
+      transform: translateY(0) rotate(90deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span::after {
+      opacity: 0;
+    }
+
+    .mobile-panel {
+      display: none;
+    }
+
+
+    .hero {
+      height: clamp(270px, 32vh, 300px);
+      display: grid;
+      align-items: end;
+      padding: 104px 34px 26px;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5) 46%, rgba(0, 0, 0, 0.16)),
+        linear-gradient(0deg, #0b0b0b 0%, rgba(11, 11, 11, 0.12) 36%),
+        url("assets/cars-real/cam-roadster-1962-front.jpg") center / cover,
+        #050505;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+      background-size: 92px 92px;
+      mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.78), transparent 74%);
+      pointer-events: none;
+    }
+
+    .section-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: var(--bronze-light);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin-bottom: 18px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.35rem, 4.2vw, 4.15rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 780px;
+      color: rgba(245, 245, 243, 0.82);
+      font-size: clamp(0.96rem, 1.2vw, 1.08rem);
+      line-height: 1.55;
+      margin-bottom: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 0;
+    }
+
+    .hero-quickbar {
+      padding: 20px 34px;
+      border-top: 1px solid rgba(215, 178, 109, 0.18);
+      border-bottom: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(5, 5, 5, 0.88);
+    }
+
+    .hero-quickbar .section-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      width: min(580px, 100%);
+      border: 1px solid rgba(215, 178, 109, 0.2);
+      background: rgba(8, 8, 8, 0.62);
+      backdrop-filter: blur(16px);
+    }
+
+    .stat {
+      padding: 14px 16px;
+      border-right: 1px solid rgba(215, 178, 109, 0.16);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--bronze-light);
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 0.9;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(245, 245, 243, 0.76);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 96px 34px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(260px, 0.55fr);
+      gap: 52px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .section-title {
+      margin-bottom: 0;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.4vw, 5rem);
+      font-weight: 700;
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      color: rgba(183, 188, 195, 0.84);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .filter-btn {
+      min-height: 40px;
+      padding: 0 16px;
+      border: 1px solid rgba(215, 178, 109, 0.28);
+      background: rgba(245, 245, 243, 0.03);
+      color: rgba(245, 245, 243, 0.78);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn:focus-visible,
+    .filter-btn[aria-pressed="true"] {
+      background: var(--bronze-light);
+      color: #090909;
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .vehicle-card {
+      min-height: 510px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(17, 17, 17, 0.82);
+      overflow: hidden;
+      box-shadow: 0 18px 54px rgba(0, 0, 0, 0.22);
+      transition: transform 200ms ease, border-color 200ms ease;
+    }
+
+    .vehicle-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(215, 178, 109, 0.44);
+    }
+
+    .vehicle-card.is-hidden {
+      display: none;
+    }
+
+    .period-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .era-rail {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(8, 8, 8, 0.58);
+    }
+
+    .era-rail a {
+      min-height: 180px;
+      padding: 24px;
+      border-right: 1px solid rgba(215, 178, 109, 0.14);
+      transition: background 180ms ease, transform 180ms ease;
+    }
+
+    .era-rail a:last-child {
+      border-right: 0;
+    }
+
+    .era-rail a:hover,
+    .era-rail a:focus-visible {
+      background: rgba(156, 123, 82, 0.16);
+      transform: translateY(-3px);
+      outline: none;
+    }
+
+    .era-rail strong {
+      display: block;
+      color: var(--bronze-light);
+      font-family: var(--serif);
+      font-size: 34px;
+      line-height: 0.95;
+    }
+
+    .era-rail span {
+      display: block;
+      margin-top: 18px;
+      color: rgba(245, 245, 243, 0.78);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .moments-section {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent), var(--carbon-soft);
+      border-top: 1px solid rgba(215, 178, 109, 0.16);
+      border-bottom: 1px solid rgba(215, 178, 109, 0.16);
+    }
+
+    .moment-list {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .moment-list::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 102px;
+      width: 1px;
+      background: rgba(215, 178, 109, 0.22);
+    }
+
+    .moment-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      min-height: 190px;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(8, 8, 8, 0.64);
+      overflow: hidden;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .moment-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(215, 178, 109, 0.42);
+    }
+
+    .moment-card.is-hidden {
+      display: none;
+    }
+
+    .moment-card.has-image {
+      grid-template-columns: 150px minmax(240px, 0.42fr) minmax(0, 1fr);
+    }
+
+    .moment-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 220px;
+    }
+
+    .moment-year {
+      display: grid;
+      place-items: center;
+      color: var(--bronze-light);
+      font-family: var(--serif);
+      font-size: 48px;
+      line-height: 1;
+      border-right: 1px solid rgba(215, 178, 109, 0.16);
+    }
+
+    .moment-body {
+      padding: 28px;
+      align-self: center;
+    }
+
+    .moment-period {
+      color: var(--bronze-light);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .moment-body h3 {
+      margin: 10px 0;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .moment-body p {
+      max-width: 760px;
+      color: rgba(245, 245, 243, 0.74);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .focus-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.7fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .focus-copy p {
+      color: rgba(245, 245, 243, 0.76);
+      font-size: 16px;
+      line-height: 1.85;
+      margin: 24px 0 30px;
+    }
+
+    .focus-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border: 1px solid rgba(215, 178, 109, 0.2);
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.68)),
+        url("assets/cars-real/cam-mercedes-pagoda.jpg") center / cover;
+    }
+
+    .focus-panel div {
+      min-height: 180px;
+      padding: 24px;
+      border-right: 1px solid rgba(215, 178, 109, 0.14);
+      border-bottom: 1px solid rgba(215, 178, 109, 0.14);
+      background: rgba(0, 0, 0, 0.38);
+    }
+
+    .focus-panel div:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .focus-panel div:nth-last-child(-n + 2) {
+      border-bottom: 0;
+    }
+
+    .focus-panel strong {
+      display: block;
+      color: var(--bronze-light);
+      font-family: var(--serif);
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .focus-panel span {
+      display: block;
+      margin-top: 12px;
+      color: rgba(245, 245, 243, 0.78);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .linked-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .linked-card {
+      position: relative;
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: var(--card-image) center / cover;
+    }
+
+    .linked-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.86));
+      transition: background 180ms ease;
+    }
+
+    .linked-card:hover::before,
+    .linked-card:focus-visible::before {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.76));
+    }
+
+    .linked-card span,
+    .linked-card strong {
+      position: relative;
+      z-index: 1;
+    }
+
+    .linked-card span {
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .linked-card strong {
+      margin-top: 10px;
+      font-family: var(--serif);
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .vehicle-media {
+      height: 275px;
+      overflow: hidden;
+      background: var(--concrete);
+    }
+
+    .vehicle-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.01);
+      transition: transform 420ms ease;
+    }
+
+    .vehicle-card:hover img {
+      transform: scale(1.055);
+    }
+
+    .vehicle-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+    }
+
+    .vehicle-year {
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .vehicle-body h3 {
+      margin: 12px 0 10px;
+      font-family: var(--serif);
+      font-size: 33px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .vehicle-body p {
+      color: rgba(245, 245, 243, 0.72);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .vehicle-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 22px;
+    }
+
+    .vehicle-meta span {
+      padding: 6px 9px;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      color: rgba(183, 188, 195, 0.82);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .feature-band {
+      border-top: 1px solid rgba(215, 178, 109, 0.16);
+      border-bottom: 1px solid rgba(215, 178, 109, 0.16);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+        var(--carbon-soft);
+    }
+
+    .feature-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.7fr);
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .feature-image {
+      min-height: 560px;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.44)),
+        var(--feature-image, url("assets/cars-real/cam-roadster-1962-front.jpg")) center / cover,
+        var(--concrete);
+    }
+
+    .feature-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 46px;
+      border: 1px solid rgba(215, 178, 109, 0.22);
+      background: rgba(8, 8, 8, 0.7);
+    }
+
+    .feature-panel h2 {
+      margin: 20px 0 18px;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.4vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .feature-panel p {
+      color: rgba(245, 245, 243, 0.76);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .specs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: 28px 0 32px;
+      border: 1px solid rgba(215, 178, 109, 0.16);
+    }
+
+    .spec {
+      padding: 16px 14px;
+      border-right: 1px solid rgba(215, 178, 109, 0.14);
+    }
+
+    .spec:last-child {
+      border-right: 0;
+    }
+
+    .spec strong {
+      display: block;
+      color: var(--quartz);
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .spec span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(183, 188, 195, 0.72);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(8, 8, 8, 0.56);
+    }
+
+    .time-item {
+      min-height: 190px;
+      padding: 24px;
+      border-right: 1px solid rgba(215, 178, 109, 0.14);
+    }
+
+    .time-item:last-child {
+      border-right: 0;
+    }
+
+    .time-item strong {
+      display: block;
+      color: var(--bronze-light);
+      font-family: var(--serif);
+      font-size: 42px;
+      line-height: 0.9;
+    }
+
+    .time-item span {
+      display: block;
+      margin-top: 18px;
+      color: rgba(245, 245, 243, 0.82);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .visit-strip {
+      padding: 86px 34px;
+      background:
+        linear-gradient(90deg, rgba(8, 8, 8, 0.9), rgba(8, 8, 8, 0.66)),
+        url("assets/cars-real/cam-mercedes-pagoda.jpg") center / cover,
+        #111;
+    }
+
+    .visit-content {
+      max-width: 720px;
+    }
+
+    .visit-content h2 {
+      margin-bottom: 18px;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.4vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .visit-content p {
+      color: rgba(245, 245, 243, 0.78);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .footer {
+      padding: 64px 34px 28px;
+      border-top: 1px solid rgba(215, 178, 109, 0.2);
+      background: #050505;
+    }
+
+    .footer-grid {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(260px, 1.2fr) repeat(3, minmax(150px, 0.6fr));
+      gap: 42px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .footer-logo {
+      width: 132px;
+      height: 132px;
+      border-radius: 0;
+      object-fit: contain;
+      box-shadow: none;
+      filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.58));
+    }
+
+    .footer h2 {
+      margin: 0;
+      color: var(--quartz);
+      font-family: var(--serif);
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .footer p {
+      max-width: 430px;
+      color: rgba(183, 188, 195, 0.78);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .footer h3 {
+      margin-bottom: 16px;
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .footer a,
+    .footer li {
+      color: rgba(245, 245, 243, 0.72);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .footer a:hover,
+    .footer a:focus-visible {
+      color: var(--bronze-light);
+      outline: none;
+    }
+
+    .footer ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-bottom {
+      width: min(1180px, 100%);
+      margin: 42px auto 0;
+      padding-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid rgba(215, 178, 109, 0.16);
+      color: rgba(183, 188, 195, 0.64);
+      font-size: 12px;
+    }
+
+    .languages {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .languages a {
+      width: 38px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(215, 178, 109, 0.3);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 20px;
+      line-height: 1;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .languages a:hover,
+    .languages a:focus-visible {
+      background: rgba(215, 178, 109, 0.08);
+      border-color: var(--bronze-light);
+      transform: translateY(-2px);
+    }
+
+    .language-flag {
+      display: block;
+      transform: translateY(1px);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 620ms ease, transform 620ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--bronze-light);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 1180px) {
+      .nav-wrap {
+        padding: 0 22px;
+      }
+
+      .brand {
+        min-width: auto;
+      }
+
+      .desktop-nav,
+      .nav-ctas {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-panel {
+        position: fixed;
+        inset: 82px 0 0;
+        z-index: 49;
+        display: block;
+        overflow-y: auto;
+        padding: 18px 22px 34px;
+        background: rgba(5, 5, 5, 0.98);
+        transform: translateX(100%);
+        transition: transform 220ms ease;
+      }
+
+      .mobile-home {
+        display: block;
+        padding: 0 0 18px;
+        margin-bottom: 2px;
+        border-bottom: 1px solid rgba(215, 178, 109, 0.16);
+        color: var(--bronze-light);
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      body.nav-open .mobile-panel {
+        transform: translateX(0);
+      }
+
+      .mobile-group {
+        border-bottom: 1px solid rgba(215, 178, 109, 0.16);
+      }
+
+      .mobile-trigger {
+        width: 100%;
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 0;
+        background: transparent;
+        color: var(--quartz);
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: left;
+      }
+
+      .mobile-trigger::after {
+        content: "+";
+        color: var(--bronze-light);
+        font-size: 24px;
+        font-weight: 400;
+      }
+
+      .mobile-trigger[aria-expanded="true"]::after {
+        content: "-";
+      }
+
+      .mobile-links {
+        display: none;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 18px;
+        padding: 0 0 18px;
+      }
+
+      .mobile-links.is-open {
+        display: grid;
+      }
+
+      .mobile-links a {
+        color: rgba(245, 245, 243, 0.74);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .mobile-ctas {
+        display: grid;
+        gap: 10px;
+        margin-top: 22px;
+      }
+    }
+
+
+    @media (max-width: 940px) {
+      .hero {
+        height: clamp(290px, 34vh, 330px);
+        padding: 112px 22px 30px;
+      }
+
+      .section,
+      .visit-strip,
+      .hero-quickbar {
+        padding: 76px 22px;
+      }
+
+      .hero-quickbar {
+        padding-top: 22px;
+        padding-bottom: 22px;
+      }
+
+      .section-head,
+      .feature-layout,
+      .footer-grid,
+      .hero-quickbar .section-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-quickbar .section-inner {
+        display: grid;
+      }
+
+      .collection-grid,
+      .linked-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .era-rail,
+      .focus-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .era-rail a {
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid rgba(215, 178, 109, 0.14);
+      }
+
+      .era-rail a:last-child {
+        border-bottom: 0;
+      }
+
+      .moment-card,
+      .moment-card.has-image {
+        grid-template-columns: 1fr;
+      }
+
+      .moment-list::before {
+        display: none;
+      }
+
+      .moment-year {
+        min-height: 92px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(215, 178, 109, 0.16);
+      }
+
+      .hero-stats,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .stat,
+      .time-item {
+        border-right: 0;
+        border-bottom: 1px solid rgba(215, 178, 109, 0.14);
+      }
+
+      .stat:last-child,
+      .time-item:last-child {
+        border-bottom: 0;
+      }
+
+      .feature-image {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-wrap {
+        height: 72px;
+      }
+
+      .brand-mark {
+        width: 116px;
+        height: 116px;
+        transform: translateY(28px);
+      }
+
+      .mobile-panel {
+        inset: 72px 0 0;
+      }
+
+      .hero {
+        height: 340px;
+        padding: 106px 18px 28px;
+      }
+
+      h1 {
+        font-size: clamp(2.15rem, 8.8vw, 3rem);
+      }
+
+      .hero-actions,
+      .visit-content .hero-actions {
+        display: grid;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .collection-grid,
+      .linked-grid,
+      .focus-panel,
+      .specs {
+        grid-template-columns: 1fr;
+      }
+
+      .focus-panel div,
+      .focus-panel div:nth-child(2n),
+      .focus-panel div:nth-last-child(-n + 2) {
+        border-right: 0;
+        border-bottom: 1px solid rgba(215, 178, 109, 0.14);
+      }
+
+      .focus-panel div:last-child {
+        border-bottom: 0;
+      }
+
+      .vehicle-card {
+        min-height: auto;
+      }
+
+      .feature-panel {
+        padding: 28px;
+      }
+
+      .feature-image {
+        min-height: 320px;
+      }
+
+      .spec {
+        border-right: 0;
+        border-bottom: 1px solid rgba(215, 178, 109, 0.14);
+      }
+
+      .spec:last-child {
+        border-bottom: 0;
+      }
+
+      .footer {
+        padding: 54px 20px 24px;
+      }
+
+      .footer-brand {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
+    .visit-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .visit-card {
+      min-height: 320px;
+      padding: 28px;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(8, 8, 8, 0.64);
+      display: flex;
+      flex-direction: column;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .visit-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(215, 178, 109, 0.42);
+    }
+
+    .visit-card .tag {
+      color: var(--bronze-light);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .visit-card h3 {
+      margin: 14px 0 12px;
+      font-family: var(--serif);
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .visit-card p,
+    .visit-list li,
+    .info-panel p {
+      color: rgba(245, 245, 243, 0.74);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .visit-card .price {
+      margin-top: auto;
+      padding-top: 24px;
+      color: var(--bronze-light);
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .visit-card .small-note {
+      display: block;
+      margin-top: 8px;
+      color: rgba(183, 188, 195, 0.74);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .visit-card .card-action {
+      margin-top: 18px;
+      align-self: flex-start;
+    }
+
+    .process-grid,
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .process-step,
+    .info-panel {
+      padding: 24px;
+      border: 1px solid rgba(215, 178, 109, 0.16);
+      background: rgba(17, 17, 17, 0.72);
+    }
+
+    .process-step strong,
+    .info-panel strong {
+      display: block;
+      color: var(--bronze-light);
+      font-family: var(--serif);
+      font-size: 32px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .visit-list {
+      margin: 16px 0 0;
+      padding-left: 18px;
+    }
+
+    .schedule-table {
+      display: grid;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(8, 8, 8, 0.62);
+    }
+
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 0.7fr 1fr 1fr;
+      gap: 18px;
+      padding: 22px 26px;
+      border-bottom: 1px solid rgba(215, 178, 109, 0.14);
+      align-items: center;
+    }
+
+    .schedule-row:last-child {
+      border-bottom: 0;
+    }
+
+    .schedule-row strong {
+      color: var(--bronze-light);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .schedule-row span {
+      color: rgba(245, 245, 243, 0.82);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .map-panel {
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+        linear-gradient(135deg, rgba(156, 123, 82, 0.16), rgba(8, 8, 8, 0.85));
+      background-size: 62px 62px, 62px 62px, auto;
+      text-align: center;
+      padding: 32px;
+    }
+
+    .map-panel strong {
+      color: var(--bronze-light);
+      font-family: var(--serif);
+      font-size: 46px;
+      line-height: 1;
+    }
+
+    .phone-demo {
+      max-width: 360px;
+      margin: 0 auto;
+      padding: 18px;
+      border: 1px solid rgba(215, 178, 109, 0.24);
+      border-radius: 28px;
+      background: linear-gradient(180deg, #171717, #050505);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.42);
+    }
+
+    .phone-screen {
+      min-height: 560px;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      border-radius: 20px;
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.84)),
+        url("assets/cars-real/cam-roadster-1962-front.jpg") center / cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .phone-screen span {
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .phone-screen h3 {
+      margin: 10px 0 12px;
+      font-family: var(--serif);
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    .phone-screen p {
+      color: rgba(245, 245, 243, 0.78);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 940px) {
+      .visit-card-grid,
+      .process-grid,
+      .info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .schedule-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .visit-card-grid,
+      .process-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .phone-demo {
+        max-width: 100%;
+      }
+    }
+
+  
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .event-card,
+    .event-panel,
+    .offer-card,
+    .request-card,
+    .capacity-card {
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(8, 8, 8, 0.64);
+      padding: 28px;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .event-card:hover,
+    .offer-card:hover,
+    .capacity-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(215, 178, 109, 0.42);
+    }
+
+    .event-card h3,
+    .event-panel h3,
+    .offer-card h3,
+    .request-card h3,
+    .capacity-card h3 {
+      margin: 0 0 12px;
+      font-family: var(--serif);
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .event-card p,
+    .event-panel p,
+    .offer-card p,
+    .request-card p,
+    .capacity-card p,
+    .event-list li,
+    .event-note {
+      color: rgba(245, 245, 243, 0.72);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .event-card .tag,
+    .offer-card .tag,
+    .capacity-card .tag {
+      display: inline-flex;
+      margin-bottom: 16px;
+      color: var(--bronze-light);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .capacity-strip,
+    .event-kpis {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .capacity {
+      border-top: 1px solid rgba(215, 178, 109, 0.26);
+      padding-top: 16px;
+    }
+
+    .capacity strong {
+      display: block;
+      color: var(--bronze-light);
+      font-family: var(--serif);
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .capacity span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(245, 245, 243, 0.62);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .event-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .event-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(215, 178, 109, 0.14);
+    }
+
+    .event-list strong {
+      color: var(--bronze-light);
+    }
+
+
+    .event-card.has-photo,
+    .capacity-card.has-photo {
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-card.has-photo .event-photo,
+    .capacity-card.has-photo .event-photo {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.9) contrast(1.04);
+      transition: transform 360ms ease, filter 360ms ease;
+    }
+
+    .event-card.has-photo:hover .event-photo,
+    .capacity-card.has-photo:hover .event-photo {
+      transform: scale(1.035);
+      filter: saturate(1) contrast(1.08);
+    }
+
+    .event-card.has-photo .event-content,
+    .capacity-card.has-photo .event-content {
+      padding: 26px;
+    }
+
+    .event-gallery {
+      display: grid;
+      grid-template-columns: 1.18fr 1fr 1fr;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .event-gallery figure {
+      min-height: 100%;
+      margin: 0;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(8, 8, 8, 0.64);
+      overflow: hidden;
+    }
+
+    .event-gallery img {
+      width: 100%;
+      height: 100%;
+      min-height: 270px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.92) contrast(1.06);
+    }
+
+    .event-gallery figcaption {
+      border-top: 1px solid rgba(215, 178, 109, 0.16);
+      padding: 14px 16px;
+      color: rgba(245, 245, 243, 0.72);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .team-mosaic {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .team-mosaic figure {
+      min-height: 230px;
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(8, 8, 8, 0.64);
+    }
+
+    .team-mosaic figure:first-child {
+      grid-row: span 2;
+      min-height: 480px;
+    }
+
+    .team-mosaic img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      filter: saturate(0.95) contrast(1.05);
+      transition: transform 360ms ease;
+    }
+
+    .team-mosaic figure:hover img {
+      transform: scale(1.035);
+    }
+
+    .team-mosaic figcaption {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      padding: 10px 12px;
+      color: var(--quartz);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.35;
+      background: rgba(5, 5, 5, 0.68);
+      backdrop-filter: blur(12px);
+    }
+
+    .offer-card.is-featured {
+      border-color: rgba(215, 178, 109, 0.52);
+      background: linear-gradient(180deg, rgba(156, 123, 82, 0.2), rgba(8, 8, 8, 0.72));
+    }
+
+    .event-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .event-form .field-full {
+      grid-column: 1 / -1;
+    }
+
+    .event-form label {
+      display: grid;
+      gap: 8px;
+      color: var(--bronze-light);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .event-form input,
+    .event-form select,
+    .event-form textarea {
+      min-height: 48px;
+      border: 1px solid rgba(215, 178, 109, 0.22);
+      background: rgba(245, 245, 243, 0.04);
+      color: var(--quartz);
+      padding: 0 14px;
+      font: inherit;
+    }
+
+    .event-form textarea {
+      min-height: 130px;
+      padding-top: 14px;
+      resize: vertical;
+    }
+
+    .download-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(245, 245, 243, 0.04);
+      padding: 22px;
+    }
+
+    @media (max-width: 980px) {
+      .event-grid,
+      .event-gallery,
+      .team-mosaic,
+      .capacity-strip,
+      .event-kpis {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .team-mosaic figure:first-child {
+        grid-row: auto;
+        min-height: 260px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .event-grid,
+      .event-gallery,
+      .team-mosaic,
+      .capacity-strip,
+      .event-kpis,
+      .event-form,
+      .download-card {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html" aria-label="Musée de l’Automobile du Maroc - accueil">
+        <img class="brand-mark" src="assets/musee-automobile-logo-gold.png" alt="Logo officiel du Musée de l’Automobile du Maroc">
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html">Accueil</a>
+        <div class="nav-item">
+          <button class="nav-link" type="button">À propos</button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <div>
+                <h3>Institution</h3>
+                <a href="club.html">Notre histoire<span>Fondation &amp; vision</span></a>
+                <a href="mot-president.html">Le mot du Président<span>Transmission et passion</span></a>
+                <a href="partenaires.html">Nos partenaires<span>Institutionnels &amp; corporate</span></a>
+              </div>
+              <div>
+                <h3>Adhésion</h3>
+                <a href="devenir-membre.html">Devenir membre<span>Avantages &amp; formules</span></a>
+                <a href="espace-membres.html">Espace membres<span>Connexion</span></a>
+              </div>
+              <div>
+                <h3>Academy</h3>
+                <a href="automotive-academy.html">Automotive Academy<span>Formations &amp; expertise</span></a>
+                <a href="programmes.html">Nos programmes<span>Certifications auto</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button">Le Musée</button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <div>
+                <h3>Découvrir</h3>
+                <a href="collection.html">La collection<span>Véhicules &amp; expositions</span></a>
+                <a href="timeline.html">Timeline automobile<span>Maroc &amp; monde</span></a>
+                <a href="batiment-histoire.html">Le bâtiment &amp; l'histoire<span>Architecture et patrimoine</span></a>
+              </div>
+              <div>
+                <h3>Visiter</h3>
+                <a href="tickets.html">Acheter des billets<span>Individuel, famille, scolaire</span></a>
+                <a href="horaires.html">Horaires &amp; accès<span>Route de Bouskoura</span></a>
+                <a href="audioguide.html">Audioguide digital<span>FR / AR / EN</span></a>
+                  <a href="visites-scolaires.html">Visites scolaires<span>Parcours éducatif</span></a>
+              </div>
+              <div>
+                <h3>Expositions</h3>
+                <a href="collection.html#collection-grid">Expositions permanentes<span>Collection fondatrice</span></a>
+                <a href="index.html#news">Expositions temporaires<span>En ce moment</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button">Événementiel</button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <div>
+                <h3>Espaces</h3>
+                <a href="espaces-evenementiels.html">Les salles<span>Réunions, gala, conférences</span></a>
+                <a href="parc-automobile.html">Le parc automobile<span>Expositions et shootings</span></a>
+                <a href="terrasse-evenementielle.html">La terrasse<span>Réception en plein air</span></a>
+              </div>
+              <div>
+                <h3>Entreprises</h3>
+                <a href="seminaires-conferences.html">Séminaires &amp; conférences<span>Offre corporate</span></a>
+                  <a href="professionnels-b2b.html">Professionnels &amp; B2B<span>Conventions, lancements, presse</span></a>
+                <a href="team-building.html">Team building<span>Activités sur mesure</span></a>
+                  <a href="services-evenementiels.html">Services événementiels<span>Technique, scénographie, catering</span></a>
+                <a href="dossier-evenementiel.html">Dossier événementiel<span>Télécharger</span></a>
+              </div>
+              <div>
+                <h3>Privé</h3>
+                <a href="mariages-receptions.html">Mariages &amp; réceptions<span>Cadre unique</span></a>
+                <a href="anniversaires-galas.html">Anniversaires &amp; galas<span>Moments signature</span></a>
+                <a href="demande-devis.html">Demander un devis<span>Formulaire rapide</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button">Le Garage</button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <div>
+                <h3>Restaurant</h3>
+                <a href="garage.html">Le Garage<span>Concept &amp; expérience</span></a>
+                <a href="garage-carte.html">La carte<span>Menu signature &amp; desserts</span></a>
+                <a href="garage-cuisine.html">La cuisine ouverte<span>Atelier culinaire</span></a>
+              </div>
+              <div>
+                <h3>Équipe</h3>
+                <a href="garage-chefs.html">Les chefs<span>Vision &amp; transmission</span></a>
+                <a href="garage-temps-forts.html">Temps forts<span>Ramadan, cocktails, actualités</span></a>
+                <a href="garage-reservation.html">Réserver une table<span>Déjeuner, dîner, brunch</span></a>
+              </div>
+              <div>
+                <h3>Infos</h3>
+                <a href="garage-reservation.html#horaires">Horaires<span>12h-16h / 19h-23h45</span></a>
+                <a href="garage-reservation.html#acces">Accès &amp; contact<span>Route de Bouskoura</span></a>
+                <a href="demande-devis.html">Privatiser Le Garage<span>Groupes &amp; événements</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button">Actualité</button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <div>
+                <h3>Contenus</h3>
+                <a href="actualites.html">News &amp; communiqués<span>Dernières nouvelles</span></a>
+                <a href="communique-detail.html">Communiqué officiel<span>Modèle éditorial</span></a>
+                <a href="agenda.html">Agenda<span>Événements à venir</span></a>
+              </div>
+              <div>
+                <h3>Média</h3>
+                <a href="presse-media.html">Presse &amp; médias<span>Archives &amp; kit média</span></a>
+                <a href="videos-galerie.html">Vidéos &amp; galerie<span>Moments du Musée</span></a>
+                <a href="instagram.html">Instagram feed<span>@museeautomobilemaroc</span></a>
+              </div>
+              <div>
+                <h3>Communauté</h3>
+                <a href="cars-coffee.html">Cars &amp; Coffee<span>Rencontres passionnés</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link ticket" type="button">Billetterie</button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <div>
+                <h3>Acheter</h3>
+                <a href="visite-individuelle.html?type=individuel">Visite individuelle<span>Billet musée</span></a>
+                <a href="visite-individuelle.html?type=famille">Famille &amp; jeunes<span>Parcours jeunes publics</span></a>
+                <a href="visites-scolaires.html">Groupe scolaire<span>Découverte pédagogique</span></a>
+              </div>
+              <div>
+                <h3>Groupes</h3>
+                <a href="visite-individuelle.html?type=corporate">Groupe corporate<span>Visite &amp; privatisation</span></a>
+                <a href="horaires.html">Tarifs &amp; horaires<span>Préparer la visite</span></a>
+              </div>
+              <div>
+                <h3>Experience</h3>
+                <a href="index.html#hero">Réserver une expérience<span>Musée, collection, table</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-ctas">
+        <a class="btn btn-secondary" href="demande-devis.html" aria-label="Privatiser le lieu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4 8h16M5 5h14v15H5z"></path></svg>
+          Privatiser le lieu
+        </a>
+        <a class="btn btn-primary" href="garage-reservation.html" aria-label="Réserver une table">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v18M10 3v7a4 4 0 0 1-4 4M17 3v18M14 3h6v8a3 3 0 0 1-3 3h-3z"></path></svg>
+          Réserver une table
+        </a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Ouvrir le menu">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="mobile-panel" id="mobilePanel" aria-label="Menu mobile">
+    <a class="mobile-home" href="index.html">Accueil</a>
+    <div class="mobile-group">
+      <button class="mobile-trigger" type="button" aria-expanded="false">À propos</button>
+      <div class="mobile-links">
+        <a href="club.html">Notre histoire</a>
+        <a href="mot-president.html">Le mot du Président</a>
+        <a href="devenir-membre.html">Devenir membre</a>
+        <a href="espace-membres.html">Espace membres</a>
+        <a href="automotive-academy.html">Automotive Academy</a>
+        <a href="programmes.html">Nos programmes</a>
+        <a href="partenaires.html">Nos partenaires</a>
+      </div>
+    </div>
+    <div class="mobile-group">
+      <button class="mobile-trigger" type="button" aria-expanded="false">Le Musée</button>
+      <div class="mobile-links">
+        <a href="collection.html">La collection</a>
+        <a href="timeline.html">Timeline automobile</a>
+        <a href="batiment-histoire.html">Bâtiment &amp; histoire</a>
+        <a href="tickets.html">Acheter des billets</a>
+        <a href="horaires.html">Horaires &amp; accès</a>
+        <a href="audioguide.html">Audioguide digital</a>
+        <a href="visites-scolaires.html">Visites scolaires</a>
+        <a href="index.html#news">Expositions temporaires</a>
+      </div>
+    </div>
+    <div class="mobile-group">
+      <button class="mobile-trigger" type="button" aria-expanded="false">Événementiel</button>
+      <div class="mobile-links">
+        <a href="espaces-evenementiels.html">Les salles</a>
+        <a href="parc-automobile.html">Le parc automobile</a>
+        <a href="team-building.html">Team building</a>
+        <a href="services-evenementiels.html">Services événementiels</a>
+        <a href="demande-devis.html">Demander un devis</a>
+      </div>
+    </div>
+    <div class="mobile-group">
+      <button class="mobile-trigger" type="button" aria-expanded="false">Le Garage</button>
+      <div class="mobile-links">
+        <a href="garage.html">Le Garage</a>
+        <a href="garage-carte.html">La carte</a>
+        <a href="garage-cuisine.html">La cuisine ouverte</a>
+        <a href="garage-chefs.html">Les chefs</a>
+        <a href="garage-temps-forts.html">Temps forts</a>
+        <a href="garage-reservation.html">Réserver une table</a>
+      </div>
+    </div>
+    <div class="mobile-group">
+      <button class="mobile-trigger" type="button" aria-expanded="false">Actualité</button>
+      <div class="mobile-links">
+        <a href="actualites.html">News &amp; communiqués</a>
+        <a href="presse-media.html">Presse &amp; médias</a>
+        <a href="communique-detail.html">Communiqué officiel</a>
+        <a href="agenda.html">Agenda</a>
+        <a href="videos-galerie.html">Vidéos &amp; galerie</a>
+        <a href="cars-coffee.html">Cars &amp; Coffee</a>
+        <a href="instagram.html">Instagram feed</a>
+      </div>
+    </div>
+    <div class="mobile-group">
+      <button class="mobile-trigger" type="button" aria-expanded="false">Billetterie</button>
+      <div class="mobile-links">
+        <a href="visite-individuelle.html?type=individuel">Visite individuelle</a>
+        <a href="visite-individuelle.html?type=famille">Famille &amp; jeunes</a>
+        <a href="visites-scolaires.html">Groupe scolaire</a>
+        <a href="visite-individuelle.html?type=corporate">Groupe corporate</a>
+        <a href="horaires.html">Tarifs &amp; horaires</a>
+      </div>
+    </div>
+    <div class="mobile-ctas">
+      <a class="btn btn-secondary" href="demande-devis.html">Privatiser le lieu</a>
+      <a class="btn btn-primary" href="garage-reservation.html">Réserver une table</a>
+    </div>
+  </aside>
+  <main>
+    <section class="hero" aria-labelledby="page-title" style="background-image:linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.54) 48%, rgba(0,0,0,.18)), linear-gradient(0deg, #0b0b0b 0%, rgba(11,11,11,.12) 36%), url('assets/team-building/team-building-exterieur.png');">
+      <div class="section-inner reveal is-visible">
+        <span class="eyebrow">Team Building Musée</span>
+        <h1 id="page-title">Unissant les forces, renforçant les liens.</h1>
+        <p class="hero-copy">Une expérience collective au coeur du musée: observer, résoudre, coopérer, questionner et partager autour de l’automobile.</p>
+      </div>
+    </section>
+
+    <section class="hero-quickbar">
+      <div class="section-inner">
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="demande-devis.html">Demander un devis</a>
+          <a class="btn btn-secondary" href="espaces-evenementiels.html">Voir les espaces</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>Sur mesure</strong><span>Objectifs, durée, équipe</span></div>
+          <div class="stat"><strong>Encadré</strong><span>Animateurs & parcours</span></div>
+          <div class="stat"><strong>Automobile</strong><span>Musée, collection, garage</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Immersion</span>
+            <h2 class="section-title">L'équipe entre dans un décor qui raconte déjà quelque chose.</h2>
+          </div>
+          <p class="section-copy">Des voitures, un lieu, des défis, un quiz ou une restitution: le format transforme la visite active en outil de cohésion.</p>
+        </div>
+        <div class="team-mosaic reveal">
+          <figure>
+            <img src="assets/team-building/team-building-esprit.png" alt="Animation team building avec voiture ancienne et drapeau marocain au Musée de l’Automobile du Maroc" loading="lazy">
+            <figcaption>Défis collectifs autour des classiques.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/team-building/team-building-hero.png" alt="Equipe en cabriolet devant le Musée de l’Automobile du Maroc" loading="lazy">
+            <figcaption>Accueil et mise en énergie.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/team-building/team-building-groupe.png" alt="Participants prenant des photos pendant une animation automobile" loading="lazy">
+            <figcaption>Missions photo et observation.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/team-building/team-building-fiat.png" alt="Moment de convivialité pendant une journée d'équipe du Musée" loading="lazy">
+            <figcaption>Pause conviviale et hospitality.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/team-building/team-building-exterieur.png" alt="Façade du Musée de l’Automobile du Maroc à Casablanca" loading="lazy">
+            <figcaption>Un lieu identifiable, mémorable.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section feature-band">
+      <div class="section-inner feature-layout">
+        <div class="feature-image reveal" role="img" aria-label="Voiture ancienne pendant une animation team building au Musée de l’Automobile du Maroc" style="--feature-image:url('assets/team-building/team-building-esprit.png')"></div>
+        <article class="feature-panel reveal">
+          <span class="eyebrow">Approche</span>
+          <h2>Faites de votre équipe une force indomptable.</h2>
+          <p>Une journée Musée alterne culture automobile, observation, challenges collaboratifs, animation encadrée et temps de convivialité. Le parcours est calibré selon votre équipe: onboarding, séminaire, incentive ou journée RH.</p>
+          <div class="vehicle-specs" aria-label="Objectifs team building">
+            <div class="spec"><strong>Cohésion</strong><span>Liens équipe</span></div>
+            <div class="spec"><strong>Créativité</strong><span>Défis ludiques</span></div>
+            <div class="spec"><strong>Énergie</strong><span>Moment partagé</span></div>
+          </div>
+          <a class="btn btn-primary" href="demande-devis.html">Composer l'expérience</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Nos activités</span>
+            <h2 class="section-title">Des expériences pensées pour un team building inoubliable.</h2>
+          </div>
+          <p class="section-copy">Chaque format combine un briefing clair, une animation professionnelle, des activités personnalisées et un moment final de reconnaissance.</p>
+        </div>
+        <div class="event-grid">
+          <article class="event-card has-photo reveal">
+            <img class="event-photo" src="assets/team-building/team-building-exterieur.png" alt="Façade du Musée de l’Automobile du Maroc pour accueillir une journée team building" loading="lazy">
+            <div class="event-content">
+              <span class="tag">01</span>
+              <h3>Personnalisation totale</h3>
+              <p>Nous calibrons le programme selon vos objectifs, la taille du groupe, le niveau d'énergie souhaité et les messages à faire passer.</p>
+            </div>
+          </article>
+          <article class="event-card has-photo reveal">
+            <img class="event-photo" src="assets/team-building/team-building-esprit.png" alt="Animation encadrée avec voiture ancienne et équipe du Musée" loading="lazy">
+            <div class="event-content">
+              <span class="tag">02</span>
+              <h3>Encadrement professionnel</h3>
+              <p>Des animateurs guident les équipes, posent les règles, sécurisent le déroulé et orientent les défis vers la communication et le leadership.</p>
+            </div>
+          </article>
+          <article class="event-card has-photo reveal">
+            <img class="event-photo" src="assets/team-building/team-building-groupe.png" alt="Participants en activité photo autour d'une voiture ancienne" loading="lazy">
+            <div class="event-content">
+              <span class="tag">03</span>
+              <h3>Options variées</h3>
+              <p>Indoor ou outdoor, réflexion ou adrénaline douce, challenge photo ou parcours musée: le niveau d'intensité s'ajuste à votre public.</p>
+            </div>
+          </article>
+          <article class="event-card reveal">
+            <span class="tag">04</span>
+            <h3>Briefing initial</h3>
+            <p>La journée commence par une introduction précise: objectifs, équipes, règles du jeu, critères de réussite et timing.</p>
+          </article>
+          <article class="event-card reveal">
+            <span class="tag">05</span>
+            <h3>Défis de collaboration</h3>
+            <p>Quiz automobile, rallye d’observation, pitch design, résolution d’énigmes, jeux de rôle et mini-ateliers inspirés du parcours éducatif Musée.</p>
+          </article>
+          <article class="event-card reveal">
+            <span class="tag">06</span>
+            <h3>Récompenses & reconnaissance</h3>
+            <p>Trophées symboliques, remise de prix, photo d'équipe et moment convivial pour ancrer l'expérience dans la mémoire collective.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Déroulé type</span>
+            <h2 class="section-title">Une journée qui avance comme un roadbook.</h2>
+          </div>
+          <p class="section-copy">Le scénario peut être condensé en demi-journée ou enrichi avec déjeuner, conférence, cocktail et captation vidéo.</p>
+        </div>
+        <div class="timeline reveal">
+          <div class="time-item"><strong>09:30</strong><span>Accueil café, remise des badges, constitution des équipages.</span></div>
+          <div class="time-item"><strong>10:00</strong><span>Briefing animateur: route de la journée, objectifs et règles.</span></div>
+          <div class="time-item"><strong>10:30</strong><span>Challenges musée: observation, culture auto, coopération et prise de décision.</span></div>
+          <div class="time-item"><strong>12:30</strong><span>Déjeuner ou cocktail networking dans l'univers du Garage.</span></div>
+          <div class="time-item"><strong>14:00</strong><span>Restitution, remise de prix, photo d'équipe et conclusion managériale.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section feature-band">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Formats activables</span>
+            <h2 class="section-title">Six manières de faire vivre l'équipe.</h2>
+          </div>
+          <p class="section-copy">Les modules se combinent selon votre objectif: cohésion, créativité, onboarding, incentive, leadership ou communication.</p>
+        </div>
+        <div class="event-grid">
+          <article class="event-card reveal"><h3>Rallye musée</h3><p>Un parcours d'indices dans les espaces Musée, avec questions de culture automobile et missions photo.</p></article>
+          <article class="event-card reveal"><h3>Design challenge</h3><p>Imaginer une livrée, une exposition miniature ou une campagne autour d'une voiture iconique.</p></article>
+          <article class="event-card reveal"><h3>Atelier métiers</h3><p>Découvrir restauration, matériaux, conservation et gestes techniques avec une approche pédagogique.</p></article>
+          <article class="event-card reveal"><h3>Route vers le succès</h3><p>Un jeu de stratégie où chaque équipe construit son itinéraire, gère ses ressources et présente ses choix.</p></article>
+          <article class="event-card reveal"><h3>Concours d'élégance</h3><p>Pitch collectif autour d'un véhicule, storytelling, posture et capacité à convaincre.</p></article>
+          <article class="event-card reveal"><h3>Cocktail de clôture</h3><p>Un moment plus détendu pour célébrer les réussites et prolonger les conversations dans le décor du Musée.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Images Musée</span>
+            <h2 class="section-title">Des preuves visuelles, pas seulement un programme.</h2>
+          </div>
+          <p class="section-copy">Les contenus photo deviennent une partie de l'expérience: utiles pour la communication interne, les souvenirs d'équipe et les réseaux sociaux de l'entreprise.</p>
+        </div>
+        <div class="event-gallery reveal">
+          <figure>
+            <img src="assets/team-building/team-building-esprit.png" alt="Challenge automobile avec participants et voiture ancienne" loading="lazy">
+            <figcaption>Challenge, coordination et esprit d'équipe.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/team-building/team-building-fiat.png" alt="Pause restauration pendant une activation team building Musée" loading="lazy">
+            <figcaption>Moment hospitality entre deux activités.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/team-building/team-building-groupe.png" alt="Participants photographiant une voiture ancienne pendant une visite Musée" loading="lazy">
+            <figcaption>Missions d'observation et contenus photo.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="download-card reveal">
+          <div>
+            <span class="eyebrow">Accélérez vers la réussite</span>
+            <h2 class="section-title">Construisons votre expérience Team Building.</h2>
+            <p class="section-copy">Indiquez votre objectif, votre effectif, la date souhaitée et le niveau d'intensité. L’équipe du Musée vous proposera un format clair, premium et adapté à votre groupe.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="demande-devis.html">Demander un devis</a>
+            <a class="btn btn-secondary" href="mailto:contact@museeautomobile.ma">Nous contacter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img class="footer-logo" src="assets/musee-automobile-logo-gold.png" alt="Logo du Musée de l’Automobile du Maroc">
+          <h2>Musée de l’Automobile du Maroc</h2>
+        </div>
+        <p>Plus qu’un musée, une expérience: une destination culturelle où patrimoine automobile, design, transmission et émotion se rencontrent à Casablanca.</p>
+      </div>
+      <div>
+        <h3>Visiter</h3>
+        <ul>
+          <li><a href="tickets.html">Acheter des billets</a></li>
+          <li><a href="horaires.html">Horaires &amp; accès</a></li>
+          <li><a href="audioguide.html">Audioguide digital</a></li>
+          <li><a href="visites-scolaires.html">Visites scolaires</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Informations</h3>
+        <ul>
+          <li>Route de Bouskoura, Casablanca</li>
+          <li>Mar-Dim · 10h-18h</li>
+          <li>+212 600 270 387</li>
+          <li>contact@museeautomobile.ma</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="collection.html">La collection</a></li>
+          <li><a href="timeline.html">Timeline automobile</a></li>
+          <li><a href="batiment-histoire.html">Bâtiment &amp; histoire</a></li>
+          <li><a href="garage.html">Le Garage</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Musée de l’Automobile du Maroc. Tous droits réservés.</span>
+      <span class="languages" aria-label="Langues"><a href="#" aria-label="Version française" title="Français"><span class="language-flag" aria-hidden="true">🇫🇷</span><span class="sr-only">Français</span></a><a href="#" aria-label="Version anglaise" title="English"><span class="language-flag" aria-hidden="true">🇬🇧</span><span class="sr-only">English</span></a></span>
+        <span class="footer-legal" style="display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end"><a href="mentions-legales.html">Mentions légales</a><a href="politique-confidentialite.html">Confidentialité</a><a href="politique-cookies.html">Cookies</a><a href="cgv-billetterie.html">CGV</a><a href="plan-site.html">Plan du site</a></span>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const header = document.querySelector("#siteHeader");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mobilePanel = document.querySelector("#mobilePanel");
+    const mobileTriggers = document.querySelectorAll(".mobile-trigger");
+    const desktopItems = document.querySelectorAll(".nav-item");
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const setHeaderState = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 24);
+    };
+
+    window.addEventListener("scroll", setHeaderState, { passive: true });
+    setHeaderState();
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Ouvrir le menu" : "Fermer le menu");
+      body.classList.toggle("nav-open", !isOpen);
+    });
+
+    mobilePanel.addEventListener("click", (event) => {
+      if (!event.target.closest("a")) return;
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Ouvrir le menu");
+      body.classList.remove("nav-open");
+    });
+
+    mobileTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const links = trigger.nextElementSibling;
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+        trigger.setAttribute("aria-expanded", String(!isOpen));
+        links.classList.toggle("is-open", !isOpen);
+      });
+    });
+
+    desktopItems.forEach((item) => {
+      const button = item.querySelector(".nav-link");
+      button.addEventListener("click", () => {
+        const isActive = item.classList.contains("is-active");
+        desktopItems.forEach((candidate) => candidate.classList.remove("is-active"));
+        if (!isActive) item.classList.add("is-active");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".nav-item")) {
+        desktopItems.forEach((item) => item.classList.remove("is-active"));
+      }
+    });
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1992 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="La collection du Musée de l’Automobile du Maroc: véhicules d’exception, premières mobilités, icônes avant 1970, pavillons internationaux et patrimoine à Casablanca.">
+  <title>La Collection | Musée de l’Automobile du Maroc</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/dynamic-collection/collection-integration.css">
+  <script src="assets/runtime-config.js"></script>
+  <style>
+    :root {
+      --carbon: #0b0b0b;
+      --carbon-soft: #111111;
+      --concrete: #1a1a1a;
+      --bronze: #b37a3a;
+      --bronze-deep: #8c6735;
+      --bronze-light: #c79a57;
+      --aluminium: #5f6368;
+      --quartz: #f5f5f3;
+      --fire: #b11226;
+      --line: rgba(179, 122, 58, 0.28);
+      --glass: rgba(5, 5, 5, 0.78);
+      --shadow: 0 26px 90px rgba(0, 0, 0, 0.58);
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Montserrat", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--carbon);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--quartz);
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at 18% 10%, rgba(179, 122, 58, 0.2), transparent 30rem),
+        radial-gradient(circle at 84% 6%, rgba(199, 154, 87, 0.11), transparent 28rem),
+        repeating-linear-gradient(135deg, rgba(245, 245, 243, 0.018) 0 1px, transparent 1px 9px),
+        linear-gradient(180deg, #030303 0%, var(--carbon) 46%, #070707 100%);
+      letter-spacing: 0;
+    }
+
+    body.nav-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(179, 122, 58, 0.28);
+      background: rgba(3, 3, 3, 0.82);
+      backdrop-filter: blur(20px) saturate(120%);
+      transition: background 220ms ease, border-color 220ms ease;
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(3, 3, 3, 0.94);
+      border-bottom-color: rgba(199, 154, 87, 0.42);
+    }
+
+    .nav-wrap {
+      height: 82px;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      min-width: 154px;
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-mark {
+      width: 150px;
+      height: 150px;
+      border-radius: 0;
+      object-fit: contain;
+      transform: translateY(34px);
+      box-shadow: none;
+      filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.62));
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      flex: 1;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-home {
+      display: inline-flex;
+      align-items: center;
+      min-height: 82px;
+      padding: 0 12px;
+      color: rgba(245, 245, 243, 0.76);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 180ms ease;
+    }
+
+    .nav-home:hover,
+    .nav-home:focus-visible {
+      color: var(--bronze-light);
+      outline: none;
+    }
+
+    .nav-link {
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: rgba(245, 245, 243, 0.76);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 82px;
+      padding: 0 12px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 180ms ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      opacity: 0.7;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible,
+    .nav-item.is-active .nav-link {
+      color: var(--bronze-light);
+      outline: none;
+    }
+
+    .nav-link.ticket {
+      color: var(--bronze-light);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 76px;
+      left: 50%;
+      width: min(760px, calc(100vw - 48px));
+      padding: 22px;
+      transform: translate(-50%, 12px);
+      border: 1px solid rgba(215, 178, 109, 0.22);
+      background: rgba(8, 8, 8, 0.96);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .nav-item:hover .dropdown,
+    .nav-item:focus-within .dropdown,
+    .nav-item.is-active .dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
+    }
+
+    .dropdown-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .dropdown h3 {
+      margin: 0 0 12px;
+      color: var(--bronze-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      color: rgba(245, 245, 243, 0.82);
+      font-size: 13px;
+      line-height: 1.35;
+      transition: color 160ms ease, transform 160ms ease;
+    }
+
+    .dropdown a span {
+      display: block;
+      margin-top: 3px;
+      color: rgba(183, 188, 195, 0.58);
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    .dropdown a:hover,
+    .dropdown a:focus-visible {
+      color: var(--bronze-light);
+      outline: none;
+      transform: translateX(3px);
+    }
+
+    .nav-ctas {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+      min-width: 300px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--bronze-light), var(--bronze) 52%, var(--bronze-deep));
+      color: #050505;
+      border-color: rgba(199, 154, 87, 0.74);
+      box-shadow: 0 12px 30px rgba(179, 122, 58, 0.18);
+    }
+
+    .btn-secondary {
+      color: var(--quartz);
+      border-color: rgba(215, 178, 109, 0.5);
+      background: rgba(156, 123, 82, 0.08);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(156, 123, 82, 0.2);
+    }
+
+    .btn-ghost {
+      color: var(--quartz);
+      border-color: rgba(245, 245, 243, 0.34);
+      background: rgba(245, 245, 243, 0.04);
+    }
+
+    .btn-dark {
+      color: var(--quartz);
+      background: rgba(11, 11, 11, 0.72);
+      border-color: rgba(215, 178, 109, 0.36);
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(215, 178, 109, 0.34);
+      background: rgba(8, 8, 8, 0.5);
+      color: var(--quartz);
+      cursor: pointer;
+    }
+
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      content: "";
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .menu-toggle span::before {
+      transform: translateY(-7px);
+    }
+
+    .menu-toggle span::after {
+      transform: translateY(5px);
+    }
+
+    .menu-toggle[aria-expanded="true"] span {
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span::before {
+      transform: translateY(0) rotate(90deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span::after {
+      opacity: 0;
+    }
+
+    .mobile-panel {
+      display: none;
+    }
+
+
+    .hero {
+      height: clamp(270px, 32vh, 300px);
+      display: grid;
+      align-items: end;
+      padding: 104px 34px 26px;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5) 46%, rgba(0, 0, 0, 0.16)),
+        linear-gradient(0deg, #0b0b0b 0%, rgba(11, 11, 11, 0.12) 36%),
+        url("assets/park-auto/benz-patent-motorwagen.jpg") center / cover,
+        #050505;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+      background-size: 92px 92px;
+      mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.78), transparent 74%);
+      pointer-events: none;
+    }
+
+    .section-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: var(--bronze-light);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin-bottom: 18px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.35rem, 4.2vw, 4.15rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 780px;
+      color: rgba(245, 245, 243, 0.82);
+      font-size: clamp(0.96rem, 1.2vw, 1.08rem);
+      line-height: 1.55;
+      margin-bottom: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 0;
+    }
+
+    .hero-quickbar {
+      padding: 20px 34px;
+      border-top: 1px solid rgba(215, 178, 109, 0.18);
+      border-bottom: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(5, 5, 5, 0.88);
+    }
+
+    .hero-quickbar .section-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      width: min(580px, 100%);
+      border: 1px solid rgba(215, 178, 109, 0.2);
+      background: rgba(8, 8, 8, 0.62);
+      backdrop-filter: blur(16px);
+    }
+
+    .stat {
+      padding: 14px 16px;
+      border-right: 1px solid rgba(215, 178, 109, 0.16);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--bronze-light);
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 0.9;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(245, 245, 243, 0.76);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 96px 34px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(260px, 0.55fr);
+      gap: 52px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .section-title {
+      margin-bottom: 0;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.4vw, 5rem);
+      font-weight: 700;
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      color: rgba(183, 188, 195, 0.84);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .filter-btn {
+      min-height: 40px;
+      padding: 0 16px;
+      border: 1px solid rgba(215, 178, 109, 0.28);
+      background: rgba(245, 245, 243, 0.03);
+      color: rgba(245, 245, 243, 0.78);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn:focus-visible,
+    .filter-btn[aria-pressed="true"] {
+      background: var(--bronze-light);
+      color: #090909;
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .vehicle-card {
+      min-height: 510px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(17, 17, 17, 0.82);
+      overflow: hidden;
+      box-shadow: 0 18px 54px rgba(0, 0, 0, 0.22);
+      transition: transform 200ms ease, border-color 200ms ease;
+    }
+
+    .vehicle-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(215, 178, 109, 0.44);
+    }
+
+    .vehicle-card.is-hidden {
+      display: none;
+    }
+
+    .collection-pagination {
+      margin-top: 30px;
+      padding: 16px;
+      border: 1px solid rgba(215, 178, 109, 0.2);
+      background:
+        linear-gradient(135deg, rgba(215, 178, 109, 0.08), transparent 38%),
+        rgba(8, 8, 8, 0.72);
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .pagination-pages {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .pagination-btn,
+    .pagination-page {
+      min-width: 44px;
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid rgba(215, 178, 109, 0.26);
+      background: rgba(245, 245, 243, 0.03);
+      color: rgba(245, 245, 243, 0.78);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .pagination-btn:hover:not(:disabled),
+    .pagination-page:hover,
+    .pagination-page:focus-visible,
+    .pagination-page[aria-current="page"] {
+      background: var(--bronze-light);
+      color: #090909;
+      border-color: var(--bronze-light);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .pagination-btn:disabled {
+      opacity: 0.38;
+      cursor: not-allowed;
+    }
+
+    .pagination-status {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: rgba(245, 245, 243, 0.62);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .vehicle-link {
+      color: inherit;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .vehicle-media {
+      height: 275px;
+      overflow: hidden;
+      background: var(--concrete);
+    }
+
+    .vehicle-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.01);
+      transition: transform 420ms ease;
+    }
+
+    .vehicle-card:hover img {
+      transform: scale(1.055);
+    }
+
+    .vehicle-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+    }
+
+    .vehicle-year {
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .vehicle-body h3 {
+      margin: 12px 0 10px;
+      font-family: var(--serif);
+      font-size: 33px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .vehicle-body p {
+      color: rgba(245, 245, 243, 0.72);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .vehicle-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 22px;
+    }
+
+    .vehicle-discover {
+      width: fit-content;
+      margin-top: 22px;
+      padding: 12px 16px;
+      border: 1px solid rgba(215, 178, 109, 0.4);
+      background: rgba(215, 178, 109, 0.08);
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .vehicle-card:hover .vehicle-discover,
+    .vehicle-link:focus-visible .vehicle-discover {
+      background: var(--bronze-light);
+      border-color: var(--bronze-light);
+      color: #090909;
+      transform: translateY(-2px);
+    }
+
+    .vehicle-meta span {
+      padding: 6px 9px;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      color: rgba(183, 188, 195, 0.82);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .feature-band {
+      border-top: 1px solid rgba(215, 178, 109, 0.16);
+      border-bottom: 1px solid rgba(215, 178, 109, 0.16);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+        var(--carbon-soft);
+    }
+
+    .feature-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.7fr);
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .feature-image {
+      min-height: 560px;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.44)),
+        url("assets/park-auto/benz-patent-motorwagen.jpg") center / cover,
+        var(--concrete);
+    }
+
+    .feature-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 46px;
+      border: 1px solid rgba(215, 178, 109, 0.22);
+      background: rgba(8, 8, 8, 0.7);
+    }
+
+    .feature-panel h2 {
+      margin: 20px 0 18px;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.4vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .feature-panel p {
+      color: rgba(245, 245, 243, 0.76);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .specs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: 28px 0 32px;
+      border: 1px solid rgba(215, 178, 109, 0.16);
+    }
+
+    .spec {
+      padding: 16px 14px;
+      border-right: 1px solid rgba(215, 178, 109, 0.14);
+    }
+
+    .spec:last-child {
+      border-right: 0;
+    }
+
+    .spec strong {
+      display: block;
+      color: var(--quartz);
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .spec span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(183, 188, 195, 0.72);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(8, 8, 8, 0.56);
+    }
+
+    .time-item {
+      min-height: 190px;
+      padding: 24px;
+      border-right: 1px solid rgba(215, 178, 109, 0.14);
+    }
+
+    .time-item:last-child {
+      border-right: 0;
+    }
+
+    .time-item strong {
+      display: block;
+      color: var(--bronze-light);
+      font-family: var(--serif);
+      font-size: 42px;
+      line-height: 0.9;
+    }
+
+    .time-item span {
+      display: block;
+      margin-top: 18px;
+      color: rgba(245, 245, 243, 0.82);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .visit-strip {
+      padding: 86px 34px;
+      background:
+        linear-gradient(90deg, rgba(8, 8, 8, 0.9), rgba(8, 8, 8, 0.66)),
+        url("assets/cars-real/cam-mercedes-pagoda.jpg") center / cover,
+        #111;
+    }
+
+    .visit-content {
+      max-width: 720px;
+    }
+
+    .visit-content h2 {
+      margin-bottom: 18px;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.4vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .visit-content p {
+      color: rgba(245, 245, 243, 0.78);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .footer {
+      padding: 64px 34px 28px;
+      border-top: 1px solid rgba(215, 178, 109, 0.2);
+      background: #050505;
+    }
+
+    .footer-grid {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(260px, 1.2fr) repeat(3, minmax(150px, 0.6fr));
+      gap: 42px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .footer-logo {
+      width: 132px;
+      height: 132px;
+      border-radius: 0;
+      object-fit: contain;
+      box-shadow: none;
+      filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.58));
+    }
+
+    .footer h2 {
+      margin: 0;
+      color: var(--quartz);
+      font-family: var(--serif);
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .footer p {
+      max-width: 430px;
+      color: rgba(183, 188, 195, 0.78);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .footer h3 {
+      margin-bottom: 16px;
+      color: var(--bronze-light);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .footer a,
+    .footer li {
+      color: rgba(245, 245, 243, 0.72);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .footer a:hover,
+    .footer a:focus-visible {
+      color: var(--bronze-light);
+      outline: none;
+    }
+
+    .footer ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-bottom {
+      width: min(1180px, 100%);
+      margin: 42px auto 0;
+      padding-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid rgba(215, 178, 109, 0.16);
+      color: rgba(183, 188, 195, 0.64);
+      font-size: 12px;
+    }
+
+    .languages {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .languages a {
+      width: 38px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(215, 178, 109, 0.3);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 20px;
+      line-height: 1;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .languages a:hover,
+    .languages a:focus-visible {
+      background: rgba(215, 178, 109, 0.08);
+      border-color: var(--bronze-light);
+      transform: translateY(-2px);
+    }
+
+    .language-flag {
+      display: block;
+      transform: translateY(1px);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 620ms ease, transform 620ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--bronze-light);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 1180px) {
+      .nav-wrap {
+        padding: 0 22px;
+      }
+
+      .brand {
+        min-width: auto;
+      }
+
+      .desktop-nav,
+      .nav-ctas {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-panel {
+        position: fixed;
+        inset: 82px 0 0;
+        z-index: 49;
+        display: block;
+        overflow-y: auto;
+        padding: 18px 22px 34px;
+        background: rgba(5, 5, 5, 0.98);
+        transform: translateX(100%);
+        transition: transform 220ms ease;
+      }
+
+      .mobile-home {
+        display: block;
+        padding: 0 0 18px;
+        margin-bottom: 2px;
+        border-bottom: 1px solid rgba(215, 178, 109, 0.16);
+        color: var(--bronze-light);
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      body.nav-open .mobile-panel {
+        transform: translateX(0);
+      }
+
+      .mobile-group {
+        border-bottom: 1px solid rgba(215, 178, 109, 0.16);
+      }
+
+      .mobile-trigger {
+        width: 100%;
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 0;
+        background: transparent;
+        color: var(--quartz);
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: left;
+      }
+
+      .mobile-trigger::after {
+        content: "+";
+        color: var(--bronze-light);
+        font-size: 24px;
+        font-weight: 400;
+      }
+
+      .mobile-trigger[aria-expanded="true"]::after {
+        content: "-";
+      }
+
+      .mobile-links {
+        display: none;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 18px;
+        padding: 0 0 18px;
+      }
+
+      .mobile-links.is-open {
+        display: grid;
+      }
+
+      .mobile-links a {
+        color: rgba(245, 245, 243, 0.74);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .mobile-ctas {
+        display: grid;
+        gap: 10px;
+        margin-top: 22px;
+      }
+    }
+
+
+    @media (max-width: 940px) {
+      .hero {
+        height: clamp(290px, 34vh, 330px);
+        padding: 112px 22px 30px;
+      }
+
+      .section,
+      .visit-strip,
+      .hero-quickbar {
+        padding: 76px 22px;
+      }
+
+      .hero-quickbar {
+        padding-top: 22px;
+        padding-bottom: 22px;
+      }
+
+      .section-head,
+      .feature-layout,
+      .footer-grid,
+      .hero-quickbar .section-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-quickbar .section-inner {
+        display: grid;
+      }
+
+      .collection-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .collection-pagination {
+        grid-template-columns: 1fr;
+      }
+
+      .pagination-btn {
+        width: 100%;
+      }
+
+      .hero-stats,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .stat,
+      .time-item {
+        border-right: 0;
+        border-bottom: 1px solid rgba(215, 178, 109, 0.14);
+      }
+
+      .stat:last-child,
+      .time-item:last-child {
+        border-bottom: 0;
+      }
+
+      .feature-image {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-wrap {
+        height: 72px;
+      }
+
+      .brand-mark {
+        width: 116px;
+        height: 116px;
+        transform: translateY(28px);
+      }
+
+      .mobile-panel {
+        inset: 72px 0 0;
+      }
+
+      .hero {
+        height: 340px;
+        padding: 106px 18px 28px;
+      }
+
+      h1 {
+        font-size: clamp(2.15rem, 8.8vw, 3rem);
+      }
+
+      .hero-actions,
+      .visit-content .hero-actions {
+        display: grid;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .collection-grid,
+      .specs {
+        grid-template-columns: 1fr;
+      }
+
+      .vehicle-card {
+        min-height: auto;
+      }
+
+      .feature-panel {
+        padding: 28px;
+      }
+
+      .feature-image {
+        min-height: 320px;
+      }
+
+      .spec {
+        border-right: 0;
+        border-bottom: 1px solid rgba(215, 178, 109, 0.14);
+      }
+
+      .spec:last-child {
+        border-bottom: 0;
+      }
+
+      .footer {
+        padding: 54px 20px 24px;
+      }
+
+      .footer-brand {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html" aria-label="Musée de l’Automobile du Maroc - accueil">
+        <img class="brand-mark" src="assets/musee-automobile-logo-gold.png" alt="Logo officiel du Musée de l’Automobile du Maroc">
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html">Accueil</a>
+        <div class="nav-item">
+          <button class="nav-link" type="button">À propos</button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <div>
+                <h3>Institution</h3>
+                <a href="club.html">Notre histoire<span>Fondation &amp; vision</span></a>
+                <a href="mot-president.html">Le mot du Président<span>Transmission et passion</span></a>
+                <a href="partenaires.html">Nos partenaires<span>Institutionnels &amp; corporate</span></a>
+              </div>
+              <div>
+                <h3>Adhésion</h3>
+                <a href="devenir-membre.html">Devenir membre<span>Avantages &amp; formules</span></a>
+                <a href="espace-membres.html">Espace membres<span>Connexion</span></a>
+              </div>
+              <div>
+                <h3>Academy</h3>
+                <a href="automotive-academy.html">Automotive Academy<span>Formations &amp; expertise</span></a>
+                <a href="programmes.html">Nos programmes<span>Certifications auto</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button">Le Musée</button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <div>
+                <h3>Découvrir</h3>
+                <a href="collection.html">La collection<span>Véhicules &amp; expositions</span></a>
+                <a href="timeline.html">Timeline automobile<span>Maroc &amp; monde</span></a>
+                <a href="batiment-histoire.html">Le bâtiment &amp; l'histoire<span>Architecture et patrimoine</span></a>
+              </div>
+              <div>
+                <h3>Visiter</h3>
+                <a href="tickets.html">Acheter des billets<span>Individuel, famille, scolaire</span></a>
+                <a href="horaires.html">Horaires &amp; accès<span>Route de Bouskoura</span></a>
+                <a href="audioguide.html">Audioguide digital<span>FR / AR / EN</span></a>
+                  <a href="visites-scolaires.html">Visites scolaires<span>Parcours éducatif</span></a>
+              </div>
+              <div>
+                <h3>Expositions</h3>
+                <a href="collection.html#collection-grid">Expositions permanentes<span>Collection fondatrice</span></a>
+                <a href="index.html#news">Expositions temporaires<span>En ce moment</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button">Événementiel</button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <div>
+                <h3>Espaces</h3>
+                <a href="espaces-evenementiels.html">Les salles<span>Réunions, gala, conférences</span></a>
+                <a href="parc-automobile.html">Le parc automobile<span>Expositions et shootings</span></a>
+                <a href="terrasse-evenementielle.html">La terrasse<span>Réception en plein air</span></a>
+              </div>
+              <div>
+                <h3>Entreprises</h3>
+                <a href="seminaires-conferences.html">Séminaires &amp; conférences<span>Offre corporate</span></a>
+                  <a href="professionnels-b2b.html">Professionnels &amp; B2B<span>Conventions, lancements, presse</span></a>
+                <a href="team-building.html">Team building<span>Activités sur mesure</span></a>
+                  <a href="services-evenementiels.html">Services événementiels<span>Technique, scénographie, catering</span></a>
+                <a href="dossier-evenementiel.html">Dossier événementiel<span>Télécharger</span></a>
+              </div>
+              <div>
+                <h3>Privé</h3>
+                <a href="mariages-receptions.html">Mariages &amp; réceptions<span>Cadre unique</span></a>
+                <a href="anniversaires-galas.html">Anniversaires &amp; galas<span>Moments signature</span></a>
+                <a href="demande-devis.html">Demander un devis<span>Formulaire rapide</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button">Le Garage</button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <div>
+                <h3>Restaurant</h3>
+                <a href="garage.html">Le Garage<span>Concept &amp; expérience</span></a>
+                <a href="garage-carte.html">La carte<span>Menu signature &amp; desserts</span></a>
+                <a href="garage-cuisine.html">La cuisine ouverte<span>Atelier culinaire</span></a>
+              </div>
+              <div>
+                <h3>Équipe</h3>
+                <a href="garage-chefs.html">Les chefs<span>Vision &amp; transmission</span></a>
+                <a href="garage-temps-forts.html">Temps forts<span>Ramadan, cocktails, actualités</span></a>
+                <a href="garage-reservation.html">Réserver une table<span>Déjeuner, dîner, brunch</span></a>
+              </div>
+              <div>
+                <h3>Infos</h3>
+                <a href="garage-reservation.html#horaires">Horaires<span>12h-16h / 19h-23h45</span></a>
+                <a href="garage-reservation.html#acces">Accès &amp; contact<span>Route de Bouskoura</span></a>
+                <a href="demande-devis.html">Privatiser Le Garage<span>Groupes &amp; événements</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button">Actualité</button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <div>
+                <h3>Contenus</h3>
+                <a href="actualites.html">News &amp; communiqués<span>Dernières nouvelles</span></a>
+                <a href="communique-detail.html">Communiqué officiel<span>Modèle éditorial</span></a>
+                <a href="agenda.html">Agenda<span>Événements à venir</span></a>
+              </div>
+              <div>
+                <h3>Média</h3>
+                <a href="presse-media.html">Presse &amp; médias<span>Archives &amp; kit média</span></a>
+                <a href="videos-galerie.html">Vidéos &amp; galerie<span>Moments du Musée</span></a>
+                <a href="instagram.html">Instagram feed<span>@museeautomobilemaroc</span></a>
+              </div>
+              <div>
+                <h3>Communauté</h3>
+                <a href="cars-coffee.html">Cars &amp; Coffee<span>Rencontres passionnés</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link ticket" type="button">Billetterie</button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <div>
+                <h3>Acheter</h3>
+                <a href="visite-individuelle.html?type=individuel">Visite individuelle<span>Billet musée</span></a>
+                <a href="visite-individuelle.html?type=famille">Famille &amp; jeunes<span>Parcours jeunes publics</span></a>
+                <a href="visites-scolaires.html">Groupe scolaire<span>Découverte pédagogique</span></a>
+              </div>
+              <div>
+                <h3>Groupes</h3>
+                <a href="visite-individuelle.html?type=corporate">Groupe corporate<span>Visite &amp; privatisation</span></a>
+                <a href="horaires.html">Tarifs &amp; horaires<span>Préparer la visite</span></a>
+              </div>
+              <div>
+                <h3>Experience</h3>
+                <a href="index.html#hero">Réserver une expérience<span>Musée, collection, table</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-ctas">
+        <a class="btn btn-secondary" href="demande-devis.html" aria-label="Privatiser le lieu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4 8h16M5 5h14v15H5z"></path></svg>
+          Privatiser le lieu
+        </a>
+        <a class="btn btn-primary" href="garage-reservation.html" aria-label="Réserver une table">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v18M10 3v7a4 4 0 0 1-4 4M17 3v18M14 3h6v8a3 3 0 0 1-3 3h-3z"></path></svg>
+          Réserver une table
+        </a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Ouvrir le menu">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="mobile-panel" id="mobilePanel" aria-label="Menu mobile">
+    <a class="mobile-home" href="index.html">Accueil</a>
+    <div class="mobile-group">
+      <button class="mobile-trigger" type="button" aria-expanded="false">À propos</button>
+      <div class="mobile-links">
+        <a href="club.html">Notre histoire</a>
+        <a href="mot-president.html">Le mot du Président</a>
+        <a href="devenir-membre.html">Devenir membre</a>
+        <a href="espace-membres.html">Espace membres</a>
+        <a href="automotive-academy.html">Automotive Academy</a>
+        <a href="programmes.html">Nos programmes</a>
+        <a href="partenaires.html">Nos partenaires</a>
+      </div>
+    </div>
+    <div class="mobile-group">
+      <button class="mobile-trigger" type="button" aria-expanded="false">Le Musée</button>
+      <div class="mobile-links">
+        <a href="collection.html">La collection</a>
+        <a href="timeline.html">Timeline automobile</a>
+        <a href="batiment-histoire.html">Bâtiment &amp; histoire</a>
+        <a href="tickets.html">Acheter des billets</a>
+        <a href="horaires.html">Horaires &amp; accès</a>
+        <a href="audioguide.html">Audioguide digital</a>
+        <a href="visites-scolaires.html">Visites scolaires</a>
+        <a href="index.html#news">Expositions temporaires</a>
+      </div>
+    </div>
+    <div class="mobile-group">
+      <button class="mobile-trigger" type="button" aria-expanded="false">Événementiel</button>
+      <div class="mobile-links">
+        <a href="espaces-evenementiels.html">Les salles</a>
+        <a href="parc-automobile.html">Le parc automobile</a>
+        <a href="team-building.html">Team building</a>
+        <a href="services-evenementiels.html">Services événementiels</a>
+        <a href="demande-devis.html">Demander un devis</a>
+      </div>
+    </div>
+    <div class="mobile-group">
+      <button class="mobile-trigger" type="button" aria-expanded="false">Le Garage</button>
+      <div class="mobile-links">
+        <a href="garage.html">Le Garage</a>
+        <a href="garage-carte.html">La carte</a>
+        <a href="garage-cuisine.html">La cuisine ouverte</a>
+        <a href="garage-chefs.html">Les chefs</a>
+        <a href="garage-temps-forts.html">Temps forts</a>
+        <a href="garage-reservation.html">Réserver une table</a>
+      </div>
+    </div>
+    <div class="mobile-group">
+      <button class="mobile-trigger" type="button" aria-expanded="false">Actualité</button>
+      <div class="mobile-links">
+        <a href="actualites.html">News &amp; communiqués</a>
+        <a href="presse-media.html">Presse &amp; médias</a>
+        <a href="communique-detail.html">Communiqué officiel</a>
+        <a href="agenda.html">Agenda</a>
+        <a href="videos-galerie.html">Vidéos &amp; galerie</a>
+        <a href="cars-coffee.html">Cars &amp; Coffee</a>
+        <a href="instagram.html">Instagram feed</a>
+      </div>
+    </div>
+    <div class="mobile-group">
+      <button class="mobile-trigger" type="button" aria-expanded="false">Billetterie</button>
+      <div class="mobile-links">
+        <a href="visite-individuelle.html?type=individuel">Visite individuelle</a>
+        <a href="visite-individuelle.html?type=famille">Famille &amp; jeunes</a>
+        <a href="visites-scolaires.html">Groupe scolaire</a>
+        <a href="visite-individuelle.html?type=corporate">Groupe corporate</a>
+        <a href="horaires.html">Tarifs &amp; horaires</a>
+      </div>
+    </div>
+    <div class="mobile-ctas">
+      <a class="btn btn-secondary" href="demande-devis.html">Privatiser le lieu</a>
+      <a class="btn btn-primary" href="garage-reservation.html">Réserver une table</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="section-inner reveal is-visible">
+        <span class="eyebrow">Musée · Collection patrimoine</span>
+        <h1 id="page-title">La collection.</h1>
+        <p class="hero-copy">Une collection pédagogique issue du parc automobile du Musée: premières inventions, modèles d’avant-guerre, icônes populaires, prestige, sport, utilitaires et véhicules de transmission.</p>
+      </div>
+    </section>
+
+    <section class="hero-quickbar" aria-label="Actions et chiffres de la collection">
+      <div class="section-inner">
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#collection-grid">Explorer les véhicules</a>
+          <a class="btn btn-secondary" href="#timeline">Voir la timeline</a>
+        </div>
+        <div class="hero-stats" aria-label="Chiffres de la collection">
+          <div class="stat">
+            <strong>69</strong>
+            <span>fiches véhicules</span>
+          </div>
+          <div class="stat">
+            <strong>1878</strong>
+            <span>premier repère</span>
+          </div>
+          <div class="stat">
+            <strong>7+</strong>
+            <span>origines représentées</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section feature-band" id="mercedes-300sl">
+      <div class="section-inner feature-layout">
+        <div class="feature-image reveal" role="img" aria-label="Benz Patent-Motorwagen"></div>
+        <article class="feature-panel reveal">
+          <span class="eyebrow">Pièce manifeste</span>
+          <h2>Benz Patent-Motorwagen</h2>
+          <p>Le point de départ moderne de l’automobile: une machine fondatrice pour aborder le brevet de 1886, l’invention du moteur et la naissance d’un imaginaire mondial de la mobilité.</p>
+          <div class="specs" aria-label="Fiche véhicule">
+            <div class="spec">
+              <strong>1886</strong>
+              <span>Repère</span>
+            </div>
+            <div class="spec">
+              <strong>Pionnier</strong>
+              <span>Famille</span>
+            </div>
+            <div class="spec">
+              <strong>Allemagne</strong>
+              <span>Origine</span>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="vehicule-benz-patent-motorwagen.html">Voir la fiche</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="collection-grid">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Inventaire</span>
+            <h2 class="section-title">Des véhicules pour comprendre une époque.</h2>
+          </div>
+          <p class="section-copy">Inventaire issu du dossier parc auto: chaque fiche ouvre une page dédiée avec photo, année, description, mots-clés et repères techniques.</p>
+        </div>
+
+        <div class="filter-bar reveal" aria-label="Filtres de la collection">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">Tous</button>
+          <button class="filter-btn" type="button" data-filter="pionnier" aria-pressed="false">Pionniers</button>
+          <button class="filter-btn" type="button" data-filter="avant-guerre" aria-pressed="false">Avant-guerre</button>
+          <button class="filter-btn" type="button" data-filter="apres-guerre" aria-pressed="false">Après-guerre</button>
+          <button class="filter-btn" type="button" data-filter="sport" aria-pressed="false">Sport & GT</button>
+          <button class="filter-btn" type="button" data-filter="prestige" aria-pressed="false">Prestige</button>
+          <button class="filter-btn" type="button" data-filter="populaire" aria-pressed="false">Populaires</button>
+          <button class="filter-btn" type="button" data-filter="utilitaire" aria-pressed="false">Utilitaires</button>
+          <button class="filter-btn" type="button" data-filter="france" aria-pressed="false">France</button>
+          <button class="filter-btn" type="button" data-filter="allemagne" aria-pressed="false">Allemagne</button>
+          <button class="filter-btn" type="button" data-filter="usa" aria-pressed="false">USA</button>
+        </div>
+
+        <div class="collection-grid">
+          <article class="vehicle-card reveal" data-category="apres-guerre utilitaire allemagne"><a class="vehicle-link" href="vehicule-holder-b10d.html" aria-label="Voir la fiche Holder B10D"><div class="vehicle-media"><img src="assets/park-auto/holder-b10d.jpg" alt="Holder B10D" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1957 · Allemagne</span><h3>Holder B10D</h3><p>Issue du parc automobile du Musée, Holder B10D (1957) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1955 à 1960, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Utilitaire</span><span>Allemagne</span><span>1957</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="pionnier avant-guerre utilitaire france"><a class="vehicle-link" href="vehicule-hypomobile-phaeton-tabatiere.html" aria-label="Voir la fiche Hypomobile Phaéton Tabatière"><div class="vehicle-media"><img src="assets/park-auto/hypomobile-phaeton-tabatiere.jpg" alt="Hypomobile Phaéton Tabatière" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1878 · France</span><h3>Hypomobile Phaéton Tabatière</h3><p>Issue du parc automobile du Musée, Hypomobile Phaéton Tabatière (1878) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1870 à 1880, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Utilitaire</span><span>France</span><span>1878</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="pionnier avant-guerre allemagne"><a class="vehicle-link" href="vehicule-benz-patent-motorwagen.html" aria-label="Voir la fiche Benz Patent-Motorwagen"><div class="vehicle-media"><img src="assets/park-auto/benz-patent-motorwagen.jpg" alt="Benz Patent-Motorwagen" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1886 · Allemagne</span><h3>Benz Patent-Motorwagen</h3><p>Issue du parc automobile du Musée, Benz Patent-Motorwagen (1886) raconte les origines techniques de la mobilité et les premières réponses mécaniques au rêve de se déplacer autrement. La fiche situe ce modèle dans une période clé, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Pionnier</span><span>Allemagne</span><span>1886</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="avant-guerre usa"><a class="vehicle-link" href="vehicule-ford-t-runabout.html" aria-label="Voir la fiche Ford T Runabout"><div class="vehicle-media"><img src="assets/park-auto/ford-t-runabout.jpg" alt="Ford T Runabout" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1915 · États-Unis</span><h3>Ford T Runabout</h3><p>Issue du parc automobile du Musée, Ford T Runabout (1915) raconte l’ingénierie, les usages et l’élégance automobile d’avant-guerre. La fiche situe ce modèle dans 1908-1927, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Avant-guerre</span><span>États-Unis</span><span>1915</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="avant-guerre sport france"><a class="vehicle-link" href="vehicule-bugatti-type-35-grand-prix.html" aria-label="Voir la fiche Bugatti Type 35 Grand Prix"><div class="vehicle-media"><img src="assets/park-auto/bugatti-type-35-grand-prix.jpg" alt="Bugatti Type 35 Grand Prix" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1926 · France</span><h3>Bugatti Type 35 Grand Prix</h3><p>Issue du parc automobile du Musée, Bugatti Type 35 Grand Prix (1926) raconte la performance, le dessin des lignes et la culture de la route plaisir. La fiche situe ce modèle dans 1924-1931, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Sport &amp; GT</span><span>France</span><span>1926</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre prestige royaume-uni"><a class="vehicle-link" href="vehicule-rolls-royce-silver-wraith.html" aria-label="Voir la fiche Rolls-Royce Silver Wraith"><div class="vehicle-media"><img src="assets/park-auto/rolls-royce-silver-wraith.jpg" alt="Rolls-Royce Silver Wraith" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1949 · Royaume-Uni</span><h3>Rolls-Royce Silver Wraith</h3><p>Issue du parc automobile du Musée, Rolls-Royce Silver Wraith (1949) raconte le confort, le statut et l’art de voyager dans les grandes automobiles de caractère. La fiche situe ce modèle dans 1947 - 1955, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Prestige</span><span>Royaume-Uni</span><span>1949</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="avant-guerre allemagne"><a class="vehicle-link" href="vehicule-bmw-326.html" aria-label="Voir la fiche BMW 326"><div class="vehicle-media"><img src="assets/park-auto/bmw-326.jpg" alt="BMW 326" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1936 · Allemagne</span><h3>BMW 326</h3><p>Issue du parc automobile du Musée, BMW 326 (1936) raconte l’ingénierie, les usages et l’élégance automobile d’avant-guerre. La fiche situe ce modèle dans 1936-1941, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Avant-guerre</span><span>Allemagne</span><span>1936</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre prestige allemagne"><a class="vehicle-link" href="vehicule-mercedes-170-sd.html" aria-label="Voir la fiche Mercedes 170 SD"><div class="vehicle-media"><img src="assets/park-auto/mercedes-170-sd.jpg" alt="Mercedes 170 SD" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1953 · Allemagne</span><h3>Mercedes 170 SD</h3><p>Issue du parc automobile du Musée, Mercedes 170 SD (1953) raconte le confort, le statut et l’art de voyager dans les grandes automobiles de caractère. La fiche situe ce modèle dans 1936 à 1942, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Prestige</span><span>Allemagne</span><span>1953</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="avant-guerre france"><a class="vehicle-link" href="vehicule-peugeot-402-b-legere.html" aria-label="Voir la fiche Peugeot 402 B Légère"><div class="vehicle-media"><img src="assets/park-auto/peugeot-402-b-legere.jpg" alt="Peugeot 402 B Légère" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1938 · France</span><h3>Peugeot 402 B Légère</h3><p>Issue du parc automobile du Musée, Peugeot 402 B Légère (1938) raconte l’ingénierie, les usages et l’élégance automobile d’avant-guerre. La fiche situe ce modèle dans 1935 – 1942, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Avant-guerre</span><span>France</span><span>1938</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="avant-guerre royaume-uni"><a class="vehicle-link" href="vehicule-willys-overland-knight-20.html" aria-label="Voir la fiche Willys Overland Knight 20"><div class="vehicle-media"><img src="assets/park-auto/willys-overland-knight-20.jpg" alt="Willys Overland Knight 20" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1921 · Royaume-Uni</span><h3>Willys Overland Knight 20</h3><p>Issue du parc automobile du Musée, Willys Overland Knight 20 (1921) raconte l’ingénierie, les usages et l’élégance automobile d’avant-guerre. La fiche situe ce modèle dans 1914-1926, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Avant-guerre</span><span>Royaume-Uni</span><span>1921</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="avant-guerre usa"><a class="vehicle-link" href="vehicule-chevrolet-ab-national.html" aria-label="Voir la fiche Chevrolet AB National"><div class="vehicle-media"><img src="assets/park-auto/chevrolet-ab-national.jpg" alt="Chevrolet AB National" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1928 · États-Unis</span><h3>Chevrolet AB National</h3><p>Issue du parc automobile du Musée, Chevrolet AB National (1928) raconte l’ingénierie, les usages et l’élégance automobile d’avant-guerre. La fiche situe ce modèle dans une période clé, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Avant-guerre</span><span>États-Unis</span><span>1928</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="avant-guerre usa"><a class="vehicle-link" href="vehicule-ford-t-tourer.html" aria-label="Voir la fiche Ford T Tourer"><div class="vehicle-media"><img src="assets/park-auto/ford-t-tourer.jpg" alt="Ford T Tourer" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1924 · États-Unis</span><h3>Ford T Tourer</h3><p>Issue du parc automobile du Musée, Ford T Tourer (1924) raconte l’ingénierie, les usages et l’élégance automobile d’avant-guerre. La fiche situe ce modèle dans 1908-1927, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Avant-guerre</span><span>États-Unis</span><span>1924</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="avant-guerre france"><a class="vehicle-link" href="vehicule-renault-monaquatre-ym2.html" aria-label="Voir la fiche Renault Monaquatre YM2"><div class="vehicle-media"><img src="assets/park-auto/renault-monaquatre-ym2.jpg" alt="Renault Monaquatre YM2" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1934 · France</span><h3>Renault Monaquatre YM2</h3><p>Issue du parc automobile du Musée, Renault Monaquatre YM2 (1934) raconte l’ingénierie, les usages et l’élégance automobile d’avant-guerre. La fiche situe ce modèle dans 1932 à 1934, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Avant-guerre</span><span>France</span><span>1934</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="avant-guerre france"><a class="vehicle-link" href="vehicule-citroen-c4.html" aria-label="Voir la fiche Citroën C4"><div class="vehicle-media"><img src="assets/park-auto/citroen-c4.jpg" alt="Citroën C4" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1932 · France</span><h3>Citroën C4</h3><p>Issue du parc automobile du Musée, Citroën C4 (1932) raconte l’ingénierie, les usages et l’élégance automobile d’avant-guerre. La fiche situe ce modèle dans 1928 à 1932, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Avant-guerre</span><span>France</span><span>1932</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire allemagne"><a class="vehicle-link" href="vehicule-volkswagen-coccinelle-1300.html" aria-label="Voir la fiche Volkswagen Coccinelle 1300"><div class="vehicle-media"><img src="assets/park-auto/volkswagen-coccinelle-1300.jpg" alt="Volkswagen Coccinelle 1300" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1972 · Allemagne</span><h3>Volkswagen Coccinelle 1300</h3><p>Issue du parc automobile du Musée, Volkswagen Coccinelle 1300 (1972) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1938 – 2003, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>Allemagne</span><span>1972</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-renault-4cv.html" aria-label="Voir la fiche Renault 4CV"><div class="vehicle-media"><img src="assets/park-auto/renault-4cv.jpg" alt="Renault 4CV" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1949 · France</span><h3>Renault 4CV</h3><p>Issue du parc automobile du Musée, Renault 4CV (1949) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1946 – 1961, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1949</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-citroen-2-cv-azl.html" aria-label="Voir la fiche Citroën 2 CV AZL"><div class="vehicle-media"><img src="assets/park-auto/citroen-2-cv-azl.jpg" alt="Citroën 2 CV AZL" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1960 · France</span><h3>Citroën 2 CV AZL</h3><p>Issue du parc automobile du Musée, Citroën 2 CV AZL (1960) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1957 – 1961, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1960</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire italie"><a class="vehicle-link" href="vehicule-fiat-600.html" aria-label="Voir la fiche Fiat 600"><div class="vehicle-media"><img src="assets/park-auto/fiat-600.jpg" alt="Fiat 600" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1969 · Italie</span><h3>Fiat 600</h3><p>Issue du parc automobile du Musée, Fiat 600 (1969) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1955 – 1969, avec une origine italienne et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>Italie</span><span>1969</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="avant-guerre utilitaire royaume-uni"><a class="vehicle-link" href="vehicule-dennis-fire-engine.html" aria-label="Voir la fiche Dennis Fire Engine"><div class="vehicle-media"><img src="assets/park-auto/dennis-fire-engine.jpg" alt="Dennis Fire Engine" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1926 · Royaume-Uni</span><h3>Dennis Fire Engine</h3><p>Issue du parc automobile du Musée, Dennis Fire Engine (1926) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1916 - 1968, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Utilitaire</span><span>Royaume-Uni</span><span>1926</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre sport allemagne"><a class="vehicle-link" href="vehicule-porsche-911.html" aria-label="Voir la fiche Porsche 911"><div class="vehicle-media"><img src="assets/park-auto/porsche-911.jpg" alt="Porsche 911" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1972 · Allemagne</span><h3>Porsche 911</h3><p>Issue du parc automobile du Musée, Porsche 911 (1972) raconte la performance, le dessin des lignes et la culture de la route plaisir. La fiche situe ce modèle dans 1964 – 1973, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Sport &amp; GT</span><span>Allemagne</span><span>1972</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre france"><a class="vehicle-link" href="vehicule-ds-21.html" aria-label="Voir la fiche DS 21"><div class="vehicle-media"><img src="assets/park-auto/ds-21.jpg" alt="DS 21" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1966 · France</span><h3>DS 21</h3><p>Issue du parc automobile du Musée, DS 21 (1966) raconte une étape importante de l’histoire automobile. La fiche situe ce modèle dans 1955 – 1975, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Patrimoine</span><span>France</span><span>1966</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre france"><a class="vehicle-link" href="vehicule-peugeot-504.html" aria-label="Voir la fiche Peugeot 504"><div class="vehicle-media"><img src="assets/park-auto/peugeot-504.jpg" alt="Peugeot 504" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1970 · France</span><h3>Peugeot 504</h3><p>Issue du parc automobile du Musée, Peugeot 504 (1970) raconte une étape importante de l’histoire automobile. La fiche situe ce modèle dans 1968 – 1983, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Patrimoine</span><span>France</span><span>1970</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre sport royaume-uni"><a class="vehicle-link" href="vehicule-triumph-gt6-mk2.html" aria-label="Voir la fiche Triumph GT6 MK2"><div class="vehicle-media"><img src="assets/park-auto/triumph-gt6-mk2.jpg" alt="Triumph GT6 MK2" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1970 · Royaume-Uni</span><h3>Triumph GT6 MK2</h3><p>Issue du parc automobile du Musée, Triumph GT6 MK2 (1970) raconte la performance, le dessin des lignes et la culture de la route plaisir. La fiche situe ce modèle dans 1969-1970, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Sport &amp; GT</span><span>Royaume-Uni</span><span>1970</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-simca-1000.html" aria-label="Voir la fiche Simca 1000"><div class="vehicle-media"><img src="assets/park-auto/simca-1000.jpg" alt="Simca 1000" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1972 · France</span><h3>Simca 1000</h3><p>Issue du parc automobile du Musée, Simca 1000 (1972) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1961 – 1978, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1972</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-renault-dauphine.html" aria-label="Voir la fiche Renault Dauphine"><div class="vehicle-media"><img src="assets/park-auto/renault-dauphine.jpg" alt="Renault Dauphine" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1961 · France</span><h3>Renault Dauphine</h3><p>Issue du parc automobile du Musée, Renault Dauphine (1961) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1956 – 1967, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1961</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-renault-4l.html" aria-label="Voir la fiche Renault 4L"><div class="vehicle-media"><img src="assets/park-auto/renault-4l.jpg" alt="Renault 4L" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1986 · France</span><h3>Renault 4L</h3><p>Issue du parc automobile du Musée, Renault 4L (1986) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1961 – 1992, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1986</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre prestige royaume-uni"><a class="vehicle-link" href="vehicule-rolls-royce-corniche-coupe.html" aria-label="Voir la fiche Rolls Royce Corniche coupé"><div class="vehicle-media"><img src="assets/park-auto/rolls-royce-corniche-coupe.jpg" alt="Rolls Royce Corniche coupé" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1977 · Royaume-Uni</span><h3>Rolls Royce Corniche coupé</h3><p>Issue du parc automobile du Musée, Rolls Royce Corniche coupé (1977) raconte le confort, le statut et l’art de voyager dans les grandes automobiles de caractère. La fiche situe ce modèle dans 1971 - 1980, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Prestige</span><span>Royaume-Uni</span><span>1977</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre sport royaume-uni"><a class="vehicle-link" href="vehicule-austin-healey-3000-mk-ii.html" aria-label="Voir la fiche Austin-Healey 3000 MK II"><div class="vehicle-media"><img src="assets/park-auto/austin-healey-3000-mk-ii.jpg" alt="Austin-Healey 3000 MK II" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1962 · Royaume-Uni</span><h3>Austin-Healey 3000 MK II</h3><p>Issue du parc automobile du Musée, Austin-Healey 3000 MK II (1962) raconte la performance, le dessin des lignes et la culture de la route plaisir. La fiche situe ce modèle dans 1959 - 1968, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Sport &amp; GT</span><span>Royaume-Uni</span><span>1962</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre royaume-uni"><a class="vehicle-link" href="vehicule-austin-a-40-devon.html" aria-label="Voir la fiche Austin A 40 Devon"><div class="vehicle-media"><img src="assets/park-auto/austin-a-40-devon.jpg" alt="Austin A 40 Devon" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1961 · Royaume-Uni</span><h3>Austin A 40 Devon</h3><p>Issue du parc automobile du Musée, Austin A 40 Devon (1961) raconte une étape importante de l’histoire automobile. La fiche situe ce modèle dans 1947 - 1967, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Patrimoine</span><span>Royaume-Uni</span><span>1961</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre sport royaume-uni"><a class="vehicle-link" href="vehicule-mg-a-1500-mk1.html" aria-label="Voir la fiche MG A 1500 MK1"><div class="vehicle-media"><img src="assets/park-auto/mg-a-1500-mk1.jpg" alt="MG A 1500 MK1" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1955 · Royaume-Uni</span><h3>MG A 1500 MK1</h3><p>Issue du parc automobile du Musée, MG A 1500 MK1 (1955) raconte la performance, le dessin des lignes et la culture de la route plaisir. La fiche situe ce modèle dans 1955-1959, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Sport &amp; GT</span><span>Royaume-Uni</span><span>1955</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre sport royaume-uni"><a class="vehicle-link" href="vehicule-morgan-4-4-1600.html" aria-label="Voir la fiche Morgan 4/4 1600"><div class="vehicle-media"><img src="assets/park-auto/morgan-4-4-1600.jpg" alt="Morgan 4/4 1600" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1977 · Royaume-Uni</span><h3>Morgan 4/4 1600</h3><p>Issue du parc automobile du Musée, Morgan 4/4 1600 (1977) raconte la performance, le dessin des lignes et la culture de la route plaisir. La fiche situe ce modèle dans 1972 - 1980, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Sport &amp; GT</span><span>Royaume-Uni</span><span>1977</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre sport royaume-uni"><a class="vehicle-link" href="vehicule-triumph-tr4a.html" aria-label="Voir la fiche Triumph TR4A"><div class="vehicle-media"><img src="assets/park-auto/triumph-tr4a.jpg" alt="Triumph TR4A" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1966 · Royaume-Uni</span><h3>Triumph TR4A</h3><p>Issue du parc automobile du Musée, Triumph TR4A (1966) raconte la performance, le dessin des lignes et la culture de la route plaisir. La fiche situe ce modèle dans 1961 – 1967, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Sport &amp; GT</span><span>Royaume-Uni</span><span>1966</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire royaume-uni"><a class="vehicle-link" href="vehicule-austin-mini-1000.html" aria-label="Voir la fiche Austin Mini 1000"><div class="vehicle-media"><img src="assets/park-auto/austin-mini-1000.jpg" alt="Austin Mini 1000" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1968 · Royaume-Uni</span><h3>Austin Mini 1000</h3><p>Issue du parc automobile du Musée, Austin Mini 1000 (1968) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1968 – 1991, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>Royaume-Uni</span><span>1968</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire royaume-uni"><a class="vehicle-link" href="vehicule-morris-minor-1000.html" aria-label="Voir la fiche Morris Minor 1000"><div class="vehicle-media"><img src="assets/park-auto/morris-minor-1000.jpg" alt="Morris Minor 1000" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1956 · Royaume-Uni</span><h3>Morris Minor 1000</h3><p>Issue du parc automobile du Musée, Morris Minor 1000 (1956) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1956 – 1971, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>Royaume-Uni</span><span>1956</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre sport royaume-uni"><a class="vehicle-link" href="vehicule-jaguar-mark-2-mk2.html" aria-label="Voir la fiche Jaguar Mark 2 (MK2)"><div class="vehicle-media"><img src="assets/park-auto/jaguar-mark-2-mk2.jpg" alt="Jaguar Mark 2 (MK2)" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1962 · Royaume-Uni</span><h3>Jaguar Mark 2 (MK2)</h3><p>Issue du parc automobile du Musée, Jaguar Mark 2 (MK2) (1962) raconte la performance, le dessin des lignes et la culture de la route plaisir. La fiche situe ce modèle dans 1959 – 1967, avec une origine britannique et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Sport &amp; GT</span><span>Royaume-Uni</span><span>1962</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre prestige usa"><a class="vehicle-link" href="vehicule-cadillac-eldorado-5e-generation.html" aria-label="Voir la fiche Cadillac Eldorado 5e génération"><div class="vehicle-media"><img src="assets/park-auto/cadillac-eldorado-5e-generation.jpg" alt="Cadillac Eldorado 5e génération" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1962 · États-Unis</span><h3>Cadillac Eldorado 5e génération</h3><p>Issue du parc automobile du Musée, Cadillac Eldorado 5e génération (1962) raconte le confort, le statut et l’art de voyager dans les grandes automobiles de caractère. La fiche situe ce modèle dans 1961 – 1962, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Prestige</span><span>États-Unis</span><span>1962</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre sport usa"><a class="vehicle-link" href="vehicule-chevrolet-corvette-c1-350-high-performance.html" aria-label="Voir la fiche Corvette C1 350 High Performance"><div class="vehicle-media"><img src="assets/park-auto/chevrolet-corvette-c1-350-high-performance.jpg" alt="Corvette C1 350 High Performance" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1961 · États-Unis</span><h3>Corvette C1 350 High Performance</h3><p>Issue du parc automobile du Musée, Corvette C1 350 High Performance (1961) raconte la performance, le dessin des lignes et la culture de la route plaisir. La fiche situe ce modèle dans une période clé, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Sport &amp; GT</span><span>États-Unis</span><span>1961</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre usa"><a class="vehicle-link" href="vehicule-pontiac-streamliner-8-sedan.html" aria-label="Voir la fiche Pontiac Streamliner 8 Sedan"><div class="vehicle-media"><img src="assets/park-auto/pontiac-streamliner-8-sedan.jpg" alt="Pontiac Streamliner 8 Sedan" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1949 · États-Unis</span><h3>Pontiac Streamliner 8 Sedan</h3><p>Issue du parc automobile du Musée, Pontiac Streamliner 8 Sedan (1949) raconte une étape importante de l’histoire automobile. La fiche situe ce modèle dans 1941 - 1954, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Patrimoine</span><span>États-Unis</span><span>1949</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre sport usa"><a class="vehicle-link" href="vehicule-ford-mustang.html" aria-label="Voir la fiche Ford Mustang"><div class="vehicle-media"><img src="assets/park-auto/ford-mustang.jpg" alt="Ford Mustang" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1969 · États-Unis</span><h3>Ford Mustang</h3><p>Issue du parc automobile du Musée, Ford Mustang (1969) raconte la performance, le dessin des lignes et la culture de la route plaisir. La fiche situe ce modèle dans 1969 – 1970, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Sport &amp; GT</span><span>États-Unis</span><span>1969</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre utilitaire usa"><a class="vehicle-link" href="vehicule-jeep-cj-5.html" aria-label="Voir la fiche Jeep CJ-5"><div class="vehicle-media"><img src="assets/park-auto/jeep-cj-5.jpg" alt="Jeep CJ-5" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1970 · États-Unis</span><h3>Jeep CJ-5</h3><p>Issue du parc automobile du Musée, Jeep CJ-5 (1970) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1955 – 1983, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Utilitaire</span><span>États-Unis</span><span>1970</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre sport usa"><a class="vehicle-link" href="vehicule-ford-thunderbird.html" aria-label="Voir la fiche Ford Thunderbird"><div class="vehicle-media"><img src="assets/park-auto/ford-thunderbird.jpg" alt="Ford Thunderbird" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1962 · États-Unis</span><h3>Ford Thunderbird</h3><p>Issue du parc automobile du Musée, Ford Thunderbird (1962) raconte la performance, le dessin des lignes et la culture de la route plaisir. La fiche situe ce modèle dans 1961 – 1963, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Sport &amp; GT</span><span>États-Unis</span><span>1962</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre usa"><a class="vehicle-link" href="vehicule-plymouth-p24.html" aria-label="Voir la fiche Plymouth P24"><div class="vehicle-media"><img src="assets/park-auto/plymouth-p24.jpg" alt="Plymouth P24" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1951 · États-Unis</span><h3>Plymouth P24</h3><p>Issue du parc automobile du Musée, Plymouth P24 (1951) raconte une étape importante de l’histoire automobile. La fiche situe ce modèle dans 1951 à 1953, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Patrimoine</span><span>États-Unis</span><span>1951</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="avant-guerre utilitaire allemagne"><a class="vehicle-link" href="vehicule-bmw-r75-side-car.html" aria-label="Voir la fiche BMW R75 Side-car"><div class="vehicle-media"><img src="assets/park-auto/bmw-r75-side-car.jpg" alt="BMW R75 Side-car" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1945 · Allemagne</span><h3>BMW R75 Side-car</h3><p>Issue du parc automobile du Musée, BMW R75 Side-car (1945) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1941-1944, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Utilitaire</span><span>Allemagne</span><span>1945</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre sport prestige allemagne"><a class="vehicle-link" href="vehicule-mercedes-benz-280-sl-pagode.html" aria-label="Voir la fiche Mercedes-Benz 280 SL Pagode"><div class="vehicle-media"><img src="assets/park-auto/mercedes-benz-280-sl-pagode.jpg" alt="Mercedes-Benz 280 SL Pagode" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1971 · Allemagne</span><h3>Mercedes-Benz 280 SL Pagode</h3><p>Issue du parc automobile du Musée, Mercedes-Benz 280 SL Pagode (1971) raconte la performance, le dessin des lignes et la culture de la route plaisir. La fiche situe ce modèle dans 1963 à 1971, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Sport &amp; GT</span><span>Allemagne</span><span>1971</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre prestige allemagne"><a class="vehicle-link" href="vehicule-mercedes-ponton.html" aria-label="Voir la fiche Mercedes Ponton"><div class="vehicle-media"><img src="assets/park-auto/mercedes-ponton.jpg" alt="Mercedes Ponton" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1959 · Allemagne</span><h3>Mercedes Ponton</h3><p>Issue du parc automobile du Musée, Mercedes Ponton (1959) raconte le confort, le statut et l’art de voyager dans les grandes automobiles de caractère. La fiche situe ce modèle dans 1953 à 1962, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Prestige</span><span>Allemagne</span><span>1959</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre prestige allemagne"><a class="vehicle-link" href="vehicule-mercedes-benz-300-se-coupe.html" aria-label="Voir la fiche Mercedes-Benz 300 SE Coupé"><div class="vehicle-media"><img src="assets/park-auto/mercedes-benz-300-se-coupe.jpg" alt="Mercedes-Benz 300 SE Coupé" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1963 · Allemagne</span><h3>Mercedes-Benz 300 SE Coupé</h3><p>Issue du parc automobile du Musée, Mercedes-Benz 300 SE Coupé (1963) raconte le confort, le statut et l’art de voyager dans les grandes automobiles de caractère. La fiche situe ce modèle dans 1962-1967, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Prestige</span><span>Allemagne</span><span>1963</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre prestige allemagne"><a class="vehicle-link" href="vehicule-mercedes-benz-220-b-usa.html" aria-label="Voir la fiche Mercedes-Benz 220 B USA"><div class="vehicle-media"><img src="assets/park-auto/mercedes-benz-220-b-usa.jpg" alt="Mercedes-Benz 220 B USA" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1960 · Allemagne</span><h3>Mercedes-Benz 220 B USA</h3><p>Issue du parc automobile du Musée, Mercedes-Benz 220 B USA (1960) raconte le confort, le statut et l’art de voyager dans les grandes automobiles de caractère. La fiche situe ce modèle dans 1960 - 1966, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Prestige</span><span>Allemagne</span><span>1960</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre prestige allemagne"><a class="vehicle-link" href="vehicule-mercedes-200.html" aria-label="Voir la fiche Mercedes 200"><div class="vehicle-media"><img src="assets/park-auto/mercedes-200.jpg" alt="Mercedes 200" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1971 · Allemagne</span><h3>Mercedes 200</h3><p>Issue du parc automobile du Musée, Mercedes 200 (1971) raconte le confort, le statut et l’art de voyager dans les grandes automobiles de caractère. La fiche situe ce modèle dans 1968 – 1973, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Prestige</span><span>Allemagne</span><span>1971</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre prestige allemagne"><a class="vehicle-link" href="vehicule-mercedes-benz-230-coupe.html" aria-label="Voir la fiche Mercedes-Benz 230 Coupé"><div class="vehicle-media"><img src="assets/park-auto/mercedes-benz-230-coupe.jpg" alt="Mercedes-Benz 230 Coupé" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1982 · Allemagne</span><h3>Mercedes-Benz 230 Coupé</h3><p>Issue du parc automobile du Musée, Mercedes-Benz 230 Coupé (1982) raconte le confort, le statut et l’art de voyager dans les grandes automobiles de caractère. La fiche situe ce modèle dans 1975 à 1980, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Prestige</span><span>Allemagne</span><span>1982</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre france"><a class="vehicle-link" href="vehicule-citroen-ds-21-pallas.html" aria-label="Voir la fiche Citroën DS 21 Pallas"><div class="vehicle-media"><img src="assets/park-auto/citroen-ds-21-pallas.jpg" alt="Citroën DS 21 Pallas" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1966 · France</span><h3>Citroën DS 21 Pallas</h3><p>Issue du parc automobile du Musée, Citroën DS 21 Pallas (1966) raconte une étape importante de l’histoire automobile. La fiche situe ce modèle dans 1955 – 1975, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Patrimoine</span><span>France</span><span>1966</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-peugeot-203-c.html" aria-label="Voir la fiche Peugeot 203 C"><div class="vehicle-media"><img src="assets/park-auto/peugeot-203-c.jpg" alt="Peugeot 203 C" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1953 · France</span><h3>Peugeot 203 C</h3><p>Issue du parc automobile du Musée, Peugeot 203 C (1953) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1948 – 1960, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1953</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-peugeot-403.html" aria-label="Voir la fiche Peugeot 403"><div class="vehicle-media"><img src="assets/park-auto/peugeot-403.jpg" alt="Peugeot 403" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1960 · France</span><h3>Peugeot 403</h3><p>Issue du parc automobile du Musée, Peugeot 403 (1960) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1955 – 1956, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1960</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-peugeot-404.html" aria-label="Voir la fiche Peugeot 404"><div class="vehicle-media"><img src="assets/park-auto/peugeot-404.jpg" alt="Peugeot 404" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1965 · France</span><h3>Peugeot 404</h3><p>Issue du parc automobile du Musée, Peugeot 404 (1965) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1962 – 1975, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1965</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-citroen-2cv-charleston.html" aria-label="Voir la fiche Citroën 2CV Charleston"><div class="vehicle-media"><img src="assets/park-auto/citroen-2cv-charleston.jpg" alt="Citroën 2CV Charleston" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1980 · France</span><h3>Citroën 2CV Charleston</h3><p>Issue du parc automobile du Musée, Citroën 2CV Charleston (1980) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1980 – 1990, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1980</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-renault-4cv-p62.html" aria-label="Voir la fiche Renault 4CV"><div class="vehicle-media"><img src="assets/park-auto/renault-4cv-p62.jpg" alt="Renault 4CV" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1949 · France</span><h3>Renault 4CV</h3><p>Issue du parc automobile du Musée, Renault 4CV (1949) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1946 – 1961, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1949</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre france"><a class="vehicle-link" href="vehicule-renault-16-tx.html" aria-label="Voir la fiche Renault 16 TX"><div class="vehicle-media"><img src="assets/park-auto/renault-16-tx.jpg" alt="Renault 16 TX" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1979 · France</span><h3>Renault 16 TX</h3><p>Issue du parc automobile du Musée, Renault 16 TX (1979) raconte une étape importante de l’histoire automobile. La fiche situe ce modèle dans 1965 – 1980, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Patrimoine</span><span>France</span><span>1979</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-renault-8.html" aria-label="Voir la fiche Renault 8"><div class="vehicle-media"><img src="assets/park-auto/renault-8.jpg" alt="Renault 8" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1963 · France</span><h3>Renault 8</h3><p>Issue du parc automobile du Musée, Renault 8 (1963) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1962 - 1973, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1963</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-renault-12-tl.html" aria-label="Voir la fiche Renault 12 TL"><div class="vehicle-media"><img src="assets/park-auto/renault-12-tl.jpg" alt="Renault 12 TL" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1974 · France</span><h3>Renault 12 TL</h3><p>Issue du parc automobile du Musée, Renault 12 TL (1974) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1969 -1980, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1974</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-simca-aronde-chatelaine.html" aria-label="Voir la fiche Simca Aronde &quot;Châtelaine »"><div class="vehicle-media"><img src="assets/park-auto/simca-aronde-chatelaine.jpg" alt="Simca Aronde &quot;Châtelaine »" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1964 · France</span><h3>Simca Aronde "Châtelaine »</h3><p>Issue du parc automobile du Musée, Simca Aronde "Châtelaine » (1964) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1956 – 1966, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1964</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire france"><a class="vehicle-link" href="vehicule-citroen-2cv.html" aria-label="Voir la fiche Citroën 2CV"><div class="vehicle-media"><img src="assets/park-auto/citroen-2cv.jpg" alt="Citroën 2CV" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1973 · France</span><h3>Citroën 2CV</h3><p>Issue du parc automobile du Musée, Citroën 2CV (1973) raconte la démocratisation de l’automobile et la place de la voiture dans la vie quotidienne. La fiche situe ce modèle dans 1948 – 1990, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Populaire</span><span>France</span><span>1973</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre france"><a class="vehicle-link" href="vehicule-citroen-traction-11bl.html" aria-label="Voir la fiche Citroën Traction 11BL"><div class="vehicle-media"><img src="assets/park-auto/citroen-traction-11bl.jpg" alt="Citroën Traction 11BL" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1953 · France</span><h3>Citroën Traction 11BL</h3><p>Issue du parc automobile du Musée, Citroën Traction 11BL (1953) raconte une étape importante de l’histoire automobile. La fiche situe ce modèle dans 1947 – 1957, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Patrimoine</span><span>France</span><span>1953</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre prestige populaire italie"><a class="vehicle-link" href="vehicule-lancia-flaminia.html" aria-label="Voir la fiche Lancia Flaminia"><div class="vehicle-media"><img src="assets/park-auto/lancia-flaminia.jpg" alt="Lancia Flaminia" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1960 · Italie</span><h3>Lancia Flaminia</h3><p>Issue du parc automobile du Musée, Lancia Flaminia (1960) raconte le confort, le statut et l’art de voyager dans les grandes automobiles de caractère. La fiche situe ce modèle dans 1957 – 1961, avec une origine italienne et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Prestige</span><span>Italie</span><span>1960</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre utilitaire usa"><a class="vehicle-link" href="vehicule-chevrolet-6400-napco.html" aria-label="Voir la fiche Chevrolet 6400 NAPCO"><div class="vehicle-media"><img src="assets/park-auto/chevrolet-6400-napco.jpg" alt="Chevrolet 6400 NAPCO" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1956 · États-Unis</span><h3>Chevrolet 6400 NAPCO</h3><p>Issue du parc automobile du Musée, Chevrolet 6400 NAPCO (1956) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1955 – 1962, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Utilitaire</span><span>États-Unis</span><span>1956</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="avant-guerre utilitaire usa"><a class="vehicle-link" href="vehicule-chevrolet-6400-master-truck.html" aria-label="Voir la fiche Chevrolet 6400 Master Truck"><div class="vehicle-media"><img src="assets/park-auto/chevrolet-6400-master-truck.jpg" alt="Chevrolet 6400 Master Truck" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1945 · États-Unis</span><h3>Chevrolet 6400 Master Truck</h3><p>Issue du parc automobile du Musée, Chevrolet 6400 Master Truck (1945) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1941 – 1947, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Utilitaire</span><span>États-Unis</span><span>1945</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre utilitaire france"><a class="vehicle-link" href="vehicule-citroen-hy.html" aria-label="Voir la fiche Citroën HY"><div class="vehicle-media"><img src="assets/park-auto/citroen-hy.jpg" alt="Citroën HY" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1979 · France</span><h3>Citroën HY</h3><p>Issue du parc automobile du Musée, Citroën HY (1979) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1948 - 1981, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Utilitaire</span><span>France</span><span>1979</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre utilitaire suede"><a class="vehicle-link" href="vehicule-autocar-volvo-60.html" aria-label="Voir la fiche Autocar Volvo 60"><div class="vehicle-media"><img src="assets/park-auto/autocar-volvo-60.jpg" alt="Autocar Volvo 60" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1968 · Suède</span><h3>Autocar Volvo 60</h3><p>Issue du parc automobile du Musée, Autocar Volvo 60 (1968) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1968 - 1975, avec une origine suédoise et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Utilitaire</span><span>Suède</span><span>1968</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre utilitaire usa"><a class="vehicle-link" href="vehicule-school-bus-ford-b700.html" aria-label="Voir la fiche School Bus Ford B700"><div class="vehicle-media"><img src="assets/park-auto/school-bus-ford-b700.jpg" alt="School Bus Ford B700" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1985 · États-Unis</span><h3>School Bus Ford B700</h3><p>Issue du parc automobile du Musée, School Bus Ford B700 (1985) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1948 – 1998, avec une origine américaine et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Utilitaire</span><span>États-Unis</span><span>1985</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre utilitaire allemagne"><a class="vehicle-link" href="vehicule-volkswagen-combi-t2-bay-window.html" aria-label="Voir la fiche Volkswagen Combi T2 (Bay Window)"><div class="vehicle-media"><img src="assets/park-auto/volkswagen-combi-t2-bay-window.jpg" alt="Volkswagen Combi T2 (Bay Window)" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1975 · Allemagne</span><h3>Volkswagen Combi T2 (Bay Window)</h3><p>Issue du parc automobile du Musée, Volkswagen Combi T2 (Bay Window) (1975) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1967-1979, avec une origine allemande et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Utilitaire</span><span>Allemagne</span><span>1975</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+
+          <article class="vehicle-card reveal" data-category="apres-guerre populaire utilitaire france"><a class="vehicle-link" href="vehicule-citroen-2cv-fourgonnette-type-au.html" aria-label="Voir la fiche Citroën 2CV Fourgonnette Type AU"><div class="vehicle-media"><img src="assets/park-auto/citroen-2cv-fourgonnette-type-au.jpg" alt="Citroën 2CV Fourgonnette Type AU" loading="lazy"></div><div class="vehicle-body"><span class="vehicle-year">1979 · France</span><h3>Citroën 2CV Fourgonnette Type AU</h3><p>Issue du parc automobile du Musée, Citroën 2CV Fourgonnette Type AU (1979) raconte les métiers, les services et les usages collectifs de la mobilité. La fiche situe ce modèle dans 1951-1978, avec une origine française et une lecture pensée pour la transmission au public.</p><div class="vehicle-meta"><span>Utilitaire</span><span>France</span><span>1979</span></div><span class="vehicle-discover">Découvrir</span></div></a></article>
+        </div>
+
+        <div class="collection-pagination reveal" aria-label="Pagination de la collection">
+          <button class="pagination-btn" type="button" data-page-action="prev">Précédent</button>
+          <div class="pagination-pages" aria-label="Pages de véhicules"></div>
+          <button class="pagination-btn" type="button" data-page-action="next">Suivant</button>
+          <p class="pagination-status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Timeline automobile</span>
+            <h2 class="section-title">Une décennie de formes et d'idées.</h2>
+          </div>
+          <p class="section-copy">La page peut devenir demain une base CMS: chaque repère ouvre vers une fiche, une histoire, une exposition ou une archive audiovisuelle.</p>
+        </div>
+        <div class="timeline reveal">
+          <div class="time-item"><strong>1962</strong><span>Le roadster de collection 1962 ouvre un chapitre sur le grand tourisme et la culture de collection.</span></div>
+          <div class="time-item"><strong>1961</strong><span>La Galerie des classiques du Musée transforme la sportive en objet culturel.</span></div>
+          <div class="time-item"><strong>1962</strong><span>La Fiat rouge rappelle la place des voitures populaires dans la mémoire collective.</span></div>
+          <div class="time-item"><strong>1964</strong><span>Pagode et pionnières incarnent deux lectures du patrimoine automobile.</span></div>
+          <div class="time-item"><strong>1965</strong><span>Le coupé américain ouvre l'imaginaire automobile au grand public.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit-strip">
+      <div class="section-inner visit-content reveal">
+        <span class="eyebrow">Visiter la collection</span>
+        <h2>Préparer votre parcours.</h2>
+        <p>Visite libre, groupe scolaire, expérience corporate ou moment membres: la collection Musée se découvre comme une traversée culturelle, pas seulement comme une exposition statique.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tickets.html">Billetterie musée</a>
+          <a class="btn btn-secondary" href="index.html#events">Réserver une expérience</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img class="footer-logo" src="assets/musee-automobile-logo-gold.png" alt="Logo du Musée de l’Automobile du Maroc">
+          <h2>Musée de l’Automobile du Maroc</h2>
+        </div>
+        <p>Plus qu’un musée, une expérience: une destination culturelle où patrimoine automobile, design, transmission et émotion se rencontrent à Casablanca.</p>
+      </div>
+      <div>
+        <h3>Collection</h3>
+        <ul>
+          <li><a href="#mercedes-300sl">Pièce manifeste</a></li>
+          <li><a href="#collection-grid">Inventaire</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Informations</h3>
+        <ul>
+          <li>Route de Bouskoura, Casablanca</li>
+          <li>Mar-Dim · 10h-18h</li>
+          <li>+212 600 270 387</li>
+          <li>contact@museeautomobile.ma</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="garage.html">Le Garage</a></li>
+          <li><a href="evenementiel.html">Événementiel</a></li>
+          <li><a href="tickets.html">Billetterie</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Musée de l’Automobile du Maroc. Tous droits réservés.</span>
+      <span class="languages" aria-label="Langues"><a href="#" aria-label="Version française" title="Français"><span class="language-flag" aria-hidden="true">🇫🇷</span><span class="sr-only">Français</span></a><a href="#" aria-label="Version anglaise" title="English"><span class="language-flag" aria-hidden="true">🇬🇧</span><span class="sr-only">English</span></a></span>
+        <span class="footer-legal" style="display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end"><a href="mentions-legales.html">Mentions légales</a><a href="politique-confidentialite.html">Confidentialité</a><a href="politique-cookies.html">Cookies</a><a href="cgv-billetterie.html">CGV</a><a href="plan-site.html">Plan du site</a></span>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const header = document.querySelector("#siteHeader");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mobilePanel = document.querySelector("#mobilePanel");
+    const mobileTriggers = document.querySelectorAll(".mobile-trigger");
+    const desktopItems = document.querySelectorAll(".nav-item");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const vehicleCards = document.querySelectorAll(".vehicle-card");
+    const paginationPages = document.querySelector(".pagination-pages");
+    const paginationStatus = document.querySelector(".pagination-status");
+    const prevPageButton = document.querySelector('[data-page-action="prev"]');
+    const nextPageButton = document.querySelector('[data-page-action="next"]');
+    const revealItems = document.querySelectorAll(".reveal");
+    const vehiclesPerPage = 12;
+    let activeFilter = "all";
+    let currentPage = 1;
+
+    const setHeaderState = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 24);
+    };
+
+    window.addEventListener("scroll", setHeaderState, { passive: true });
+    setHeaderState();
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Ouvrir le menu" : "Fermer le menu");
+      body.classList.toggle("nav-open", !isOpen);
+    });
+
+    mobilePanel.addEventListener("click", (event) => {
+      if (!event.target.closest("a")) return;
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Ouvrir le menu");
+      body.classList.remove("nav-open");
+    });
+
+    mobileTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const links = trigger.nextElementSibling;
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+        trigger.setAttribute("aria-expanded", String(!isOpen));
+        links.classList.toggle("is-open", !isOpen);
+      });
+    });
+
+    desktopItems.forEach((item) => {
+      const button = item.querySelector(".nav-link");
+      button.addEventListener("click", () => {
+        const isActive = item.classList.contains("is-active");
+        desktopItems.forEach((candidate) => candidate.classList.remove("is-active"));
+        if (!isActive) item.classList.add("is-active");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".nav-item")) {
+        desktopItems.forEach((item) => item.classList.remove("is-active"));
+      }
+    });
+
+    const getFilteredCards = () => Array.from(vehicleCards).filter((card) => {
+      const categories = card.dataset.category || "";
+      return activeFilter === "all" || categories.includes(activeFilter);
+    });
+
+    const renderCollectionPage = (shouldScroll = false) => {
+      const filteredCards = getFilteredCards();
+      const totalPages = Math.max(1, Math.ceil(filteredCards.length / vehiclesPerPage));
+      currentPage = Math.min(currentPage, totalPages);
+
+      const startIndex = (currentPage - 1) * vehiclesPerPage;
+      const endIndex = startIndex + vehiclesPerPage;
+
+      vehicleCards.forEach((card) => card.classList.add("is-hidden"));
+      filteredCards.forEach((card, index) => {
+        card.classList.toggle("is-hidden", index < startIndex || index >= endIndex);
+      });
+
+      if (paginationPages) {
+        paginationPages.innerHTML = "";
+        for (let page = 1; page <= totalPages; page += 1) {
+          const pageButton = document.createElement("button");
+          pageButton.className = "pagination-page";
+          pageButton.type = "button";
+          pageButton.dataset.page = String(page);
+          pageButton.textContent = String(page);
+          if (page === currentPage) {
+            pageButton.setAttribute("aria-current", "page");
+          }
+          paginationPages.appendChild(pageButton);
+        }
+      }
+
+      if (prevPageButton) prevPageButton.disabled = currentPage === 1;
+      if (nextPageButton) nextPageButton.disabled = currentPage === totalPages;
+
+      if (paginationStatus) {
+        const firstVehicle = filteredCards.length ? startIndex + 1 : 0;
+        const lastVehicle = Math.min(endIndex, filteredCards.length);
+        paginationStatus.textContent = filteredCards.length
+          ? `Véhicules ${firstVehicle}-${lastVehicle} sur ${filteredCards.length}`
+          : "Aucun véhicule dans ce filtre";
+      }
+
+      if (shouldScroll) {
+        document.querySelector("#collection-grid").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+        currentPage = 1;
+        filterButtons.forEach((candidate) => candidate.setAttribute("aria-pressed", String(candidate === button)));
+        renderCollectionPage(true);
+      });
+    });
+
+    paginationPages?.addEventListener("click", (event) => {
+      const pageButton = event.target.closest("[data-page]");
+      if (!pageButton) return;
+      currentPage = Number(pageButton.dataset.page);
+      renderCollectionPage(true);
+    });
+
+    prevPageButton?.addEventListener("click", () => {
+      currentPage = Math.max(1, currentPage - 1);
+      renderCollectionPage(true);
+    });
+
+    nextPageButton?.addEventListener("click", () => {
+      const totalPages = Math.max(1, Math.ceil(getFilteredCards().length / vehiclesPerPage));
+      currentPage = Math.min(totalPages, currentPage + 1);
+      renderCollectionPage(true);
+    });
+
+    renderCollectionPage();
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
+  <script type="module" src="assets/dynamic-collection/collection-integration.js"></script>
+</body>
+</html>

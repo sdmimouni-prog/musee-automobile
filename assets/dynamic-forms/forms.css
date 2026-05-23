@@ -1,0 +1,45 @@
+.dynamic-form-status {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .06);
+  color: var(--quartz, #f5f5f3);
+  font: 600 13px/1.45 Montserrat, Arial, sans-serif;
+}
+
+.dynamic-form-status:empty {
+  display: none;
+}
+
+.dynamic-form-status.is-success {
+  border-color: rgba(109, 201, 138, .5);
+  background: rgba(109, 201, 138, .14);
+}
+
+.dynamic-form-status.is-error {
+  border-color: rgba(218, 87, 87, .5);
+  background: rgba(218, 87, 87, .14);
+}
+
+.dynamic-form-status.is-loading {
+  border-color: rgba(199, 154, 87, .5);
+  background: rgba(199, 154, 87, .14);
+}
+
+.btn[aria-busy="true"],
+button[aria-busy="true"] {
+  opacity: .72;
+  pointer-events: none;
+}
+
+.dynamic-form-honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
