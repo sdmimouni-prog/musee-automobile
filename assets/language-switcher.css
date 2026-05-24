@@ -39,3 +39,35 @@
 .mobile-panel .lang-switcher {
   margin-top: 16px;
 }
+
+@media (min-width: 1181px) {
+  .nav-wrap {
+    gap: 16px;
+  }
+
+  .desktop-nav {
+    min-width: 0;
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+  }
+
+  .nav-item,
+  .nav-home,
+  .nav-link,
+  .nav-ctas,
+  .nav-ctas > * {
+    flex: 0 0 auto;
+  }
+
+  .nav-home,
+  .nav-link,
+  .nav-ctas .btn,
+  .nav-ctas .lang-switcher {
+    white-space: nowrap;
+  }
+
+  .nav-link {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
