@@ -213,13 +213,13 @@
 
     const anchorLabels = new Map([
       ["index-en.html", { label: "Home" }],
-      ["club-en.html", { label: "Our story", subtitle: "Foundation & vision" }],
+      ["club-en.html", { label: "Our story", subtitle: "History & vision" }],
       ["mot-president-en.html", { label: "President's message", subtitle: "Transmission & passion" }],
       ["partenaires-en.html", { label: "Our partners", subtitle: "Institutional & corporate" }],
       ["devenir-membre-en.html", { label: "Become a member", subtitle: "Benefits & memberships" }],
       ["espace-membres-en.html", { label: "Members area", subtitle: "Sign in" }],
       ["automotive-academy-en.html", { label: "Automotive Academy", subtitle: "Training & expertise" }],
-      ["programmes-en.html", { label: "Our programmes", subtitle: "Automotive certifications" }],
+      ["programmes-en.html", { label: "Our programmes", subtitle: "Programmes & pathways" }],
       ["collection-en.html", { label: "Collection", subtitle: "Vehicles & exhibitions" }],
       ["garage-en.html", { label: "Le Garage", subtitle: "Concept & experience" }],
       ["horaires-en.html", { label: "Hours & access", subtitle: "Route de Bouskoura" }],
@@ -255,6 +255,9 @@
     ]);
 
     document.querySelectorAll('a[href]').forEach((link) => {
+      if (link.closest('.brand, .lang-switcher, .languages')) return;
+      if (link.querySelector('img, picture, .brand-mark')) return;
+
       const href = link.getAttribute("href");
       if (!href) return;
 
