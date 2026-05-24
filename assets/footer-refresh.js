@@ -92,23 +92,23 @@
           <h3>${copy.discover}</h3>
           <a href="${home}">${isEnglish ? "Home" : "Accueil"}</a>
           <a href="${collection}">${copy.collection}</a>
-          <a href="${isEnglish ? "club.html" : "club.html"}">${copy.history}</a>
-          <a href="${isEnglish ? "mot-president.html" : "mot-president.html"}">${copy.president}</a>
-          <a href="${isEnglish ? "timeline.html" : "timeline.html"}">${copy.timeline}</a>
+          <a href="${isEnglish ? "club-en.html" : "club.html"}">${copy.history}</a>
+          <a href="${isEnglish ? "mot-president-en.html" : "mot-president.html"}">${copy.president}</a>
+          <a href="${isEnglish ? "timeline-en.html" : "timeline.html"}">${copy.timeline}</a>
         </section>
 
         <section>
           <h3>${copy.visit}</h3>
           <a href="${tickets}">${copy.tickets}</a>
           <a href="${hours}">${copy.hoursLink}</a>
-          <a href="${isEnglish ? "visites-scolaires.html" : "visites-scolaires.html"}">${copy.school}</a>
-          <a href="${isEnglish ? "espace-membres.html" : "espace-membres.html"}">${copy.members}</a>
+          <a href="${isEnglish ? "visites-scolaires-en.html" : "visites-scolaires.html"}">${copy.school}</a>
+          <a href="${isEnglish ? "espace-membres-en.html" : "espace-membres.html"}">${copy.members}</a>
         </section>
 
         <section>
           <h3>${copy.events}</h3>
-          <a href="${isEnglish ? "espaces-evenementiels.html" : "espaces-evenementiels.html"}">${copy.eventSpaces}</a>
-          <a href="${isEnglish ? "services-evenementiels.html" : "services-evenementiels.html"}">${copy.eventServices}</a>
+          <a href="${isEnglish ? "espaces-evenementiels-en.html" : "espaces-evenementiels.html"}">${copy.eventSpaces}</a>
+          <a href="${isEnglish ? "services-evenementiels-en.html" : "services-evenementiels.html"}">${copy.eventServices}</a>
           <a href="${quote}">${copy.quote}</a>
           <a href="${garage}">${copy.garage}</a>
         </section>
@@ -118,8 +118,8 @@
           <a href="${isEnglish ? "actualites.html" : "actualites.html"}">${copy.news}</a>
           <a href="${isEnglish ? "presse-media.html" : "presse-media.html"}">${copy.media}</a>
           <a href="${isEnglish ? "plan-site.html" : "plan-site.html"}">${copy.sitemap}</a>
-          <a href="${isEnglish ? "partenaires.html" : "partenaires.html"}">${copy.partners}</a>
-          <a href="${isEnglish ? "automotive-academy.html" : "automotive-academy.html"}">${copy.academy}</a>
+          <a href="${isEnglish ? "partenaires-en.html" : "partenaires.html"}">${copy.partners}</a>
+          <a href="${isEnglish ? "automotive-academy-en.html" : "automotive-academy.html"}">${copy.academy}</a>
         </section>
 
         <section>
