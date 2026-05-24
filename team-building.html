@@ -940,6 +940,31 @@
       line-height: 1.8;
     }
 
+    .feature-band--team .feature-layout {
+      grid-template-columns: minmax(0, 0.88fr) minmax(320px, 0.82fr);
+      gap: 28px;
+    }
+
+    .feature-band--team .feature-image {
+      min-height: 500px;
+      background-position: center;
+    }
+
+    .feature-band--team .feature-panel {
+      padding: 40px;
+    }
+
+    .feature-band--team .feature-panel h2 {
+      max-width: 8ch;
+      font-size: clamp(2.8rem, 4.3vw, 4.7rem);
+      line-height: 1.02;
+      overflow-wrap: anywhere;
+    }
+
+    .feature-band--team .feature-panel p {
+      max-width: 30rem;
+    }
+
     .specs {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1359,6 +1384,10 @@
       .feature-image {
         min-height: 420px;
       }
+
+      .feature-band--team .feature-image {
+        min-height: 380px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -1426,6 +1455,11 @@
 
       .feature-image {
         min-height: 320px;
+      }
+
+      .feature-band--team .feature-panel h2 {
+        max-width: none;
+        font-size: clamp(2.5rem, 10vw, 3.8rem);
       }
 
       .spec {
@@ -2287,7 +2321,7 @@
       </div>
     </section>
 
-    <section class="section feature-band">
+    <section class="section feature-band feature-band--team">
       <div class="section-inner feature-layout">
         <div class="feature-image reveal" role="img" aria-label="Voiture ancienne pendant une animation team building au Musée de l’Automobile du Maroc" style="--feature-image:url('assets/team-building/team-building-esprit.png')"></div>
         <article class="feature-panel reveal">
