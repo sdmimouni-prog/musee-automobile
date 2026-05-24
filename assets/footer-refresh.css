@@ -31,6 +31,18 @@
   max-width: 560px;
 }
 
+.footer-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-logo {
+  width: clamp(72px, 8vw, 96px);
+  height: auto;
+  flex: 0 0 auto;
+}
+
 .footer-brandline strong {
   color: #f5f5f3;
   font-family: "Cormorant Garamond", Georgia, serif;
@@ -157,6 +169,10 @@
     display: grid;
   }
 
+  .footer-brand-lockup {
+    align-items: flex-start;
+  }
+
   .footer-contactline {
     justify-items: start;
     text-align: left;
@@ -174,12 +190,22 @@
     padding: 0 20px;
   }
 
+  .footer-brand-lockup {
+    gap: 14px;
+  }
+
   .footer-links-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 520px) {
+  .footer-brand-lockup {
+    grid-template-columns: 1fr;
+    display: grid;
+    gap: 10px;
+  }
+
   .footer-links-grid {
     grid-template-columns: 1fr;
   }

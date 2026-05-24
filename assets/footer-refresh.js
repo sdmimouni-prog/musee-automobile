@@ -15,6 +15,7 @@
     ? {
         title: "Museum of the Automobile of Morocco",
         intro: "A sober navigation footer to help visitors move across the Museum, collection, events and restaurant ecosystem without getting lost.",
+        logoAlt: "Logo of the Museum of the Automobile of Morocco",
         address: "Route de Bouskoura, Casablanca",
         hours: "Tue-Sun · 10:00-18:00",
         contact: "contact@musee-automobile.ma",
@@ -23,7 +24,7 @@
         visit: "Visit",
         events: "Events & dining",
         resources: "Resources",
-        legal: "Legal",
+        contactBlock: "Contact",
         collection: "Collection",
         history: "Institution",
         president: "President's message",
@@ -41,15 +42,12 @@
         sitemap: "Sitemap",
         partners: "Partners",
         academy: "Automotive Academy",
-        cookies: "Cookies",
-        privacy: "Privacy policy",
-        legalNotice: "Legal notice",
-        terms: "Ticket terms",
         rights: "All rights reserved."
       }
     : {
         title: "Musée de l’Automobile du Maroc",
         intro: "Un footer plus sobre pour orienter clairement les visiteurs entre le Musée, la collection, l’événementiel et Le Garage.",
+        logoAlt: "Logo du Musée de l’Automobile du Maroc",
         address: "Route de Bouskoura, Casablanca",
         hours: "Mar-Dim · 10h00-18h00",
         contact: "contact@musee-automobile.ma",
@@ -58,7 +56,7 @@
         visit: "Visiter",
         events: "Événementiel & restaurant",
         resources: "Ressources",
-        legal: "Informations légales",
+        contactBlock: "Contact",
         collection: "La collection",
         history: "L’institution",
         president: "Le mot du Président",
@@ -76,10 +74,6 @@
         sitemap: "Plan du site",
         partners: "Partenaires",
         academy: "Automotive Academy",
-        cookies: "Cookies",
-        privacy: "Politique de confidentialité",
-        legalNotice: "Mentions légales",
-        terms: "CGV billetterie",
         rights: "Tous droits réservés."
       };
 
@@ -88,7 +82,10 @@
     <div class="footer-frame">
       <div class="footer-topline">
         <div class="footer-brandline">
-          <strong>${copy.title}</strong>
+          <div class="footer-brand-lockup">
+            <img class="footer-logo" src="assets/musee-automobile-logo-gold.png" alt="${copy.logoAlt}">
+            <strong>${copy.title}</strong>
+          </div>
           <p>${copy.intro}</p>
         </div>
         <div class="footer-contactline">
@@ -135,11 +132,11 @@
         </section>
 
         <section>
-          <h3>${copy.legal}</h3>
-          <a href="${isEnglish ? "mentions-legales.html" : "mentions-legales.html"}">${copy.legalNotice}</a>
-          <a href="${isEnglish ? "politique-confidentialite.html" : "politique-confidentialite.html"}">${copy.privacy}</a>
-          <a href="${isEnglish ? "politique-cookies.html" : "politique-cookies.html"}">${copy.cookies}</a>
-          <a href="${isEnglish ? "cgv-billetterie.html" : "cgv-billetterie.html"}">${copy.terms}</a>
+          <h3>${copy.contactBlock}</h3>
+          <span>${copy.address}</span>
+          <span>${copy.hours}</span>
+          <a href="mailto:${copy.contact}">${copy.contact}</a>
+          <a href="tel:+212600270387">${copy.phone}</a>
         </section>
       </div>
 
