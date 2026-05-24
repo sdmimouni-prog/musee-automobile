@@ -12,7 +12,10 @@
     "devenir-membre-en.html",
     "espace-membres-en.html",
     "automotive-academy-en.html",
-    "programmes-en.html"
+    "programmes-en.html",
+    "timeline-en.html",
+    "batiment-histoire-en.html",
+    "visites-scolaires-en.html"
   ]);
 
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
@@ -55,9 +58,9 @@
     ["espace-membres.html", "espace-membres-en.html"],
     ["automotive-academy.html", "automotive-academy-en.html"],
     ["programmes.html", "programmes-en.html"],
-    ["timeline.html", "collection-en.html"],
-    ["batiment-histoire.html", "collection-en.html"],
-    ["visites-scolaires.html", "tickets-en.html"],
+    ["timeline.html", "timeline-en.html"],
+    ["batiment-histoire.html", "batiment-histoire-en.html"],
+    ["visites-scolaires.html", "visites-scolaires-en.html"],
     ["evenementiel.html", "demande-devis-en.html"],
     ["espaces-evenementiels.html", "demande-devis-en.html"],
     ["parc-automobile.html", "demande-devis-en.html"],
@@ -128,6 +131,8 @@
     if (!isEnglish) return;
 
     document.querySelectorAll('a[href]').forEach((link) => {
+      if (link.closest('.brand, .lang-switcher, .languages')) return;
+
       const href = link.getAttribute("href");
       if (!href || href.startsWith("#") || href.startsWith("http://") || href.startsWith("https://") || href.startsWith("mailto:") || href.startsWith("tel:")) {
         return;
@@ -222,12 +227,15 @@
       ["programmes-en.html", { label: "Our programmes", subtitle: "Programmes & pathways" }],
       ["collection-en.html", { label: "Collection", subtitle: "Vehicles & exhibitions" }],
       ["garage-en.html", { label: "Le Garage", subtitle: "Concept & experience" }],
-      ["horaires-en.html", { label: "Hours & access", subtitle: "Route de Bouskoura" }],
+      ["horaires-en.html", { label: "Hours & access", subtitle: "Bouskoura Road" }],
       ["tickets-en.html", { label: "Tickets" }],
       ["demande-devis-en.html", { label: "Request a quote", subtitle: "Quick form" }],
       ["timeline.html", { label: "Automotive timeline", subtitle: "Morocco & beyond" }],
-      ["batiment-histoire.html", { label: "Building & story", subtitle: "Architecture & heritage" }],
+      ["timeline-en.html", { label: "Automotive timeline", subtitle: "Morocco & beyond" }],
+      ["batiment-histoire.html", { label: "The building & its story", subtitle: "Architecture & heritage" }],
+      ["batiment-histoire-en.html", { label: "The building & its story", subtitle: "Architecture & heritage" }],
       ["visites-scolaires.html", { label: "School visits", subtitle: "Educational journey" }],
+      ["visites-scolaires-en.html", { label: "School visits", subtitle: "Educational journey" }],
       ["evenementiel.html", { label: "Events" }],
       ["espaces-evenementiels.html", { label: "Event rooms", subtitle: "Meetings, galas, conferences" }],
       ["parc-automobile.html", { label: "Vehicle collection", subtitle: "Displays & photo shoots" }],

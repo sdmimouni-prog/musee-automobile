@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Hours, access, parking, school group reception, educational visits and practical information for visiting the Museum of the Automobile of Morocco in Casablanca.">
-  <title>Hours & Access | Museum of the Automobile of Morocco</title>
+  <meta name="description" content="Automotive timeline: from 1886 to Morocco's motoring story, from the Ford T and Bugatti to the Rallye du Maroc, the Casablanca Grand Prix and pre-1970 icons.">
+  <title>Automotive Timeline | Museum of the Automobile of Morocco</title>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1464,219 +1464,6 @@
         animation-iteration-count: 1 !important;
       }
     }
-
-    .visit-card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .visit-card {
-      min-height: 320px;
-      padding: 28px;
-      border: 1px solid rgba(215, 178, 109, 0.18);
-      background: rgba(8, 8, 8, 0.64);
-      display: flex;
-      flex-direction: column;
-      transition: transform 180ms ease, border-color 180ms ease;
-    }
-
-    .visit-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(215, 178, 109, 0.42);
-    }
-
-    .visit-card .tag {
-      color: var(--bronze-light);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .visit-card h3 {
-      margin: 14px 0 12px;
-      font-family: var(--serif);
-      font-size: 34px;
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    .visit-card p,
-    .visit-list li,
-    .info-panel p {
-      color: rgba(245, 245, 243, 0.74);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .visit-card .price {
-      margin-top: auto;
-      padding-top: 24px;
-      color: var(--bronze-light);
-      font-family: var(--serif);
-      font-size: 30px;
-      line-height: 1;
-    }
-
-    .visit-card .small-note {
-      display: block;
-      margin-top: 8px;
-      color: rgba(183, 188, 195, 0.74);
-      font-size: 12px;
-      line-height: 1.5;
-    }
-
-    .process-grid,
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .process-step,
-    .info-panel {
-      padding: 24px;
-      border: 1px solid rgba(215, 178, 109, 0.16);
-      background: rgba(17, 17, 17, 0.72);
-    }
-
-    .process-step strong,
-    .info-panel strong {
-      display: block;
-      color: var(--bronze-light);
-      font-family: var(--serif);
-      font-size: 32px;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .visit-list {
-      margin: 16px 0 0;
-      padding-left: 18px;
-    }
-
-    .schedule-table {
-      display: grid;
-      border: 1px solid rgba(215, 178, 109, 0.18);
-      background: rgba(8, 8, 8, 0.62);
-    }
-
-    .schedule-row {
-      display: grid;
-      grid-template-columns: 0.7fr 1fr 1fr;
-      gap: 18px;
-      padding: 22px 26px;
-      border-bottom: 1px solid rgba(215, 178, 109, 0.14);
-      align-items: center;
-    }
-
-    .schedule-row:last-child {
-      border-bottom: 0;
-    }
-
-    .schedule-row strong {
-      color: var(--bronze-light);
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .schedule-row span {
-      color: rgba(245, 245, 243, 0.82);
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .map-panel {
-      min-height: 430px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(215, 178, 109, 0.18);
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-        linear-gradient(135deg, rgba(156, 123, 82, 0.16), rgba(8, 8, 8, 0.85));
-      background-size: 62px 62px, 62px 62px, auto;
-      text-align: center;
-      padding: 32px;
-    }
-
-    .map-panel strong {
-      color: var(--bronze-light);
-      font-family: var(--serif);
-      font-size: 46px;
-      line-height: 1;
-    }
-
-    .phone-demo {
-      max-width: 360px;
-      margin: 0 auto;
-      padding: 18px;
-      border: 1px solid rgba(215, 178, 109, 0.24);
-      border-radius: 28px;
-      background: linear-gradient(180deg, #171717, #050505);
-      box-shadow: 0 24px 80px rgba(0,0,0,0.42);
-    }
-
-    .phone-screen {
-      min-height: 560px;
-      border: 1px solid rgba(215, 178, 109, 0.18);
-      border-radius: 20px;
-      padding: 24px;
-      background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.84)),
-        url("assets/cars-real/cam-roadster-1962-front.jpg") center / cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
-    .phone-screen span {
-      color: var(--bronze-light);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .phone-screen h3 {
-      margin: 10px 0 12px;
-      font-family: var(--serif);
-      font-size: 36px;
-      line-height: 1;
-    }
-
-    .phone-screen p {
-      color: rgba(245, 245, 243, 0.78);
-      font-size: 14px;
-      line-height: 1.65;
-    }
-
-    @media (max-width: 940px) {
-      .visit-card-grid,
-      .process-grid,
-      .info-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .schedule-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .visit-card-grid,
-      .process-grid,
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .phone-demo {
-        max-width: 100%;
-      }
-    }
-
   </style>
   <link rel="stylesheet" href="assets/language-switcher.css">
   <link rel="stylesheet" href="assets/footer-refresh.css">
@@ -1930,15 +1717,202 @@
       <a class="btn btn-primary" href="garage-reservation.html">Book a table</a>
     </div>
   </aside>
+
   <main>
-    <section class="hero" aria-labelledby="page-title" style="background-image:linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.54) 48%, rgba(0,0,0,.18)), linear-gradient(0deg, #0b0b0b 0%, rgba(11,11,11,.12) 36%), url('assets/cars-real/cam-mercedes-pagoda.jpg');">
-      <div class="section-inner reveal is-visible"><span class="eyebrow">Practical information</span><h1 id="page-title">Hours &amp; access.</h1><p class="hero-copy">Prepare everything before arrival: museum hours, last admission, parking, school group reception, workshops and practical information.</p></div>
+    <section class="hero timeline-hero" aria-labelledby="page-title">
+      <div class="section-inner reveal is-visible">
+        <span class="eyebrow">Museum</span>
+        <h1 id="page-title">Automotive timeline.</h1>
+        <p class="hero-copy">A journey through inventions, roads and stories that shaped mobility: from 1886 to the landmark moments of the automobile in Morocco.</p>
+      </div>
     </section>
-    <section class="hero-quickbar"><div class="section-inner"><div class="hero-actions"><a class="btn btn-primary" href="https://automobilesclub.net/reservation/search">Buy tickets</a><a class="btn btn-secondary" href="#access">Plan access</a></div><div class="hero-stats"><div class="stat"><strong>Tue-Sun</strong><span>Museum opening</span></div><div class="stat"><strong>10h-18h</strong><span>Hours</span></div><div class="stat"><strong>17h15</strong><span>Last entry</span></div></div></div></section>
-    <section class="section"><div class="section-inner"><div class="section-head reveal"><div><span class="eyebrow">Hours</span><h2 class="section-title">A clear, frictionless visit.</h2></div><p class="section-copy">This page makes it easier for independent visitors, families, school groups and companies to prepare their visit: clear hours, last admission, services and closing days.</p></div><div class="schedule-table reveal"><div class="schedule-row"><strong>Museum</strong><span>Tuesday to Sunday</span><span>10h00 - 18h00</span></div><div class="schedule-row"><strong>Last admission</strong><span>Recommended arrival</span><span>17h15</span></div><div class="schedule-row"><strong>Monday</strong><span>Museum closed</span><span>Maintenance, private groups on request</span></div><div class="schedule-row"><strong>Le Garage</strong><span>Restaurant &amp; café</span><span>According to service and reservation</span></div><div class="schedule-row"><strong>Museum shop</strong><span>Collector items &amp; Museum editions</span><span>During museum opening hours</span></div></div></div></section>
-    <section class="section feature-band" id="access"><div class="section-inner feature-layout"><div class="map-panel reveal"><div><strong>Bouskoura Road</strong><p>Casablanca · Museum of the Automobile of Morocco</p></div></div><div class="feature-panel reveal"><span class="eyebrow">Access</span><h2>Getting to the Museum.</h2><p>The Museum is located on Bouskoura Road in Casablanca. This page includes mapping guidance, car and ride-hailing directions, and simplified access for school or corporate groups.</p><ul class="visit-list"><li>Visitor parking is available on site or very close by.</li><li>Drop-off zone for ride-hailing, taxis and event guests.</li><li>Access for school groups with mandatory booking, named supervisor and prior coordination.</li><li>Accessibility information and support at reception.</li></ul></div></div></section>
-    <section class="section"><div class="section-inner"><div class="section-head reveal"><div><span class="eyebrow">Plan</span><h2 class="section-title">How much time should you allow?</h2></div><p class="section-copy">Visit formats inspired by international museum journeys, adapted to the Museum rhythm.</p></div><div class="info-grid"><div class="info-panel reveal"><strong>45 min</strong><p>Essential route to discover the major vehicles.</p></div><div class="info-panel reveal"><strong>90 min</strong><p>Complete visit with timeline, collection, Media Room and international pavilions.</p></div><div class="info-panel reveal"><strong>2h30</strong><p>Museum experience extended with Le Garage.</p></div><div class="info-panel reveal"><strong>School</strong><p>Dedicated slot, briefing, educational route and follow-up quiz depending on the selected format.</p></div></div></div></section>
+
+    <section class="hero-quickbar" aria-label="Timeline actions">
+      <div class="section-inner">
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#timeline-main">Explore the timeline</a>
+          <a class="btn btn-secondary" href="collection-en.html">View the collection</a>
+        </div>
+        <div class="hero-stats" aria-label="Timeline highlights">
+          <div class="stat">
+            <strong>1886</strong>
+            <span>birth</span>
+          </div>
+          <div class="stat">
+            <strong>130+</strong>
+            <span>years in Morocco</span>
+          </div>
+          <div class="stat">
+            <strong>1958</strong>
+            <span>Grand Prix F1</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="timeline-main">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Main timeline</span>
+            <h2 class="section-title">From pioneer engines to modern icons.</h2>
+          </div>
+          <p class="section-copy">The timeline organises the major turning points of the automobile and connects them to Moroccan landmarks: the first Daimler delivered to Sultan Hassan I in 1892, the Rabat-Casablanca race in 1912, the Rallye du Maroc in 1926 and the Casablanca Grand Prix in 1958.</p>
+        </div>
+
+        <div class="period-filter reveal" aria-label="Filter the timeline by period">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" type="button" data-filter="pionniers" aria-pressed="false">Pioneers</button>
+          <button class="filter-btn" type="button" data-filter="avant-guerre" aria-pressed="false">Pre-war</button>
+          <button class="filter-btn" type="button" data-filter="apres-guerre" aria-pressed="false">Post-war</button>
+          <button class="filter-btn" type="button" data-filter="annees-60" aria-pressed="false">The 1960s</button>
+        </div>
+
+        <div class="era-rail reveal" aria-label="Major automotive eras">
+          <a href="#birth"><strong>1886-1910</strong><span>Birth of the automobile</span></a>
+          <a href="#pioneers"><strong>1910-1930</strong><span>The age of pioneers</span></a>
+          <a href="#prestige"><strong>1930-1945</strong><span>Design, speed and prestige</span></a>
+          <a href="#rebirth"><strong>1945-1959</strong><span>Rebirth and grand touring</span></a>
+          <a href="#sixties"><strong>1960-1969</strong><span>Modern icons before 1970</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section moments-section" id="moments">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Key moments</span>
+            <h2 class="section-title">The dates that changed the road and Morocco's motoring memory.</h2>
+          </div>
+          <p class="section-copy">Each milestone becomes a mediation tool: technical invention, social use, a link to the Museum collection and a possible continuation in the Media Room.</p>
+        </div>
+
+        <div class="moment-list">
+          <article class="moment-card reveal" id="birth" data-category="pionniers">
+            <div class="moment-year">1886</div>
+            <div class="moment-body">
+              <span class="moment-period">Birth</span>
+              <h3>Benz Patent-Motorwagen</h3>
+              <p>Carl Benz's patent marks the transition from mechanical experimentation to the automobile as an autonomous object.</p>
+            </div>
+          </article>
+          <article class="moment-card reveal" data-category="pionniers">
+            <div class="moment-year">1908</div>
+            <div class="moment-body">
+              <span class="moment-period">Democratisation</span>
+              <h3>Ford Model T</h3>
+              <p>Mass production turns the car into a social phenomenon and permanently transforms mobility.</p>
+            </div>
+          </article>
+          <article class="moment-card reveal" id="pioneers" data-category="avant-guerre">
+            <div class="moment-year">1912</div>
+            <div class="moment-body">
+              <span class="moment-period">Morocco</span>
+              <h3>First Rabat-Casablanca race</h3>
+              <p>A roughly 90 km route placed Morocco very early in the sporting and road history of the automobile.</p>
+            </div>
+          </article>
+          <article class="moment-card reveal" id="prestige" data-category="avant-guerre">
+            <div class="moment-year">1926</div>
+            <div class="moment-body">
+              <span class="moment-period">Rally</span>
+              <h3>First edition of the Rallye du Maroc</h3>
+              <p>The competition becomes a national narrative of roads, endurance and mechanical mastery.</p>
+            </div>
+          </article>
+          <article class="moment-card reveal" id="rebirth" data-category="apres-guerre">
+            <div class="moment-year">1955</div>
+            <div class="moment-body">
+              <span class="moment-period">Futuristic design</span>
+              <h3>Citroën DS</h3>
+              <p>The DS imposes an almost architectural vision of the car: comfort, aerodynamics and modernity.</p>
+            </div>
+          </article>
+          <article class="moment-card reveal has-image" data-category="apres-guerre">
+            <img src="assets/cars-real/cam-roadster-1962-front.jpg" alt="1962 collector roadster" loading="lazy">
+            <div class="moment-year">1962</div>
+            <div class="moment-body">
+              <span class="moment-period">Grand touring</span>
+              <h3>1962 collector roadster</h3>
+              <p>German engineering meets a sculptural presence that has become a collection icon.</p>
+            </div>
+          </article>
+          <article class="moment-card reveal has-image" id="sixties" data-category="annees-60">
+            <img src="assets/cars-real/cam-collection-lineup.jpg" alt="Gallery of museum classics" loading="lazy">
+            <div class="moment-year">1961</div>
+            <div class="moment-body">
+              <span class="moment-period">Cult sports car</span>
+              <h3>Gallery of Museum classics</h3>
+              <p>A long, low, unmistakable line: the sports car becomes a cultural icon.</p>
+            </div>
+          </article>
+          <article class="moment-card reveal has-image" data-category="annees-60">
+            <img src="assets/cars-real/cam-fiat-red.jpg" alt="Red collector Fiat" loading="lazy">
+            <div class="moment-year">1962</div>
+            <div class="moment-body">
+              <span class="moment-period">Italian luxury</span>
+              <h3>Red collector Fiat</h3>
+              <p>Italian grand touring becomes a language of rarity, elegance and performance.</p>
+            </div>
+          </article>
+          <article class="moment-card reveal has-image" data-category="annees-60">
+            <img src="assets/cars-real/cam-mercedes-pagoda.jpg" alt="Mercedes-Benz Pagoda" loading="lazy">
+            <div class="moment-year">1964</div>
+            <div class="moment-body">
+              <span class="moment-period">German elegance</span>
+              <h3>Mercedes-Benz Pagoda</h3>
+              <p>The Pagoda embodies a discreet, powerful and instantly recognisable silhouette.</p>
+            </div>
+          </article>
+          <article class="moment-card reveal has-image" data-category="annees-60">
+            <img src="assets/cars-real/cam-mustang-fastback-bw.jpg" alt="Classic American coupe" loading="lazy">
+            <div class="moment-year">1965</div>
+            <div class="moment-body">
+              <span class="moment-period">Popular culture</span>
+              <h3>American coupe</h3>
+              <p>The American coupe opens up a new mythology: accessible, expressive and energetic.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section morocco-focus" id="maroc">
+      <div class="section-inner focus-layout">
+        <div class="focus-copy reveal">
+          <span class="eyebrow">Morocco focus</span>
+          <h2 class="section-title">The automobile as a culture of transmission.</h2>
+          <p>In Morocco, heritage motoring meets roads, gatherings, collectors, workshops and the urban elegance of Casablanca. The Museum turns this heritage into a living place: museum, collection, dining, academy and events.</p>
+          <a class="btn btn-primary" href="collection-en.html">View the museum collection</a>
+        </div>
+        <div class="focus-panel reveal">
+          <div><strong>Casablanca</strong><span>meeting point</span></div>
+          <div><strong>Routes</strong><span>rallies &amp; outings</span></div>
+          <div><strong>Community</strong><span>community &amp; members</span></div>
+          <div><strong>Transmission</strong><span>academy &amp; culture</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section linked-collection" id="collection-link">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Museum collection</span>
+            <h2 class="section-title">Three icons to discover at the museum.</h2>
+          </div>
+          <p class="section-copy">The timeline connects each period to vehicles in the collection, turning every model into a chapter of history.</p>
+        </div>
+        <div class="linked-grid">
+          <a class="linked-card reveal" href="collection-en.html#mercedes-300sl" style="--card-image:url('assets/cars-real/cam-roadster-1962-front.jpg')"><span>1962</span><strong>1962 collector roadster</strong></a>
+          <a class="linked-card reveal" href="collection-en.html#collection-grid" style="--card-image:url('assets/cars-real/cam-collection-lineup.jpg')"><span>1961</span><strong>Gallery of Museum classics</strong></a>
+          <a class="linked-card reveal" href="collection-en.html#collection-grid" style="--card-image:url('assets/cars-real/cam-mercedes-pagoda.jpg')"><span>1964</span><strong>Mercedes-Benz Pagoda</strong></a>
+        </div>
+      </div>
+    </section>
   </main>
+
   <footer class="footer">
     <div class="footer-grid">
       <div>
@@ -1949,19 +1923,18 @@
         <p>More than a museum, an experience: a cultural destination where automotive heritage, design, transmission and emotion meet in Casablanca.</p>
       </div>
       <div>
-        <h3>Visit</h3>
+        <h3>Collection</h3>
         <ul>
-          <li><a href="https://automobilesclub.net/reservation/search">Buy tickets</a></li>
-          <li><a href="horaires-en.html">Hours &amp; access</a></li>
-          <li></li>
-          <li><a href="visites-scolaires-en.html">School visits</a></li>
+          <li><a href="#moments">Key moments</a></li>
+          <li><a href="#moments">Key moments</a></li>
+          <li><a href="#timeline-main">Timeline</a></li>
         </ul>
       </div>
       <div>
         <h3>Information</h3>
         <ul>
           <li>Bouskoura Road, Casablanca</li>
-          <li>Tue-Sun · 10h-18h</li>
+          <li>Tue-Sun · 10:00-18:00</li>
           <li>+212 600 270 387</li>
           <li>contact@museeautomobile.ma</li>
         </ul>
@@ -1970,10 +1943,9 @@
         <h3>Navigation</h3>
         <ul>
           <li><a href="index-en.html">Home</a></li>
-          <li><a href="collection-en.html">Collection</a></li>
-          <li><a href="timeline-en.html">Automotive timeline</a></li>
-          <li><a href="batiment-histoire-en.html">Building &amp; history</a></li>
           <li><a href="garage-en.html">Le Garage</a></li>
+          <li><a href="evenementiel.html">Events</a></li>
+          <li><a href="https://automobilesclub.net/reservation/search">Tickets</a></li>
         </ul>
       </div>
     </div>
@@ -1991,6 +1963,8 @@
     const mobilePanel = document.querySelector("#mobilePanel");
     const mobileTriggers = document.querySelectorAll(".mobile-trigger");
     const desktopItems = document.querySelectorAll(".nav-item");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const momentCards = document.querySelectorAll(".moment-card");
     const revealItems = document.querySelectorAll(".reveal");
 
     const setHeaderState = () => {
@@ -2038,6 +2012,17 @@
       }
     });
 
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+        filterButtons.forEach((candidate) => candidate.setAttribute("aria-pressed", String(candidate === button)));
+        momentCards.forEach((card) => {
+          const categories = card.dataset.category || "";
+          card.classList.toggle("is-hidden", filter !== "all" && !categories.includes(filter));
+        });
+      });
+    });
+
     if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -2047,6 +2032,7 @@
           }
         });
       }, { threshold: 0.14 });
+
       revealItems.forEach((item) => observer.observe(item));
     } else {
       revealItems.forEach((item) => item.classList.add("is-visible"));
