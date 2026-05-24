@@ -287,6 +287,7 @@
     document.querySelectorAll('a[href]').forEach((link) => {
       if (link.closest('.brand, .lang-switcher, .languages')) return;
       if (link.querySelector('img, picture, .brand-mark')) return;
+      if (link.closest('.desktop-nav .dropdown, .mobile-panel .mobile-links')) return;
 
       const href = link.getAttribute("href");
       if (!href) return;
