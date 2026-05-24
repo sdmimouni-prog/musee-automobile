@@ -944,6 +944,21 @@
       overflow-wrap: normal;
     }
 
+    .request-next-panel .event-kpis {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 26px;
+    }
+
+    .request-next-panel .capacity strong {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      line-height: 0.96;
+      overflow-wrap: anywhere;
+    }
+
+    .request-next-panel .capacity span {
+      max-width: 18ch;
+    }
+
     .feature-panel p {
       color: rgba(245, 245, 243, 0.76);
       font-size: 16px;
@@ -1930,6 +1945,10 @@
       .event-form,
       .download-card {
         grid-template-columns: 1fr;
+      }
+
+      .request-next-panel .event-kpis {
+        gap: 14px;
       }
     }
   </style>
