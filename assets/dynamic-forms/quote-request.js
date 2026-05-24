@@ -10,6 +10,7 @@ import {
 
 const form = document.querySelector(".event-form");
 const trigger = document.querySelector(".request-card .btn-primary");
+const isEnglish = document.documentElement.lang === "en";
 
 attachSubmissionSecurity(form);
 
@@ -47,9 +48,15 @@ trigger?.addEventListener("click", async (event) => {
   try {
     const payload = collectPayload();
     setBusy(trigger, true);
-    setStatus(trigger, "loading", "Envoi de la demande de devis...");
+    setStatus(trigger, "loading", isEnglish ? "Sending your request..." : "Envoi de la demande de devis...");
     const result = await submitContent("quoteRequest", payload);
-    setStatus(trigger, "success", `Demande envoyée (${result.source}). L'équipe vous recontacte rapidement.`);
+    setStatus(
+      trigger,
+      "success",
+      isEnglish
+        ? `Request sent (${result.source}). Our team will get back to you shortly.`
+        : `Demande envoyée (${result.source}). L'équipe vous recontacte rapidement.`
+    );
     form.reset();
   } catch (error) {
     setStatus(trigger, "error", error.message);

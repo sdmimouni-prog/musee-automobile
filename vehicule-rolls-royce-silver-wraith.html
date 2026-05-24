@@ -79,7 +79,8 @@ h1 { max-width: 920px; margin: 18px 0 22px; font-family: var(--serif); font-size
 .footer-bottom { margin-top: 44px; padding-top: 22px; border-top: 1px solid rgba(216,179,107,.18); display: flex; justify-content: space-between; color: rgba(246,243,235,.48); }
 @media (max-width: 1050px) { .desktop-nav, .nav-actions { display: none; } .menu-toggle { display: block; } .brand { width: 116px; flex-basis: 116px; } .brand-mark { width: 116px; height: 116px; } .hero-meta, .detail-grid, .related, .footer-grid { grid-template-columns: 1fr; } .hero-meta div { border-right: 0; border-bottom: 1px solid var(--line); } }
 @media (max-width: 650px) { .site-header { height: 78px; } .mobile-panel { inset-top: 78px; min-height: calc(100vh - 78px); } .brand, .brand-mark { width: 96px; height: 96px; flex-basis: 96px; } .hero { min-height: 68vh; padding-top: 136px; } .section { padding: 62px 0; } h1 { font-size: clamp(32px, 9vw, 44px); } .hero-meta strong { font-size: 22px; } .footer-bottom { display: grid; gap: 10px; } }
-</style></head>
+</style>  <link rel="stylesheet" href="assets/language-switcher.css">
+</head>
 <body><header class="site-header" id="siteHeader">
   <div class="nav-wrap">
     <a class="brand" href="index.html" aria-label="Accueil Musée de l'Automobile du Maroc">
@@ -157,4 +158,5 @@ h1 { max-width: 920px; margin: 18px 0 22px; font-family: var(--serif); font-size
     toggle?.setAttribute('aria-expanded', 'false');
     body.classList.remove('nav-open');
   });
-</script></body></html>
+</script>  <script src="assets/language-switcher.js" defer></script>
+</body></html>

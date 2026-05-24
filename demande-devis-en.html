@@ -1,13 +1,15 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Temps forts et actualités du Garage Restaurant: ftour Ramadan, cocktails, cuisine ouverte et transmission des talents.">
-  <title>Temps forts | Le Garage Restaurant</title>
+  <meta name="description" content="Request an event proposal from the Museum of the Automobile of Morocco: spaces, collection, Media Room, visit formats, catering, workshops and staging.">
+  <title>Request a Proposal | Museum of the Automobile of Morocco</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/dynamic-forms/forms.css">
+  <script src="assets/runtime-config.js"></script>
   <style>
     :root {
       --carbon: #0b0b0b;
@@ -934,6 +936,29 @@
       letter-spacing: 0;
     }
 
+    .request-next-panel h2 {
+      max-width: 100%;
+      font-size: clamp(2.65rem, 3.45vw, 4rem);
+      line-height: 1;
+      text-wrap: balance;
+      overflow-wrap: normal;
+    }
+
+    .request-next-panel .event-kpis {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 26px;
+    }
+
+    .request-next-panel .capacity strong {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      line-height: 0.96;
+      overflow-wrap: anywhere;
+    }
+
+    .request-next-panel .capacity span {
+      max-width: 18ch;
+    }
+
     .feature-panel p {
       color: rgba(245, 245, 243, 0.76);
       font-size: 16px;
@@ -1420,6 +1445,10 @@
         padding: 28px;
       }
 
+      .request-next-panel h2 {
+        font-size: clamp(2.35rem, 9vw, 3rem);
+      }
+
       .feature-image {
         min-height: 320px;
       }
@@ -1678,35 +1707,35 @@
 
   
 
-    .club-grid {
+    .event-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .club-card,
-    .club-panel,
-    .partner-tile,
-    .member-tier,
-    .login-card {
+    .event-card,
+    .event-panel,
+    .offer-card,
+    .request-card,
+    .capacity-card {
       border: 1px solid rgba(215, 178, 109, 0.18);
       background: rgba(8, 8, 8, 0.64);
       padding: 28px;
       transition: transform 180ms ease, border-color 180ms ease;
     }
 
-    .club-card:hover,
-    .partner-tile:hover,
-    .member-tier:hover {
+    .event-card:hover,
+    .offer-card:hover,
+    .capacity-card:hover {
       transform: translateY(-4px);
       border-color: rgba(215, 178, 109, 0.42);
     }
 
-    .club-card h3,
-    .club-panel h3,
-    .partner-tile h3,
-    .member-tier h3,
-    .login-card h3 {
+    .event-card h3,
+    .event-panel h3,
+    .offer-card h3,
+    .request-card h3,
+    .capacity-card h3 {
       margin: 0 0 12px;
       font-family: var(--serif);
       font-size: 32px;
@@ -1714,55 +1743,52 @@
       letter-spacing: 0;
     }
 
-    .club-card p,
-    .club-panel p,
-    .partner-tile p,
-    .member-tier p,
-    .login-card p,
-    .club-list li {
+    .event-card p,
+    .event-panel p,
+    .offer-card p,
+    .request-card p,
+    .capacity-card p,
+    .event-list li,
+    .event-note {
       color: rgba(245, 245, 243, 0.72);
       font-size: 14px;
       line-height: 1.7;
     }
 
-    .club-list {
-      display: grid;
-      gap: 14px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .club-list li {
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(215, 178, 109, 0.14);
-    }
-
-    .club-list strong,
-    .club-kpi strong {
+    .event-card .tag,
+    .offer-card .tag,
+    .capacity-card .tag {
+      display: inline-flex;
+      margin-bottom: 16px;
       color: var(--bronze-light);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
-    .club-kpis {
+    .capacity-strip,
+    .event-kpis {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 14px;
       margin-top: 24px;
     }
 
-    .club-kpi {
+    .capacity {
       border-top: 1px solid rgba(215, 178, 109, 0.26);
       padding-top: 16px;
     }
 
-    .club-kpi strong {
+    .capacity strong {
       display: block;
+      color: var(--bronze-light);
       font-family: var(--serif);
       font-size: 34px;
       line-height: 1;
     }
 
-    .club-kpi span {
+    .capacity span {
       display: block;
       margin-top: 8px;
       color: rgba(245, 245, 243, 0.62);
@@ -1770,151 +1796,102 @@
       line-height: 1.5;
     }
 
-    .club-quote {
+    .event-list {
+      display: grid;
+      gap: 12px;
       margin: 0;
-      color: var(--quartz);
-      font-family: var(--serif);
-      font-size: clamp(2.8rem, 5vw, 4.6rem);
-      line-height: 0.96;
-      letter-spacing: 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .club-story-note {
-      margin-top: 24px;
-      border-left: 2px solid var(--bronze-light);
-      padding-left: 18px;
-      color: rgba(245, 245, 243, 0.74);
-      font-size: 14px;
-      line-height: 1.75;
+    .event-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(215, 178, 109, 0.14);
     }
 
-    .club-timeline {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 0;
-      border: 1px solid rgba(215, 178, 109, 0.18);
-      background: rgba(8, 8, 8, 0.58);
-    }
-
-    .club-timeline::before {
-      content: "";
-      position: absolute;
-      left: 24px;
-      right: 24px;
-      top: 39px;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(215, 178, 109, 0.1), rgba(215, 178, 109, 0.72), rgba(215, 178, 109, 0.1));
-    }
-
-    .club-moment {
-      position: relative;
-      min-height: 230px;
-      padding: 72px 22px 24px;
-      border-right: 1px solid rgba(215, 178, 109, 0.14);
-    }
-
-    .club-moment:last-child {
-      border-right: 0;
-    }
-
-    .club-moment::before {
-      content: "";
-      position: absolute;
-      top: 32px;
-      left: 22px;
-      width: 13px;
-      height: 13px;
-      border: 2px solid var(--bronze-light);
-      background: var(--carbon);
-      transform: rotate(45deg);
-    }
-
-    .club-moment strong {
-      display: block;
+    .event-list strong {
       color: var(--bronze-light);
-      font-family: var(--serif);
-      font-size: 34px;
-      line-height: 0.9;
     }
 
-    .club-moment span {
-      display: block;
-      margin-top: 14px;
-      color: rgba(245, 245, 243, 0.82);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
 
-    .club-moment p {
-      margin: 12px 0 0;
-      color: rgba(245, 245, 243, 0.68);
-      font-size: 13px;
-      line-height: 1.65;
-    }
-
-    .club-ritual-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .club-ritual {
-      min-height: 260px;
-      border: 1px solid rgba(215, 178, 109, 0.18);
-      background:
-        linear-gradient(180deg, rgba(8, 8, 8, 0.2), rgba(8, 8, 8, 0.88)),
-        var(--ritual-image) center / cover,
-        #111;
-      padding: 24px;
+    .event-card.has-photo,
+    .capacity-card.has-photo {
+      padding: 0;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      transition: transform 180ms ease, border-color 180ms ease;
     }
 
-    .club-ritual:hover {
-      transform: translateY(-4px);
-      border-color: rgba(215, 178, 109, 0.42);
+    .event-card.has-photo .event-photo,
+    .capacity-card.has-photo .event-photo {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.9) contrast(1.04);
+      transition: transform 360ms ease, filter 360ms ease;
     }
 
-    .club-ritual span {
-      color: var(--bronze-light);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+    .event-card.has-photo:hover .event-photo,
+    .capacity-card.has-photo:hover .event-photo {
+      transform: scale(1.035);
+      filter: saturate(1) contrast(1.08);
     }
 
-    .club-ritual h3 {
-      margin: 12px 0 10px;
-      font-family: var(--serif);
-      font-size: 30px;
-      line-height: 0.96;
-      letter-spacing: 0;
+    .event-card.has-photo .event-content,
+    .capacity-card.has-photo .event-content {
+      padding: 26px;
     }
 
-    .club-ritual p {
+    .event-gallery {
+      display: grid;
+      grid-template-columns: 1.18fr 1fr 1fr;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .event-gallery figure {
+      min-height: 100%;
       margin: 0;
-      color: rgba(245, 245, 243, 0.74);
-      font-size: 13px;
-      line-height: 1.6;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(8, 8, 8, 0.64);
+      overflow: hidden;
     }
 
-    .club-form {
+    .event-gallery img {
+      width: 100%;
+      height: 100%;
+      min-height: 270px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.92) contrast(1.06);
+    }
+
+    .event-gallery figcaption {
+      border-top: 1px solid rgba(215, 178, 109, 0.16);
+      padding: 14px 16px;
+      color: rgba(245, 245, 243, 0.72);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .offer-card.is-featured {
+      border-color: rgba(215, 178, 109, 0.52);
+      background: linear-gradient(180deg, rgba(156, 123, 82, 0.2), rgba(8, 8, 8, 0.72));
+    }
+
+    .event-form {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
       margin-top: 18px;
     }
 
-    .club-form .field-full {
+    .event-form .field-full {
       grid-column: 1 / -1;
     }
 
-    .club-form label {
+    .event-form label {
       display: grid;
       gap: 8px;
       color: var(--bronze-light);
@@ -1924,9 +1901,9 @@
       text-transform: uppercase;
     }
 
-    .club-form input,
-    .club-form select,
-    .club-form textarea {
+    .event-form input,
+    .event-form select,
+    .event-form textarea {
       min-height: 48px;
       border: 1px solid rgba(215, 178, 109, 0.22);
       background: rgba(245, 245, 243, 0.04);
@@ -1935,453 +1912,71 @@
       font: inherit;
     }
 
-    .club-form textarea {
-      min-height: 120px;
+    .event-form textarea {
+      min-height: 130px;
       padding-top: 14px;
       resize: vertical;
     }
 
-    .partner-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .partner-mark {
-      display: inline-flex;
-      width: 56px;
-      height: 56px;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-      border: 1px solid rgba(215, 178, 109, 0.34);
-      color: var(--bronze-light);
-      font-weight: 900;
-      letter-spacing: 0.08em;
-    }
-
-    @media (max-width: 980px) {
-      .club-grid,
-      .club-ritual-grid,
-      .partner-grid,
-      .club-kpis {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .club-timeline {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .club-timeline::before {
-        display: none;
-      }
-
-      .club-moment {
-        border-top: 1px solid rgba(215, 178, 109, 0.14);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .club-grid,
-      .club-ritual-grid,
-      .club-timeline,
-      .partner-grid,
-      .club-kpis,
-      .club-form {
-        grid-template-columns: 1fr;
-      }
-    }
-  
-    .garage-page .hero {
-      height: clamp(360px, 48vh, 470px);
-      padding-bottom: 38px;
-    }
-
-    .garage-page h1 {
-      max-width: 820px;
-    }
-
-    .garage-logo-lockup {
-      display: inline-flex;
-      align-items: center;
-      gap: 18px;
-      margin: 10px 0 22px;
-    }
-
-    .garage-logo-lockup img {
-      width: 86px;
-      height: 86px;
-      object-fit: contain;
-      filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.46));
-    }
-
-    .garage-logo-lockup span {
-      color: rgba(245, 245, 243, 0.72);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .garage-split,
-    .garage-reservation-grid,
-    .chef-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.72fr);
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .garage-visual {
-      min-height: 520px;
-      border: 1px solid rgba(215, 178, 109, 0.2);
-      background: var(--garage-image) center / cover no-repeat;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .garage-visual::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.62));
-    }
-
-    .garage-panel,
-    .garage-card,
-    .menu-board,
-    .chef-card,
-    .reservation-card,
-    .garage-note {
-      border: 1px solid rgba(215, 178, 109, 0.22);
-      background: rgba(8, 8, 8, 0.72);
-      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.22);
-    }
-
-    .garage-panel,
-    .reservation-card {
-      padding: clamp(28px, 5vw, 48px);
-    }
-
-    .garage-panel h2,
-    .reservation-card h2,
-    .menu-board h2,
-    .chef-card h2,
-    .garage-note h2 {
-      margin: 14px 0 18px;
-      font-family: var(--serif);
-      font-size: clamp(2.45rem, 4.2vw, 4.2rem);
-      line-height: 0.96;
-      letter-spacing: 0;
-    }
-
-    .garage-panel p,
-    .reservation-card p,
-    .garage-note p {
-      color: rgba(245, 245, 243, 0.76);
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .garage-card-grid,
-    .garage-news-grid,
-    .garage-metrics,
-    .menu-highlights {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .garage-card {
-      min-height: 360px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 28px;
-      position: relative;
-      overflow: hidden;
-      background: var(--card-image) center / cover no-repeat;
-    }
-
-    .garage-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.9));
-    }
-
-    .garage-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .garage-card span,
-    .garage-card-label,
-    .menu-category,
-    .chef-title,
-    .reservation-label {
-      color: var(--bronze-light);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .garage-card h3,
-    .garage-news-card h3,
-    .menu-item strong {
-      margin: 12px 0 10px;
-      font-family: var(--serif);
-      font-size: 34px;
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    .garage-card p,
-    .garage-news-card p,
-    .menu-item p,
-    .chef-card p {
-      color: rgba(245, 245, 243, 0.74);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .garage-metric {
-      padding: 22px;
-      border: 1px solid rgba(215, 178, 109, 0.18);
-      background: rgba(8, 8, 8, 0.6);
-    }
-
-    .garage-metric strong {
-      display: block;
-      color: var(--bronze-light);
-      font-family: var(--serif);
-      font-size: 38px;
-      line-height: 0.95;
-    }
-
-    .garage-metric span {
-      display: block;
-      margin-top: 10px;
-      color: rgba(245, 245, 243, 0.72);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .menu-board {
-      padding: clamp(28px, 4vw, 42px);
-    }
-
-    .menu-section {
-      display: grid;
-      gap: 18px;
-      padding: 28px 0;
-      border-top: 1px solid rgba(215, 178, 109, 0.16);
-    }
-
-    .menu-section:first-of-type {
-      border-top: 0;
-      padding-top: 0;
-    }
-
-    .menu-item {
+    .download-card {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: 22px;
-      align-items: start;
-    }
-
-    .menu-item strong {
-      font-size: clamp(1.75rem, 3vw, 2.35rem);
-    }
-
-    .menu-item p {
-      margin-bottom: 0;
-    }
-
-    .price {
-      color: var(--bronze-light);
-      font-family: var(--serif);
-      font-size: 30px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .chef-card {
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
-    }
-
-    .chef-card img {
-      width: 100%;
-      height: 100%;
-      min-height: 560px;
-      object-fit: cover;
-      filter: saturate(0.82) contrast(1.05);
-    }
-
-    .chef-copy {
-      padding: clamp(28px, 4vw, 44px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .chef-quote {
-      color: rgba(245, 245, 243, 0.78);
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .reservation-form {
-      display: grid;
-      gap: 16px;
-      margin-top: 22px;
-    }
-
-    .field-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .reservation-form label {
-      display: grid;
-      gap: 8px;
-      color: rgba(245, 245, 243, 0.72);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .reservation-form input,
-    .reservation-form select,
-    .reservation-form textarea {
-      width: 100%;
-      min-height: 48px;
-      border: 1px solid rgba(215, 178, 109, 0.26);
-      background: rgba(255, 255, 255, 0.045);
-      color: var(--quartz);
-      padding: 12px 14px;
-      font: inherit;
-    }
-
-    .reservation-form textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    .garage-news-card {
-      border: 1px solid rgba(215, 178, 109, 0.2);
-      background: rgba(8, 8, 8, 0.72);
-      overflow: hidden;
-    }
-
-    .garage-news-card img {
-      width: 100%;
-      height: 330px;
-      object-fit: cover;
-    }
-
-    .garage-news-card div {
-      padding: 26px;
-    }
-
-    .garage-note {
-      padding: clamp(28px, 4vw, 42px);
-    }
-
-    .garage-gallery {
-      display: grid;
-      grid-template-columns: 1.3fr 0.8fr 0.9fr;
       gap: 18px;
-    }
-
-    .garage-gallery img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      border: 1px solid rgba(215, 178, 109, 0.2);
-    }
-
-    .garage-gallery img:nth-child(2) {
-      height: 300px;
-      align-self: end;
-    }
-
-    .garage-gallery img:nth-child(3) {
-      height: 520px;
+      align-items: center;
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(245, 245, 243, 0.04);
+      padding: 22px;
     }
 
     @media (max-width: 980px) {
-      .garage-split,
-      .garage-reservation-grid,
-      .chef-grid,
-      .garage-card-grid,
-      .garage-news-grid,
-      .garage-metrics,
-      .menu-highlights,
-      .garage-gallery,
-      .chef-card {
-        grid-template-columns: 1fr;
-      }
-
-      .garage-visual,
-      .chef-card img,
-      .garage-gallery img,
-      .garage-gallery img:nth-child(2),
-      .garage-gallery img:nth-child(3) {
-        min-height: 0;
-        height: 360px;
+      .event-grid,
+      .event-gallery,
+      .capacity-strip,
+      .event-kpis {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (max-width: 640px) {
-      .garage-page .hero {
-        height: auto;
-        min-height: 440px;
-      }
-
-      .field-grid,
-      .menu-item {
+      .event-grid,
+      .event-gallery,
+      .capacity-strip,
+      .event-kpis,
+      .event-form,
+      .download-card {
         grid-template-columns: 1fr;
       }
 
-      .price {
-        font-size: 24px;
+      .request-next-panel .event-kpis {
+        gap: 14px;
       }
     }
-
   </style>
   <link rel="stylesheet" href="assets/language-switcher.css">
 </head>
 <body>
-<header class="site-header" id="siteHeader">
+  <header class="site-header" id="siteHeader">
     <div class="nav-wrap">
-      <a class="brand" href="index.html" aria-label="Musée de l’Automobile du Maroc - accueil">
-        <img class="brand-mark" src="assets/musee-automobile-logo-gold.png" alt="Logo officiel du Musée de l’Automobile du Maroc">
+      <a class="brand" href="index-en.html" aria-label="Museum of the Automobile of Morocco - home">
+        <img class="brand-mark" src="assets/musee-automobile-logo-gold.png" alt="Official logo of the Museum of the Automobile of Morocco">
       </a>
 
       <nav class="desktop-nav" aria-label="Navigation principale">
-        <a class="nav-home" href="index.html">Accueil</a>
+        <a class="nav-home" href="index-en.html">Home</a>
         <div class="nav-item">
-          <button class="nav-link" type="button">À propos</button>
+          <button class="nav-link" type="button">About</button>
           <div class="dropdown">
             <div class="dropdown-grid">
               <div>
                 <h3>Institution</h3>
-                <a href="club.html">Notre histoire<span>Fondation &amp; vision</span></a>
-                <a href="mot-president.html">Le mot du Président<span>Transmission et passion</span></a>
-                <a href="partenaires.html">Nos partenaires<span>Institutionnels &amp; corporate</span></a>
+                <a href="club.html">Our story<span>Foundation &amp; vision</span></a>
+                <a href="mot-president.html">President's message<span>Transmission &amp; passion</span></a>
+                <a href="partenaires.html">Our partners<span>Institutional &amp; corporate</span></a>
               </div>
               <div>
-                <h3>Adhésion</h3>
-                <a href="devenir-membre.html">Devenir membre<span>Avantages &amp; formules</span></a>
-                <a href="espace-membres.html">Espace membres<span>Connexion</span></a>
+                <h3>Membership</h3>
+                <a href="devenir-membre.html">Become a member<span>Benefits &amp; memberships</span></a>
+                <a href="espace-membres.html">Members area<span>Sign in</span></a>
               </div>
               <div>
                 <h3>Academy</h3>
@@ -2393,54 +1988,54 @@
         </div>
 
         <div class="nav-item">
-          <button class="nav-link" type="button">Le Musée</button>
+          <button class="nav-link" type="button">The Museum</button>
           <div class="dropdown">
             <div class="dropdown-grid">
               <div>
-                <h3>Découvrir</h3>
-                <a href="collection.html">La collection<span>Véhicules &amp; expositions</span></a>
-                <a href="timeline.html">Timeline automobile<span>Maroc &amp; monde</span></a>
-                <a href="batiment-histoire.html">Le bâtiment &amp; l'histoire<span>Architecture et patrimoine</span></a>
+                <h3>Discover</h3>
+                <a href="collection-en.html">Collection<span>Vehicles &amp; exhibitions</span></a>
+                <a href="timeline.html">Automotive timeline<span>Maroc &amp; monde</span></a>
+                <a href="batiment-histoire.html">The building &amp; its story<span>Architecture &amp; heritage</span></a>
               </div>
               <div>
-                <h3>Visiter</h3>
-                <a href="tickets.html">Acheter des billets<span>Individuel, famille, scolaire</span></a>
-                <a href="horaires.html">Horaires &amp; accès<span>Route de Bouskoura</span></a>
-                <a href="audioguide.html">Audioguide digital<span>FR / AR / EN</span></a>
-                  <a href="visites-scolaires.html">Visites scolaires<span>Parcours éducatif</span></a>
+                <h3>Visit</h3>
+                <a href="tickets-en.html">Buy tickets<span>Individuals, families, schools</span></a>
+                <a href="horaires-en.html">Hours &amp; access<span>Route de Bouskoura</span></a>
+                <a href="audioguide.html">Digital audio guide<span>FR / AR / EN</span></a>
+                  <a href="visites-scolaires.html">School visits<span>Educational journey</span></a>
               </div>
               <div>
-                <h3>Expositions</h3>
-                <a href="collection.html#collection-grid">Expositions permanentes<span>Collection fondatrice</span></a>
-                <a href="index.html#news">Expositions temporaires<span>En ce moment</span></a>
+                <h3>Exhibitions</h3>
+                <a href="collection-en.html#collection-grid">Exhibitions permanentes<span>Founding collection</span></a>
+                <a href="index-en.html#news">Exhibitions temporaires<span>Now showing</span></a>
               </div>
             </div>
           </div>
         </div>
 
         <div class="nav-item">
-          <button class="nav-link" type="button">Événementiel</button>
+          <button class="nav-link" type="button">Events</button>
           <div class="dropdown">
             <div class="dropdown-grid">
               <div>
-                <h3>Espaces</h3>
-                <a href="espaces-evenementiels.html">Les salles<span>Réunions, gala, conférences</span></a>
-                <a href="parc-automobile.html">Le parc automobile<span>Expositions et shootings</span></a>
-                <a href="terrasse-evenementielle.html">La terrasse<span>Réception en plein air</span></a>
+                <h3>Spaces</h3>
+                <a href="espaces-evenementiels.html">Event rooms<span>Meetings, galas, conferences</span></a>
+                <a href="parc-automobile.html">Vehicle collection<span>Exhibitions et shootings</span></a>
+                <a href="terrasse-evenementielle.html">Terrace<span>Open-air receptions</span></a>
               </div>
               <div>
-                <h3>Entreprises</h3>
-                <a href="seminaires-conferences.html">Séminaires &amp; conférences<span>Offre corporate</span></a>
-                  <a href="professionnels-b2b.html">Professionnels &amp; B2B<span>Conventions, lancements, presse</span></a>
+                <h3>Corporate</h3>
+                <a href="seminaires-conferences.html">Seminars &amp; conferences<span>Corporate offer</span></a>
+                  <a href="professionnels-b2b.html">Professionals &amp; B2B<span>Conventions, launches, press</span></a>
                 <a href="team-building.html">Team building<span>Activités sur mesure</span></a>
-                  <a href="services-evenementiels.html">Services événementiels<span>Technique, scénographie, catering</span></a>
-                <a href="dossier-evenementiel.html">Dossier événementiel<span>Télécharger</span></a>
+                  <a href="services-evenementiels.html">Event services<span>Technical, staging, catering</span></a>
+                <a href="dossier-evenementiel.html">Event brochure<span>Download</span></a>
               </div>
               <div>
-                <h3>Privé</h3>
-                <a href="mariages-receptions.html">Mariages &amp; réceptions<span>Cadre unique</span></a>
-                <a href="anniversaires-galas.html">Anniversaires &amp; galas<span>Moments signature</span></a>
-                <a href="demande-devis.html">Demander un devis<span>Formulaire rapide</span></a>
+                <h3>Private</h3>
+                <a href="mariages-receptions.html">Weddings &amp; receptions<span>A unique setting</span></a>
+                <a href="anniversaires-galas.html">Birthdays &amp; galas<span>Signature moments</span></a>
+                <a href="demande-devis-en.html">Request a quote<span>Quick form</span></a>
               </div>
             </div>
           </div>
@@ -2452,68 +2047,68 @@
             <div class="dropdown-grid">
               <div>
                 <h3>Restaurant</h3>
-                <a href="garage.html">Le Garage<span>Concept &amp; expérience</span></a>
-                <a href="garage-carte.html">La carte<span>Menu signature &amp; desserts</span></a>
-                <a href="garage-cuisine.html">La cuisine ouverte<span>Atelier culinaire</span></a>
+                <a href="garage-en.html">Le Garage<span>Concept &amp; experience</span></a>
+                <a href="garage-carte.html">Menu<span>Signature menu &amp; desserts</span></a>
+                <a href="garage-cuisine.html">Open kitchen<span>Culinary studio</span></a>
               </div>
               <div>
-                <h3>Équipe</h3>
-                <a href="garage-chefs.html">Les chefs<span>Vision &amp; transmission</span></a>
-                <a href="garage-temps-forts.html">Temps forts<span>Ramadan, cocktails, actualités</span></a>
-                <a href="garage-reservation.html">Réserver une table<span>Déjeuner, dîner, brunch</span></a>
+                <h3>Team</h3>
+                <a href="garage-chefs.html">The chefs<span>Vision &amp; transmission</span></a>
+                <a href="garage-temps-forts.html">Highlights<span>Ramadan, cocktails, news</span></a>
+                <a href="garage-reservation.html">Book a table<span>Lunch, dinner, brunch</span></a>
               </div>
               <div>
-                <h3>Infos</h3>
-                <a href="garage-reservation.html#horaires">Horaires<span>12h-16h / 19h-23h45</span></a>
-                <a href="garage-reservation.html#acces">Accès &amp; contact<span>Route de Bouskoura</span></a>
-                <a href="demande-devis.html">Privatiser Le Garage<span>Groupes &amp; événements</span></a>
+                <h3>Information</h3>
+                <a href="garage-reservation.html#horaires">Hours<span>12h-16h / 19h-23h45</span></a>
+                <a href="garage-reservation.html#acces">Access &amp; contact<span>Route de Bouskoura</span></a>
+                <a href="demande-devis-en.html">Private hire Le Garage<span>Groups &amp; events</span></a>
               </div>
             </div>
           </div>
         </div>
 
         <div class="nav-item">
-          <button class="nav-link" type="button">Actualité</button>
+          <button class="nav-link" type="button">News</button>
           <div class="dropdown">
             <div class="dropdown-grid">
               <div>
-                <h3>Contenus</h3>
-                <a href="actualites.html">News &amp; communiqués<span>Dernières nouvelles</span></a>
-                <a href="communique-detail.html">Communiqué officiel<span>Modèle éditorial</span></a>
-                <a href="agenda.html">Agenda<span>Événements à venir</span></a>
+                <h3>Stories</h3>
+                <a href="actualites.html">News &amp; releases<span>Latest news</span></a>
+                <a href="communique-detail.html">Official release<span>Editorial template</span></a>
+                <a href="agenda.html">Agenda<span>Upcoming events</span></a>
               </div>
               <div>
-                <h3>Média</h3>
-                <a href="presse-media.html">Presse &amp; médias<span>Archives &amp; kit média</span></a>
-                <a href="videos-galerie.html">Vidéos &amp; galerie<span>Moments du Musée</span></a>
+                <h3>Media</h3>
+                <a href="presse-media.html">Press &amp; media<span>Archive &amp; media kit</span></a>
+                <a href="videos-galerie.html">Videos &amp; gallery<span>Museum moments</span></a>
                 <a href="instagram.html">Instagram feed<span>@museeautomobilemaroc</span></a>
               </div>
               <div>
-                <h3>Communauté</h3>
-                <a href="cars-coffee.html">Cars &amp; Coffee<span>Rencontres passionnés</span></a>
+                <h3>Community</h3>
+                <a href="cars-coffee.html">Cars &amp; Coffee<span>Enthusiast gatherings</span></a>
               </div>
             </div>
           </div>
         </div>
 
         <div class="nav-item">
-          <button class="nav-link ticket" type="button">Billetterie</button>
+          <button class="nav-link ticket" type="button">Tickets</button>
           <div class="dropdown">
             <div class="dropdown-grid">
               <div>
-                <h3>Acheter</h3>
-                <a href="visite-individuelle.html?type=individuel">Visite individuelle<span>Billet musée</span></a>
-                <a href="visite-individuelle.html?type=famille">Famille &amp; jeunes<span>Parcours jeunes publics</span></a>
-                <a href="visites-scolaires.html">Groupe scolaire<span>Découverte pédagogique</span></a>
+                <h3>Buy</h3>
+                <a href="visite-individuelle.html?type=individuel">Individual visit<span>Museum ticket</span></a>
+                <a href="visite-individuelle.html?type=famille">Families &amp; youth<span>Youth journey</span></a>
+                <a href="visites-scolaires.html">School group<span>Educational discovery</span></a>
               </div>
               <div>
-                <h3>Groupes</h3>
-                <a href="visite-individuelle.html?type=corporate">Groupe corporate<span>Visite &amp; privatisation</span></a>
-                <a href="horaires.html">Tarifs &amp; horaires<span>Préparer la visite</span></a>
+                <h3>Groups</h3>
+                <a href="visite-individuelle.html?type=corporate">Corporate group<span>Visit &amp; private hire</span></a>
+                <a href="horaires-en.html">Rates &amp; hours<span>Plan your visit</span></a>
               </div>
               <div>
                 <h3>Experience</h3>
-                <a href="index.html#hero">Réserver une expérience<span>Musée, collection, table</span></a>
+                <a href="index-en.html#hero">Book an experience<span>Museum, collection, dining</span></a>
               </div>
             </div>
           </div>
@@ -2521,133 +2116,127 @@
       </nav>
 
       <div class="nav-ctas">
-        <a class="btn btn-secondary" href="demande-devis.html" aria-label="Privatiser le lieu">
+        <a class="btn btn-secondary" href="demande-devis-en.html" aria-label="Private hire">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4 8h16M5 5h14v15H5z"></path></svg>
-          Privatiser le lieu
+          Private hire
         </a>
-        <a class="btn btn-primary" href="garage-reservation.html" aria-label="Réserver une table">
+        <a class="btn btn-primary" href="garage-reservation.html" aria-label="Book a table">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v18M10 3v7a4 4 0 0 1-4 4M17 3v18M14 3h6v8a3 3 0 0 1-3 3h-3z"></path></svg>
-          Réserver une table
+          Book a table
         </a>
       </div>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Ouvrir le menu">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
         <span></span>
       </button>
     </div>
   </header>
 
-  <aside class="mobile-panel" id="mobilePanel" aria-label="Menu mobile">
-    <a class="mobile-home" href="index.html">Accueil</a>
+  <aside class="mobile-panel" id="mobilePanel" aria-label="Mobile menu">
+    <a class="mobile-home" href="index-en.html">Home</a>
     <div class="mobile-group">
-      <button class="mobile-trigger" type="button" aria-expanded="false">À propos</button>
+      <button class="mobile-trigger" type="button" aria-expanded="false">About</button>
       <div class="mobile-links">
-        <a href="club.html">Notre histoire</a>
-        <a href="mot-president.html">Le mot du Président</a>
-        <a href="devenir-membre.html">Devenir membre</a>
-        <a href="espace-membres.html">Espace membres</a>
+        <a href="club.html">Our story</a>
+        <a href="mot-president.html">President's message</a>
+        <a href="devenir-membre.html">Become a member</a>
+        <a href="espace-membres.html">Members area</a>
         <a href="automotive-academy.html">Automotive Academy</a>
         <a href="programmes.html">Nos programmes</a>
-        <a href="partenaires.html">Nos partenaires</a>
+        <a href="partenaires.html">Our partners</a>
       </div>
     </div>
     <div class="mobile-group">
-      <button class="mobile-trigger" type="button" aria-expanded="false">Le Musée</button>
+      <button class="mobile-trigger" type="button" aria-expanded="false">The Museum</button>
       <div class="mobile-links">
-        <a href="collection.html">La collection</a>
-        <a href="timeline.html">Timeline automobile</a>
+        <a href="collection-en.html">Collection</a>
+        <a href="timeline.html">Automotive timeline</a>
         <a href="batiment-histoire.html">Bâtiment &amp; histoire</a>
-        <a href="tickets.html">Acheter des billets</a>
-        <a href="horaires.html">Horaires &amp; accès</a>
-        <a href="audioguide.html">Audioguide digital</a>
-        <a href="visites-scolaires.html">Visites scolaires</a>
-        <a href="index.html#news">Expositions temporaires</a>
+        <a href="tickets-en.html">Buy tickets</a>
+        <a href="horaires-en.html">Hours &amp; access</a>
+        <a href="audioguide.html">Digital audio guide</a>
+        <a href="visites-scolaires.html">School visits</a>
+        <a href="index-en.html#news">Exhibitions temporaires</a>
       </div>
     </div>
     <div class="mobile-group">
-      <button class="mobile-trigger" type="button" aria-expanded="false">Événementiel</button>
+      <button class="mobile-trigger" type="button" aria-expanded="false">Events</button>
       <div class="mobile-links">
-        <a href="espaces-evenementiels.html">Les salles</a>
-        <a href="parc-automobile.html">Le parc automobile</a>
+        <a href="espaces-evenementiels.html">Event rooms</a>
+        <a href="parc-automobile.html">Vehicle collection</a>
         <a href="team-building.html">Team building</a>
-        <a href="services-evenementiels.html">Services événementiels</a>
-        <a href="demande-devis.html">Demander un devis</a>
+        <a href="services-evenementiels.html">Event services</a>
+        <a href="demande-devis-en.html">Request a quote</a>
       </div>
     </div>
     <div class="mobile-group">
       <button class="mobile-trigger" type="button" aria-expanded="false">Le Garage</button>
       <div class="mobile-links">
-        <a href="garage.html">Le Garage</a>
-        <a href="garage-carte.html">La carte</a>
-        <a href="garage-cuisine.html">La cuisine ouverte</a>
-        <a href="garage-chefs.html">Les chefs</a>
-        <a href="garage-temps-forts.html">Temps forts</a>
-        <a href="garage-reservation.html">Réserver une table</a>
+        <a href="garage-en.html">Le Garage</a>
+        <a href="garage-carte.html">Menu</a>
+        <a href="garage-cuisine.html">Open kitchen</a>
+        <a href="garage-chefs.html">The chefs</a>
+        <a href="garage-temps-forts.html">Highlights</a>
+        <a href="garage-reservation.html">Book a table</a>
       </div>
     </div>
     <div class="mobile-group">
-      <button class="mobile-trigger" type="button" aria-expanded="false">Actualité</button>
+      <button class="mobile-trigger" type="button" aria-expanded="false">News</button>
       <div class="mobile-links">
-        <a href="actualites.html">News &amp; communiqués</a>
-        <a href="presse-media.html">Presse &amp; médias</a>
-        <a href="communique-detail.html">Communiqué officiel</a>
+        <a href="actualites.html">News &amp; releases</a>
+        <a href="presse-media.html">Press &amp; media</a>
+        <a href="communique-detail.html">Official release</a>
         <a href="agenda.html">Agenda</a>
-        <a href="videos-galerie.html">Vidéos &amp; galerie</a>
+        <a href="videos-galerie.html">Videos &amp; gallery</a>
         <a href="cars-coffee.html">Cars &amp; Coffee</a>
         <a href="instagram.html">Instagram feed</a>
       </div>
     </div>
     <div class="mobile-group">
-      <button class="mobile-trigger" type="button" aria-expanded="false">Billetterie</button>
+      <button class="mobile-trigger" type="button" aria-expanded="false">Tickets</button>
       <div class="mobile-links">
-        <a href="visite-individuelle.html?type=individuel">Visite individuelle</a>
-        <a href="visite-individuelle.html?type=famille">Famille &amp; jeunes</a>
-        <a href="visites-scolaires.html">Groupe scolaire</a>
-        <a href="visite-individuelle.html?type=corporate">Groupe corporate</a>
-        <a href="horaires.html">Tarifs &amp; horaires</a>
+        <a href="visite-individuelle.html?type=individuel">Individual visit</a>
+        <a href="visite-individuelle.html?type=famille">Families &amp; youth</a>
+        <a href="visites-scolaires.html">School group</a>
+        <a href="visite-individuelle.html?type=corporate">Corporate group</a>
+        <a href="horaires-en.html">Rates &amp; hours</a>
       </div>
     </div>
     <div class="mobile-ctas">
-      <a class="btn btn-secondary" href="demande-devis.html">Privatiser le lieu</a>
-      <a class="btn btn-primary" href="garage-reservation.html">Réserver une table</a>
+      <a class="btn btn-secondary" href="demande-devis-en.html">Private hire</a>
+      <a class="btn btn-primary" href="garage-reservation.html">Book a table</a>
     </div>
   </aside>
-<main class="garage-page">
-    <section class="hero" aria-labelledby="page-title" style="background-image:linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.54) 48%, rgba(0,0,0,.18)), linear-gradient(0deg, #0b0b0b 0%, rgba(11,11,11,.12) 36%), url('assets/garage/blog-cocktail.png');">
-      <div class="section-inner reveal is-visible">
-        <span class="eyebrow">Temps forts du Garage</span>
-        <div class="garage-logo-lockup"><img src="assets/garage/logo-garage.png" alt="Logo Le Garage Restaurant"><span>Restaurant du Musée</span></div>
-        <h1 id="page-title">Les moments qui font vivre la table.</h1>
-        <p class="hero-copy">Actualités culinaires, rendez-vous saisonniers, cocktails, cuisine en scène et transmission des talents: Le Garage a sa propre programmation.</p>
-      </div>
+  <main>
+    <section class="hero" aria-labelledby="page-title" style="background-image:linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.54) 48%, rgba(0,0,0,.18)), linear-gradient(0deg, #0b0b0b 0%, rgba(11,11,11,.12) 36%), url('assets/events/cam-event-hall-20231114.jpg');">
+      <div class="section-inner reveal is-visible"><span class="eyebrow">Request a proposal</span><h1 id="page-title">Describe your event, we will build the right format.</h1><p class="hero-copy">A simple request form to qualify your objective, guest count, spaces, services, level of support and heritage content to integrate.</p></div>
     </section>
-    <section class="hero-quickbar"><div class="section-inner"><div class="hero-actions"><a class="btn btn-primary" href="garage-reservation.html">Réserver</a><a class="btn btn-secondary" href="garage.html">Retour au Garage</a></div><div class="hero-stats"><div class="stat"><strong>Ramadan</strong><span>Ftour signature</span></div><div class="stat"><strong>Cocktail</strong><span>Bar mécanique</span></div><div class="stat"><strong>Talent</strong><span>Formation</span></div></div></div></section>
-    <section class="section"><div class="section-inner"><div class="garage-news-grid"><article class="garage-news-card reveal"><img src="assets/garage/blog-ramadan.png" alt="Ftour Ramadan au Garage" loading="lazy"><div><span class="garage-card-label">Spécial Ramadan</span><h3>Un ftour au cœur du Musée.</h3><p>Une expérience gastronomique avec dattes, fruits secs, soupes servies à table, comptoirs de classiques marocains, plats signature et accès au musée.</p><a class="btn btn-secondary" href="garage-reservation.html">Réserver</a></div></article><article class="garage-news-card reveal"><img src="assets/garage/blog-cocktail.png" alt="Cocktails du Garage" loading="lazy"><div><span class="garage-card-label">Bar</span><h3>Quand la mécanique sublime le cocktail.</h3><p>Métal patiné, engrenages, précision du geste et assemblages audacieux: le bar reprend les codes de l’atelier.</p><a class="btn btn-secondary" href="garage-carte.html">Voir la carte</a></div></article><article class="garage-news-card reveal"><img src="assets/garage/blog-cuisine.png" alt="Cuisine en scène au Garage" loading="lazy"><div><span class="garage-card-label">Cuisine ouverte</span><h3>La cuisine en scène.</h3><p>La brigade travaille à vue, dans une synchronisation qui rappelle une mécanique bien réglée. Le goût se met en mouvement.</p><a class="btn btn-secondary" href="garage-cuisine.html">Découvrir</a></div></article></div></div></section>
-    <section class="section feature-band"><div class="section-inner garage-note reveal"><span class="eyebrow">Transmission</span><h2>L’excellence au service des talents.</h2><p>Le Garage veut devenir une maison d’excellence fondée sur la rigueur, la formation et la transmission. Les chefs accompagnent les équipes pour installer une culture durable, capable de grandir avec le Musée.</p><div class="hero-actions"><a class="btn btn-primary" href="garage-chefs.html">Voir les chefs</a><a class="btn btn-secondary" href="mailto:contact@legaragerestaurant.ma">Candidature</a></div></div></section>
+    <section class="hero-quickbar"><div class="section-inner"><div class="hero-actions"><a class="btn btn-primary" href="demande-devis-en.html">Request a quote</a><a class="btn btn-secondary" href="dossier-evenementiel.html">See the offer</a></div><div class="hero-stats"><div class="stat"><strong>1</strong><span>Schedule a site visit</span></div><div class="stat"><strong>2</strong><span>Define the format</span></div><div class="stat"><strong>3</strong><span>Receive a proposal</span></div></div></div></section>
+    <section class="section"><div class="section-inner feature-layout"><div class="request-card reveal"><span class="eyebrow">Brief</span><h2 class="section-title">Your project.</h2><form class="event-form"><label>Nom<input placeholder="Full name"></label><label>Email<input placeholder="nom@email.com"></label><label>Phone<input placeholder="+212 ..."></label><label>Event type<select><option>Seminar / conference</option><option>Productionuct launch</option><option>Gala / private dinner</option><option>Wedding / reception</option><option>Team building</option><option>Educational visit / group</option><option>Full private hire</option></select></label><label>Guest count<input placeholder="e.g. 120"></label><label>Preferred date<input placeholder="Date or period"></label><label class="field-full">Message<textarea placeholder="Objective, mood, technical needs, catering, branding, guided visit, workshop, Media Room, constraints..."></textarea></label></form><a class="btn btn-primary" href="dossier-evenementiel.html" style="margin-top:18px">Send request</a></div><article class="feature-panel request-next-panel reveal"><span class="eyebrow">Next step</span><h2>End-to-end support.</h2><p>The Museum brief is intentionally flexible: schedule a site visit, define the format, frame the services, choose the mediation sequence, then receive a tailored proposal.</p><div class="event-kpis"><div class="capacity"><strong>Visit</strong><span>Site recce</span></div><div class="capacity"><strong>Brief</strong><span>Goals & audience</span></div><div class="capacity"><strong>Content</strong><span>Collection, workshop, Media Room</span></div><div class="capacity"><strong>Production</strong><span>Coordination</span></div></div></article></div></section>
   </main>
-<footer class="footer">
+  <footer class="footer">
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img class="footer-logo" src="assets/musee-automobile-logo-gold.png" alt="Logo du Musée de l’Automobile du Maroc">
-          <h2>Musée de l’Automobile du Maroc</h2>
+          <img class="footer-logo" src="assets/musee-automobile-logo-gold.png" alt="Logo of the Museum of the Automobile of Morocco">
+          <h2>Museum of the Automobile of Morocco</h2>
         </div>
-        <p>Plus qu’un musée, une expérience: une destination culturelle où patrimoine automobile, design, transmission et émotion se rencontrent à Casablanca.</p>
+        <p>More than a museum, an experience: a cultural destination where automotive heritage, design, transmission and emotion meet in Casablanca.</p>
       </div>
       <div>
-        <h3>Visiter</h3>
+        <h3>Visit</h3>
         <ul>
-          <li><a href="tickets.html">Acheter des billets</a></li>
-          <li><a href="horaires.html">Horaires &amp; accès</a></li>
-          <li><a href="audioguide.html">Audioguide digital</a></li>
-          <li><a href="visites-scolaires.html">Visites scolaires</a></li>
+          <li><a href="tickets-en.html">Buy tickets</a></li>
+          <li><a href="horaires-en.html">Hours &amp; access</a></li>
+          <li><a href="audioguide.html">Digital audio guide</a></li>
+          <li><a href="visites-scolaires.html">School visits</a></li>
         </ul>
       </div>
       <div>
-        <h3>Informations</h3>
+        <h3>Information</h3>
         <ul>
           <li>Route de Bouskoura, Casablanca</li>
-          <li>Mar-Dim · 10h-18h</li>
+          <li>Tue-Sun · 10h-18h</li>
           <li>+212 600 270 387</li>
           <li>contact@museeautomobile.ma</li>
         </ul>
@@ -2655,18 +2244,18 @@
       <div>
         <h3>Navigation</h3>
         <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="collection.html">La collection</a></li>
-          <li><a href="timeline.html">Timeline automobile</a></li>
+          <li><a href="index-en.html">Home</a></li>
+          <li><a href="collection-en.html">Collection</a></li>
+          <li><a href="timeline.html">Automotive timeline</a></li>
           <li><a href="batiment-histoire.html">Bâtiment &amp; histoire</a></li>
-          <li><a href="garage.html">Le Garage</a></li>
+          <li><a href="garage-en.html">Le Garage</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Musée de l’Automobile du Maroc. Tous droits réservés.</span>
-      <span class="languages" aria-label="Langues"><a href="#" aria-label="Version française" title="Français"><span class="language-flag" aria-hidden="true">🇫🇷</span><span class="sr-only">Français</span></a><a href="#" aria-label="Version anglaise" title="English"><span class="language-flag" aria-hidden="true">🇬🇧</span><span class="sr-only">English</span></a></span>
-        <span class="footer-legal" style="display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end"><a href="mentions-legales.html">Mentions légales</a><a href="politique-confidentialite.html">Confidentialité</a><a href="politique-cookies.html">Cookies</a><a href="cgv-billetterie.html">CGV</a><a href="plan-site.html">Plan du site</a></span>
+      <span>© 2026 Museum of the Automobile of Morocco. All rights reserved.</span>
+      <span class="languages" aria-label="Language switcher"><a href="#" aria-label="French version" title="French"><span class="language-flag" aria-hidden="true">🇫🇷</span><span class="sr-only">French</span></a><a href="#" aria-label="English version" title="English"><span class="language-flag" aria-hidden="true">🇬🇧</span><span class="sr-only">English</span></a></span>
+        <span class="footer-legal" style="display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end"><a href="mentions-legales.html">Legal notice</a><a href="politique-confidentialite.html">Privacy</a><a href="politique-cookies.html">Cookies</a><a href="cgv-billetterie.html">CGV</a><a href="plan-site.html">Sitemap</a></span>
     </div>
   </footer>
 
@@ -2689,14 +2278,14 @@
     menuToggle.addEventListener("click", () => {
       const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
       menuToggle.setAttribute("aria-expanded", String(!isOpen));
-      menuToggle.setAttribute("aria-label", isOpen ? "Ouvrir le menu" : "Fermer le menu");
+      menuToggle.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
       body.classList.toggle("nav-open", !isOpen);
     });
 
     mobilePanel.addEventListener("click", (event) => {
       if (!event.target.closest("a")) return;
       menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Ouvrir le menu");
+      menuToggle.setAttribute("aria-label", "Open menu");
       body.classList.remove("nav-open");
     });
 
@@ -2738,6 +2327,7 @@
       revealItems.forEach((item) => item.classList.add("is-visible"));
     }
   </script>
+  <script type="module" src="assets/dynamic-forms/quote-request.js"></script>
   <script src="assets/language-switcher.js" defer></script>
 </body>
 </html>

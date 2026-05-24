@@ -11,6 +11,42 @@ import {
 } from "./data-service.js";
 
 const pageSize = 12;
+const isEnglish = document.documentElement.lang === "en";
+const copy = isEnglish
+  ? {
+      searchLabel: "Search",
+      searchPlaceholder: "Brand, country, year, family...",
+      sortLabel: "Sort",
+      source: "Source",
+      empty: "No vehicles match this search.",
+      discover: "Discover",
+      all: "All",
+      featuredYear: "Year",
+      featuredFamily: "Family",
+      featuredOrigin: "Origin",
+      dynamicFiles: "dynamic entries",
+      firstMarker: "earliest reference",
+      origins: "countries represented",
+      filters: "filters",
+      query: "search"
+    }
+  : {
+      searchLabel: "Recherche",
+      searchPlaceholder: "Marque, pays, année, famille...",
+      sortLabel: "Trier",
+      source: "Source",
+      empty: "Aucun véhicule ne correspond à cette recherche.",
+      discover: "Découvrir",
+      all: "Tous",
+      featuredYear: "Repère",
+      featuredFamily: "Famille",
+      featuredOrigin: "Origine",
+      dynamicFiles: "fiches dynamiques",
+      firstMarker: "premier repère",
+      origins: "origines représentées",
+      filters: "filtres",
+      query: "recherche"
+    };
 
 const els = {
   grid: document.querySelector(".collection-grid"),
@@ -40,26 +76,26 @@ const tools = document.createElement("div");
 tools.className = "dynamic-tools reveal is-visible";
 tools.innerHTML = `
   <div class="dynamic-field">
-    <label for="dynamicSearch">Recherche</label>
-    <input class="dynamic-input" id="dynamicSearch" type="search" placeholder="Marque, pays, année, famille...">
+    <label for="dynamicSearch">${copy.searchLabel}</label>
+    <input class="dynamic-input" id="dynamicSearch" type="search" placeholder="${copy.searchPlaceholder}">
   </div>
   <div class="dynamic-field">
-    <label for="dynamicSort">Trier</label>
+    <label for="dynamicSort">${copy.sortLabel}</label>
     <select class="dynamic-select" id="dynamicSort">
-      <option value="sortOrder">Parcours musée</option>
-      <option value="yearAsc">Année croissante</option>
-      <option value="yearDesc">Année décroissante</option>
-      <option value="titleAsc">Nom A-Z</option>
-      <option value="countryAsc">Pays A-Z</option>
+      <option value="sortOrder">${isEnglish ? "Museum path" : "Parcours musée"}</option>
+      <option value="yearAsc">${isEnglish ? "Year ascending" : "Année croissante"}</option>
+      <option value="yearDesc">${isEnglish ? "Year descending" : "Année décroissante"}</option>
+      <option value="titleAsc">${isEnglish ? "Name A-Z" : "Nom A-Z"}</option>
+      <option value="countryAsc">${isEnglish ? "Country A-Z" : "Pays A-Z"}</option>
     </select>
   </div>
-  <div class="dynamic-source" id="dynamicSource">Source: JSON</div>
+  <div class="dynamic-source" id="dynamicSource">${copy.source}: JSON</div>
 `;
 
 const emptyState = document.createElement("div");
 emptyState.className = "dynamic-empty";
 emptyState.hidden = true;
-emptyState.textContent = "Aucun véhicule ne correspond à cette recherche.";
+emptyState.textContent = copy.empty;
 
 els.filterBar?.parentElement?.insertBefore(tools, els.filterBar);
 els.grid?.after(emptyState);
@@ -114,7 +150,7 @@ const createIntegratedVehicleCard = (vehicle) => {
   card.className = "vehicle-card reveal is-visible";
   card.dataset.category = (vehicle.categorySlugs || []).join(" ");
   card.innerHTML = `
-    <a class="vehicle-link" href="${vehicleHref(vehicle)}" aria-label="Voir la fiche ${escapeAttribute(vehicle.title)}">
+    <a class="vehicle-link" href="${vehicleHref(vehicle)}" aria-label="${isEnglish ? "Open the vehicle sheet" : "Voir la fiche"} ${escapeAttribute(vehicle.title)}">
       <div class="vehicle-media">
         <img src="${escapeAttribute(imageUrl(vehicle))}" alt="${escapeAttribute(vehicle.title)}" loading="lazy">
       </div>
@@ -127,7 +163,7 @@ const createIntegratedVehicleCard = (vehicle) => {
           <span>${escapeHtml(facts.country)}</span>
           <span>${escapeHtml(facts.year)}</span>
         </div>
-        <span class="vehicle-discover">Découvrir</span>
+        <span class="vehicle-discover">${copy.discover}</span>
       </div>
     </a>
   `;
@@ -145,7 +181,7 @@ const renderFilters = () => {
   allButton.type = "button";
   allButton.dataset.filter = "all";
   allButton.setAttribute("aria-pressed", String(state.selectedCategories.size === 0));
-  allButton.textContent = "Tous";
+  allButton.textContent = copy.all;
   els.filterBar.appendChild(allButton);
 
   for (const group of categoryGroups(state.categories)) {
@@ -185,9 +221,9 @@ const renderFeature = () => {
   if (copy) copy.textContent = featured.summary || "";
   if (specs) {
     specs.innerHTML = `
-      <div class="spec"><strong>${escapeHtml(facts.year)}</strong><span>Repère</span></div>
-      <div class="spec"><strong>${escapeHtml(facts.category)}</strong><span>Famille</span></div>
-      <div class="spec"><strong>${escapeHtml(facts.country)}</strong><span>Origine</span></div>
+      <div class="spec"><strong>${escapeHtml(facts.year)}</strong><span>${copy.featuredYear}</span></div>
+      <div class="spec"><strong>${escapeHtml(facts.category)}</strong><span>${copy.featuredFamily}</span></div>
+      <div class="spec"><strong>${escapeHtml(facts.country)}</strong><span>${copy.featuredOrigin}</span></div>
     `;
   }
   if (link) link.href = vehicleHref(featured);
@@ -200,18 +236,18 @@ const renderStats = () => {
 
   if (els.stats[0]) {
     els.stats[0].querySelector("strong").textContent = String(state.vehicles.length);
-    els.stats[0].querySelector("span").textContent = "fiches dynamiques";
+    els.stats[0].querySelector("span").textContent = copy.dynamicFiles;
   }
   if (els.stats[1] && minYear) {
     els.stats[1].querySelector("strong").textContent = String(minYear);
-    els.stats[1].querySelector("span").textContent = "premier repère";
+    els.stats[1].querySelector("span").textContent = copy.firstMarker;
   }
   if (els.stats[2]) {
     els.stats[2].querySelector("strong").textContent = String(countries.size);
-    els.stats[2].querySelector("span").textContent = "origines représentées";
+    els.stats[2].querySelector("span").textContent = copy.origins;
   }
 
-  sourceBadge.textContent = `Source: ${state.source}`;
+  sourceBadge.textContent = `${copy.source}: ${state.source}`;
 };
 
 const renderPagination = (totalPages) => {
@@ -255,8 +291,8 @@ const renderCollection = (shouldScroll = false) => {
   emptyState.hidden = results.length !== 0;
 
   if (els.paginationStatus) {
-    const categoryText = state.selectedCategories.size ? ` · filtres: ${state.selectedCategories.size}` : "";
-    const queryText = state.query ? ` · recherche: "${state.query}"` : "";
+    const categoryText = state.selectedCategories.size ? ` · ${copy.filters}: ${state.selectedCategories.size}` : "";
+    const queryText = state.query ? ` · ${copy.query}: "${state.query}"` : "";
     els.paginationStatus.textContent = results.length
       ? `Véhicules ${start + 1}-${Math.min(start + pageSize, results.length)} sur ${results.length}${categoryText}${queryText}`
       : "Aucun véhicule dans ce filtre";
