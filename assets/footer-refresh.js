@@ -7,7 +7,7 @@
   const home = isEnglish ? "index-en.html" : "index.html";
   const collection = isEnglish ? "collection-en.html" : "collection.html";
   const hours = isEnglish ? "horaires-en.html" : "horaires.html";
-  const tickets = isEnglish ? "tickets-en.html" : "tickets.html";
+  const tickets = "https://automobilesclub.net/reservation/search";
   const quote = isEnglish ? "demande-devis-en.html" : "demande-devis.html";
   const garage = isEnglish ? "garage-en.html" : "garage.html";
 
