@@ -5,7 +5,14 @@
     "garage-en.html",
     "horaires-en.html",
     "tickets-en.html",
-    "demande-devis-en.html"
+    "demande-devis-en.html",
+    "club-en.html",
+    "mot-president-en.html",
+    "partenaires-en.html",
+    "devenir-membre-en.html",
+    "espace-membres-en.html",
+    "automotive-academy-en.html",
+    "programmes-en.html"
   ]);
 
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
@@ -41,13 +48,13 @@
     ["horaires.html", "horaires-en.html"],
     ["tickets.html", "tickets-en.html"],
     ["demande-devis.html", "demande-devis-en.html"],
-    ["club.html", "index-en.html#mot-president-home"],
-    ["mot-president.html", "index-en.html#mot-president-home"],
-    ["partenaires.html", "index-en.html#univers"],
-    ["devenir-membre.html", "index-en.html#univers"],
-    ["espace-membres.html", "index-en.html#univers"],
-    ["automotive-academy.html", "index-en.html#univers"],
-    ["programmes.html", "index-en.html#univers"],
+    ["club.html", "club-en.html"],
+    ["mot-president.html", "mot-president-en.html"],
+    ["partenaires.html", "partenaires-en.html"],
+    ["devenir-membre.html", "devenir-membre-en.html"],
+    ["espace-membres.html", "espace-membres-en.html"],
+    ["automotive-academy.html", "automotive-academy-en.html"],
+    ["programmes.html", "programmes-en.html"],
     ["timeline.html", "collection-en.html"],
     ["batiment-histoire.html", "collection-en.html"],
     ["visites-scolaires.html", "tickets-en.html"],
@@ -144,8 +151,155 @@
     });
   };
 
+  const patchEnglishChrome = () => {
+    if (!isEnglish) return;
+
+    document.querySelectorAll(".desktop-nav").forEach((nav) => {
+      nav.setAttribute("aria-label", "Main navigation");
+    });
+
+    document.querySelectorAll(".mobile-panel").forEach((panel) => {
+      panel.setAttribute("aria-label", "Mobile menu");
+    });
+
+    const buttonLabels = new Map([
+      ["À propos", "About"],
+      ["Le Musée", "The Museum"],
+      ["Événementiel", "Events"],
+      ["Actualité", "News"],
+      ["Billetterie", "Tickets"],
+      ["Ouvrir le menu", "Open menu"],
+      ["Fermer le menu", "Close menu"]
+    ]);
+
+    document.querySelectorAll("button").forEach((button) => {
+      const text = button.textContent.trim();
+      if (buttonLabels.has(text)) {
+        button.textContent = buttonLabels.get(text);
+      }
+
+      const ariaLabel = button.getAttribute("aria-label");
+      if (ariaLabel && buttonLabels.has(ariaLabel)) {
+        button.setAttribute("aria-label", buttonLabels.get(ariaLabel));
+      }
+    });
+
+    const headingLabels = new Map([
+      ["Adhésion", "Membership"],
+      ["Découvrir", "Discover"],
+      ["Visiter", "Visit"],
+      ["Expositions", "Exhibitions"],
+      ["Espaces", "Spaces"],
+      ["Entreprises", "Corporate"],
+      ["Privé", "Private"],
+      ["Équipe", "Team"],
+      ["Infos", "Information"],
+      ["Contenus", "Stories"],
+      ["Média", "Media"],
+      ["Communauté", "Community"],
+      ["Acheter", "Buy"],
+      ["Groupes", "Groups"],
+      ["Visiter", "Visit"],
+      ["Informations", "Information"],
+      ["Navigation", "Navigation"]
+    ]);
+
+    document.querySelectorAll("h3").forEach((heading) => {
+      const text = heading.textContent.trim();
+      if (headingLabels.has(text)) {
+        heading.textContent = headingLabels.get(text);
+      }
+    });
+
+    const anchorLabels = new Map([
+      ["index-en.html", { label: "Home" }],
+      ["club-en.html", { label: "Our story", subtitle: "Foundation & vision" }],
+      ["mot-president-en.html", { label: "President's message", subtitle: "Transmission & passion" }],
+      ["partenaires-en.html", { label: "Our partners", subtitle: "Institutional & corporate" }],
+      ["devenir-membre-en.html", { label: "Become a member", subtitle: "Benefits & memberships" }],
+      ["espace-membres-en.html", { label: "Members area", subtitle: "Sign in" }],
+      ["automotive-academy-en.html", { label: "Automotive Academy", subtitle: "Training & expertise" }],
+      ["programmes-en.html", { label: "Our programmes", subtitle: "Automotive certifications" }],
+      ["collection-en.html", { label: "Collection", subtitle: "Vehicles & exhibitions" }],
+      ["garage-en.html", { label: "Le Garage", subtitle: "Concept & experience" }],
+      ["horaires-en.html", { label: "Hours & access", subtitle: "Route de Bouskoura" }],
+      ["tickets-en.html", { label: "Tickets" }],
+      ["demande-devis-en.html", { label: "Request a quote", subtitle: "Quick form" }],
+      ["timeline.html", { label: "Automotive timeline", subtitle: "Morocco & beyond" }],
+      ["batiment-histoire.html", { label: "Building & story", subtitle: "Architecture & heritage" }],
+      ["visites-scolaires.html", { label: "School visits", subtitle: "Educational journey" }],
+      ["evenementiel.html", { label: "Events" }],
+      ["espaces-evenementiels.html", { label: "Event rooms", subtitle: "Meetings, galas, conferences" }],
+      ["parc-automobile.html", { label: "Vehicle collection", subtitle: "Displays & photo shoots" }],
+      ["terrasse-evenementielle.html", { label: "Terrace", subtitle: "Open-air receptions" }],
+      ["seminaires-conferences.html", { label: "Seminars & conferences", subtitle: "Corporate offer" }],
+      ["professionnels-b2b.html", { label: "Professionals & B2B", subtitle: "Conventions, launches, press" }],
+      ["team-building.html", { label: "Team building", subtitle: "Bespoke activities" }],
+      ["services-evenementiels.html", { label: "Event services", subtitle: "Technical, staging, catering" }],
+      ["dossier-evenementiel.html", { label: "Event brochure", subtitle: "Download" }],
+      ["mariages-receptions.html", { label: "Weddings & receptions", subtitle: "A unique setting" }],
+      ["anniversaires-galas.html", { label: "Birthdays & galas", subtitle: "Signature moments" }],
+      ["garage-carte.html", { label: "Menu", subtitle: "Signature menu & desserts" }],
+      ["garage-cuisine.html", { label: "Open kitchen", subtitle: "Culinary studio" }],
+      ["garage-chefs.html", { label: "The chefs", subtitle: "Vision & transmission" }],
+      ["garage-temps-forts.html", { label: "Highlights", subtitle: "Ramadan, cocktails, news" }],
+      ["garage-reservation.html", { label: "Book a table", subtitle: "Lunch, dinner, brunch" }],
+      ["actualites.html", { label: "News & releases", subtitle: "Latest news" }],
+      ["communique-detail.html", { label: "Official release", subtitle: "Editorial template" }],
+      ["agenda.html", { label: "Agenda", subtitle: "Upcoming events" }],
+      ["presse-media.html", { label: "Press & media", subtitle: "Archive & media kit" }],
+      ["videos-galerie.html", { label: "Videos & gallery", subtitle: "Museum moments" }],
+      ["instagram.html", { label: "Instagram feed", subtitle: "@museeautomobilemaroc" }],
+      ["cars-coffee.html", { label: "Cars & Coffee", subtitle: "Enthusiast gatherings" }],
+      ["https://automobilesclub.net/reservation/search", { label: "Buy tickets", subtitle: "Individuals, families, schools" }]
+    ]);
+
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href) return;
+
+      const [baseHref] = href.split("#");
+      const definition = anchorLabels.get(href) || anchorLabels.get(baseHref);
+      if (!definition) return;
+
+      const span = link.querySelector("span");
+      const icon = link.querySelector("svg");
+
+      if (span) {
+        const firstNode = Array.from(link.childNodes).find((node) => node.nodeType === Node.TEXT_NODE);
+        if (firstNode) {
+          firstNode.textContent = definition.label;
+        } else {
+          link.insertBefore(document.createTextNode(definition.label), span);
+        }
+        if (definition.subtitle) span.textContent = definition.subtitle;
+        return;
+      }
+
+      if (icon) {
+        link.innerHTML = `${icon.outerHTML} ${definition.label}`;
+        return;
+      }
+
+      link.textContent = definition.label;
+    });
+
+    document.querySelectorAll('.nav-ctas a.btn-secondary[href], .mobile-ctas a.btn-secondary[href]').forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      if (href.includes("demande-devis-en.html")) {
+        const icon = link.querySelector("svg");
+        if (icon) {
+          link.innerHTML = `${icon.outerHTML} Private hire`;
+        } else {
+          link.textContent = "Private hire";
+        }
+      }
+    });
+  };
+
   injectInHeader();
   injectInMobile();
   patchFooterLanguages();
   patchEnglishNavigationLinks();
+  patchEnglishChrome();
 })();

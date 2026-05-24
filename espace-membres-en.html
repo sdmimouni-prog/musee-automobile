@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Hours, access, parking, school group reception, educational visits and practical information for visiting the Museum of the Automobile of Morocco in Casablanca.">
-  <title>Hours & Access | Museum of the Automobile of Morocco</title>
+  <meta name="description" content="Museum members area: access request, invitations, heritage content, benefits and member services.">
+  <title>Members area | Museum of the Automobile of Morocco</title>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1527,6 +1527,11 @@
       line-height: 1.5;
     }
 
+    .visit-card .card-action {
+      margin-top: 18px;
+      align-self: flex-start;
+    }
+
     .process-grid,
     .info-grid {
       display: grid;
@@ -1677,6 +1682,182 @@
       }
     }
 
+  
+
+    .club-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .club-card,
+    .club-panel,
+    .partner-tile,
+    .member-tier,
+    .login-card {
+      border: 1px solid rgba(215, 178, 109, 0.18);
+      background: rgba(8, 8, 8, 0.64);
+      padding: 28px;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .club-card:hover,
+    .partner-tile:hover,
+    .member-tier:hover {
+      transform: translateY(-4px);
+      border-color: rgba(215, 178, 109, 0.42);
+    }
+
+    .club-card h3,
+    .club-panel h3,
+    .partner-tile h3,
+    .member-tier h3,
+    .login-card h3 {
+      margin: 0 0 12px;
+      font-family: var(--serif);
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .club-card p,
+    .club-panel p,
+    .partner-tile p,
+    .member-tier p,
+    .login-card p,
+    .club-list li {
+      color: rgba(245, 245, 243, 0.72);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .club-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .club-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(215, 178, 109, 0.14);
+    }
+
+    .club-list strong,
+    .club-kpi strong {
+      color: var(--bronze-light);
+    }
+
+    .club-kpis {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .club-kpi {
+      border-top: 1px solid rgba(215, 178, 109, 0.26);
+      padding-top: 16px;
+    }
+
+    .club-kpi strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .club-kpi span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(245, 245, 243, 0.62);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .club-quote {
+      margin: 0;
+      color: var(--quartz);
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.6rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .club-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .club-form .field-full {
+      grid-column: 1 / -1;
+    }
+
+    .club-form label {
+      display: grid;
+      gap: 8px;
+      color: var(--bronze-light);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .club-form input,
+    .club-form select,
+    .club-form textarea {
+      min-height: 48px;
+      border: 1px solid rgba(215, 178, 109, 0.22);
+      background: rgba(245, 245, 243, 0.04);
+      color: var(--quartz);
+      padding: 0 14px;
+      font: inherit;
+    }
+
+    .club-form textarea {
+      min-height: 120px;
+      padding-top: 14px;
+      resize: vertical;
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .partner-mark {
+      display: inline-flex;
+      width: 56px;
+      height: 56px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      border: 1px solid rgba(215, 178, 109, 0.34);
+      color: var(--bronze-light);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 980px) {
+      .club-grid,
+      .partner-grid,
+      .club-kpis {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .club-grid,
+      .partner-grid,
+      .club-kpis,
+      .club-form {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
   <link rel="stylesheet" href="assets/language-switcher.css">
   <link rel="stylesheet" href="assets/footer-refresh.css">
@@ -1696,14 +1877,14 @@
             <div class="dropdown-grid">
               <div>
                 <h3>Institution</h3>
-                <a href="club-en.html">Our story<span>Foundation &amp; vision</span></a>
-                <a href="mot-president-en.html">President's message<span>Transmission &amp; passion</span></a>
-                <a href="partenaires-en.html">Our partners<span>Institutional &amp; corporate</span></a>
+                <a href="club-en.html">Notre histoire<span>Fondation &amp; vision</span></a>
+                <a href="mot-president-en.html">Le mot du Président<span>Transmission et passion</span></a>
+                <a href="partenaires-en.html">Nos partenaires<span>Institutionnels &amp; corporate</span></a>
               </div>
               <div>
                 <h3>Membership</h3>
-                <a href="devenir-membre-en.html">Become a member<span>Benefits &amp; memberships</span></a>
-                <a href="espace-membres-en.html">Members area<span>Sign in</span></a>
+                <a href="devenir-membre-en.html">Become a member<span>Avantages &amp; formules</span></a>
+                <a href="espace-membres-en.html">Espace membres<span>Connexion</span></a>
               </div>
               <div>
                 <h3>Academy</h3>
@@ -1720,19 +1901,19 @@
             <div class="dropdown-grid">
               <div>
                 <h3>Discover</h3>
-                <a href="collection-en.html">Collection<span>Vehicles &amp; exhibitions</span></a>
-                <a href="timeline.html">Automotive timeline<span>Maroc &amp; monde</span></a>
-                <a href="batiment-histoire.html">The building &amp; its story<span>Architecture &amp; heritage</span></a>
+                <a href="collection-en.html">The collection<span>Véhicules &amp; expositions</span></a>
+                <a href="timeline.html">Timeline automobile<span>Maroc &amp; monde</span></a>
+                <a href="batiment-histoire.html">Le bâtiment &amp; l'histoire<span>Architecture et patrimoine</span></a>
               </div>
               <div>
                 <h3>Visit</h3>
-                <a href="https://automobilesclub.net/reservation/search">Buy tickets<span>Individuals, families, schools</span></a>
+                <a href="https://automobilesclub.net/reservation/search">Buy tickets<span>Individuel, famille, scolaire</span></a>
                 <a href="horaires-en.html">Hours &amp; access<span>Route de Bouskoura</span></a>
-                  <a href="visites-scolaires.html">School visits<span>Educational journey</span></a>
+                  <a href="visites-scolaires.html">School visits<span>Parcours éducatif</span></a>
               </div>
               <div>
                 <h3>Exhibitions</h3>
-                <a href="collection-en.html#collection-grid">Exhibitions permanentes<span>Founding collection</span></a>
+                <a href="collection.html#collection-grid">Expositions permanentes<span>Collection fondatrice</span></a>
               </div>
             </div>
           </div>
@@ -1744,23 +1925,23 @@
             <div class="dropdown-grid">
               <div>
                 <h3>Spaces</h3>
-                <a href="espaces-evenementiels.html">Event rooms<span>Meetings, galas, conferences</span></a>
-                <a href="parc-automobile.html">Vehicle collection<span>Exhibitions et shootings</span></a>
-                <a href="terrasse-evenementielle.html">Terrace<span>Open-air receptions</span></a>
+                <a href="espaces-evenementiels.html">Les salles<span>Réunions, gala, conférences</span></a>
+                <a href="parc-automobile.html">Le parc automobile<span>Expositions et shootings</span></a>
+                <a href="terrasse-evenementielle.html">La terrasse<span>Réception en plein air</span></a>
               </div>
               <div>
                 <h3>Corporate</h3>
-                <a href="seminaires-conferences.html">Seminars &amp; conferences<span>Corporate offer</span></a>
-                  <a href="professionnels-b2b.html">Professionals &amp; B2B<span>Conventions, launches, press</span></a>
+                <a href="seminaires-conferences.html">Séminaires &amp; conférences<span>Offre corporate</span></a>
+                  <a href="professionnels-b2b.html">Professionnels &amp; B2B<span>Conventions, lancements, presse</span></a>
                 <a href="team-building.html">Team building<span>Activités sur mesure</span></a>
-                  <a href="services-evenementiels.html">Event services<span>Technical, staging, catering</span></a>
-                <a href="dossier-evenementiel.html">Event brochure<span>Download</span></a>
+                  <a href="services-evenementiels.html">Services événementiels<span>Technique, scénographie, catering</span></a>
+                <a href="dossier-evenementiel.html">Dossier événementiel<span>Télécharger</span></a>
               </div>
               <div>
                 <h3>Private</h3>
-                <a href="mariages-receptions.html">Weddings &amp; receptions<span>A unique setting</span></a>
-                <a href="anniversaires-galas.html">Birthdays &amp; galas<span>Signature moments</span></a>
-                <a href="demande-devis-en.html">Request a quote<span>Quick form</span></a>
+                <a href="mariages-receptions.html">Mariages &amp; réceptions<span>Cadre unique</span></a>
+                <a href="anniversaires-galas.html">Anniversaires &amp; galas<span>Moments signature</span></a>
+                <a href="demande-devis-en.html">Demander un devis<span>Formulaire rapide</span></a>
               </div>
             </div>
           </div>
@@ -1772,21 +1953,21 @@
             <div class="dropdown-grid">
               <div>
                 <h3>Restaurant</h3>
-                <a href="garage-en.html">Le Garage<span>Concept &amp; experience</span></a>
-                <a href="garage-carte.html">Menu<span>Signature menu &amp; desserts</span></a>
-                <a href="garage-cuisine.html">Open kitchen<span>Culinary studio</span></a>
+                <a href="garage-en.html">Le Garage<span>Concept &amp; expérience</span></a>
+                <a href="garage-carte.html">La carte<span>Menu signature &amp; desserts</span></a>
+                <a href="garage-cuisine.html">La cuisine ouverte<span>Atelier culinaire</span></a>
               </div>
               <div>
                 <h3>Team</h3>
-                <a href="garage-chefs.html">The chefs<span>Vision &amp; transmission</span></a>
-                <a href="garage-temps-forts.html">Highlights<span>Ramadan, cocktails, news</span></a>
-                <a href="garage-reservation.html">Book a table<span>Lunch, dinner, brunch</span></a>
+                <a href="garage-chefs.html">Les chefs<span>Vision &amp; transmission</span></a>
+                <a href="garage-temps-forts.html">Temps forts<span>Ramadan, cocktails, actualités</span></a>
+                <a href="garage-reservation.html">Book a table<span>Déjeuner, dîner, brunch</span></a>
               </div>
               <div>
                 <h3>Information</h3>
-                <a href="garage-reservation.html#horaires">Hours<span>12h-16h / 19h-23h45</span></a>
-                <a href="garage-reservation.html#acces">Access &amp; contact<span>Route de Bouskoura</span></a>
-                <a href="demande-devis-en.html">Private hire Le Garage<span>Groups &amp; events</span></a>
+                <a href="garage-reservation.html#horaires">Horaires<span>12h-16h / 19h-23h45</span></a>
+                <a href="garage-reservation.html#acces">Accès &amp; contact<span>Route de Bouskoura</span></a>
+                <a href="demande-devis-en.html">Privatiser Le Garage<span>Groupes &amp; événements</span></a>
               </div>
             </div>
           </div>
@@ -1798,19 +1979,19 @@
             <div class="dropdown-grid">
               <div>
                 <h3>Stories</h3>
-                <a href="actualites.html">News &amp; releases<span>Latest news</span></a>
-                <a href="communique-detail.html">Official release<span>Editorial template</span></a>
-                <a href="agenda.html">Agenda<span>Upcoming events</span></a>
+                <a href="actualites.html">News &amp; communiqués<span>Dernières nouvelles</span></a>
+                <a href="communique-detail.html">Communiqué officiel<span>Modèle éditorial</span></a>
+                <a href="agenda.html">Agenda<span>Événements à venir</span></a>
               </div>
               <div>
                 <h3>Media</h3>
-                <a href="presse-media.html">Press &amp; media<span>Archive &amp; media kit</span></a>
-                <a href="videos-galerie.html">Videos &amp; gallery<span>Museum moments</span></a>
+                <a href="presse-media.html">Presse &amp; médias<span>Archives &amp; kit média</span></a>
+                <a href="videos-galerie.html">Vidéos &amp; galerie<span>Moments du Musée</span></a>
                 <a href="instagram.html">Instagram feed<span>@museeautomobilemaroc</span></a>
               </div>
               <div>
                 <h3>Community</h3>
-                <a href="cars-coffee.html">Cars &amp; Coffee<span>Enthusiast gatherings</span></a>
+                <a href="cars-coffee.html">Cars &amp; Coffee<span>Rencontres passionnés</span></a>
               </div>
             </div>
           </div>
@@ -1822,18 +2003,18 @@
             <div class="dropdown-grid">
               <div>
                 <h3>Buy</h3>
-                <a href="https://automobilesclub.net/reservation/search">Individual visit<span>Museum ticket</span></a>
-                <a href="https://automobilesclub.net/reservation/search">Families &amp; youth<span>Youth journey</span></a>
-                <a href="visites-scolaires.html">School group<span>Educational discovery</span></a>
+                <a href="https://automobilesclub.net/reservation/search">Visite individuelle<span>Billet musée</span></a>
+                <a href="https://automobilesclub.net/reservation/search">Families &amp; youth<span>Parcours jeunes publics</span></a>
+                <a href="visites-scolaires.html">School group<span>Découverte pédagogique</span></a>
               </div>
               <div>
                 <h3>Groups</h3>
-                <a href="https://automobilesclub.net/reservation/search">Corporate group<span>Visit &amp; private hire</span></a>
-                <a href="horaires-en.html">Rates &amp; hours<span>Plan your visit</span></a>
+                <a href="https://automobilesclub.net/reservation/search">Corporate group<span>Visite &amp; privatisation</span></a>
+                <a href="horaires-en.html">Rates &amp; hours<span>Préparer la visite</span></a>
               </div>
               <div>
                 <h3>Experience</h3>
-                <a href="index-en.html#hero">Book an experience<span>Museum, collection, dining</span></a>
+                <a href="index-en.html#hero">Réserver une expérience<span>Musée, collection, table</span></a>
               </div>
             </div>
           </div>
@@ -1851,32 +2032,32 @@
         </a>
       </div>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Ouvrir le menu">
         <span></span>
       </button>
     </div>
   </header>
 
-  <aside class="mobile-panel" id="mobilePanel" aria-label="Mobile menu">
+  <aside class="mobile-panel" id="mobilePanel" aria-label="Menu mobile">
     <a class="mobile-home" href="index-en.html">Home</a>
     <div class="mobile-group">
       <button class="mobile-trigger" type="button" aria-expanded="false">About</button>
       <div class="mobile-links">
-        <a href="club-en.html">Our story</a>
-        <a href="mot-president-en.html">President's message</a>
+        <a href="club-en.html">Notre histoire</a>
+        <a href="mot-president-en.html">Le mot du Président</a>
         <a href="devenir-membre-en.html">Become a member</a>
-        <a href="espace-membres-en.html">Members area</a>
+        <a href="espace-membres-en.html">Espace membres</a>
         <a href="automotive-academy-en.html">Automotive Academy</a>
         <a href="programmes-en.html">Nos programmes</a>
-        <a href="partenaires-en.html">Our partners</a>
+        <a href="partenaires-en.html">Nos partenaires</a>
       </div>
     </div>
     <div class="mobile-group">
       <button class="mobile-trigger" type="button" aria-expanded="false">The Museum</button>
       <div class="mobile-links">
-        <a href="collection-en.html">Collection</a>
-        <a href="timeline.html">Automotive timeline</a>
-        <a href="batiment-histoire.html">Bâtiment &amp; histoire</a>
+        <a href="collection-en.html">The collection</a>
+        <a href="timeline.html">Timeline automobile</a>
+        <a href="batiment-histoire.html">Building &amp; history</a>
         <a href="https://automobilesclub.net/reservation/search">Buy tickets</a>
         <a href="horaires-en.html">Hours &amp; access</a>
         <a href="visites-scolaires.html">School visits</a>
@@ -1885,32 +2066,32 @@
     <div class="mobile-group">
       <button class="mobile-trigger" type="button" aria-expanded="false">Events</button>
       <div class="mobile-links">
-        <a href="espaces-evenementiels.html">Event rooms</a>
-        <a href="parc-automobile.html">Vehicle collection</a>
+        <a href="espaces-evenementiels.html">Les salles</a>
+        <a href="parc-automobile.html">Le parc automobile</a>
         <a href="team-building.html">Team building</a>
-        <a href="services-evenementiels.html">Event services</a>
-        <a href="demande-devis-en.html">Request a quote</a>
+        <a href="services-evenementiels.html">Services événementiels</a>
+        <a href="demande-devis-en.html">Demander un devis</a>
       </div>
     </div>
     <div class="mobile-group">
       <button class="mobile-trigger" type="button" aria-expanded="false">Le Garage</button>
       <div class="mobile-links">
         <a href="garage-en.html">Le Garage</a>
-        <a href="garage-carte.html">Menu</a>
-        <a href="garage-cuisine.html">Open kitchen</a>
-        <a href="garage-chefs.html">The chefs</a>
-        <a href="garage-temps-forts.html">Highlights</a>
+        <a href="garage-carte.html">La carte</a>
+        <a href="garage-cuisine.html">La cuisine ouverte</a>
+        <a href="garage-chefs.html">Les chefs</a>
+        <a href="garage-temps-forts.html">Temps forts</a>
         <a href="garage-reservation.html">Book a table</a>
       </div>
     </div>
     <div class="mobile-group">
       <button class="mobile-trigger" type="button" aria-expanded="false">News</button>
       <div class="mobile-links">
-        <a href="actualites.html">News &amp; releases</a>
-        <a href="presse-media.html">Press &amp; media</a>
-        <a href="communique-detail.html">Official release</a>
+        <a href="actualites.html">News &amp; communiqués</a>
+        <a href="presse-media.html">Presse &amp; médias</a>
+        <a href="communique-detail.html">Communiqué officiel</a>
         <a href="agenda.html">Agenda</a>
-        <a href="videos-galerie.html">Videos &amp; gallery</a>
+        <a href="videos-galerie.html">Vidéos &amp; galerie</a>
         <a href="cars-coffee.html">Cars &amp; Coffee</a>
         <a href="instagram.html">Instagram feed</a>
       </div>
@@ -1918,7 +2099,7 @@
     <div class="mobile-group">
       <button class="mobile-trigger" type="button" aria-expanded="false">Tickets</button>
       <div class="mobile-links">
-        <a href="https://automobilesclub.net/reservation/search">Individual visit</a>
+        <a href="https://automobilesclub.net/reservation/search">Visite individuelle</a>
         <a href="https://automobilesclub.net/reservation/search">Families &amp; youth</a>
         <a href="visites-scolaires.html">School group</a>
         <a href="https://automobilesclub.net/reservation/search">Corporate group</a>
@@ -1931,22 +2112,21 @@
     </div>
   </aside>
   <main>
-    <section class="hero" aria-labelledby="page-title" style="background-image:linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.54) 48%, rgba(0,0,0,.18)), linear-gradient(0deg, #0b0b0b 0%, rgba(11,11,11,.12) 36%), url('assets/cars-real/cam-mercedes-pagoda.jpg');">
-      <div class="section-inner reveal is-visible"><span class="eyebrow">Practical information</span><h1 id="page-title">Hours &amp; access.</h1><p class="hero-copy">Prepare everything before arrival: museum hours, last admission, parking, school group reception, workshops and practical information.</p></div>
+    <section class="hero" aria-labelledby="page-title" style="background-image:linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.54) 48%, rgba(0,0,0,.18)), linear-gradient(0deg, #0b0b0b 0%, rgba(11,11,11,.12) 36%), url('assets/cars-real/cam-collection-lineup.jpg');">
+      <div class="section-inner reveal is-visible"><span class="eyebrow">Members area</span><h1 id="page-title">A private access point to experience the Club.</h1><p class="hero-copy">A single member dashboard for invitations, heritage content, benefits, documents and booking requests.</p></div>
     </section>
-    <section class="hero-quickbar"><div class="section-inner"><div class="hero-actions"><a class="btn btn-primary" href="https://automobilesclub.net/reservation/search">Buy tickets</a><a class="btn btn-secondary" href="#access">Plan access</a></div><div class="hero-stats"><div class="stat"><strong>Tue-Sun</strong><span>Museum opening</span></div><div class="stat"><strong>10h-18h</strong><span>Hours</span></div><div class="stat"><strong>17h15</strong><span>Last entry</span></div></div></div></section>
-    <section class="section"><div class="section-inner"><div class="section-head reveal"><div><span class="eyebrow">Hours</span><h2 class="section-title">A clear, frictionless visit.</h2></div><p class="section-copy">This page makes it easier for independent visitors, families, school groups and companies to prepare their visit: clear hours, last admission, services and closing days.</p></div><div class="schedule-table reveal"><div class="schedule-row"><strong>Museum</strong><span>Tuesday to Sunday</span><span>10h00 - 18h00</span></div><div class="schedule-row"><strong>Last admission</strong><span>Recommended arrival</span><span>17h15</span></div><div class="schedule-row"><strong>Monday</strong><span>Museum closed</span><span>Maintenance, private groups on request</span></div><div class="schedule-row"><strong>Le Garage</strong><span>Restaurant &amp; café</span><span>According to service and reservation</span></div><div class="schedule-row"><strong>Boutique</strong><span>Collector items &amp; Museum editions</span><span>During museum opening hours</span></div></div></div></section>
-    <section class="section feature-band" id="access"><div class="section-inner feature-layout"><div class="map-panel reveal"><div><strong>Route de Bouskoura</strong><p>Casablanca · Musée de l’Automobile du Maroc</p></div></div><div class="feature-panel reveal"><span class="eyebrow">Access</span><h2>Getting to the Museum.</h2><p>The Museum is located on Route de Bouskoura in Casablanca. This page includes mapping guidance, car and ride-hailing directions, and simplified access for school or corporate groups.</p><ul class="visit-list"><li>Visitor parking is available on site or very close by.</li><li>Drop-off zone for ride-hailing, taxis and event guests.</li><li>Access for school groups with mandatory booking, named supervisor and prior coordination.</li><li>Accessibility information and support at reception.</li></ul></div></div></section>
-    <section class="section"><div class="section-inner"><div class="section-head reveal"><div><span class="eyebrow">Plan</span><h2 class="section-title">How much time should you allow?</h2></div><p class="section-copy">Visit formats inspired by international museum journeys, adapted to the Museum rhythm.</p></div><div class="info-grid"><div class="info-panel reveal"><strong>45 min</strong><p>Essential route to discover the major vehicles.</p></div><div class="info-panel reveal"><strong>90 min</strong><p>Complete visit with timeline, collection, Media Room and international pavilions.</p></div><div class="info-panel reveal"><strong>2h30</strong><p>Museum experience extended with Le Garage.</p></div><div class="info-panel reveal"><strong>Scolaire</strong><p>Dedicated slot, briefing, educational route and recap quiz depending on the selected format.</p></div></div></div></section>
+    <section class="hero-quickbar"><div class="section-inner"><div class="hero-actions"><a class="btn btn-primary" href="devenir-membre-en.html">Become a member</a><a class="btn btn-secondary" href="partenaires-en.html">See partners</a></div><div class="hero-stats"><div class="stat"><strong>Private</strong><span>Member access</span></div><div class="stat"><strong>Agenda</strong><span>Invitations</span></div><div class="stat"><strong>Services</strong><span>Tracked requests</span></div></div></div></section>
+    <section class="section"><div class="section-inner feature-layout"><div class="login-card reveal"><span class="eyebrow">Member access</span><h2 class="section-title">Request access to your space.</h2><form class="club-form"><label>Name<input placeholder="Full name"></label><label>Email<input placeholder="membre@musee-automobile.ma"></label><label>Phone<input placeholder="+212 ..."></label><label>Membership<select><option>Passionate member</option><option>Collector member</option><option>Corporate / partner</option></select></label><label class="field-full">Message<textarea placeholder="Please specify your status, access request or question."></textarea></label></form><a class="btn btn-primary" href="#dashboard" style="margin-top:18px">Send access request</a><a class="btn btn-secondary" href="devenir-membre-en.html" style="margin-top:10px">Request membership</a></div><article class="feature-panel reveal"><span class="eyebrow">Prototype</span><h2>What members will find inside.</h2><p>The space centralises useful information: member card, invitations, benefits, priority access, Museum bookings, collection content and request history.</p><div class="club-kpis"><div class="club-kpi"><strong>01</strong><span>Digital member card</span></div><div class="club-kpi"><strong>02</strong><span>Private agenda</span></div><div class="club-kpi"><strong>03</strong><span>Heritage capsules</span></div><div class="club-kpi"><strong>04</strong><span>Museum support</span></div></div></article></div></section>
+    <section class="section feature-band" id="dashboard"><div class="section-inner"><div class="section-head reveal"><div><span class="eyebrow">Dashboard</span><h2 class="section-title">A simple, status-driven interface.</h2></div><p class="section-copy">The modules below preview the future member portal, bringing together community life, transmission and practical services.</p></div><div class="club-grid"><article class="club-card reveal"><h3>My invitations</h3><p>Cars & Coffee, openings, conferences, private visits and partner events.</p></article><article class="club-card reveal"><h3>My bookings</h3><p>Restaurant, visits, event rooms, guided tours or group experiences.</p></article><article class="club-card reveal"><h3>My content</h3><p>Historical capsules, collection spotlights, Moroccan milestones and workshop behind-the-scenes.</p></article></div></div></section>
   </main>
   <footer class="footer">
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img class="footer-logo" src="assets/musee-automobile-logo-gold.png" alt="Logo of the Museum of the Automobile of Morocco">
-          <h2>Museum of the Automobile of Morocco</h2>
+          <img class="footer-logo" src="assets/musee-automobile-logo-gold.png" alt="Logo du Musée de l’Automobile du Maroc">
+          <h2>Musée de l’Automobile du Maroc</h2>
         </div>
-        <p>More than a museum, an experience: a cultural destination where automotive heritage, design, transmission and emotion meet in Casablanca.</p>
+        <p>Plus qu’un musée, une expérience: une destination culturelle où patrimoine automobile, design, transmission et émotion se rencontrent à Casablanca.</p>
       </div>
       <div>
         <h3>Visit</h3>
@@ -1961,7 +2141,7 @@
         <h3>Information</h3>
         <ul>
           <li>Route de Bouskoura, Casablanca</li>
-          <li>Tue-Sun · 10h-18h</li>
+          <li>Mar-Dim · 10h-18h</li>
           <li>+212 600 270 387</li>
           <li>contact@museeautomobile.ma</li>
         </ul>
@@ -1970,17 +2150,17 @@
         <h3>Navigation</h3>
         <ul>
           <li><a href="index-en.html">Home</a></li>
-          <li><a href="collection-en.html">Collection</a></li>
-          <li><a href="timeline.html">Automotive timeline</a></li>
-          <li><a href="batiment-histoire.html">Bâtiment &amp; histoire</a></li>
+          <li><a href="collection-en.html">The collection</a></li>
+          <li><a href="timeline.html">Timeline automobile</a></li>
+          <li><a href="batiment-histoire.html">Building &amp; history</a></li>
           <li><a href="garage-en.html">Le Garage</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Museum of the Automobile of Morocco. All rights reserved.</span>
-      <span class="languages" aria-label="Language switcher"><a href="#" aria-label="French version" title="French"><span class="language-flag" aria-hidden="true">🇫🇷</span><span class="sr-only">French</span></a><a href="#" aria-label="English version" title="English"><span class="language-flag" aria-hidden="true">🇬🇧</span><span class="sr-only">English</span></a></span>
-        <span class="footer-legal" style="display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end"><a href="mentions-legales.html">Legal notice</a><a href="politique-confidentialite.html">Privacy</a><a href="politique-cookies.html">Cookies</a><a href="cgv-billetterie.html">CGV</a><a href="plan-site.html">Sitemap</a></span>
+      <span>© 2026 Musée de l’Automobile du Maroc. All rights reserved.</span>
+      <span class="languages" aria-label="Langues"><a href="#" aria-label="French version" title="French"><span class="language-flag" aria-hidden="true">🇫🇷</span><span class="sr-only">French</span></a><a href="#" aria-label="English version" title="English"><span class="language-flag" aria-hidden="true">🇬🇧</span><span class="sr-only">English</span></a></span>
+        <span class="footer-legal" style="display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end"><a href="mentions-legales.html">Legal notice</a><a href="politique-confidentialite.html">Privacy</a><a href="politique-cookies.html">Cookies</a><a href="cgv-billetterie.html">CGV</a><a href="plan-site.html">Site map</a></span>
     </div>
   </footer>
 
@@ -2003,14 +2183,14 @@
     menuToggle.addEventListener("click", () => {
       const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
       menuToggle.setAttribute("aria-expanded", String(!isOpen));
-      menuToggle.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
+      menuToggle.setAttribute("aria-label", isOpen ? "Ouvrir le menu" : "Fermer le menu");
       body.classList.toggle("nav-open", !isOpen);
     });
 
     mobilePanel.addEventListener("click", (event) => {
       if (!event.target.closest("a")) return;
       menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open menu");
+      menuToggle.setAttribute("aria-label", "Ouvrir le menu");
       body.classList.remove("nav-open");
     });
 
@@ -2052,6 +2232,7 @@
       revealItems.forEach((item) => item.classList.add("is-visible"));
     }
   </script>
+  <script type="module" src="assets/dynamic-forms/member-request.js"></script>
     <script src="assets/footer-refresh.js" defer></script>
   <script src="assets/language-switcher.js" defer></script>
 </body>
