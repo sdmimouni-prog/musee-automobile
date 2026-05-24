@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_seo_meta",
+  "info": {
+    "displayName": "SEO meta",
+    "description": "Search and social metadata for public pages."
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "keywords": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

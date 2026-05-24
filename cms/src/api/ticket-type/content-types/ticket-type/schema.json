@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ticket_types",
+  "info": {
+    "singularName": "ticket-type",
+    "pluralName": "ticket-types",
+    "displayName": "Ticket type",
+    "description": "Ticket products and prices used by the booking flow."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "audience": {
+      "type": "enumeration",
+      "enum": ["individual", "family", "school", "corporate", "member", "garage"],
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "default": 0
+    },
+    "currency": {
+      "type": "string",
+      "default": "Dhs"
+    },
+    "defaultQuantity": {
+      "type": "integer",
+      "default": 0
+    },
+    "minimumQuantity": {
+      "type": "integer",
+      "default": 0
+    },
+    "maximumQuantity": {
+      "type": "integer"
+    },
+    "durationMinutes": {
+      "type": "integer"
+    },
+    "options": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::booking-option.booking-option",
+      "inversedBy": "ticketTypes"
+    },
+    "visitSlots": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::visit-slot.visit-slot",
+      "mappedBy": "ticketTypes"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "ticketType"
+    }
+  }
+}

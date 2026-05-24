@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_contact_channels",
+  "info": {
+    "displayName": "Contact channel",
+    "description": "A phone, email, address, or social contact item."
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["phone", "email", "address", "social", "link"],
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

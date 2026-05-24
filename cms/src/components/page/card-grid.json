@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_page_card_grids",
+  "info": {
+    "displayName": "Card grid",
+    "description": "A section made of repeated editorial cards."
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "copy": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.card"
+    }
+  }
+}

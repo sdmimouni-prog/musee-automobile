@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_links",
+  "info": {
+    "displayName": "Link",
+    "description": "Internal or external link used in navigation, CTAs, and social profiles."
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

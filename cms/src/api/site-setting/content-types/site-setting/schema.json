@@ -1,0 +1,63 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_settings",
+  "info": {
+    "singularName": "site-setting",
+    "pluralName": "site-settings",
+    "displayName": "Site settings",
+    "description": "Global website settings shared by the frontend."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "siteName": {
+      "type": "string",
+      "required": true,
+      "default": "Musée de l'Automobile du Maroc"
+    },
+    "tagline": {
+      "type": "string",
+      "default": "Plus qu'un musée, une expérience"
+    },
+    "defaultLocale": {
+      "type": "string",
+      "default": "fr"
+    },
+    "museumOpeningHours": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.opening-hour"
+    },
+    "garageOpeningHours": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.opening-hour"
+    },
+    "contacts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.contact-channel"
+    },
+    "socialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "favicon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.meta"
+    }
+  }
+}

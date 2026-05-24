@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "booking_options",
+  "info": {
+    "singularName": "booking-option",
+    "pluralName": "booking-options",
+    "displayName": "Booking option",
+    "description": "Optional extras used in the visit booking flow."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "audience": {
+      "type": "enumeration",
+      "enum": ["all", "individual", "family", "school", "corporate", "member", "garage"],
+      "default": "all"
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "decimal",
+      "default": 0
+    },
+    "defaultSelected": {
+      "type": "boolean",
+      "default": false
+    },
+    "ticketTypes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ticket-type.ticket-type",
+      "mappedBy": "options"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "media_galleries",
+  "info": {
+    "singularName": "media-gallery",
+    "pluralName": "media-galleries",
+    "displayName": "Media gallery",
+    "description": "Reusable media galleries for the museum website."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "assets": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images", "videos", "files"]
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.meta"
+    }
+  }
+}

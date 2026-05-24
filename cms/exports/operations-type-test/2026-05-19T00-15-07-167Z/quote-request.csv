@@ -1,0 +1,2 @@
+type,typeLabel,id,documentId,createdAt,updatedAt,status,notificationStatus,notificationSentAt,notificationError,assignedTo,contactedAt,name,email,phone,requestedDate,slot,amount,guestCount,summary,message,adminUrl
+quote-request,Demandes de devis,2,sample-quote,2026-05-19T00:15:07.165Z,2026-05-19T00:15:07.165Z,new,failed,,SMTP rejected authentication,,,Entreprise Exemple,event@example.com,+212 600 000 001,2026-05-26,,,80,seminar,Séminaire avec visite guidée.,http://localhost:1337/admin/content-manager/collection-types/api::quote-request.quote-request/sample-quote

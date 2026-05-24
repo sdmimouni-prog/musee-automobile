@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Page",
+    "description": "Editable editorial pages for the public website."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "pageType": {
+      "type": "enumeration",
+      "enum": ["standard", "museum", "ticketing", "event", "garage", "news", "legal"],
+      "default": "standard"
+    },
+    "navigationLabel": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.hero"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": ["page.rich-section", "page.card-grid"]
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "isHomepage": {
+      "type": "boolean",
+      "default": false
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.meta"
+    }
+  }
+}

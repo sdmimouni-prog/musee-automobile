@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Le Musee renforce sa mission educative autour de la mobilite",
+    "slug": "mission-educative-mobilite",
+    "category": "press",
+    "excerpt": "Visites scolaires, ateliers, Media Room, quiz bilan et contenus de prolongement deviennent des piliers de la programmation culturelle du Musee.",
+    "body": "Le Musee de l'Automobile du Maroc poursuit le developpement de sa programmation culturelle autour de la mobilite, du patrimoine roulant, de l'ingenierie et des metiers de l'automobile. La demarche relie collection, visites educatives, evenements et Automotive Academy dans un meme parcours de decouverte.\n\nA travers ses espaces de mediation, ses ateliers et ses rencontres, le Musee propose une lecture accessible et contemporaine de l'histoire automobile: comprendre les vehicules, les usages, les savoir-faire et l'impact culturel de la route au Maroc.\n\nCette orientation s'adresse aux visiteurs individuels, aux familles, aux groupes scolaires, aux professionnels et aux partenaires qui souhaitent associer experience culturelle, transmission et hospitalite.",
+    "author": "Equipe CAM",
+    "publishedDate": "2026-05-17",
+    "isFeatured": true,
+    "coverImagePath": "assets/events/cam-event-hall-20231114.jpg"
+  },
+  {
+    "title": "Visite educative: de la roue aux ateliers",
+    "slug": "visite-educative-roue-ateliers",
+    "category": "news",
+    "excerpt": "Un parcours pour observer, comprendre, questionner et prolonger l'apprentissage en classe.",
+    "body": "Cette visite relie les premieres mobilites, les grands reperes techniques et les gestes metiers. Les eleves observent la collection, passent par la Media Room et terminent par un atelier de synthese.\n\nLe format est concu pour les groupes scolaires et peut etre adapte selon le niveau, la duree et les objectifs pedagogiques.",
+    "author": "Mediation culturelle",
+    "publishedDate": "2026-05-12",
+    "isFeatured": false,
+    "coverImagePath": "assets/cars-real/cam-roadster-1962-front.jpg"
+  },
+  {
+    "title": "Le Musee ouvre ses espaces aux talks design",
+    "slug": "talks-design-espaces-musee",
+    "category": "press",
+    "excerpt": "Une serie de rencontres courtes autour de la carrosserie, de la route et du patrimoine marocain.",
+    "body": "Les talks design prennent place au coeur de la collection et proposent une lecture simple des formes automobiles: proportions, chrome, sellerie, calandres et imaginaires de route.\n\nChaque rencontre associe un intervenant, une selection de vehicules et un temps d'echange avec le public.",
+    "author": "Programmation",
+    "publishedDate": "2026-05-08",
+    "isFeatured": false,
+    "coverImagePath": "assets/events/cam-event-img-1.png"
+  },
+  {
+    "title": "Retour sur une matinee networking au musee",
+    "slug": "matinee-networking-musee",
+    "category": "community",
+    "excerpt": "Hospitalite, visite guidee et echanges professionnels dans une atmosphere automobile.",
+    "body": "Le Musee a accueilli une matinee professionnelle au sein des espaces evenementiels. Le format a combine accueil cafe, visite courte de la collection, temps de parole et networking.\n\nCette formule illustre la vocation du lieu: faire dialoguer patrimoine, culture d'entreprise et experience invite.",
+    "author": "Equipe evenementielle",
+    "publishedDate": "2026-05-02",
+    "isFeatured": false,
+    "coverImagePath": "assets/events/cam-event-hall-20231114.jpg"
+  },
+  {
+    "title": "Pourquoi les annees 60 fascinent encore",
+    "slug": "annees-60-design-automobile",
+    "category": "media",
+    "excerpt": "Design, liberte et grand tourisme: lecture courte d'une decennie automobile.",
+    "body": "Les annees 60 condensent une tension rare entre elegance, vitesse, production industrielle et culture populaire. Dans la collection, elles se lisent a travers les lignes basses, les habitacles plus lumineux et la place grandissante du loisir automobile.\n\nCette lecture servira de fil pour de prochains formats de mediation et de contenus audiovisuels.",
+    "author": "Redaction CAM",
+    "publishedDate": "2026-04-29",
+    "isFeatured": false,
+    "coverImagePath": "assets/cars-real/cam-collection-lineup.jpg"
+  },
+  {
+    "title": "Les diners mecaniques en preparation",
+    "slug": "diners-mecaniques-preparation",
+    "category": "community",
+    "excerpt": "Un format communautaire autour d'une voiture invitee, d'un recit et d'une table signature.",
+    "body": "Les diners mecaniques proposeront une soiree en petit comite autour d'un vehicule, d'une histoire de route et d'une experience au Garage.\n\nLe format croisera passion automobile, gastronomie et rencontre entre membres, collectionneurs et curieux.",
+    "author": "Le Garage",
+    "publishedDate": "2026-04-24",
+    "isFeatured": false,
+    "coverImagePath": "assets/events/cam-event-img-6147.png"
+  }
+]

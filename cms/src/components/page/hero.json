@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_page_heroes",
+  "info": {
+    "displayName": "Hero",
+    "description": "Editorial hero content for a public page."
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "copy": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "primaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.link"
+    },
+    "secondaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.link"
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.stat"
+    }
+  }
+}

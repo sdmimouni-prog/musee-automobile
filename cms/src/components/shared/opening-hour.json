@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_opening_hours",
+  "info": {
+    "displayName": "Opening hour",
+    "description": "Opening hours for the museum or restaurant."
+  },
+  "attributes": {
+    "dayLabel": {
+      "type": "string",
+      "required": true
+    },
+    "opensAt": {
+      "type": "time"
+    },
+    "closesAt": {
+      "type": "time"
+    },
+    "isClosed": {
+      "type": "boolean",
+      "default": false
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

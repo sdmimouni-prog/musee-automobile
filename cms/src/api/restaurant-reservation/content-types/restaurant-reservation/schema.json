@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurant_reservations",
+  "info": {
+    "singularName": "restaurant-reservation",
+    "pluralName": "restaurant-reservations",
+    "displayName": "Restaurant reservation",
+    "description": "Reservation requests for Le Garage restaurant."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "guestCount": {
+      "type": "integer",
+      "required": true,
+      "default": 2
+    },
+    "reservationDate": {
+      "type": "date",
+      "required": true
+    },
+    "slot": {
+      "type": "enumeration",
+      "enum": ["lunch", "dinner", "brunch", "private_event"],
+      "required": true
+    },
+    "message": {
+      "type": "text"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["new", "confirmed", "declined", "canceled"],
+      "default": "new"
+    },
+    "assignedTo": {
+      "type": "string"
+    },
+    "contactedAt": {
+      "type": "datetime"
+    },
+    "internalNotes": {
+      "type": "text"
+    },
+    "notificationStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "sent", "failed", "skipped"],
+      "default": "pending"
+    },
+    "notificationSentAt": {
+      "type": "datetime"
+    },
+    "notificationError": {
+      "type": "text"
+    }
+  }
+}

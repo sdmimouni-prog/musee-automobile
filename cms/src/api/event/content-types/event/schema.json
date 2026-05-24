@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
+    "description": "Museum events, temporary exhibitions, and community programming."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["planned", "current", "past", "canceled"],
+      "default": "planned"
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "venue": {
+      "type": "string"
+    },
+    "venueSpaces": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::venue-space.venue-space"
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "coverImagePath": {
+      "type": "string"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"]
+    },
+    "tags": {
+      "type": "json"
+    },
+    "bookingUrl": {
+      "type": "string"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.meta"
+    }
+  }
+}

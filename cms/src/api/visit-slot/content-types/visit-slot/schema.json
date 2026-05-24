@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "visit_slots",
+  "info": {
+    "singularName": "visit-slot",
+    "pluralName": "visit-slots",
+    "displayName": "Visit slot",
+    "description": "Available museum visit slots used by the ticketing flow."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "startsAt": {
+      "type": "time",
+      "required": true
+    },
+    "endsAt": {
+      "type": "time"
+    },
+    "capacity": {
+      "type": "integer",
+      "default": 25
+    },
+    "reservedCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["available", "limited", "sold_out", "closed"],
+      "default": "available"
+    },
+    "ticketTypes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ticket-type.ticket-type",
+      "inversedBy": "visitSlots"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "slot"
+    }
+  }
+}

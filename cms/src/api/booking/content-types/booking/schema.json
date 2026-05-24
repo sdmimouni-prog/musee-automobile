@@ -1,0 +1,109 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "singularName": "booking",
+    "pluralName": "bookings",
+    "displayName": "Booking",
+    "description": "Museum visit bookings created by the public booking flow."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "reference": {
+      "type": "uid",
+      "required": true
+    },
+    "ticketType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ticket-type.ticket-type",
+      "inversedBy": "bookings"
+    },
+    "slot": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::visit-slot.visit-slot",
+      "inversedBy": "bookings"
+    },
+    "bookingOptions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::booking-option.booking-option"
+    },
+    "visitDate": {
+      "type": "date",
+      "required": true
+    },
+    "visitSlot": {
+      "type": "string",
+      "required": true
+    },
+    "customerName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "ticketCount": {
+      "type": "integer",
+      "default": 1
+    },
+    "lineItems": {
+      "type": "json"
+    },
+    "amount": {
+      "type": "decimal",
+      "default": 0
+    },
+    "options": {
+      "type": "json"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["draft", "pending", "confirmed", "canceled"],
+      "default": "pending"
+    },
+    "paymentStatus": {
+      "type": "enumeration",
+      "enum": ["unpaid", "authorized", "paid", "refunded"],
+      "default": "unpaid"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "source": {
+      "type": "string"
+    },
+    "locale": {
+      "type": "string",
+      "default": "fr"
+    },
+    "assignedTo": {
+      "type": "string"
+    },
+    "contactedAt": {
+      "type": "datetime"
+    },
+    "internalNotes": {
+      "type": "text"
+    },
+    "notificationStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "sent", "failed", "skipped"],
+      "default": "pending"
+    },
+    "notificationSentAt": {
+      "type": "datetime"
+    },
+    "notificationError": {
+      "type": "text"
+    }
+  }
+}

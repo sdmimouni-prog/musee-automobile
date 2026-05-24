@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_vehicle_specs",
+  "info": {
+    "displayName": "Vehicle spec",
+    "description": "A technical detail shown on a vehicle page."
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,2 @@
+type,typeLabel,id,documentId,createdAt,updatedAt,status,notificationStatus,notificationSentAt,notificationError,assignedTo,contactedAt,name,email,phone,requestedDate,slot,amount,guestCount,summary,message,adminUrl
+restaurant-reservation,Réservations restaurant,3,sample-restaurant,2026-05-19T00:15:07.184Z,2026-05-19T00:15:07.184Z,new,skipped,,SMTP not configured,,,Table Exemple,table@example.com,+212 600 000 002,2026-05-20,dinner,,4,,,http://localhost:1337/admin/content-manager/collection-types/api::restaurant-reservation.restaurant-reservation/sample-restaurant

@@ -1,0 +1,2 @@
+type,typeLabel,id,documentId,createdAt,updatedAt,status,notificationStatus,notificationSentAt,notificationError,assignedTo,contactedAt,name,email,phone,requestedDate,slot,amount,guestCount,summary,message,adminUrl
+booking,Réservations visite,1,sample-booking,2026-05-19T00:14:39.922Z,2026-05-19T00:14:39.922Z,pending,sent,,,,,Client Exemple,client@example.com,+212 600 000 000,2026-05-20,10h00,400,2,"{""name"":""Adulte"",""quantity"":2,""unitPrice"":200}",,http://localhost:1337/admin/content-manager/collection-types/api::booking.booking/sample-booking

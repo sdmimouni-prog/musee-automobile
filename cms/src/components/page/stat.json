@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_page_stats",
+  "info": {
+    "displayName": "Stat",
+    "description": "Short quantified highlight used on hero or section bands."
+  },
+  "attributes": {
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

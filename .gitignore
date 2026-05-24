@@ -1,1 +1,10 @@
 .DS_Store
+.env
+cms/.env
+cms/.cache/
+cms/.tmp/
+cms/build/
+cms/dist/
+cms/node_modules/
+cms/.strapi/
+cms/.sqlite/

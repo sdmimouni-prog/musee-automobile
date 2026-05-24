@@ -1,0 +1,34 @@
+{
+  "name": "cam-museum-cms",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Strapi CMS for the Musee de l'Automobile du Maroc website.",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "prepare:vehicles": "node scripts/prepare-vehicle-data.mjs",
+    "import:vehicles": "node scripts/import-vehicles.mjs",
+    "import:editorial": "node scripts/import-editorial.mjs",
+    "import:commerce": "node scripts/import-commerce.mjs",
+    "export:operations": "node scripts/export-operations.mjs",
+    "check:public-api": "node scripts/check-public-api.mjs",
+    "validate:model": "node scripts/validate-content-model.mjs"
+  },
+  "dependencies": {
+    "@strapi/plugin-cloud": "^5.0.0",
+    "@strapi/plugin-i18n": "^5.0.0",
+    "@strapi/plugin-users-permissions": "^5.0.0",
+    "@strapi/provider-email-nodemailer": "^5.0.0",
+    "@strapi/strapi": "^5.0.0",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20 <=24.x.x",
+    "npm": ">=6.0.0"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurant_menu_items",
+  "info": {
+    "singularName": "restaurant-menu-item",
+    "pluralName": "restaurant-menu-items",
+    "displayName": "Restaurant menu item",
+    "description": "Dishes and drinks for Le Garage restaurant."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["starter", "main", "dessert", "drink", "brunch", "signature", "seasonal"],
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "tags": {
+      "type": "json"
+    },
+    "isSignature": {
+      "type": "boolean",
+      "default": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

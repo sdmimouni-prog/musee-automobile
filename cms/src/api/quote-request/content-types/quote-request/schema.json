@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quote_requests",
+  "info": {
+    "singularName": "quote-request",
+    "pluralName": "quote-requests",
+    "displayName": "Quote request",
+    "description": "Event and privatization quote requests."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "eventType": {
+      "type": "enumeration",
+      "enum": ["seminar", "product_launch", "gala", "wedding", "team_building", "school_visit", "privatization", "other"],
+      "default": "other"
+    },
+    "guestCount": {
+      "type": "integer"
+    },
+    "desiredDate": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["new", "contacted", "quoted", "won", "lost"],
+      "default": "new"
+    },
+    "assignedTo": {
+      "type": "string"
+    },
+    "contactedAt": {
+      "type": "datetime"
+    },
+    "internalNotes": {
+      "type": "text"
+    },
+    "notificationStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "sent", "failed", "skipped"],
+      "default": "pending"
+    },
+    "notificationSentAt": {
+      "type": "datetime"
+    },
+    "notificationError": {
+      "type": "text"
+    }
+  }
+}

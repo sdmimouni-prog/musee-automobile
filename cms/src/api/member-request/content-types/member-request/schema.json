@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "member_requests",
+  "info": {
+    "singularName": "member-request",
+    "pluralName": "member-requests",
+    "displayName": "Member request",
+    "description": "Membership requests from visitors and partners."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "membershipType": {
+      "type": "enumeration",
+      "enum": ["passionate", "collector", "corporate", "partner"],
+      "default": "passionate"
+    },
+    "message": {
+      "type": "text"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["new", "contacted", "approved", "declined"],
+      "default": "new"
+    },
+    "assignedTo": {
+      "type": "string"
+    },
+    "contactedAt": {
+      "type": "datetime"
+    },
+    "internalNotes": {
+      "type": "text"
+    },
+    "notificationStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "sent", "failed", "skipped"],
+      "default": "pending"
+    },
+    "notificationSentAt": {
+      "type": "datetime"
+    },
+    "notificationError": {
+      "type": "text"
+    }
+  }
+}

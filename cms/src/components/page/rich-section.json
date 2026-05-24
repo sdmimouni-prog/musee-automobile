@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_page_rich_sections",
+  "info": {
+    "displayName": "Rich section",
+    "description": "A reusable text section with optional image and CTA."
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.link"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source": "/Users/salaheddinemimouni/Documents/Codex/2026-05-13/files-mentioned-by-the-user-cam/assets/park-auto/vehicles.json",
+  "mediaRoot": "/Users/salaheddinemimouni/Documents/Codex/2026-05-13/files-mentioned-by-the-user-cam",
+  "generatedAt": "2026-05-18T23:07:55.891Z",
+  "vehicles": 69,
+  "categories": 13,
+  "countries": [
+    "Allemagne",
+    "France",
+    "Italie",
+    "Royaume-Uni",
+    "Suède",
+    "États-Unis"
+  ],
+  "yearRange": {
+    "min": 1878,
+    "max": 1986
+  },
+  "missingImages": [],
+  "duplicateSlugs": [],
+  "readyForImport": true
+}

@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "navigation_items",
+  "info": {
+    "singularName": "navigation-item",
+    "pluralName": "navigation-items",
+    "displayName": "Navigation item",
+    "description": "Items used to build desktop and mobile navigation."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "menuGroup": {
+      "type": "enumeration",
+      "enum": ["main", "footer", "museum", "event", "garage", "news", "ticketing", "legal"],
+      "default": "main"
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false
+    },
+    "isHighlighted": {
+      "type": "boolean",
+      "default": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::navigation-item.navigation-item",
+      "inversedBy": "children"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::navigation-item.navigation-item",
+      "mappedBy": "parent"
+    }
+  }
+}
