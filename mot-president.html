@@ -894,11 +894,32 @@
     }
 
     .feature-band {
+      position: relative;
       border-top: 1px solid rgba(215, 178, 109, 0.16);
       border-bottom: 1px solid rgba(215, 178, 109, 0.16);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+        linear-gradient(90deg, rgba(6, 6, 6, 0.94), rgba(6, 6, 6, 0.82)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent),
+        url("assets/cars-real/cam-mercedes-pagoda.jpg") center / cover,
         var(--carbon-soft);
+      overflow: hidden;
+    }
+
+    .feature-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+      background-size: 92px 92px;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    .feature-band .section-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .feature-layout {
@@ -2118,7 +2139,7 @@
     </section>
     <section class="hero-quickbar"><div class="section-inner"><div class="hero-actions"><a class="btn btn-primary" href="devenir-membre.html">Devenir membre</a><a class="btn btn-secondary" href="partenaires.html">Voir les partenaires</a></div><div class="hero-stats"><div class="stat"><strong>Abdellah</strong><span>Abdellaoui</span></div><div class="stat"><strong>Président</strong><span>Fondateur</span></div><div class="stat"><strong>Culture</strong><span>Automobile</span></div></div></div></section>
     <section class="section"><div class="section-inner feature-layout"><article class="feature-panel reveal"><span class="eyebrow">Mot du Président</span><p class="club-quote">“Un carrefour pour les passionnés et professionnels de l’automobile.”</p><p>Ce projet s’inscrit dans la dynamique initiée par Sa Majesté le Roi, qui a élevé les arts et la culture au rang de piliers essentiels du développement national. L’ambition du Maroc de devenir l’un des hubs les plus influents du secteur automobile mondial nécessite la promotion de la culture automobile parmi tous les acteurs de ce secteur florissant.</p><p>Le Musée de l’Automobile du Maroc a été conçu pour servir de point de convergence pour les passionnés et les professionnels de l’automobile, offrant un espace où la connaissance et la passion pour l’automobile sont non seulement célébrées mais aussi partagées.</p><p>Nous envisageons ce lieu comme un site culturel et touristique de premier plan, une plateforme dynamique pour les échanges et les rencontres dans l’univers automobile. Nous l’avons enrichi d’une Automotive Academy et d’un musée national, tous deux dédiés à la formation et à la transmission de l’histoire de l’automobile.</p><p>Mon équipe et moi-même réaffirmons notre engagement envers l’excellence et l’innovation au cœur de l’écosystème automobile.</p></article><div class="club-panel reveal"><img src="assets/president-abdellah-abdellaoui-hd.jpg" alt="M. Abdellah Abdellaoui, Président fondateur du Musée de l’Automobile du Maroc" loading="lazy" style="width:100%;max-width:360px;height:320px;object-fit:cover;object-position:30% center;border:1px solid rgba(215,178,109,.35);margin-bottom:22px;"><h3>M. Abdellah ABDELLAOUI</h3><ul class="club-list"><li><strong>Président fondateur</strong><br>Figure porteuse de la vision institutionnelle du Musée.</li><li><strong>Ambition</strong><br>Faire converger passion, industrie, culture, formation et tourisme automobile.</li><li><strong>Engagement</strong><br>Inscrire l’excellence et l’innovation au cœur de l’écosystème automobile marocain.</li></ul></div></div></section>
-    <section class="section feature-band"><div class="section-inner"><div class="section-head reveal"><div><span class="eyebrow">Engagement</span><h2 class="section-title">Un site culturel, touristique et professionnel.</h2></div><p class="section-copy">La parole présidentielle donne au Musée une direction claire: promouvoir la culture automobile, former aux métiers spécialisés, préserver le patrimoine et créer un lieu d’échanges pour les acteurs de l’écosystème.</p></div><div class="club-kpis"><div class="club-kpi reveal"><strong>Musée</strong><span>Transmission de l’histoire automobile et marocaine.</span></div><div class="club-kpi reveal"><strong>Academy</strong><span>Formation, restauration et métiers spécialisés.</span></div><div class="club-kpi reveal"><strong>Communauté</strong><span>Rencontres entre passionnés, professionnels et institutions.</span></div><div class="club-kpi reveal"><strong>Events</strong><span>Expériences privées, culturelles et corporate.</span></div></div></div></section>
+    <section class="section feature-band"><div class="section-inner"><div class="section-head reveal"><div><span class="eyebrow">Engagement</span><h2 class="section-title">Un site culturel, touristique et professionnel.</h2></div></div><div class="club-kpis"><div class="club-kpi reveal"><strong>Musée</strong><span>Transmission de l’histoire automobile et marocaine.</span></div><div class="club-kpi reveal"><strong>Academy</strong><span>Formation, restauration et métiers spécialisés.</span></div><div class="club-kpi reveal"><strong>Communauté</strong><span>Rencontres entre passionnés, professionnels et institutions.</span></div><div class="club-kpi reveal"><strong>Events</strong><span>Expériences privées, culturelles et corporate.</span></div></div></div></section>
   </main>
   <footer class="footer">
     <div class="footer-grid">
