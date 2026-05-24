@@ -70,4 +70,15 @@
     padding-left: 10px;
     padding-right: 10px;
   }
+
+  .desktop-nav > .nav-item:first-of-type .dropdown {
+    left: 0;
+    transform: translate(0, 12px);
+  }
+
+  .desktop-nav > .nav-item:first-of-type:hover .dropdown,
+  .desktop-nav > .nav-item:first-of-type:focus-within .dropdown,
+  .desktop-nav > .nav-item:first-of-type.is-active .dropdown {
+    transform: translate(0, 0);
+  }
 }
