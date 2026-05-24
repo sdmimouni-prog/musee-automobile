@@ -14,7 +14,6 @@
   const copy = isEnglish
     ? {
         title: "Museum of the Automobile of Morocco",
-        intro: "A sober navigation footer to help visitors move across the Museum, collection, events and restaurant ecosystem without getting lost.",
         logoAlt: "Logo of the Museum of the Automobile of Morocco",
         address: "Route de Bouskoura, Casablanca",
         hours: "Tue-Sun · 10:00-18:00",
@@ -46,7 +45,6 @@
       }
     : {
         title: "Musée de l’Automobile du Maroc",
-        intro: "Un footer plus sobre pour orienter clairement les visiteurs entre le Musée, la collection, l’événementiel et Le Garage.",
         logoAlt: "Logo du Musée de l’Automobile du Maroc",
         address: "Route de Bouskoura, Casablanca",
         hours: "Mar-Dim · 10h00-18h00",
@@ -86,13 +84,6 @@
             <img class="footer-logo" src="assets/musee-automobile-logo-gold.png" alt="${copy.logoAlt}">
             <strong>${copy.title}</strong>
           </div>
-          <p>${copy.intro}</p>
-        </div>
-        <div class="footer-contactline">
-          <span>${copy.address}</span>
-          <span>${copy.hours}</span>
-          <a href="mailto:${copy.contact}">${copy.contact}</a>
-          <a href="tel:+212600270387">${copy.phone}</a>
         </div>
       </div>
 

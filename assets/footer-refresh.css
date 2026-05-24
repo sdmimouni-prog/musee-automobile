@@ -27,8 +27,7 @@
 
 .footer-brandline {
   display: grid;
-  gap: 10px;
-  max-width: 560px;
+  max-width: 720px;
 }
 
 .footer-brand-lockup {
@@ -49,27 +48,6 @@
   font-size: clamp(30px, 4vw, 42px);
   line-height: 0.95;
   letter-spacing: 0;
-}
-
-.footer-brandline p {
-  margin: 0;
-  color: rgba(245, 245, 243, 0.64);
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.footer-contactline {
-  display: grid;
-  gap: 6px;
-  justify-items: end;
-  text-align: right;
-}
-
-.footer-contactline span,
-.footer-contactline a {
-  color: rgba(245, 245, 243, 0.7);
-  font-size: 13px;
-  line-height: 1.5;
 }
 
 .footer-links-grid {
@@ -100,9 +78,7 @@
 }
 
 .footer-links-grid a:hover,
-.footer-links-grid a:focus-visible,
-.footer-contactline a:hover,
-.footer-contactline a:focus-visible {
+.footer-links-grid a:focus-visible {
   color: #e3c37b;
   outline: none;
 }
@@ -171,11 +147,6 @@
 
   .footer-brand-lockup {
     align-items: flex-start;
-  }
-
-  .footer-contactline {
-    justify-items: start;
-    text-align: left;
   }
 
   .footer-legal-links {
