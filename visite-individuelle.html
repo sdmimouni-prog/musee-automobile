@@ -102,21 +102,22 @@
     }
 
     .brand {
-      min-width: 154px;
+      min-width: 92px;
       height: 100%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex: 0 0 auto;
     }
 
     .brand-mark {
-      width: 150px;
-      height: 150px;
+      width: 84px;
+      height: 84px;
       border-radius: 0;
       object-fit: contain;
-      transform: translateY(34px);
+      transform: none;
       box-shadow: none;
-      filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.62));
+      filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.42));
     }
 
     .desktop-nav {
@@ -1373,10 +1374,14 @@
         height: 72px;
       }
 
+      .brand {
+        min-width: 74px;
+      }
+
       .brand-mark {
-        width: 116px;
-        height: 116px;
-        transform: translateY(28px);
+        width: 64px;
+        height: 64px;
+        transform: none;
       }
 
       .mobile-panel {
