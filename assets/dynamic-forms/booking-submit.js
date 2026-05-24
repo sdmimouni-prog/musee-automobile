@@ -74,8 +74,6 @@ const updateSummary = () => {
   if (total && draft.amount) total.textContent = money(draft.amount);
 };
 
-const selectedPaymentMethod = () => document.querySelector(".method-chip.is-selected")?.textContent?.trim() || "Carte bancaire";
-
 const collectPayload = () => {
   const values = Object.fromEntries(new FormData(form).entries());
   const customerName = `${values.firstName || ""} ${values.lastName || ""}`.trim();
@@ -95,7 +93,7 @@ const collectPayload = () => {
       bookingType: draft.type,
       formula: draft.formula || "Visite individuelle",
       selectedOptions: draft.options || [],
-      paymentMethod: selectedPaymentMethod(),
+      paymentMethod: "Demande de reservation",
       language: values.language,
       arrival: values.arrival
     },
@@ -120,16 +118,16 @@ submitLink?.addEventListener("click", async (event) => {
   try {
     const payload = collectPayload();
     setBusy(submitLink, true);
-    setStatus(submitLink, "loading", "Enregistrement de la réservation...");
+    setStatus(submitLink, "loading", "Envoi de la demande de reservation...");
     const result = await submitContent("booking", payload);
-    setStatus(submitLink, "success", `Réservation enregistrée (${result.source}) · Référence ${result.reference}`);
+    setStatus(submitLink, "success", `Demande envoyee (${result.source}) · Reference ${result.reference}`);
 
     const url = new URL(submitLink.href, window.location.href);
     url.searchParams.set("type", draft.type || "individuel");
     url.searchParams.set("amount", String(payload.amount));
-    url.searchParams.set("payment", "online");
     url.searchParams.set("reference", result.reference);
     url.searchParams.set("source", result.source.toLowerCase());
+    url.searchParams.set("submitted", "1");
     window.location.href = `${url.pathname}${url.search}`;
   } catch (error) {
     setStatus(submitLink, "error", error.message);

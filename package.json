@@ -1,0 +1,12 @@
+{
+  "name": "musee-automobile-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Public website and Vercel form handlers for the Musee Automobile.",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "nodemailer": "^7.0.3"
+  }
+}

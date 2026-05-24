@@ -2295,8 +2295,8 @@
     </div>
   </aside>
   <main>
-    <section class="hero" aria-labelledby="page-title" style="background-image:linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.54) 48%, rgba(0,0,0,.18)), linear-gradient(0deg, #0b0b0b 0%, rgba(11,11,11,.12) 36%), url('assets/cars-real/cam-mercedes-pagoda.jpg');"><div class="section-inner reveal is-visible"><span class="eyebrow">Étape 2</span><h1 id="page-title">Vos coordonnées.</h1><p class="hero-copy">Indiquez les informations nécessaires pour recevoir votre confirmation et votre QR code de visite.</p></div></section>
-    <section class="section"><div class="section-inner booking-layout"><div class="form-panel reveal"><h2 class="panel-title">Informations visiteur</h2><form class="form-grid"><div class="field"><label for="firstName">Prénom</label><input id="firstName" name="firstName" value="" placeholder="Votre prénom"></div><div class="field"><label for="lastName">Nom</label><input id="lastName" name="lastName" placeholder="Votre nom"></div><div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="nom@email.com"></div><div class="field"><label for="phone">Téléphone</label><input id="phone" name="phone" placeholder="+212 ..."></div><div class="field"><label for="language">Langue de visite</label><select id="language" name="language"><option>Français</option><option>Arabe</option><option>Anglais</option></select></div><div class="field"><label for="arrival">Arrivée estimée</label><select id="arrival" name="arrival"><option>10 min avant</option><option>À l'heure du créneau</option><option>Avec assistance accueil</option></select></div><div class="field full"><label for="notes">Message optionnel</label><textarea id="notes" name="notes" placeholder="Demande particulière, accessibilité, visite avec enfant..."></textarea></div><div class="field full"><label class="checkbox-row"><input type="checkbox" checked> J'accepte de recevoir les informations liées à ma réservation Musée.</label></div></form></div><aside class="summary-panel reveal"><h2>Votre visite</h2><div class="summary-line"><strong>Billet</strong><span>Visite individuelle</span></div><div class="summary-line"><strong>Date</strong><span>Mercredi 15 mai</span></div><div class="summary-line"><strong>Créneau</strong><span>10h00</span></div><div class="summary-line"><strong>Options</strong><span>Audioguide digital</span></div><div class="summary-total">200 Dhs</div><a class="btn btn-primary" href="confirmation.html?type=individuel&amount=200&payment=online">Payer en ligne et confirmer</a><a class="btn btn-secondary" href="visite-individuelle.html" style="margin-top:10px">Modifier</a></aside></div></section>
+    <section class="hero" aria-labelledby="page-title" style="background-image:linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.54) 48%, rgba(0,0,0,.18)), linear-gradient(0deg, #0b0b0b 0%, rgba(11,11,11,.12) 36%), url('assets/cars-real/cam-mercedes-pagoda.jpg');"><div class="section-inner reveal is-visible"><span class="eyebrow">Étape 2</span><h1 id="page-title">Vos coordonnées.</h1><p class="hero-copy">Indiquez les informations nécessaires pour envoyer votre demande de réservation et recevoir le retour de l'équipe du Musée.</p></div></section>
+    <section class="section"><div class="section-inner booking-layout"><div class="form-panel reveal"><h2 class="panel-title">Informations visiteur</h2><form class="form-grid"><div class="field"><label for="firstName">Prénom</label><input id="firstName" name="firstName" value="" placeholder="Votre prénom"></div><div class="field"><label for="lastName">Nom</label><input id="lastName" name="lastName" placeholder="Votre nom"></div><div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="nom@email.com"></div><div class="field"><label for="phone">Téléphone</label><input id="phone" name="phone" placeholder="+212 ..."></div><div class="field"><label for="language">Langue de visite</label><select id="language" name="language"><option>Français</option><option>Arabe</option><option>Anglais</option></select></div><div class="field"><label for="arrival">Arrivée estimée</label><select id="arrival" name="arrival"><option>10 min avant</option><option>À l'heure du créneau</option><option>Avec assistance accueil</option></select></div><div class="field full"><label for="notes">Message optionnel</label><textarea id="notes" name="notes" placeholder="Demande particulière, accessibilité, visite avec enfant..."></textarea></div><div class="field full"><label class="checkbox-row"><input type="checkbox" checked> J'accepte de recevoir les informations liées à ma demande de réservation Musée.</label></div></form></div><aside class="summary-panel reveal"><h2>Votre visite</h2><div class="summary-line"><strong>Billet</strong><span>Visite individuelle</span></div><div class="summary-line"><strong>Date</strong><span>Mercredi 15 mai</span></div><div class="summary-line"><strong>Créneau</strong><span>10h00</span></div><div class="summary-line"><strong>Options</strong><span>Visite guidée selon disponibilité</span></div><div class="summary-total">200 Dhs</div><a class="btn btn-primary" href="confirmation.html?type=individuel&amount=200">Envoyer la demande de réservation</a><a class="btn btn-secondary" href="visite-individuelle.html" style="margin-top:10px">Modifier</a></aside></div></section>
   </main>
   <footer class="footer">
     <div class="footer-grid">
@@ -2425,26 +2425,7 @@
     const tickets = Number(params.get('tickets')) || 1;
     const [bookingLabel] = bookingTypes[typeKey];
     const money = (value) => `${value.toLocaleString('fr-FR')} Dhs`;
-    const formPanel = document.querySelector('.form-panel');
     const summaryPanel = document.querySelector('.summary-panel');
-
-    formPanel.insertAdjacentHTML('beforeend', `
-      <div class="payment-card">
-        <h3>Paiement en ligne</h3>
-        <div class="method-grid" aria-label="Moyens de paiement">
-          <button class="method-chip is-selected" type="button" aria-label="Payer avec Visa"><span class="payment-logo logo-visa">VISA</span></button>
-          <button class="method-chip" type="button" aria-label="Payer avec Mastercard"><span class="payment-logo logo-mastercard">Mastercard</span></button>
-          <button class="method-chip" type="button" aria-label="Payer avec CMI"><span class="payment-logo logo-cmi">CMI</span></button>
-        </div>
-        <form class="form-grid" aria-label="Formulaire de paiement prototype">
-          <div class="field full"><label for="cardName">Nom sur la carte</label><input id="cardName" placeholder="Nom Prénom"></div>
-          <div class="field full"><label for="cardNumber">Numéro de carte</label><input id="cardNumber" inputmode="numeric" placeholder="4242 4242 4242 4242"></div>
-          <div class="field"><label for="cardExpiry">Expiration</label><input id="cardExpiry" placeholder="MM / AA"></div>
-          <div class="field"><label for="cardCvc">CVC</label><input id="cardCvc" inputmode="numeric" placeholder="123"></div>
-        </form>
-        <p class="secure-note">Prototype: le paiement final sera connecté à une passerelle sécurisée. Aucune donnée bancaire n'est envoyée depuis cette page statique.</p>
-      </div>
-    `);
 
     summaryPanel.innerHTML = `
       <h2>Votre visite</h2>
@@ -2452,19 +2433,11 @@
       <div class="summary-line"><strong>Date</strong><span>Mercredi 15 mai</span></div>
       <div class="summary-line"><strong>Créneau</strong><span>10h00</span></div>
       <div class="summary-line"><strong>Billets</strong><span>${tickets} ${tickets > 1 ? 'billets' : 'billet'}</span></div>
-      <div class="summary-line"><strong>Paiement</strong><span>Carte bancaire · CMI</span></div>
+      <div class="summary-line"><strong>Traitement</strong><span>Confirmation par email</span></div>
       <div class="summary-total">${money(amount)}</div>
-      <a class="btn btn-primary" href="confirmation.html?type=${encodeURIComponent(typeKey)}&amount=${amount}&payment=online">Payer en ligne et confirmer</a>
+      <a class="btn btn-primary" href="confirmation.html?type=${encodeURIComponent(typeKey)}&amount=${amount}">Envoyer la demande de réservation</a>
       <a class="btn btn-secondary" href="visite-individuelle.html?type=${encodeURIComponent(typeKey)}" style="margin-top:10px">Modifier</a>
     `;
-
-    document.querySelectorAll('.method-chip').forEach((button) => {
-      button.addEventListener('click', () => {
-        document.querySelectorAll('.method-chip').forEach((item) => item.classList.remove('is-selected'));
-        button.classList.add('is-selected');
-      });
-    });
-
   </script>
   <script type="module" src="assets/dynamic-forms/booking-submit.js"></script>
     <script src="assets/footer-refresh.js" defer></script>

@@ -1,6 +1,5 @@
 const defaultConfig = {
-  strapiUrl: "http://localhost:1337",
-  preferStrapi: true,
+  apiBase: "",
   storageKey: "cam:pending-submissions"
 };
 
@@ -63,43 +62,12 @@ export const submissionSecurity = (form) => {
   };
 };
 
-const readQueue = () => {
-  try {
-    return JSON.parse(localStorage.getItem(config.storageKey) || "[]");
-  } catch (error) {
-    console.warn(error.message);
-    return [];
-  }
-};
-
-const storeLocal = (type, data, reason) => {
-  const reference = data.reference || createReference("LOCAL");
-  const item = {
-    type,
-    reference,
-    data: { ...data, reference },
-    reason,
-    createdAt: new Date().toISOString()
-  };
-
-  try {
-    localStorage.setItem(config.storageKey, JSON.stringify([...readQueue(), item]));
-  } catch (error) {
-    console.warn(error.message);
-  }
-
-  return {
-    reference,
-    source: "Local",
-    queued: true
-  };
-};
-
-const postStrapi = async (type, data) => {
+const postForm = async (type, data) => {
   const endpoint = endpoints[type];
   if (!endpoint) throw new Error(`Unknown submission type: ${type}`);
 
-  const response = await fetch(`${config.strapiUrl}/api/${endpoint}`, {
+  const apiBase = config.apiBase || "";
+  const response = await fetch(`${apiBase}/api/${endpoint}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -118,22 +86,17 @@ const postStrapi = async (type, data) => {
 
   return {
     reference: payload?.data?.reference || data.reference || payload?.data?.documentId || payload?.data?.id,
-    source: "Strapi",
+    source: payload?.data?.source || "Email",
     payload
   };
 };
 
 export const submitContent = async (type, data) => {
-  if (config.preferStrapi) {
-    try {
-      return await postStrapi(type, data);
-    } catch (error) {
-      console.warn(error.message);
-      return storeLocal(type, data, error.message);
-    }
+  if (window.location.protocol === "file:") {
+    throw new Error("Ce formulaire fonctionne sur le site en ligne. Ouvrez la version Vercel pour envoyer la demande.");
   }
 
-  return storeLocal(type, data, "Strapi disabled");
+  return postForm(type, data);
 };
 
 export const ensureStatus = (anchor) => {
