@@ -5,6 +5,7 @@
     ? "http://localhost:1337"
     : window.location.origin;
   const strapiUrl = String(explicitUrl || inferredUrl).replace(/\/$/, "");
+  const isEnglish = document.documentElement.lang === "en";
 
   const applyConfig = (key, defaults = {}) => {
     window[key] = {
@@ -21,8 +22,12 @@
   });
 
   applyConfig("CAM_EDITORIAL_CONFIG", {
-    localNewsUrl: "assets/dynamic-editorial/data/news.json",
-    localEventsUrl: "assets/dynamic-editorial/data/events.json",
+    localNewsUrl: isEnglish
+      ? "assets/dynamic-editorial/data/news-en.json"
+      : "assets/dynamic-editorial/data/news.json",
+    localEventsUrl: isEnglish
+      ? "assets/dynamic-editorial/data/events-en.json"
+      : "assets/dynamic-editorial/data/events.json",
   });
 
   applyConfig("CAM_COMMERCE_CONFIG", {
