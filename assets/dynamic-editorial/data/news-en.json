@@ -1,0 +1,68 @@
+[
+  {
+    "title": "The Museum strengthens its educational mission around mobility",
+    "slug": "mission-educative-mobilite",
+    "category": "press",
+    "excerpt": "School visits, workshops, the Media Room, closing quizzes and extension content are becoming key pillars of the Museum programme.",
+    "body": "The Museum of the Automobile of Morocco continues to develop its cultural programme around mobility, rolling heritage, engineering and automotive professions. The approach connects the collection, educational visits, events and the Automotive Academy in one coherent journey of discovery.\n\nThrough mediation spaces, workshops and encounters, the Museum offers an accessible and contemporary reading of automotive history: understanding vehicles, uses, know-how and the cultural impact of the road in Morocco.\n\nThis direction is intended for individual visitors, families, school groups, professionals and partners who wish to combine cultural experience, transmission and hospitality.",
+    "author": "CAM team",
+    "publishedDate": "2026-05-17",
+    "isFeatured": true,
+    "coverImagePath": "assets/events/cam-event-hall-20231114.jpg"
+  },
+  {
+    "title": "Educational visit: from the wheel to the workshop",
+    "slug": "visite-educative-roue-ateliers",
+    "category": "news",
+    "excerpt": "A route to observe, understand, question and extend learning in the classroom.",
+    "body": "This visit connects early mobility, major technical milestones and workshop gestures. Students explore the collection, move through the Media Room and finish with a synthesis workshop.\n\nThe format is designed for school groups and can be adapted according to level, duration and educational goals.",
+    "author": "Cultural mediation",
+    "publishedDate": "2026-05-12",
+    "isFeatured": false,
+    "coverImagePath": "assets/cars-real/cam-roadster-1962-front.jpg"
+  },
+  {
+    "title": "The Museum opens its spaces to design talks",
+    "slug": "talks-design-espaces-musee",
+    "category": "press",
+    "excerpt": "A series of short encounters around bodywork, the road and Moroccan heritage.",
+    "body": "The design talks take place in the heart of the collection and offer a simple reading of automotive forms: proportions, chrome, upholstery, grilles and road imaginaries.\n\nEach gathering brings together one speaker, a selection of vehicles and time for discussion with the audience.",
+    "author": "Programming",
+    "publishedDate": "2026-05-08",
+    "isFeatured": false,
+    "coverImagePath": "assets/events/cam-event-img-1.png"
+  },
+  {
+    "title": "Looking back on a networking morning at the Museum",
+    "slug": "matinee-networking-musee",
+    "category": "community",
+    "excerpt": "Hospitality, a guided visit and professional exchanges in an automotive atmosphere.",
+    "body": "The Museum hosted a professional morning inside its event spaces. The format combined a coffee welcome, a short tour of the collection, speaking time and networking.\n\nThis format illustrates the vocation of the place: to make heritage, corporate culture and guest experience speak to one another.",
+    "author": "Event team",
+    "publishedDate": "2026-05-02",
+    "isFeatured": false,
+    "coverImagePath": "assets/events/cam-event-hall-20231114.jpg"
+  },
+  {
+    "title": "Why the 1960s still fascinate",
+    "slug": "annees-60-design-automobile",
+    "category": "media",
+    "excerpt": "Design, freedom and grand touring: a concise reading of an iconic automotive decade.",
+    "body": "The 1960s hold a rare tension between elegance, speed, industrial production and popular culture. In the collection, they can be read through lower silhouettes, brighter cabins and the growing place of leisure motoring.\n\nThis reading will inform future interpretation formats and audiovisual content.",
+    "author": "CAM editorial team",
+    "publishedDate": "2026-04-29",
+    "isFeatured": false,
+    "coverImagePath": "assets/cars-real/cam-collection-lineup.jpg"
+  },
+  {
+    "title": "Mechanical dinners in preparation",
+    "slug": "diners-mecaniques-preparation",
+    "category": "community",
+    "excerpt": "A community format built around a guest vehicle, a story and a signature table.",
+    "body": "The mechanical dinners will offer small-group evenings centred on a vehicle, a road story and an experience at Le Garage.\n\nThe format brings together automotive passion, gastronomy and conversation between members, collectors and curious visitors.",
+    "author": "Le Garage",
+    "publishedDate": "2026-04-24",
+    "isFeatured": false,
+    "coverImagePath": "assets/events/cam-event-img-6147.png"
+  }
+]

@@ -31,7 +31,14 @@
     "services-evenementiels-en.html",
     "dossier-evenementiel-en.html",
     "mariages-receptions-en.html",
-    "anniversaires-galas-en.html"
+    "anniversaires-galas-en.html",
+    "actualites-en.html",
+    "communique-detail-en.html",
+    "agenda-en.html",
+    "presse-media-en.html",
+    "videos-galerie-en.html",
+    "instagram-en.html",
+    "cars-coffee-en.html"
   ]);
 
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
@@ -93,13 +100,13 @@
     ["garage-chefs.html", "garage-chefs-en.html"],
     ["garage-temps-forts.html", "garage-temps-forts-en.html"],
     ["garage-reservation.html", "garage-reservation-en.html"],
-    ["actualites.html", "index-en.html#news"],
-    ["communique-detail.html", "index-en.html#news"],
-    ["agenda.html", "index-en.html#news"],
-    ["presse-media.html", "index-en.html#news"],
-    ["videos-galerie.html", "index-en.html#news"],
-    ["instagram.html", "index-en.html#news"],
-    ["cars-coffee.html", "index-en.html#news"]
+    ["actualites.html", "actualites-en.html"],
+    ["communique-detail.html", "communique-detail-en.html"],
+    ["agenda.html", "agenda-en.html"],
+    ["presse-media.html", "presse-media-en.html"],
+    ["videos-galerie.html", "videos-galerie-en.html"],
+    ["instagram.html", "instagram-en.html"],
+    ["cars-coffee.html", "cars-coffee-en.html"]
   ]);
 
   const switcherMarkup = [
@@ -284,6 +291,13 @@
       ["garage-chefs.html", { label: "The chefs", subtitle: "Vision & transmission" }],
       ["garage-temps-forts.html", { label: "Highlights", subtitle: "Ramadan, cocktails, news" }],
       ["garage-reservation.html", { label: "Book a table", subtitle: "Lunch, dinner, brunch" }],
+      ["actualites-en.html", { label: "News & releases", subtitle: "Latest news" }],
+      ["communique-detail-en.html", { label: "Official release", subtitle: "Editorial template" }],
+      ["agenda-en.html", { label: "Agenda", subtitle: "Upcoming events" }],
+      ["presse-media-en.html", { label: "Press & media", subtitle: "Archive & media kit" }],
+      ["videos-galerie-en.html", { label: "Videos & gallery", subtitle: "Museum moments" }],
+      ["instagram-en.html", { label: "Instagram feed", subtitle: "@museeautomobilemaroc" }],
+      ["cars-coffee-en.html", { label: "Cars & Coffee", subtitle: "Enthusiast gatherings" }],
       ["actualites.html", { label: "News & releases", subtitle: "Latest news" }],
       ["communique-detail.html", { label: "Official release", subtitle: "Editorial template" }],
       ["agenda.html", { label: "Agenda", subtitle: "Upcoming events" }],

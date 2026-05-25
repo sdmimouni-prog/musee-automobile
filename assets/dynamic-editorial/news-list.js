@@ -5,8 +5,49 @@ import {
   imageUrl,
   loadEditorialData,
   newsCategoryLabels,
+  newsCategoryLabelsEn,
   newsHref
 } from "./editorial-service.js";
+
+const isEnglish = document.documentElement.lang === "en";
+
+const copy = isEnglish
+  ? {
+      searchPlaceholder: "Search news...",
+      filters: {
+        all: "All",
+        news: "News",
+        press: "Press releases",
+        media: "Media",
+        community: "Community"
+      },
+      source: "Source",
+      empty: "No news items match this search.",
+      featured: "Featured",
+      readFeature: "Read feature",
+      viewAgenda: "View agenda",
+      read: "Read",
+      stats: ["stories", "latest update", "sections"],
+      loadError: "Unable to load dynamic news."
+    }
+  : {
+      searchPlaceholder: "Rechercher une actualité...",
+      filters: {
+        all: "Tous",
+        news: "Actualités",
+        press: "Communiqués",
+        media: "Médias",
+        community: "Communauté"
+      },
+      source: "Source",
+      empty: "Aucune actualité ne correspond à cette recherche.",
+      featured: "À la une",
+      readFeature: "Lire le dossier",
+      viewAgenda: "Voir l'agenda",
+      read: "Lire",
+      stats: ["publications", "dernière mise à jour", "rubriques"],
+      loadError: "Impossible de charger les actualités dynamiques."
+    };
 
 const els = {
   featured: document.querySelector(".featured-story"),
@@ -27,19 +68,19 @@ const state = {
 const controls = document.createElement("div");
 controls.className = "editorial-tools reveal is-visible";
 controls.innerHTML = `
-  <input class="editorial-search" type="search" placeholder="Rechercher une actualité...">
-  <button class="filter-pill" type="button" data-category="all" aria-pressed="true">Tous</button>
-  <button class="filter-pill" type="button" data-category="news" aria-pressed="false">Actualités</button>
-  <button class="filter-pill" type="button" data-category="press" aria-pressed="false">Communiqués</button>
-  <button class="filter-pill" type="button" data-category="media" aria-pressed="false">Médias</button>
-  <button class="filter-pill" type="button" data-category="community" aria-pressed="false">Communauté</button>
-  <span class="editorial-source">Source: JSON</span>
+  <input class="editorial-search" type="search" placeholder="${copy.searchPlaceholder}">
+  <button class="filter-pill" type="button" data-category="all" aria-pressed="true">${copy.filters.all}</button>
+  <button class="filter-pill" type="button" data-category="news" aria-pressed="false">${copy.filters.news}</button>
+  <button class="filter-pill" type="button" data-category="press" aria-pressed="false">${copy.filters.press}</button>
+  <button class="filter-pill" type="button" data-category="media" aria-pressed="false">${copy.filters.media}</button>
+  <button class="filter-pill" type="button" data-category="community" aria-pressed="false">${copy.filters.community}</button>
+  <span class="editorial-source">${copy.source}: JSON</span>
 `;
 
 const empty = document.createElement("div");
 empty.className = "editorial-empty";
 empty.hidden = true;
-empty.textContent = "Aucune actualité ne correspond à cette recherche.";
+empty.textContent = copy.empty;
 
 els.sectionHead?.after(controls);
 els.sliderShell?.after(empty);
@@ -47,7 +88,8 @@ els.sliderShell?.after(empty);
 const searchInput = controls.querySelector(".editorial-search");
 const sourceBadge = controls.querySelector(".editorial-source");
 
-const categoryText = (article) => newsCategoryLabels[article.category] || "Actualité";
+const categoryLabels = isEnglish ? newsCategoryLabelsEn : newsCategoryLabels;
+const categoryText = (article) => categoryLabels[article.category] || (isEnglish ? "News" : "Actualité");
 
 const renderFeatured = () => {
   const featured = state.articles.find((article) => article.isFeatured) || state.articles[0];
@@ -56,12 +98,12 @@ const renderFeatured = () => {
   els.featured.style.setProperty("--feature-image", `url('${imageUrl(featured)}')`);
   els.featured.innerHTML = `
     <div>
-      <span class="eyebrow">À la une · ${escapeHtml(categoryText(featured))}</span>
+      <span class="eyebrow">${escapeHtml(copy.featured)} · ${escapeHtml(categoryText(featured))}</span>
       <h2>${escapeHtml(featured.title)}</h2>
       <p>${escapeHtml(featured.excerpt)}</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="${newsHref(featured)}">Lire le dossier</a>
-        <a class="btn btn-secondary" href="agenda.html">Voir l'agenda</a>
+        <a class="btn btn-primary" href="${newsHref(featured)}">${copy.readFeature}</a>
+        <a class="btn btn-secondary" href="${isEnglish ? "agenda-en.html" : "agenda.html"}">${copy.viewAgenda}</a>
       </div>
     </div>
   `;
@@ -95,7 +137,7 @@ const createCard = (article) => {
       </div>
       <h3>${escapeHtml(article.title)}</h3>
       <p>${escapeHtml(article.excerpt)}</p>
-      <a class="btn btn-secondary" href="${newsHref(article)}">Lire</a>
+      <a class="btn btn-secondary" href="${newsHref(article)}">${copy.read}</a>
     </div>
   `;
   return card;
@@ -111,17 +153,17 @@ const renderStats = () => {
 
   if (els.stats[0]) {
     els.stats[0].querySelector("strong").textContent = String(state.articles.length);
-    els.stats[0].querySelector("span").textContent = "publications";
+    els.stats[0].querySelector("span").textContent = copy.stats[0];
   }
   if (els.stats[1]) {
-    els.stats[1].querySelector("strong").textContent = latest ? formatDate(latest) : "À jour";
-    els.stats[1].querySelector("span").textContent = "dernière mise à jour";
+    els.stats[1].querySelector("strong").textContent = latest ? formatDate(latest) : (isEnglish ? "Up to date" : "À jour");
+    els.stats[1].querySelector("span").textContent = copy.stats[1];
   }
   if (els.stats[2]) {
     els.stats[2].querySelector("strong").textContent = String(categories.size);
-    els.stats[2].querySelector("span").textContent = "rubriques";
+    els.stats[2].querySelector("span").textContent = copy.stats[2];
   }
-  sourceBadge.textContent = `Source: ${state.source}`;
+  sourceBadge.textContent = `${copy.source}: ${state.source}`;
 };
 
 const renderList = () => {
@@ -164,5 +206,5 @@ const init = async () => {
 init().catch((error) => {
   console.error(error);
   empty.hidden = false;
-  empty.textContent = "Impossible de charger les actualités dynamiques.";
+  empty.textContent = copy.loadError;
 });

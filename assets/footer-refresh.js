@@ -10,6 +10,8 @@
   const tickets = "https://automobilesclub.net/reservation/search";
   const quote = isEnglish ? "demande-devis-en.html" : "demande-devis.html";
   const garage = isEnglish ? "garage-en.html" : "garage.html";
+  const news = isEnglish ? "actualites-en.html" : "actualites.html";
+  const media = isEnglish ? "presse-media-en.html" : "presse-media.html";
 
   const copy = isEnglish
     ? {
@@ -115,8 +117,8 @@
 
         <section>
           <h3>${copy.resources}</h3>
-          <a href="${isEnglish ? "actualites.html" : "actualites.html"}">${copy.news}</a>
-          <a href="${isEnglish ? "presse-media.html" : "presse-media.html"}">${copy.media}</a>
+          <a href="${news}">${copy.news}</a>
+          <a href="${media}">${copy.media}</a>
           <a href="${isEnglish ? "plan-site.html" : "plan-site.html"}">${copy.sitemap}</a>
           <a href="${isEnglish ? "partenaires-en.html" : "partenaires.html"}">${copy.partners}</a>
           <a href="${isEnglish ? "automotive-academy-en.html" : "automotive-academy.html"}">${copy.academy}</a>

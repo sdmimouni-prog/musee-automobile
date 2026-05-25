@@ -1,8 +1,10 @@
+const isEnglishDocument = typeof document !== "undefined" && document.documentElement.lang === "en";
+
 const defaultConfig = {
   strapiUrl: "http://localhost:1337",
   preferStrapi: true,
-  localNewsUrl: "assets/dynamic-editorial/data/news.json",
-  localEventsUrl: "assets/dynamic-editorial/data/events.json"
+  localNewsUrl: isEnglishDocument ? "assets/dynamic-editorial/data/news-en.json" : "assets/dynamic-editorial/data/news.json",
+  localEventsUrl: isEnglishDocument ? "assets/dynamic-editorial/data/events-en.json" : "assets/dynamic-editorial/data/events.json"
 };
 
 const config = { ...defaultConfig, ...(window.CAM_EDITORIAL_CONFIG || {}) };
@@ -46,11 +48,25 @@ export const newsCategoryLabels = {
   community: "Communauté"
 };
 
+export const newsCategoryLabelsEn = {
+  news: "News",
+  press: "Press release",
+  media: "Media",
+  community: "Community"
+};
+
 export const eventStatusLabels = {
   planned: "À venir",
   current: "En cours",
   past: "Passé",
   canceled: "Annulé"
+};
+
+export const eventStatusLabelsEn = {
+  planned: "Upcoming",
+  current: "Live",
+  past: "Past",
+  canceled: "Cancelled"
 };
 
 export const normalizeNewsArticle = (item) => ({
@@ -157,7 +173,8 @@ export const loadEditorialData = async () => {
 };
 
 export const formatDate = (value, options = {}) => {
-  if (!value) return "Date à confirmer";
+  const isEnglish = document.documentElement.lang === "en";
+  if (!value) return isEnglish ? "Date TBC" : "Date à confirmer";
   const formatterOptions = {
     day: "2-digit",
     month: "short"
@@ -169,17 +186,18 @@ export const formatDate = (value, options = {}) => {
     formatterOptions.minute = "2-digit";
   }
 
-  return new Intl.DateTimeFormat("fr-FR", formatterOptions).format(new Date(value)).replace(".", "");
+  return new Intl.DateTimeFormat(isEnglish ? "en-GB" : "fr-FR", formatterOptions).format(new Date(value)).replace(".", "");
 };
 
 export const dayNumber = (value) => {
   if (!value) return "--";
-  return new Intl.DateTimeFormat("fr-FR", { day: "2-digit" }).format(new Date(value));
+  return new Intl.DateTimeFormat(document.documentElement.lang === "en" ? "en-GB" : "fr-FR", { day: "2-digit" }).format(new Date(value));
 };
 
 export const monthTime = (value) => {
-  if (!value) return "Date à confirmer";
-  return new Intl.DateTimeFormat("fr-FR", {
+  const isEnglish = document.documentElement.lang === "en";
+  if (!value) return isEnglish ? "Date TBC" : "Date à confirmer";
+  return new Intl.DateTimeFormat(isEnglish ? "en-GB" : "fr-FR", {
     month: "short",
     hour: "2-digit",
     minute: "2-digit"
@@ -188,7 +206,7 @@ export const monthTime = (value) => {
 
 export const imageUrl = (item) => item.coverImageUrl || item.coverImagePath || "";
 
-export const newsHref = (article) => `communique-detail.html?slug=${encodeURIComponent(article.slug)}`;
+export const newsHref = (article) => `${document.documentElement.lang === "en" ? "communique-detail-en.html" : "communique-detail.html"}?slug=${encodeURIComponent(article.slug)}`;
 
 export const eventHref = (event) => `detail-evenement.html?slug=${encodeURIComponent(event.slug)}`;
 
