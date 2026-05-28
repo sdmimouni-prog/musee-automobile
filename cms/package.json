@@ -18,13 +18,17 @@
   },
   "dependencies": {
     "@strapi/plugin-cloud": "^5.0.0",
-    "@strapi/plugin-i18n": "^5.0.0",
     "@strapi/plugin-users-permissions": "^5.0.0",
     "@strapi/provider-email-nodemailer": "^5.0.0",
     "@strapi/strapi": "^5.0.0",
-    "pg": "^8.13.0"
+    "pg": "^8.13.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.3",
+    "styled-components": "^6.4.2"
   },
   "devDependencies": {
+    "esbuild": "^0.27.7",
     "typescript": "^5.6.0"
   },
   "engines": {

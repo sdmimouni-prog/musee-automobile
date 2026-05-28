@@ -8,4 +8,5 @@ cms/build/
 cms/dist/
 cms/node_modules/
 cms/.strapi/
+cms/.strapi-updater.json
 cms/.sqlite/
